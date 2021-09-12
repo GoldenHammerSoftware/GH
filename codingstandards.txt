@@ -1,0 +1,11 @@
+
+* Add a "// Copyright 2010 Golden Hammer Software" to every file.
+* Prefer smaller file and codebase sizes.
+* Prefer pure-virtual interfaces over concrete inheritance.
+* Avoid multiple inheritance.
+* Platform interfaces should have a null implementation.
+* Engine files should have a GH prefix in the name.
+* Manager is spelled "Mgr".
+* References should be prefered when something can not be null.
+* Singletons are acceptable for debugging code.
+* Avoid mid-frame allocations.

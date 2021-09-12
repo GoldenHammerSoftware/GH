@@ -1,0 +1,20 @@
+// Copyright 2010 Golden Hammer Software
+#if defined(GHPUTSTRINGSINTABLES) || !defined(_GH_BOWLINGSTATES_H_)
+#ifndef _MCGAMESTATES_H_
+#define _MCGAMESTATES_H_
+#endif
+
+#include "GHEnum.h"
+
+GHIDENTIFIERBEGIN(MCGameStates)
+// Menu States
+GHIDENTIFIER(GS_SPLASH)
+GHIDENTIFIER(GS_PAUSE)
+GHIDENTIFIER(GS_MENU)
+GHIDENTIFIER(GS_GAME)
+GHIDENTIFIEREND
+
+#include "GHEnumEnd.h"
+
+#endif
+

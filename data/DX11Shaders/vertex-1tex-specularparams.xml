@@ -1,0 +1,13 @@
+<shaderParams>
+  <floatParams>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="MaterialAmbient"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="SpecularPower"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="SpecularAmount"/>
+    <floatParam sizeFloats="3" cbType="CT_PERFRAME" semantic="EyePos"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="LightAmbientAmount"/>
+    
+    <floatParam sizeFloats="16" cbType="CT_PERTRANS" semantic="ModelViewProj"/>
+    <floatParam sizeFloats="16" cbType="CT_PERTRANS" semantic="WorldToModel"/>
+    <floatParam sizeFloats="3" cbType="CT_PERTRANS" semantic="LightDir0"/>
+  </floatParams>
+</shaderParams>

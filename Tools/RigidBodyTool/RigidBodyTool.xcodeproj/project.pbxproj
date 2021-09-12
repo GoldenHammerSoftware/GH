@@ -1,0 +1,745 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10694EAD177CC0D300137989 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10694EAC177CC0D300137989 /* Cocoa.framework */; };
+		10694EB7177CC0D300137989 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10694EB5177CC0D300137989 /* InfoPlist.strings */; };
+		10694EB9177CC0D300137989 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10694EB8177CC0D300137989 /* main.m */; };
+		10694EC3177CC0D300137989 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10694EC1177CC0D300137989 /* MainMenu.xib */; };
+		10694ED8177CC61C00137989 /* GHRigidBodyToolAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10694ED7177CC61C00137989 /* GHRigidBodyToolAppDelegate.mm */; };
+		10694ED9177CCA3400137989 /* libGHMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10694ED5177CC4B800137989 /* libGHMac.a */; };
+		10694EDB177CCA5100137989 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10694EDA177CCA5100137989 /* StoreKit.framework */; };
+		10694EDD177CCA6200137989 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10694EDC177CCA6200137989 /* OpenAL.framework */; };
+		10694EDF177CCA6A00137989 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10694EDE177CCA6A00137989 /* AudioToolbox.framework */; };
+		10694EE1177CCA7500137989 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10694EE0177CCA7500137989 /* GameKit.framework */; };
+		10694EE3177CCC5B00137989 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10694EE2177CCC5B00137989 /* OpenGL.framework */; };
+		10694F00177CDD5900137989 /* debugmat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10694EFB177CDD5900137989 /* debugmat.xml */; };
+		10694F01177CDD5900137989 /* defaultmat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10694EFC177CDD5900137989 /* defaultmat.xml */; };
+		10694F02177CDD5900137989 /* ericfont.png in Resources */ = {isa = PBXBuildFile; fileRef = 10694EFD177CDD5900137989 /* ericfont.png */; };
+		10694F03177CDD5900137989 /* ericfont.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10694EFE177CDD5900137989 /* ericfont.xml */; };
+		10694F04177CDD5900137989 /* fpsGUI.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10694EFF177CDD5900137989 /* fpsGUI.xml */; };
+		10694F1F177CDD6700137989 /* cgentpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F05177CDD6700137989 /* cgentpixel.glsl */; };
+		10694F20177CDD6700137989 /* cghfterrainvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F06177CDD6700137989 /* cghfterrainvertex.glsl */; };
+		10694F21177CDD6700137989 /* cgterrainpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F07177CDD6700137989 /* cgterrainpixel.glsl */; };
+		10694F22177CDD6700137989 /* cgterrainvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F08177CDD6700137989 /* cgterrainvertex.glsl */; };
+		10694F23177CDD6700137989 /* debugpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F09177CDD6700137989 /* debugpixel.glsl */; };
+		10694F24177CDD6700137989 /* debugvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F0A177CDD6700137989 /* debugvertex.glsl */; };
+		10694F25177CDD6700137989 /* fontpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F0B177CDD6700137989 /* fontpixel.glsl */; };
+		10694F26177CDD6700137989 /* fontvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F0C177CDD6700137989 /* fontvertex.glsl */; };
+		10694F27177CDD6700137989 /* guivertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F0D177CDD6700137989 /* guivertex.glsl */; };
+		10694F28177CDD6700137989 /* heightfieldvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F0E177CDD6700137989 /* heightfieldvertex.glsl */; };
+		10694F29177CDD6700137989 /* hourglasspixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F0F177CDD6700137989 /* hourglasspixel.glsl */; };
+		10694F2A177CDD6700137989 /* hourglassvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F10177CDD6700137989 /* hourglassvertex.glsl */; };
+		10694F2B177CDD6700137989 /* md3morphpixel-entcolor.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F11177CDD6700137989 /* md3morphpixel-entcolor.glsl */; };
+		10694F2C177CDD6700137989 /* md3morphpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F12177CDD6700137989 /* md3morphpixel.glsl */; };
+		10694F2D177CDD6700137989 /* md3morphvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F13177CDD6700137989 /* md3morphvertex.glsl */; };
+		10694F2E177CDD6700137989 /* pixel-1tex-lit.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F14177CDD6700137989 /* pixel-1tex-lit.glsl */; };
+		10694F2F177CDD6700137989 /* pixel-1tex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F15177CDD6700137989 /* pixel-1tex.glsl */; };
+		10694F30177CDD6700137989 /* pixel-2tex-lit.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F16177CDD6700137989 /* pixel-2tex-lit.glsl */; };
+		10694F31177CDD6700137989 /* pixel-2tex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F17177CDD6700137989 /* pixel-2tex.glsl */; };
+		10694F32177CDD6700137989 /* reflectiontestpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F18177CDD6700137989 /* reflectiontestpixel.glsl */; };
+		10694F33177CDD6700137989 /* sbhfterrainvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F19177CDD6700137989 /* sbhfterrainvertex.glsl */; };
+		10694F34177CDD6700137989 /* sbterrainpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F1A177CDD6700137989 /* sbterrainpixel.glsl */; };
+		10694F35177CDD6700137989 /* shadowtestpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F1B177CDD6700137989 /* shadowtestpixel.glsl */; };
+		10694F36177CDD6700137989 /* staticmd3vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F1C177CDD6700137989 /* staticmd3vertex.glsl */; };
+		10694F37177CDD6700137989 /* worldvertex-1tex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F1D177CDD6700137989 /* worldvertex-1tex.glsl */; };
+		10694F38177CDD6700137989 /* worldvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10694F1E177CDD6700137989 /* worldvertex.glsl */; };
+		106E4BEA1797270300B9ACD9 /* GHRagdollGenerationInputXMLLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BC51797265600B9ACD9 /* GHRagdollGenerationInputXMLLoader.cpp */; };
+		106E4BEB1797270300B9ACD9 /* GHRagdollGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BC71797265700B9ACD9 /* GHRagdollGenerator.cpp */; };
+		106E4BEC1797270300B9ACD9 /* GHRagdollTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BCA1797265C00B9ACD9 /* GHRagdollTool.cpp */; };
+		106E4BED1797270300B9ACD9 /* GHRagdollToolBoneSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BCC1797265E00B9ACD9 /* GHRagdollToolBoneSelector.cpp */; };
+		106E4BEE1797270300B9ACD9 /* GHRagdollToolCommandHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BCE1797266300B9ACD9 /* GHRagdollToolCommandHandler.cpp */; };
+		106E4BEF1797270300B9ACD9 /* GHRagdollToolCommandParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BD01797266900B9ACD9 /* GHRagdollToolCommandParser.cpp */; };
+		106E4BF01797270300B9ACD9 /* GHRagdollToolCommandStateToggler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BD21797266E00B9ACD9 /* GHRagdollToolCommandStateToggler.cpp */; };
+		106E4BF11797270300B9ACD9 /* GHRagdollToolCommandStringInputHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BD41797267500B9ACD9 /* GHRagdollToolCommandStringInputHandler.cpp */; };
+		106E4BF21797270300B9ACD9 /* GHRagdollToolNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BD61797268000B9ACD9 /* GHRagdollToolNode.cpp */; };
+		106E4BF31797270300B9ACD9 /* GHRagdollToolObjectPusher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BD81797268900B9ACD9 /* GHRagdollToolObjectPusher.cpp */; };
+		106E4BF41797270300B9ACD9 /* GHRagdollToolOffsetAdjuster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BDA1797269500B9ACD9 /* GHRagdollToolOffsetAdjuster.cpp */; };
+		106E4BF51797270300B9ACD9 /* GHRagdollToolPhysicsPauser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BDC1797269F00B9ACD9 /* GHRagdollToolPhysicsPauser.cpp */; };
+		106E4BF61797270300B9ACD9 /* GHRagdollToolPivotDisplayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BDE179726A900B9ACD9 /* GHRagdollToolPivotDisplayer.cpp */; };
+		106E4BF71797270300B9ACD9 /* GHRagdollToolSavedRagdollXMLLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BE1179726BB00B9ACD9 /* GHRagdollToolSavedRagdollXMLLoader.cpp */; };
+		106E4BF81797270300B9ACD9 /* GHRagdollToolSaveInputHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BE3179726C700B9ACD9 /* GHRagdollToolSaveInputHandler.cpp */; };
+		106E4BF91797270300B9ACD9 /* GHRagdollToolXMLLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BE6179726DF00B9ACD9 /* GHRagdollToolXMLLoader.cpp */; };
+		106E4BFA1797270300B9ACD9 /* GHRigidBodyTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 106E4BE8179726EF00B9ACD9 /* GHRigidBodyTool.cpp */; };
+		106E4C121797289800B9ACD9 /* Board_Dman256.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E4BFB1797289800B9ACD9 /* Board_Dman256.png */; };
+		106E4C131797289800B9ACD9 /* Dude_Color256.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E4BFC1797289800B9ACD9 /* Dude_Color256.png */; };
+		106E4C141797289800B9ACD9 /* floor.md3 in Resources */ = {isa = PBXBuildFile; fileRef = 106E4BFD1797289800B9ACD9 /* floor.md3 */; };
+		106E4C151797289800B9ACD9 /* floorent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106E4BFE1797289800B9ACD9 /* floorent.xml */; };
+		106E4C161797289800B9ACD9 /* floormodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106E4BFF1797289800B9ACD9 /* floormodel.xml */; };
+		106E4C171797289800B9ACD9 /* floorpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C001797289800B9ACD9 /* floorpixel.glsl */; };
+		106E4C181797289800B9ACD9 /* floorvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C011797289800B9ACD9 /* floorvertex.glsl */; };
+		106E4C191797289800B9ACD9 /* grass1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C021797289800B9ACD9 /* grass1.jpg */; };
+		106E4C1A1797289800B9ACD9 /* gui.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C031797289800B9ACD9 /* gui.xml */; };
+		106E4C1B1797289800B9ACD9 /* snowboarder-ik.blend in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C041797289800B9ACD9 /* snowboarder-ik.blend */; };
+		106E4C1D1797289800B9ACD9 /* snowboarder-ik.gham.txt in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C061797289800B9ACD9 /* snowboarder-ik.gham.txt */; };
+		106E4C1E1797289800B9ACD9 /* snowboarder.gham in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C071797289800B9ACD9 /* snowboarder.gham */; };
+		106E4C1F1797289800B9ACD9 /* snowboarderent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C081797289800B9ACD9 /* snowboarderent.xml */; };
+		106E4C201797289800B9ACD9 /* snowboardermodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C091797289800B9ACD9 /* snowboardermodel.xml */; };
+		106E4C211797289800B9ACD9 /* snowboarderragdoll.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C0A1797289800B9ACD9 /* snowboarderragdoll.xml */; };
+		106E4C221797289800B9ACD9 /* snowboarderragdoll2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C0B1797289800B9ACD9 /* snowboarderragdoll2.xml */; };
+		106E4C231797289800B9ACD9 /* snowboarderragdolldesc.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C0C1797289800B9ACD9 /* snowboarderragdolldesc.xml */; };
+		106E4C241797289800B9ACD9 /* testguimat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C0D1797289800B9ACD9 /* testguimat.xml */; };
+		106E4C251797289800B9ACD9 /* testlevel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C0E1797289800B9ACD9 /* testlevel.xml */; };
+		106E4C261797289800B9ACD9 /* tool.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C0F1797289800B9ACD9 /* tool.xml */; };
+		106E4C271797289800B9ACD9 /* treepixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C101797289800B9ACD9 /* treepixel.glsl */; };
+		106E4C281797289800B9ACD9 /* treevertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 106E4C111797289800B9ACD9 /* treevertex.glsl */; };
+		106F4CA01855314E00C2EF47 /* ericfontnooutline.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106F4C9E1855314D00C2EF47 /* ericfontnooutline.xml */; };
+		106F4CA11855314E00C2EF47 /* ericfontoutline.png in Resources */ = {isa = PBXBuildFile; fileRef = 106F4C9F1855314D00C2EF47 /* ericfontoutline.png */; };
+		106F4CA5185531A200C2EF47 /* snowboardermat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106F4CA3185531A200C2EF47 /* snowboardermat.xml */; };
+		106F4CA6185531A200C2EF47 /* snowboardmat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 106F4CA4185531A200C2EF47 /* snowboardmat.xml */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10694ED4177CC4B800137989 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10694ECF177CC4B700137989 /* GHMac.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = GHMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10694EA9177CC0D300137989 /* RigidBodyTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RigidBodyTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10694EAC177CC0D300137989 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		10694EAF177CC0D300137989 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		10694EB0177CC0D300137989 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		10694EB1177CC0D300137989 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		10694EB4177CC0D300137989 /* RigidBodyTool-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RigidBodyTool-Info.plist"; sourceTree = "<group>"; };
+		10694EB6177CC0D300137989 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		10694EB8177CC0D300137989 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		10694EBA177CC0D300137989 /* RigidBodyTool-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RigidBodyTool-Prefix.pch"; sourceTree = "<group>"; };
+		10694EBE177CC0D300137989 /* GHRigidBodyToolAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHRigidBodyToolAppDelegate.h; sourceTree = "<group>"; };
+		10694EC2177CC0D300137989 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		10694ECF177CC4B700137989 /* GHMac.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHMac.xcodeproj; path = ../../GH/src/MacProjects/GHMac/GHMac.xcodeproj; sourceTree = "<group>"; };
+		10694ED7177CC61C00137989 /* GHRigidBodyToolAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GHRigidBodyToolAppDelegate.mm; sourceTree = "<group>"; };
+		10694EDA177CCA5100137989 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		10694EDC177CCA6200137989 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		10694EDE177CCA6A00137989 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		10694EE0177CCA7500137989 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		10694EE2177CCC5B00137989 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		10694EFB177CDD5900137989 /* debugmat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = debugmat.xml; path = ../../../GH/data/shared/debugmat.xml; sourceTree = "<group>"; };
+		10694EFC177CDD5900137989 /* defaultmat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = defaultmat.xml; path = ../../../GH/data/shared/defaultmat.xml; sourceTree = "<group>"; };
+		10694EFD177CDD5900137989 /* ericfont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ericfont.png; path = ../../../GH/data/shared/ericfont.png; sourceTree = "<group>"; };
+		10694EFE177CDD5900137989 /* ericfont.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ericfont.xml; path = ../../../GH/data/shared/ericfont.xml; sourceTree = "<group>"; };
+		10694EFF177CDD5900137989 /* fpsGUI.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = fpsGUI.xml; path = ../../../GH/data/shared/fpsGUI.xml; sourceTree = "<group>"; };
+		10694F05177CDD6700137989 /* cgentpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cgentpixel.glsl; path = ../../../GH/data/Shaders/cgentpixel.glsl; sourceTree = "<group>"; };
+		10694F06177CDD6700137989 /* cghfterrainvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cghfterrainvertex.glsl; path = ../../../GH/data/Shaders/cghfterrainvertex.glsl; sourceTree = "<group>"; };
+		10694F07177CDD6700137989 /* cgterrainpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cgterrainpixel.glsl; path = ../../../GH/data/Shaders/cgterrainpixel.glsl; sourceTree = "<group>"; };
+		10694F08177CDD6700137989 /* cgterrainvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cgterrainvertex.glsl; path = ../../../GH/data/Shaders/cgterrainvertex.glsl; sourceTree = "<group>"; };
+		10694F09177CDD6700137989 /* debugpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = debugpixel.glsl; path = ../../../GH/data/Shaders/debugpixel.glsl; sourceTree = "<group>"; };
+		10694F0A177CDD6700137989 /* debugvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = debugvertex.glsl; path = ../../../GH/data/Shaders/debugvertex.glsl; sourceTree = "<group>"; };
+		10694F0B177CDD6700137989 /* fontpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fontpixel.glsl; path = ../../../GH/data/Shaders/fontpixel.glsl; sourceTree = "<group>"; };
+		10694F0C177CDD6700137989 /* fontvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fontvertex.glsl; path = ../../../GH/data/Shaders/fontvertex.glsl; sourceTree = "<group>"; };
+		10694F0D177CDD6700137989 /* guivertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = guivertex.glsl; path = ../../../GH/data/Shaders/guivertex.glsl; sourceTree = "<group>"; };
+		10694F0E177CDD6700137989 /* heightfieldvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = heightfieldvertex.glsl; path = ../../../GH/data/Shaders/heightfieldvertex.glsl; sourceTree = "<group>"; };
+		10694F0F177CDD6700137989 /* hourglasspixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hourglasspixel.glsl; path = ../../../GH/data/Shaders/hourglasspixel.glsl; sourceTree = "<group>"; };
+		10694F10177CDD6700137989 /* hourglassvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hourglassvertex.glsl; path = ../../../GH/data/Shaders/hourglassvertex.glsl; sourceTree = "<group>"; };
+		10694F11177CDD6700137989 /* md3morphpixel-entcolor.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "md3morphpixel-entcolor.glsl"; path = "../../../GH/data/Shaders/md3morphpixel-entcolor.glsl"; sourceTree = "<group>"; };
+		10694F12177CDD6700137989 /* md3morphpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = md3morphpixel.glsl; path = ../../../GH/data/Shaders/md3morphpixel.glsl; sourceTree = "<group>"; };
+		10694F13177CDD6700137989 /* md3morphvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = md3morphvertex.glsl; path = ../../../GH/data/Shaders/md3morphvertex.glsl; sourceTree = "<group>"; };
+		10694F14177CDD6700137989 /* pixel-1tex-lit.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "pixel-1tex-lit.glsl"; path = "../../../GH/data/Shaders/pixel-1tex-lit.glsl"; sourceTree = "<group>"; };
+		10694F15177CDD6700137989 /* pixel-1tex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "pixel-1tex.glsl"; path = "../../../GH/data/Shaders/pixel-1tex.glsl"; sourceTree = "<group>"; };
+		10694F16177CDD6700137989 /* pixel-2tex-lit.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "pixel-2tex-lit.glsl"; path = "../../../GH/data/Shaders/pixel-2tex-lit.glsl"; sourceTree = "<group>"; };
+		10694F17177CDD6700137989 /* pixel-2tex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "pixel-2tex.glsl"; path = "../../../GH/data/Shaders/pixel-2tex.glsl"; sourceTree = "<group>"; };
+		10694F18177CDD6700137989 /* reflectiontestpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = reflectiontestpixel.glsl; path = ../../../GH/data/Shaders/reflectiontestpixel.glsl; sourceTree = "<group>"; };
+		10694F19177CDD6700137989 /* sbhfterrainvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sbhfterrainvertex.glsl; path = ../../../GH/data/Shaders/sbhfterrainvertex.glsl; sourceTree = "<group>"; };
+		10694F1A177CDD6700137989 /* sbterrainpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sbterrainpixel.glsl; path = ../../../GH/data/Shaders/sbterrainpixel.glsl; sourceTree = "<group>"; };
+		10694F1B177CDD6700137989 /* shadowtestpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = shadowtestpixel.glsl; path = ../../../GH/data/Shaders/shadowtestpixel.glsl; sourceTree = "<group>"; };
+		10694F1C177CDD6700137989 /* staticmd3vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = staticmd3vertex.glsl; path = ../../../GH/data/Shaders/staticmd3vertex.glsl; sourceTree = "<group>"; };
+		10694F1D177CDD6700137989 /* worldvertex-1tex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "worldvertex-1tex.glsl"; path = "../../../GH/data/Shaders/worldvertex-1tex.glsl"; sourceTree = "<group>"; };
+		10694F1E177CDD6700137989 /* worldvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = worldvertex.glsl; path = ../../../GH/data/Shaders/worldvertex.glsl; sourceTree = "<group>"; };
+		106C74661788B65B00029ED7 /* RigidBodyTool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RigidBodyTool.entitlements; sourceTree = "<group>"; };
+		106E4BC51797265600B9ACD9 /* GHRagdollGenerationInputXMLLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollGenerationInputXMLLoader.cpp; path = src/GHRagdollGenerationInputXMLLoader.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BC61797265600B9ACD9 /* GHRagdollGenerationInputXMLLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollGenerationInputXMLLoader.h; path = src/GHRagdollGenerationInputXMLLoader.h; sourceTree = SOURCE_ROOT; };
+		106E4BC71797265700B9ACD9 /* GHRagdollGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollGenerator.cpp; path = src/GHRagdollGenerator.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BC81797265900B9ACD9 /* GHRagdollGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollGenerator.h; path = src/GHRagdollGenerator.h; sourceTree = SOURCE_ROOT; };
+		106E4BC91797265A00B9ACD9 /* GHRagdollGeneratorDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollGeneratorDescription.h; path = src/GHRagdollGeneratorDescription.h; sourceTree = SOURCE_ROOT; };
+		106E4BCA1797265C00B9ACD9 /* GHRagdollTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollTool.cpp; path = src/GHRagdollTool.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BCB1797265D00B9ACD9 /* GHRagdollTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollTool.h; path = src/GHRagdollTool.h; sourceTree = SOURCE_ROOT; };
+		106E4BCC1797265E00B9ACD9 /* GHRagdollToolBoneSelector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollToolBoneSelector.cpp; path = src/GHRagdollToolBoneSelector.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BCD1797266100B9ACD9 /* GHRagdollToolBoneSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolBoneSelector.h; path = src/GHRagdollToolBoneSelector.h; sourceTree = SOURCE_ROOT; };
+		106E4BCE1797266300B9ACD9 /* GHRagdollToolCommandHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollToolCommandHandler.cpp; path = src/GHRagdollToolCommandHandler.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BCF1797266600B9ACD9 /* GHRagdollToolCommandHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolCommandHandler.h; path = src/GHRagdollToolCommandHandler.h; sourceTree = SOURCE_ROOT; };
+		106E4BD01797266900B9ACD9 /* GHRagdollToolCommandParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollToolCommandParser.cpp; path = src/GHRagdollToolCommandParser.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BD11797266C00B9ACD9 /* GHRagdollToolCommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolCommandParser.h; path = src/GHRagdollToolCommandParser.h; sourceTree = SOURCE_ROOT; };
+		106E4BD21797266E00B9ACD9 /* GHRagdollToolCommandStateToggler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollToolCommandStateToggler.cpp; path = src/GHRagdollToolCommandStateToggler.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BD31797267200B9ACD9 /* GHRagdollToolCommandStateToggler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolCommandStateToggler.h; path = src/GHRagdollToolCommandStateToggler.h; sourceTree = SOURCE_ROOT; };
+		106E4BD41797267500B9ACD9 /* GHRagdollToolCommandStringInputHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollToolCommandStringInputHandler.cpp; path = src/GHRagdollToolCommandStringInputHandler.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BD51797267B00B9ACD9 /* GHRagdollToolCommandStringInputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolCommandStringInputHandler.h; path = src/GHRagdollToolCommandStringInputHandler.h; sourceTree = SOURCE_ROOT; };
+		106E4BD61797268000B9ACD9 /* GHRagdollToolNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollToolNode.cpp; path = src/GHRagdollToolNode.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BD71797268400B9ACD9 /* GHRagdollToolNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolNode.h; path = src/GHRagdollToolNode.h; sourceTree = SOURCE_ROOT; };
+		106E4BD81797268900B9ACD9 /* GHRagdollToolObjectPusher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollToolObjectPusher.cpp; path = src/GHRagdollToolObjectPusher.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BD91797268F00B9ACD9 /* GHRagdollToolObjectPusher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolObjectPusher.h; path = src/GHRagdollToolObjectPusher.h; sourceTree = SOURCE_ROOT; };
+		106E4BDA1797269500B9ACD9 /* GHRagdollToolOffsetAdjuster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollToolOffsetAdjuster.cpp; path = src/GHRagdollToolOffsetAdjuster.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BDB1797269A00B9ACD9 /* GHRagdollToolOffsetAdjuster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolOffsetAdjuster.h; path = src/GHRagdollToolOffsetAdjuster.h; sourceTree = SOURCE_ROOT; };
+		106E4BDC1797269F00B9ACD9 /* GHRagdollToolPhysicsPauser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollToolPhysicsPauser.cpp; path = src/GHRagdollToolPhysicsPauser.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BDD179726A400B9ACD9 /* GHRagdollToolPhysicsPauser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolPhysicsPauser.h; path = src/GHRagdollToolPhysicsPauser.h; sourceTree = SOURCE_ROOT; };
+		106E4BDE179726A900B9ACD9 /* GHRagdollToolPivotDisplayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollToolPivotDisplayer.cpp; path = src/GHRagdollToolPivotDisplayer.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BDF179726AF00B9ACD9 /* GHRagdollToolPivotDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolPivotDisplayer.h; path = src/GHRagdollToolPivotDisplayer.h; sourceTree = SOURCE_ROOT; };
+		106E4BE0179726B500B9ACD9 /* GHRagdollToolProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolProperties.h; path = src/GHRagdollToolProperties.h; sourceTree = SOURCE_ROOT; };
+		106E4BE1179726BB00B9ACD9 /* GHRagdollToolSavedRagdollXMLLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollToolSavedRagdollXMLLoader.cpp; path = src/GHRagdollToolSavedRagdollXMLLoader.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BE2179726C000B9ACD9 /* GHRagdollToolSavedRagdollXMLLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolSavedRagdollXMLLoader.h; path = src/GHRagdollToolSavedRagdollXMLLoader.h; sourceTree = SOURCE_ROOT; };
+		106E4BE3179726C700B9ACD9 /* GHRagdollToolSaveInputHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollToolSaveInputHandler.cpp; path = src/GHRagdollToolSaveInputHandler.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BE4179726CD00B9ACD9 /* GHRagdollToolSaveInputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolSaveInputHandler.h; path = src/GHRagdollToolSaveInputHandler.h; sourceTree = SOURCE_ROOT; };
+		106E4BE5179726D700B9ACD9 /* GHRagdollToolStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolStates.h; path = src/GHRagdollToolStates.h; sourceTree = SOURCE_ROOT; };
+		106E4BE6179726DF00B9ACD9 /* GHRagdollToolXMLLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRagdollToolXMLLoader.cpp; path = src/GHRagdollToolXMLLoader.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BE7179726E600B9ACD9 /* GHRagdollToolXMLLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolXMLLoader.h; path = src/GHRagdollToolXMLLoader.h; sourceTree = SOURCE_ROOT; };
+		106E4BE8179726EF00B9ACD9 /* GHRigidBodyTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRigidBodyTool.cpp; path = src/GHRigidBodyTool.cpp; sourceTree = SOURCE_ROOT; };
+		106E4BE9179726F900B9ACD9 /* GHRigidBodyTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRigidBodyTool.h; path = src/GHRigidBodyTool.h; sourceTree = SOURCE_ROOT; };
+		106E4BFB1797289800B9ACD9 /* Board_Dman256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Board_Dman256.png; path = data/Board_Dman256.png; sourceTree = SOURCE_ROOT; };
+		106E4BFC1797289800B9ACD9 /* Dude_Color256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Dude_Color256.png; path = data/Dude_Color256.png; sourceTree = SOURCE_ROOT; };
+		106E4BFD1797289800B9ACD9 /* floor.md3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = floor.md3; path = data/floor.md3; sourceTree = SOURCE_ROOT; };
+		106E4BFE1797289800B9ACD9 /* floorent.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = floorent.xml; path = data/floorent.xml; sourceTree = SOURCE_ROOT; };
+		106E4BFF1797289800B9ACD9 /* floormodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = floormodel.xml; path = data/floormodel.xml; sourceTree = SOURCE_ROOT; };
+		106E4C001797289800B9ACD9 /* floorpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = floorpixel.glsl; path = data/floorpixel.glsl; sourceTree = SOURCE_ROOT; };
+		106E4C011797289800B9ACD9 /* floorvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = floorvertex.glsl; path = data/floorvertex.glsl; sourceTree = SOURCE_ROOT; };
+		106E4C021797289800B9ACD9 /* grass1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grass1.jpg; path = data/grass1.jpg; sourceTree = SOURCE_ROOT; };
+		106E4C031797289800B9ACD9 /* gui.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = gui.xml; path = data/gui.xml; sourceTree = SOURCE_ROOT; };
+		106E4C041797289800B9ACD9 /* snowboarder-ik.blend */ = {isa = PBXFileReference; lastKnownFileType = file; name = "snowboarder-ik.blend"; path = "data/snowboarder-ik.blend"; sourceTree = SOURCE_ROOT; };
+		106E4C061797289800B9ACD9 /* snowboarder-ik.gham.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "snowboarder-ik.gham.txt"; path = "data/snowboarder-ik.gham.txt"; sourceTree = SOURCE_ROOT; };
+		106E4C071797289800B9ACD9 /* snowboarder.gham */ = {isa = PBXFileReference; lastKnownFileType = file; name = snowboarder.gham; path = data/snowboarder.gham; sourceTree = SOURCE_ROOT; };
+		106E4C081797289800B9ACD9 /* snowboarderent.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = snowboarderent.xml; path = data/snowboarderent.xml; sourceTree = SOURCE_ROOT; };
+		106E4C091797289800B9ACD9 /* snowboardermodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = snowboardermodel.xml; path = data/snowboardermodel.xml; sourceTree = SOURCE_ROOT; };
+		106E4C0A1797289800B9ACD9 /* snowboarderragdoll.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = snowboarderragdoll.xml; path = data/snowboarderragdoll.xml; sourceTree = SOURCE_ROOT; };
+		106E4C0B1797289800B9ACD9 /* snowboarderragdoll2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = snowboarderragdoll2.xml; path = data/snowboarderragdoll2.xml; sourceTree = SOURCE_ROOT; };
+		106E4C0C1797289800B9ACD9 /* snowboarderragdolldesc.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = snowboarderragdolldesc.xml; path = data/snowboarderragdolldesc.xml; sourceTree = SOURCE_ROOT; };
+		106E4C0D1797289800B9ACD9 /* testguimat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = testguimat.xml; path = data/testguimat.xml; sourceTree = SOURCE_ROOT; };
+		106E4C0E1797289800B9ACD9 /* testlevel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = testlevel.xml; path = data/testlevel.xml; sourceTree = SOURCE_ROOT; };
+		106E4C0F1797289800B9ACD9 /* tool.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = tool.xml; path = data/tool.xml; sourceTree = SOURCE_ROOT; };
+		106E4C101797289800B9ACD9 /* treepixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = treepixel.glsl; path = data/treepixel.glsl; sourceTree = SOURCE_ROOT; };
+		106E4C111797289800B9ACD9 /* treevertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = treevertex.glsl; path = data/treevertex.glsl; sourceTree = SOURCE_ROOT; };
+		106F4C9E1855314D00C2EF47 /* ericfontnooutline.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ericfontnooutline.xml; path = ../../../GH/data/shared/ericfontnooutline.xml; sourceTree = "<group>"; };
+		106F4C9F1855314D00C2EF47 /* ericfontoutline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ericfontoutline.png; path = ../../../GH/data/shared/ericfontoutline.png; sourceTree = "<group>"; };
+		106F4CA3185531A200C2EF47 /* snowboardermat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = snowboardermat.xml; path = data/snowboardermat.xml; sourceTree = SOURCE_ROOT; };
+		106F4CA4185531A200C2EF47 /* snowboardmat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = snowboardmat.xml; path = data/snowboardmat.xml; sourceTree = SOURCE_ROOT; };
+		106F4CCC185A8AA000C2EF47 /* GHRagdollToolCollisionLayers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GHRagdollToolCollisionLayers.h; path = src/GHRagdollToolCollisionLayers.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		10694EA6177CC0D300137989 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10694EE3177CCC5B00137989 /* OpenGL.framework in Frameworks */,
+				10694EE1177CCA7500137989 /* GameKit.framework in Frameworks */,
+				10694EDF177CCA6A00137989 /* AudioToolbox.framework in Frameworks */,
+				10694EDD177CCA6200137989 /* OpenAL.framework in Frameworks */,
+				10694EDB177CCA5100137989 /* StoreKit.framework in Frameworks */,
+				10694ED9177CCA3400137989 /* libGHMac.a in Frameworks */,
+				10694EAD177CC0D300137989 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10694EA0177CC0D300137989 = {
+			isa = PBXGroup;
+			children = (
+				10694EE2177CCC5B00137989 /* OpenGL.framework */,
+				10694EE0177CCA7500137989 /* GameKit.framework */,
+				10694EDE177CCA6A00137989 /* AudioToolbox.framework */,
+				10694EDC177CCA6200137989 /* OpenAL.framework */,
+				10694EDA177CCA5100137989 /* StoreKit.framework */,
+				10694ECF177CC4B700137989 /* GHMac.xcodeproj */,
+				10694EB2177CC0D300137989 /* RigidBodyTool */,
+				10694EAB177CC0D300137989 /* Frameworks */,
+				10694EAA177CC0D300137989 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		10694EAA177CC0D300137989 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10694EA9177CC0D300137989 /* RigidBodyTool.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		10694EAB177CC0D300137989 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10694EAC177CC0D300137989 /* Cocoa.framework */,
+				10694EAE177CC0D300137989 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		10694EAE177CC0D300137989 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10694EAF177CC0D300137989 /* AppKit.framework */,
+				10694EB0177CC0D300137989 /* CoreData.framework */,
+				10694EB1177CC0D300137989 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		10694EB2177CC0D300137989 /* RigidBodyTool */ = {
+			isa = PBXGroup;
+			children = (
+				106E4BC51797265600B9ACD9 /* GHRagdollGenerationInputXMLLoader.cpp */,
+				106E4BC61797265600B9ACD9 /* GHRagdollGenerationInputXMLLoader.h */,
+				106E4BC71797265700B9ACD9 /* GHRagdollGenerator.cpp */,
+				106E4BC81797265900B9ACD9 /* GHRagdollGenerator.h */,
+				106E4BC91797265A00B9ACD9 /* GHRagdollGeneratorDescription.h */,
+				106E4BCA1797265C00B9ACD9 /* GHRagdollTool.cpp */,
+				106E4BCB1797265D00B9ACD9 /* GHRagdollTool.h */,
+				106E4BCC1797265E00B9ACD9 /* GHRagdollToolBoneSelector.cpp */,
+				106E4BCD1797266100B9ACD9 /* GHRagdollToolBoneSelector.h */,
+				106E4BCE1797266300B9ACD9 /* GHRagdollToolCommandHandler.cpp */,
+				106E4BCF1797266600B9ACD9 /* GHRagdollToolCommandHandler.h */,
+				106E4BD01797266900B9ACD9 /* GHRagdollToolCommandParser.cpp */,
+				106E4BD11797266C00B9ACD9 /* GHRagdollToolCommandParser.h */,
+				106E4BD21797266E00B9ACD9 /* GHRagdollToolCommandStateToggler.cpp */,
+				106E4BD31797267200B9ACD9 /* GHRagdollToolCommandStateToggler.h */,
+				106E4BD41797267500B9ACD9 /* GHRagdollToolCommandStringInputHandler.cpp */,
+				106E4BD51797267B00B9ACD9 /* GHRagdollToolCommandStringInputHandler.h */,
+				106E4BD61797268000B9ACD9 /* GHRagdollToolNode.cpp */,
+				106E4BD71797268400B9ACD9 /* GHRagdollToolNode.h */,
+				106E4BD81797268900B9ACD9 /* GHRagdollToolObjectPusher.cpp */,
+				106E4BD91797268F00B9ACD9 /* GHRagdollToolObjectPusher.h */,
+				106E4BDA1797269500B9ACD9 /* GHRagdollToolOffsetAdjuster.cpp */,
+				106E4BDB1797269A00B9ACD9 /* GHRagdollToolOffsetAdjuster.h */,
+				106E4BDC1797269F00B9ACD9 /* GHRagdollToolPhysicsPauser.cpp */,
+				106E4BDD179726A400B9ACD9 /* GHRagdollToolPhysicsPauser.h */,
+				106E4BDE179726A900B9ACD9 /* GHRagdollToolPivotDisplayer.cpp */,
+				106E4BDF179726AF00B9ACD9 /* GHRagdollToolPivotDisplayer.h */,
+				106E4BE0179726B500B9ACD9 /* GHRagdollToolProperties.h */,
+				106E4BE1179726BB00B9ACD9 /* GHRagdollToolSavedRagdollXMLLoader.cpp */,
+				106E4BE2179726C000B9ACD9 /* GHRagdollToolSavedRagdollXMLLoader.h */,
+				106E4BE3179726C700B9ACD9 /* GHRagdollToolSaveInputHandler.cpp */,
+				106E4BE4179726CD00B9ACD9 /* GHRagdollToolSaveInputHandler.h */,
+				106E4BE5179726D700B9ACD9 /* GHRagdollToolStates.h */,
+				106E4BE6179726DF00B9ACD9 /* GHRagdollToolXMLLoader.cpp */,
+				106E4BE7179726E600B9ACD9 /* GHRagdollToolXMLLoader.h */,
+				106E4BE8179726EF00B9ACD9 /* GHRigidBodyTool.cpp */,
+				106E4BE9179726F900B9ACD9 /* GHRigidBodyTool.h */,
+				106C74661788B65B00029ED7 /* RigidBodyTool.entitlements */,
+				10694EE4177CDCD300137989 /* Data */,
+				10694EB3177CC0D300137989 /* Supporting Files */,
+				106F4CCC185A8AA000C2EF47 /* GHRagdollToolCollisionLayers.h */,
+			);
+			path = RigidBodyTool;
+			sourceTree = "<group>";
+		};
+		10694EB3177CC0D300137989 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				10694EBE177CC0D300137989 /* GHRigidBodyToolAppDelegate.h */,
+				10694ED7177CC61C00137989 /* GHRigidBodyToolAppDelegate.mm */,
+				10694EC1177CC0D300137989 /* MainMenu.xib */,
+				10694EB4177CC0D300137989 /* RigidBodyTool-Info.plist */,
+				10694EB5177CC0D300137989 /* InfoPlist.strings */,
+				10694EB8177CC0D300137989 /* main.m */,
+				10694EBA177CC0D300137989 /* RigidBodyTool-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		10694ED0177CC4B700137989 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10694ED5177CC4B800137989 /* libGHMac.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		10694EE4177CDCD300137989 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				10694EFA177CDD4800137989 /* Shared */,
+				10694EF9177CDD3D00137989 /* RigidBodyTool */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		10694EF9177CDD3D00137989 /* RigidBodyTool */ = {
+			isa = PBXGroup;
+			children = (
+				106F4CA3185531A200C2EF47 /* snowboardermat.xml */,
+				106F4CA4185531A200C2EF47 /* snowboardmat.xml */,
+				106E4BFB1797289800B9ACD9 /* Board_Dman256.png */,
+				106E4BFC1797289800B9ACD9 /* Dude_Color256.png */,
+				106E4BFD1797289800B9ACD9 /* floor.md3 */,
+				106E4BFE1797289800B9ACD9 /* floorent.xml */,
+				106E4BFF1797289800B9ACD9 /* floormodel.xml */,
+				106E4C001797289800B9ACD9 /* floorpixel.glsl */,
+				106E4C011797289800B9ACD9 /* floorvertex.glsl */,
+				106E4C021797289800B9ACD9 /* grass1.jpg */,
+				106E4C031797289800B9ACD9 /* gui.xml */,
+				106E4C041797289800B9ACD9 /* snowboarder-ik.blend */,
+				106E4C061797289800B9ACD9 /* snowboarder-ik.gham.txt */,
+				106E4C071797289800B9ACD9 /* snowboarder.gham */,
+				106E4C081797289800B9ACD9 /* snowboarderent.xml */,
+				106E4C091797289800B9ACD9 /* snowboardermodel.xml */,
+				106E4C0A1797289800B9ACD9 /* snowboarderragdoll.xml */,
+				106E4C0B1797289800B9ACD9 /* snowboarderragdoll2.xml */,
+				106E4C0C1797289800B9ACD9 /* snowboarderragdolldesc.xml */,
+				106E4C0D1797289800B9ACD9 /* testguimat.xml */,
+				106E4C0E1797289800B9ACD9 /* testlevel.xml */,
+				106E4C0F1797289800B9ACD9 /* tool.xml */,
+				106E4C101797289800B9ACD9 /* treepixel.glsl */,
+				106E4C111797289800B9ACD9 /* treevertex.glsl */,
+			);
+			name = RigidBodyTool;
+			sourceTree = "<group>";
+		};
+		10694EFA177CDD4800137989 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				106F4C9E1855314D00C2EF47 /* ericfontnooutline.xml */,
+				106F4C9F1855314D00C2EF47 /* ericfontoutline.png */,
+				10694F39177CDD6B00137989 /* shaders */,
+				10694EFB177CDD5900137989 /* debugmat.xml */,
+				10694EFC177CDD5900137989 /* defaultmat.xml */,
+				10694EFD177CDD5900137989 /* ericfont.png */,
+				10694EFE177CDD5900137989 /* ericfont.xml */,
+				10694EFF177CDD5900137989 /* fpsGUI.xml */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		10694F39177CDD6B00137989 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				10694F05177CDD6700137989 /* cgentpixel.glsl */,
+				10694F06177CDD6700137989 /* cghfterrainvertex.glsl */,
+				10694F07177CDD6700137989 /* cgterrainpixel.glsl */,
+				10694F08177CDD6700137989 /* cgterrainvertex.glsl */,
+				10694F09177CDD6700137989 /* debugpixel.glsl */,
+				10694F0A177CDD6700137989 /* debugvertex.glsl */,
+				10694F0B177CDD6700137989 /* fontpixel.glsl */,
+				10694F0C177CDD6700137989 /* fontvertex.glsl */,
+				10694F0D177CDD6700137989 /* guivertex.glsl */,
+				10694F0E177CDD6700137989 /* heightfieldvertex.glsl */,
+				10694F0F177CDD6700137989 /* hourglasspixel.glsl */,
+				10694F10177CDD6700137989 /* hourglassvertex.glsl */,
+				10694F11177CDD6700137989 /* md3morphpixel-entcolor.glsl */,
+				10694F12177CDD6700137989 /* md3morphpixel.glsl */,
+				10694F13177CDD6700137989 /* md3morphvertex.glsl */,
+				10694F14177CDD6700137989 /* pixel-1tex-lit.glsl */,
+				10694F15177CDD6700137989 /* pixel-1tex.glsl */,
+				10694F16177CDD6700137989 /* pixel-2tex-lit.glsl */,
+				10694F17177CDD6700137989 /* pixel-2tex.glsl */,
+				10694F18177CDD6700137989 /* reflectiontestpixel.glsl */,
+				10694F19177CDD6700137989 /* sbhfterrainvertex.glsl */,
+				10694F1A177CDD6700137989 /* sbterrainpixel.glsl */,
+				10694F1B177CDD6700137989 /* shadowtestpixel.glsl */,
+				10694F1C177CDD6700137989 /* staticmd3vertex.glsl */,
+				10694F1D177CDD6700137989 /* worldvertex-1tex.glsl */,
+				10694F1E177CDD6700137989 /* worldvertex.glsl */,
+			);
+			name = shaders;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		10694EA8177CC0D300137989 /* RigidBodyTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10694EC6177CC0D300137989 /* Build configuration list for PBXNativeTarget "RigidBodyTool" */;
+			buildPhases = (
+				10694EA5177CC0D300137989 /* Sources */,
+				10694EA6177CC0D300137989 /* Frameworks */,
+				10694EA7177CC0D300137989 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RigidBodyTool;
+			productName = RigidBodyTool;
+			productReference = 10694EA9177CC0D300137989 /* RigidBodyTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		10694EA1177CC0D300137989 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Golden Hammer";
+			};
+			buildConfigurationList = 10694EA4177CC0D300137989 /* Build configuration list for PBXProject "RigidBodyTool" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 10694EA0177CC0D300137989;
+			productRefGroup = 10694EAA177CC0D300137989 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 10694ED0177CC4B700137989 /* Products */;
+					ProjectRef = 10694ECF177CC4B700137989 /* GHMac.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				10694EA8177CC0D300137989 /* RigidBodyTool */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		10694ED5177CC4B800137989 /* libGHMac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGHMac.a;
+			remoteRef = 10694ED4177CC4B800137989 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		10694EA7177CC0D300137989 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10694EB7177CC0D300137989 /* InfoPlist.strings in Resources */,
+				10694EC3177CC0D300137989 /* MainMenu.xib in Resources */,
+				10694F00177CDD5900137989 /* debugmat.xml in Resources */,
+				106F4CA5185531A200C2EF47 /* snowboardermat.xml in Resources */,
+				10694F01177CDD5900137989 /* defaultmat.xml in Resources */,
+				10694F02177CDD5900137989 /* ericfont.png in Resources */,
+				10694F03177CDD5900137989 /* ericfont.xml in Resources */,
+				10694F04177CDD5900137989 /* fpsGUI.xml in Resources */,
+				10694F1F177CDD6700137989 /* cgentpixel.glsl in Resources */,
+				10694F20177CDD6700137989 /* cghfterrainvertex.glsl in Resources */,
+				10694F21177CDD6700137989 /* cgterrainpixel.glsl in Resources */,
+				10694F22177CDD6700137989 /* cgterrainvertex.glsl in Resources */,
+				10694F23177CDD6700137989 /* debugpixel.glsl in Resources */,
+				10694F24177CDD6700137989 /* debugvertex.glsl in Resources */,
+				10694F25177CDD6700137989 /* fontpixel.glsl in Resources */,
+				10694F26177CDD6700137989 /* fontvertex.glsl in Resources */,
+				10694F27177CDD6700137989 /* guivertex.glsl in Resources */,
+				10694F28177CDD6700137989 /* heightfieldvertex.glsl in Resources */,
+				10694F29177CDD6700137989 /* hourglasspixel.glsl in Resources */,
+				10694F2A177CDD6700137989 /* hourglassvertex.glsl in Resources */,
+				10694F2B177CDD6700137989 /* md3morphpixel-entcolor.glsl in Resources */,
+				10694F2C177CDD6700137989 /* md3morphpixel.glsl in Resources */,
+				10694F2D177CDD6700137989 /* md3morphvertex.glsl in Resources */,
+				10694F2E177CDD6700137989 /* pixel-1tex-lit.glsl in Resources */,
+				10694F2F177CDD6700137989 /* pixel-1tex.glsl in Resources */,
+				10694F30177CDD6700137989 /* pixel-2tex-lit.glsl in Resources */,
+				10694F31177CDD6700137989 /* pixel-2tex.glsl in Resources */,
+				10694F32177CDD6700137989 /* reflectiontestpixel.glsl in Resources */,
+				10694F33177CDD6700137989 /* sbhfterrainvertex.glsl in Resources */,
+				10694F34177CDD6700137989 /* sbterrainpixel.glsl in Resources */,
+				10694F35177CDD6700137989 /* shadowtestpixel.glsl in Resources */,
+				10694F36177CDD6700137989 /* staticmd3vertex.glsl in Resources */,
+				10694F37177CDD6700137989 /* worldvertex-1tex.glsl in Resources */,
+				10694F38177CDD6700137989 /* worldvertex.glsl in Resources */,
+				106E4C121797289800B9ACD9 /* Board_Dman256.png in Resources */,
+				106E4C131797289800B9ACD9 /* Dude_Color256.png in Resources */,
+				106E4C141797289800B9ACD9 /* floor.md3 in Resources */,
+				106E4C151797289800B9ACD9 /* floorent.xml in Resources */,
+				106E4C161797289800B9ACD9 /* floormodel.xml in Resources */,
+				106E4C171797289800B9ACD9 /* floorpixel.glsl in Resources */,
+				106E4C181797289800B9ACD9 /* floorvertex.glsl in Resources */,
+				106E4C191797289800B9ACD9 /* grass1.jpg in Resources */,
+				106E4C1A1797289800B9ACD9 /* gui.xml in Resources */,
+				106E4C1B1797289800B9ACD9 /* snowboarder-ik.blend in Resources */,
+				106F4CA6185531A200C2EF47 /* snowboardmat.xml in Resources */,
+				106E4C1D1797289800B9ACD9 /* snowboarder-ik.gham.txt in Resources */,
+				106E4C1E1797289800B9ACD9 /* snowboarder.gham in Resources */,
+				106E4C1F1797289800B9ACD9 /* snowboarderent.xml in Resources */,
+				106E4C201797289800B9ACD9 /* snowboardermodel.xml in Resources */,
+				106E4C211797289800B9ACD9 /* snowboarderragdoll.xml in Resources */,
+				106E4C221797289800B9ACD9 /* snowboarderragdoll2.xml in Resources */,
+				106E4C231797289800B9ACD9 /* snowboarderragdolldesc.xml in Resources */,
+				106E4C241797289800B9ACD9 /* testguimat.xml in Resources */,
+				106F4CA11855314E00C2EF47 /* ericfontoutline.png in Resources */,
+				106E4C251797289800B9ACD9 /* testlevel.xml in Resources */,
+				106F4CA01855314E00C2EF47 /* ericfontnooutline.xml in Resources */,
+				106E4C261797289800B9ACD9 /* tool.xml in Resources */,
+				106E4C271797289800B9ACD9 /* treepixel.glsl in Resources */,
+				106E4C281797289800B9ACD9 /* treevertex.glsl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		10694EA5177CC0D300137989 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10694EB9177CC0D300137989 /* main.m in Sources */,
+				10694ED8177CC61C00137989 /* GHRigidBodyToolAppDelegate.mm in Sources */,
+				106E4BEA1797270300B9ACD9 /* GHRagdollGenerationInputXMLLoader.cpp in Sources */,
+				106E4BEB1797270300B9ACD9 /* GHRagdollGenerator.cpp in Sources */,
+				106E4BEC1797270300B9ACD9 /* GHRagdollTool.cpp in Sources */,
+				106E4BED1797270300B9ACD9 /* GHRagdollToolBoneSelector.cpp in Sources */,
+				106E4BEE1797270300B9ACD9 /* GHRagdollToolCommandHandler.cpp in Sources */,
+				106E4BEF1797270300B9ACD9 /* GHRagdollToolCommandParser.cpp in Sources */,
+				106E4BF01797270300B9ACD9 /* GHRagdollToolCommandStateToggler.cpp in Sources */,
+				106E4BF11797270300B9ACD9 /* GHRagdollToolCommandStringInputHandler.cpp in Sources */,
+				106E4BF21797270300B9ACD9 /* GHRagdollToolNode.cpp in Sources */,
+				106E4BF31797270300B9ACD9 /* GHRagdollToolObjectPusher.cpp in Sources */,
+				106E4BF41797270300B9ACD9 /* GHRagdollToolOffsetAdjuster.cpp in Sources */,
+				106E4BF51797270300B9ACD9 /* GHRagdollToolPhysicsPauser.cpp in Sources */,
+				106E4BF61797270300B9ACD9 /* GHRagdollToolPivotDisplayer.cpp in Sources */,
+				106E4BF71797270300B9ACD9 /* GHRagdollToolSavedRagdollXMLLoader.cpp in Sources */,
+				106E4BF81797270300B9ACD9 /* GHRagdollToolSaveInputHandler.cpp in Sources */,
+				106E4BF91797270300B9ACD9 /* GHRagdollToolXMLLoader.cpp in Sources */,
+				106E4BFA1797270300B9ACD9 /* GHRigidBodyTool.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		10694EB5177CC0D300137989 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10694EB6177CC0D300137989 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		10694EC1177CC0D300137989 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10694EC2177CC0D300137989 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		10694EC4177CC0D300137989 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		10694EC5177CC0D300137989 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		10694EC7177CC0D300137989 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CODE_SIGN_ENTITLEMENTS = RigidBodyTool/RigidBodyTool.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RigidBodyTool/RigidBodyTool-Prefix.pch";
+				INFOPLIST_FILE = "RigidBodyTool/RigidBodyTool-Info.plist";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../../GH/src/** ../../contrib/bullet-2.81-rev2613/src/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		10694EC8177CC0D300137989 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CODE_SIGN_ENTITLEMENTS = RigidBodyTool/RigidBodyTool.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RigidBodyTool/RigidBodyTool-Prefix.pch";
+				INFOPLIST_FILE = "RigidBodyTool/RigidBodyTool-Info.plist";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../../GH/src/** ../../contrib/bullet-2.81-rev2613/src/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10694EA4177CC0D300137989 /* Build configuration list for PBXProject "RigidBodyTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10694EC4177CC0D300137989 /* Debug */,
+				10694EC5177CC0D300137989 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10694EC6177CC0D300137989 /* Build configuration list for PBXNativeTarget "RigidBodyTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10694EC7177CC0D300137989 /* Debug */,
+				10694EC8177CC0D300137989 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 10694EA1177CC0D300137989 /* Project object */;
+}

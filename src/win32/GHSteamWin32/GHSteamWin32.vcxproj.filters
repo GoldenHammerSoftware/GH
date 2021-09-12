@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\GHSteam\GHSteamStatTrackerFactory.h" />
+    <ClInclude Include="..\..\GHSteam\GHSteamStatTracker.h" />
+    <ClInclude Include="..\..\GHSteam\GHSteam.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\GHSteam\GHSteamStatTrackerFactory.cpp" />
+    <ClCompile Include="..\..\GHSteam\GHSteamStatTracker.cpp" />
+    <ClCompile Include="..\..\GHSteam\GHSteam.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\..\contrib\steamsdk\redistributable_bin\steam_api.lib" />
+  </ItemGroup>
+</Project>

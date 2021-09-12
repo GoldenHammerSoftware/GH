@@ -1,0 +1,3 @@
+#define SHADER_SUPPORTS_DETAIL_TEXTURE 1
+#define SHADER_SUPPORTS_ENVIRONMENTMAP 1
+#include "ghmasterpixel.glsl"

@@ -1,0 +1,5 @@
+<shaderParams>
+    <floatParams>
+        <floatParam sizeFloats="4" cbType="CT_PERFRAME" semantic="TintColor"/>
+    </floatParams>
+</shaderParams>

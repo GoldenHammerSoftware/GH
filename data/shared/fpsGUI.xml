@@ -1,0 +1,25 @@
+<guiPanel>
+	<guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0 0" size="1 1"/>
+  <children>
+    <guiPropText text="^696%d0ms/%d1fps" font="ericfont.xml" textHeight="15" fill="FT_PIXELS" hAlign="A_RIGHT" vAlign="A_TOP">
+      <guiPos xFill="FT_PIXELS" yFill="FT_PIXELS" align="1 0.5" offset="-47 0" size="45 15"/>
+      <monitorProperties>
+        <MS/>
+        <FPS/>
+      </monitorProperties>
+    </guiPropText>
+    <guiPropText text="^696%d0d/%d1v" font="ericfont.xml" textHeight="15" fill="FT_PIXELS" hAlign="A_RIGHT" vAlign="A_TOP">
+      <guiPos xFill="FT_PIXELS" yFill="FT_PIXELS" align="1 0.5" offset="-47 15" size="45 15"/>
+      <monitorProperties>
+        <GP_NUMDRAWS/>
+        <GP_NUMVERTS/>
+      </monitorProperties>
+    </guiPropText>
+      <guiPropText text="^696mats: %d0" font="ericfont.xml" textHeight="15" fill="FT_PIXELS" hAlign="A_RIGHT" vAlign="A_TOP">
+          <guiPos xFill="FT_PIXELS" yFill="FT_PIXELS" align="1 0.5" offset="-47 30" size="45 15"/>
+          <monitorProperties>
+              <GP_NUMMATS/>
+          </monitorProperties>
+      </guiPropText>
+  </children>
+</guiPanel>

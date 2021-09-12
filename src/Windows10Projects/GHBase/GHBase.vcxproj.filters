@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="GHUtils">
+      <UniqueIdentifier>{d0c5fd64-2a27-4126-a913-af6847a453da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GHMath">
+      <UniqueIdentifier>{d4443187-f03f-42a2-86ec-1134e842edf5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\GHMath\GHColor.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHEpsilon.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHFloat.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHIntersect.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHMath.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHMathUnitTests.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHPi.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHPlane.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHPoint.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHQuaternion.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHRandom.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHRect.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHSphere.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHTransform.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHController.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHControllerMgr.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHControllerTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHEventMgr.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHMessage.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHMessageHandler.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHMessageQueue.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHProfiler.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHProfileRecord.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHProperty.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertyContainer.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHRedirectResourceLoader.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHResource.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHResourceCache.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHResourceFactory.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHResourceLoader.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHStateMachine.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTimeUpdater.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHUtilsIdentifiers.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHUtilsServices.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHMathDebugPrint.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMath\GHMathInclude.h">
+      <Filter>GHMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHAlign.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHControllerChangeController.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHControllerChangeControllerTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHDebugTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHDelayController.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHMessageHandlerTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHMessageSenderTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPredicate.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHProfileController.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertyCopyTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertyOverrideTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertySetMessageHandler.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertyStacker.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertyStringGenerator.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertyToggleTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHRandomTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHRunnableMessageHandler.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHSharedRefCountedProperty.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHStateChangeMessageListener.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHStateChangeTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHThreadUtil.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTimeUpdaterAveraging.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTransitionChangeTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTransitionListTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTransitionMessageHandler.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTransitionSwitch.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHUtilsMessageTypes.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHValueSetterTransition.h">
+      <Filter>GHUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHActionClaim.h" />
+    <ClInclude Include="..\..\Base\GHApp.h" />
+    <ClInclude Include="..\..\Base\GHAppRunner.h" />
+    <ClInclude Include="..\..\Base\GHAppShard.h" />
+    <ClInclude Include="..\..\Base\GHBaseIdentifiers.h" />
+    <ClInclude Include="..\..\Base\GHCharUtil.h" />
+    <ClInclude Include="..\..\Base\GHControllerTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHDebugTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHDelayControllerXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHFramerateMonitor.h" />
+    <ClInclude Include="..\..\Base\GHFramerateSmoother.h" />
+    <ClInclude Include="..\..\Base\GHHotkeyController.h" />
+    <ClInclude Include="..\..\Base\GHInputClaim.h" />
+    <ClInclude Include="..\..\Base\GHInputClaimConcrete.h" />
+    <ClInclude Include="..\..\Base\GHInputClaimGroup.h" />
+    <ClInclude Include="..\..\Base\GHInputState.h" />
+    <ClInclude Include="..\..\Base\GHInputStateClearer.h" />
+    <ClInclude Include="..\..\Base\GHInputStateKeySet.h" />
+    <ClInclude Include="..\..\Base\GHInputStructs.h" />
+    <ClInclude Include="..\..\Base\GHKeyDef.h" />
+    <ClInclude Include="..\..\Base\GHKeyDefParser.h" />
+    <ClInclude Include="..\..\Base\GHKeyframeRecorder.h" />
+    <ClInclude Include="..\..\Base\GHMessageHandlerTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHMessageSenderTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHMessageTypes.h" />
+    <ClInclude Include="..\..\Base\GHMessageXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHMouseCapturer.h" />
+    <ClInclude Include="..\..\Base\GHMouseCapturerTransition.h" />
+    <ClInclude Include="..\..\Base\GHPointerChangeTracker.h" />
+    <ClInclude Include="..\..\Base\GHPointerRegionTracker.h" />
+    <ClInclude Include="..\..\Base\GHPositionFollower.h" />
+    <ClInclude Include="..\..\Base\GHPropertyBoolXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyContainerXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyCopyTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyCopyXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyEnumXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyFloatXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyIdentifierXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyIntXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyPointXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyStringGeneratorXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyStringXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyToggleTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyTypeXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyXMLInitializer.h" />
+    <ClInclude Include="..\..\Base\GHPropertyXMLSaver.h" />
+    <ClInclude Include="..\..\Base\GHResourceLoaderXML.h" />
+    <ClInclude Include="..\..\Base\GHRumbler.h" />
+    <ClInclude Include="..\..\Base\GHRunningPointAverager.h" />
+    <ClInclude Include="..\..\Base\GHServices.h" />
+    <ClInclude Include="..\..\Base\GHSharedSoundPool.h" />
+    <ClInclude Include="..\..\Base\GHSoundDevice.h" />
+    <ClInclude Include="..\..\Base\GHSoundEmitter.h" />
+    <ClInclude Include="..\..\Base\GHSoundHandle.h" />
+    <ClInclude Include="..\..\Base\GHSoundIDInfo.h" />
+    <ClInclude Include="..\..\Base\GHSoundListenerPoseableFollower.h" />
+    <ClInclude Include="..\..\Base\GHSoundProfile.h" />
+    <ClInclude Include="..\..\Base\GHSoundProfileTransition.h" />
+    <ClInclude Include="..\..\Base\GHSoundProfileTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHSoundPropertyVolumeChanger.h" />
+    <ClInclude Include="..\..\Base\GHSoundSet.h" />
+    <ClInclude Include="..\..\Base\GHSoundTransition.h" />
+    <ClInclude Include="..\..\Base\GHSoundTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHSoundTypes.h" />
+    <ClInclude Include="..\..\Base\GHSoundVolumeMgr.h" />
+    <ClInclude Include="..\..\Base\GHStateChangeTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHStateMachineXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHSystemServices.h" />
+    <ClInclude Include="..\..\Base\GHTransitionListTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHTransitionMessageHandlerXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHTransitionSwitchXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHWindow.h" />
+    <ClInclude Include="..\..\Base\GHWindowListener.h" />
+    <ClInclude Include="..\..\Base\GHXMLCache.h" />
+    <ClInclude Include="..\..\Base\GHXMLDebugPrint.h" />
+    <ClInclude Include="..\..\Base\GHXMLLoaderResource.h" />
+    <ClInclude Include="..\..\Base\GHXMLNode.h" />
+    <ClInclude Include="..\..\Base\GHXMLNodeDeepCopier.h" />
+    <ClInclude Include="..\..\Base\GHXMLObjFactory.h" />
+    <ClInclude Include="..\..\Base\GHXMLObjLoader.h" />
+    <ClInclude Include="..\..\Base\GHXMLRedirectLoader.h" />
+    <ClInclude Include="..\..\Base\GHXMLSerializer.h" />
+    <ClInclude Include="..\..\Base\GHBaseXMLInitializer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\GHMath\GHIntersect.cpp">
+      <Filter>GHMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMath\GHMath.cpp">
+      <Filter>GHMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMath\GHMathUnitTests.cpp">
+      <Filter>GHMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMath\GHPlane.cpp">
+      <Filter>GHMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMath\GHQuaternion.cpp">
+      <Filter>GHMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMath\GHRandom.cpp">
+      <Filter>GHMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMath\GHSphere.cpp">
+      <Filter>GHMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMath\GHTransform.cpp">
+      <Filter>GHMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHControllerMgr.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHControllerTransition.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHEventMgr.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHMessage.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHMessageQueue.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHProfiler.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHProfileRecord.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHProperty.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertyContainer.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHRedirectResourceLoader.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHResource.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHResourceCache.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHResourceFactory.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHStateMachine.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHTimeUpdater.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHUtilsServices.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMath\GHMathDebugPrint.cpp">
+      <Filter>GHMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHControllerChangeController.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHControllerChangeControllerTransition.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHDebugTransition.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHDelayController.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHMessageHandlerTransition.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHMessageSenderTransition.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHProfileController.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertyCopyTransition.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertyOverrideTransition.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertySetMessageHandler.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertyStacker.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertyStringGenerator.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertyToggleTransition.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHRandomTransition.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHRunnableMessageHandler.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHStateChangeMessageListener.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHStateChangeTransition.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHThreadUtil.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHTimeUpdaterAveraging.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHTransitionChangeTransition.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHTransitionListTransition.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHTransitionMessageHandler.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHTransitionSwitch.cpp">
+      <Filter>GHUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHAppRunner.cpp" />
+    <ClCompile Include="..\..\Base\GHAppShard.cpp" />
+    <ClCompile Include="..\..\Base\GHCharUtil.cpp" />
+    <ClCompile Include="..\..\Base\GHControllerTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHDebugTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHDelayControllerXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHFramerateMonitor.cpp" />
+    <ClCompile Include="..\..\Base\GHFramerateSmoother.cpp" />
+    <ClCompile Include="..\..\Base\GHHotkeyController.cpp" />
+    <ClCompile Include="..\..\Base\GHInputClaimConcrete.cpp" />
+    <ClCompile Include="..\..\Base\GHInputClaimGroup.cpp" />
+    <ClCompile Include="..\..\Base\GHInputState.cpp" />
+    <ClCompile Include="..\..\Base\GHInputStateClearer.cpp" />
+    <ClCompile Include="..\..\Base\GHInputStateKeySet.cpp" />
+    <ClCompile Include="..\..\Base\GHKeyDefParser.cpp" />
+    <ClCompile Include="..\..\Base\GHMessageHandlerTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHMessageSenderTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHMessageXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHMouseCapturerTransition.cpp" />
+    <ClCompile Include="..\..\Base\GHPointerChangeTracker.cpp" />
+    <ClCompile Include="..\..\Base\GHPointerRegionTracker.cpp" />
+    <ClCompile Include="..\..\Base\GHPositionFollower.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyBoolXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyContainerXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyCopyTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyCopyXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyEnumXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyFloatXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyIdentifierXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyIntXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyStringGeneratorXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyStringXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyToggleTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyXMLInitializer.cpp" />
+    <ClCompile Include="..\..\Base\GHResourceLoaderXML.cpp" />
+    <ClCompile Include="..\..\Base\GHSharedSoundPool.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundEmitter.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundListenerPoseableFollower.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundProfile.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundProfileTransition.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundProfileTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundPropertyVolumeChanger.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundSet.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundTransition.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundVolumeMgr.cpp" />
+    <ClCompile Include="..\..\Base\GHStateChangeTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHStateMachineXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHSystemServices.cpp" />
+    <ClCompile Include="..\..\Base\GHTransitionListTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHTransitionMessageHandlerXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHTransitionSwitchXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHWindowListener.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLCache.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLDebugPrint.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLLoaderResource.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLNode.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLNodeDeepCopier.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLObjFactory.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLObjLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLRedirectLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLSerializer.cpp" />
+    <ClCompile Include="..\..\Base\GHBaseXMLInitializer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\GHMath\GHIntersect.inl">
+      <Filter>GHMath</Filter>
+    </None>
+    <None Include="..\..\GHMath\GHPoint.inl">
+      <Filter>GHMath</Filter>
+    </None>
+    <None Include="..\..\Base\ghstringlib.zip" />
+  </ItemGroup>
+</Project>

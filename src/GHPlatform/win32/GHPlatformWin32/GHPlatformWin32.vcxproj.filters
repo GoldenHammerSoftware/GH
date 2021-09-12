@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{f560e9fc-6178-4ba2-8785-0c12e5efdf6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nullplatform">
+      <UniqueIdentifier>{2d1f3f0f-d30b-454a-b2b6-77cb4df6c325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="debug-output">
+      <UniqueIdentifier>{04cd26aa-92ab-424c-a200-dfe68bc350c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="file">
+      <UniqueIdentifier>{b979426d-6e45-4363-97ae-f2758b6ffbaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bytestream">
+      <UniqueIdentifier>{6d14b2e5-961a-45c5-bc09-81edec041908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thread">
+      <UniqueIdentifier>{0875d5a9-c96a-4bd5-85d6-0012b479c00b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sockets">
+      <UniqueIdentifier>{584c77c3-98bf-486a-b657-c0664ae03b9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="time">
+      <UniqueIdentifier>{6f627f2d-be12-4941-84ed-47da67d7b01d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utilities">
+      <UniqueIdentifier>{72488dc5-b117-4702-bff0-a7640db7f090}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\GHPlatformIdentifiers.h" />
+    <ClInclude Include="..\..\GHPlatformServices.h" />
+    <ClInclude Include="..\..\null\GHNullFileOpener.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullFilePicker.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullMutex.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullPlatformServices.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullSocketMgr.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullThread.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullThreadFactory.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullThreadSignal.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullThreadSleeper.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullTimeCalculator.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullWindow.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHLChar.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHWin32FilePicker.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHWin32Include.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHWin32Mutex.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHWin32OutputPipe.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHWin32PlatformServices.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHWin32Thread.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHWin32ThreadFactory.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHWin32ThreadSleeper.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHWin32TimeCalculator.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHWinSock.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHWinSockSocket.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHWinSockSocketMgr.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHByteStream.h">
+      <Filter>bytestream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHByteStreamPreallocated.h">
+      <Filter>bytestream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHByteStreamReader.h">
+      <Filter>bytestream</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHConnectionType.h">
+      <Filter>sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDebugMessage.h">
+      <Filter>debug-output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDeletionHandle.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHFile.h">
+      <Filter>file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHFileC.h">
+      <Filter>file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHFileOpener.h">
+      <Filter>file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHFilePicker.h">
+      <Filter>file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHFOpenFileOpener.h">
+      <Filter>file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMutex.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHOutputPipe.h">
+      <Filter>debug-output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHOwnershipList.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHPrintfOutputPipe.h">
+      <Filter>debug-output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHPrioritizedList.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHRefCounted.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHRefCountedDeletionHandle.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHRunnable.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHSocket.h">
+      <Filter>sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHSocketMgr.h">
+      <Filter>sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHStaticAssert.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHStlUtil.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHThread.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHThreadFactory.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHThreadSignal.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHThreadSleeper.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHTimeCalculator.h">
+      <Filter>time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHTimeVal.h">
+      <Filter>time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHXorFile.h">
+      <Filter>file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHTypedVoidFuncRunnable.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\GHPlatformServices.cpp" />
+    <ClCompile Include="..\..\null\GHNullThreadFactory.cpp">
+      <Filter>nullplatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHWin32FilePicker.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHWin32Mutex.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHWin32OutputPipe.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHWin32PlatformServices.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHWin32Thread.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHWin32ThreadFactory.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHWin32ThreadSleeper.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHWin32TimeCalculator.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHWinSockSocket.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHWinSockSocketMgr.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHByteStreamPreallocated.cpp">
+      <Filter>bytestream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHByteStreamReader.cpp">
+      <Filter>bytestream</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDebugMessage.cpp">
+      <Filter>debug-output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHFileC.cpp">
+      <Filter>file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHFileOpener.cpp">
+      <Filter>file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHFOpenFileOpener.cpp">
+      <Filter>file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHPrintfOutputPipe.cpp">
+      <Filter>debug-output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHRefCounted.cpp">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHTimeVal.cpp">
+      <Filter>time</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHXorFile.cpp">
+      <Filter>file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\null\GHNullPlatformServices.cpp">
+      <Filter>nullplatform</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" />
+  </ItemGroup>
+</Project>

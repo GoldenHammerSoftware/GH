@@ -1,0 +1,3 @@
+<guiButton inherit=backbuttonbase.xml>
+    <guiPos xFill=FT_PIXELS yFill=FT_PIXELS align="0 1" offset="10 -100" size="90 90"/>
+</guiButton>

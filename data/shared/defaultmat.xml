@@ -1,0 +1,9 @@
+<ghm vertex=debugvertex.glsl pixel=debugpixel.glsl
+    billboard=none draworder=0 cullmode=none
+    zread=true zwrite=true offset=0
+    alphablend=false invalpha=false 
+    alphatest=false alphatestless=true alphatestval=0.9>
+    <floatargs>
+        <floatarg handle=MaterialAmbient count=1 value=0.25/>
+    </floatargs>
+</ghm>

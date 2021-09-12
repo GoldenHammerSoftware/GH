@@ -1,0 +1,17 @@
+<ghm vertex=staticmd3vertex.glsl pixel=pixel-1tex-lit.glsl
+    billboard=none draworder=0 applymode=modulate cullmode=cw
+    zread=true zwrite=true offset=0
+    alphablend=false invalpha=false alphatest=false>
+    <textures>
+        <texture file=Dude_Color256.png handle=Texture0 wrap=wrap mipmap=true/>
+    </textures>
+    <floatargs>
+        <floatarg handle=MaterialEmissive count=1 value=0.4/>
+    </floatargs>
+    <materialPassOverrides>
+        <mpo pass=shadow>
+            <resource file=shadowmat.xml/>
+        </mpo>
+    </materialPassOverrides>
+    <renderPassMembership passes="shadow main" emptySupportsAll=false/>
+</ghm>

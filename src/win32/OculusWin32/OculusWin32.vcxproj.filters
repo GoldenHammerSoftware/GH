@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\GHOculus\GHOculusDX11HMDRenderDevice.cpp" />
+    <ClCompile Include="..\..\GHOculus\GHOculusDX11RenderTarget.cpp" />
+    <ClCompile Include="..\..\GHOculus\GHOculusHMDTransformApplier.cpp" />
+    <ClCompile Include="..\..\GHOculus\GHOculusDX11HMDServices.cpp" />
+    <ClCompile Include="..\..\GHOculus\GHOculusSystemController.cpp" />
+    <ClCompile Include="..\..\GHOculus\GHOculusUtil.cpp" />
+    <ClCompile Include="..\..\GHOculus\GHOculusTouchInputTranslator.cpp" />
+    <ClCompile Include="..\..\..\..\contrib\OculusSDK\OVRPlatformSDK_v1.14.0\Windows\OVR_PlatformLoader.cpp" />
+    <ClCompile Include="..\..\GHOculus\GHHMDRecenterController.cpp" />
+    <ClCompile Include="..\..\GHOculus\GHHMDRecenterControllerXMLLoader.cpp" />
+    <ClCompile Include="..\..\GHOculus\GHOculusGameScale.cpp" />
+    <ClCompile Include="..\..\GHOculus\GHOculusAvatarPoser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\GHOculus\GHOculusDX11HMDRenderDevice.h" />
+    <ClInclude Include="..\..\GHOculus\GHOculusDX11RenderTarget.h" />
+    <ClInclude Include="..\..\GHOculus\GHOculusHMDTransformApplier.h" />
+    <ClInclude Include="..\..\GHOculus\GHOculusDX11HMDServices.h" />
+    <ClInclude Include="..\..\GHOculus\GHOculusSystemController.h" />
+    <ClInclude Include="..\..\GHOculus\GHOculusUtil.h" />
+    <ClInclude Include="..\..\GHOculus\GHOculusTouchInputTranslator.h" />
+    <ClInclude Include="..\..\GHOculus\GHHMDRecenterController.h" />
+    <ClInclude Include="..\..\GHOculus\GHHMDRecenterControllerXMLLoader.h" />
+    <ClInclude Include="..\..\GHOculus\GHOculusGameScale.h" />
+    <ClInclude Include="..\..\GHOculus\GHOculusAvatarPoser.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\..\contrib\OculusSDK\OVRPlatformSDK_v1.14.0\LICENSE.txt" />
+  </ItemGroup>
+</Project>

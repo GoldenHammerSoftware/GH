@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<qnx xmlns="http://www.qnx.com/schemas/application/1.0">
+
+<!-- BlackBerry Tablet OS application descriptor file.
+
+    Specifies parameters for identifying, installing, and launching native applications on BlackBerry Tablet OS.
+
+-->
+
+    <!-- A universally unique application identifier. Must be unique across all BlackBerry Tablet OS applications.
+         Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
+    <id>com.goldenhammer.trickshotbowling</id>
+
+    <!-- The name that is displayed in the BlackBerry Tablet OS application installer. 
+         May have multiple values for each language. See samples or xsd schema file. Optional. -->
+    <name>TrickShot Bowling</name>
+    
+    <!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade. 
+         Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
+         An updated version of application must have a versionNumber value higher than the previous version. Required. -->
+    <versionNumber>1.6.1</versionNumber>
+
+    <!-- Fourth digit segment of the package version. First three segments are taken from the 
+         <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
+    <buildId>2</buildId>
+                 
+    <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
+    <!-- <versionLabel></versionLabel> -->
+	
+    <!-- Description, displayed in the BlackBerry Tablet OS application installer.
+         May have multiple values for each language. See samples or xsd schema file. Optional. -->
+ 	<description>Trick Shot Bowling</description>
+
+    <!-- Copyright information. Optional. -->
+    <!-- <copyright></copyright> -->
+
+    <!--  Name of author which is used for signing. Must match the developer name of your development certificate. -->
+    <author>Golden Hammer Software</author>
+    
+    <!--  Unique author ID assigned by signing authority. Required if using debug tokens. -->
+    <authorId>gYAAgOI1U-ONl3ksdFLb5453fQg</authorId>
+    <splashscreen>splash-1280x768.png:splash-768x1280.png</splashscreen>
+    <icon>
+       <image>icon.png</image>
+    </icon>
+    <!-- <authorId>ABC1234YjsnUk235h</authorId> -->
+   
+    <initialWindow>
+        <autoOrients>true</autoOrients>
+        <systemChrome>none</systemChrome>
+        <transparent>false</transparent>
+    </initialWindow>
+    
+    <!--  The category where the application appears. Either core.games or core.media. -->
+    <category>core.games</category>
+    
+    <asset path="../../../data/GHBowling/alley1icon.png">alley1icon.png</asset>
+    <asset path="../../../data/GHBowling/alley2icon.png">alley2icon.png</asset>
+    <asset path="../../../data/GHBowling/alley3icon.png">alley3icon.png</asset>
+    <asset path="../../../data/GHBowling/backbutton.png">backbutton.png</asset>
+    <asset path="../../../data/GHBowling/backbuttonbase.xml">backbuttonbase.xml</asset>
+    <asset path="../../../data/GHBowling/backwall.jpg">backwall.jpg</asset>
+    <asset path="../../../data/GHBowling/ball.jpg">ball.jpg</asset>
+    <asset path="../../../data/GHBowling/ball.md3">ball.md3</asset>
+    <asset path="../../../data/GHBowling/ballbrazildecal.png">ballbrazildecal.png</asset>
+    <asset path="../../../data/GHBowling/ballcandycane.png">ballcandycane.png</asset>
+    <asset path="../../../data/GHBowling/balldecalstar.png">balldecalstar.png</asset>
+    <asset path="../../../data/GHBowling/ballent.xml">ballent.xml</asset>
+    <asset path="../../../data/GHBowling/ballentbrazil.xml">ballentbrazil.xml</asset>
+    <asset path="../../../data/GHBowling/ballentbumblebee.xml">ballentbumblebee.xml</asset>
+    <asset path="../../../data/GHBowling/ballentcandycane.xml">ballentcandycane.xml</asset>
+    <asset path="../../../data/GHBowling/ballenteye.xml">ballenteye.xml</asset>
+    <asset path="../../../data/GHBowling/ballentflag.xml">ballentflag.xml</asset>
+    <asset path="../../../data/GHBowling/ballentgreenbluespiral.xml">ballentgreenbluespiral.xml</asset>
+    <asset path="../../../data/GHBowling/ballentgreensplat.xml">ballentgreensplat.xml</asset>
+    <asset path="../../../data/GHBowling/ballentjapan.xml">ballentjapan.xml</asset>
+    <asset path="../../../data/GHBowling/ballentlightning.xml">ballentlightning.xml</asset>
+    <asset path="../../../data/GHBowling/ballentmarble.xml">ballentmarble.xml</asset>
+    <asset path="../../../data/GHBowling/ballentmarble2.xml">ballentmarble2.xml</asset>
+    <asset path="../../../data/GHBowling/ballentmarble3.xml">ballentmarble3.xml</asset>
+    <asset path="../../../data/GHBowling/ballentspiral.xml">ballentspiral.xml</asset>
+    <asset path="../../../data/GHBowling/ballentspiral2.xml">ballentspiral2.xml</asset>
+    <asset path="../../../data/GHBowling/ballentstar.xml">ballentstar.xml</asset>
+    <asset path="../../../data/GHBowling/ballentuk.xml">ballentuk.xml</asset>
+    <asset path="../../../data/GHBowling/ballentwood.xml">ballentwood.xml</asset>
+    <asset path="../../../data/GHBowling/ballentyinyang.xml">ballentyinyang.xml</asset>
+    <asset path="../../../data/GHBowling/ballflag.png">ballflag.png</asset>
+    <asset path="../../../data/GHBowling/ballflaguk.png">ballflaguk.png</asset>
+    <asset path="../../../data/GHBowling/ballicon1mat.xml">ballicon1mat.xml</asset>
+    <asset path="../../../data/GHBowling/ballicon2mat.xml">ballicon2mat.xml</asset>
+    <asset path="../../../data/GHBowling/ballicon3mat.xml">ballicon3mat.xml</asset>
+    <asset path="../../../data/GHBowling/ballicon4mat.xml">ballicon4mat.xml</asset>
+    <asset path="../../../data/GHBowling/balljapandecal.png">balljapandecal.png</asset>
+    <asset path="../../../data/GHBowling/ballmarble.png">ballmarble.png</asset>
+    <asset path="../../../data/GHBowling/ballmarble2.png">ballmarble2.png</asset>
+    <asset path="../../../data/GHBowling/ballmarble3.png">ballmarble3.png</asset>
+    <asset path="../../../data/GHBowling/ballmiss.wav">ballmiss.wav</asset>
+    <asset path="../../../data/GHBowling/ballmodel.xml">ballmodel.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodeladditivelighting.xml">ballmodeladditivelighting.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelbrazil.xml">ballmodelbrazil.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelcandycane.xml">ballmodelcandycane.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodeleye.xml">ballmodeleye.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelflag.xml">ballmodelflag.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelgreensplat.xml">ballmodelgreensplat.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelheavy.xml">ballmodelheavy.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodeljapan.xml">ballmodeljapan.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodellight.xml">ballmodellight.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodellightning.xml">ballmodellightning.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelmarble.xml">ballmodelmarble.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelmarble2.xml">ballmodelmarble2.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelmarble3.xml">ballmodelmarble3.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelspiral.xml">ballmodelspiral.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelspiral2.xml">ballmodelspiral2.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelspiral2light.xml">ballmodelspiral2light.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelspiral2mediumlight.xml">ballmodelspiral2mediumlight.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelspiralheavy.xml">ballmodelspiralheavy.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelstar.xml">ballmodelstar.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelsuperheavy.xml">ballmodelsuperheavy.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelsuperlight.xml">ballmodelsuperlight.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodeluk.xml">ballmodeluk.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelwood.xml">ballmodelwood.xml</asset>
+    <asset path="../../../data/GHBowling/ballmodelyinyang.xml">ballmodelyinyang.xml</asset>
+    <asset path="../../../data/GHBowling/ballpit.jpg">ballpit.jpg</asset>
+    <asset path="../../../data/GHBowling/ballselectinnards.xml">ballselectinnards.xml</asset>
+    <asset path="../../../data/GHBowling/ballspiral.png">ballspiral.png</asset>
+    <asset path="../../../data/GHBowling/ballspiral2.png">ballspiral2.png</asset>
+    <asset path="../../../data/GHBowling/ballwhitebg.png">ballwhitebg.png</asset>
+    <asset path="../../../data/GHBowling/ballwood.png">ballwood.png</asset>
+    <asset path="../../../data/GHBowling/ballyinyang.png">ballyinyang.png</asset>
+    <asset path="../../../data/GHBowling/barbgmat.xml">barbgmat.xml</asset>
+    <asset path="../../../data/GHBowling/barbgrenderable.xml">barbgrenderable.xml</asset>
+    <asset path="../../../data/GHBowling/barfgmat.xml">barfgmat.xml</asset>
+    <asset path="../../../data/GHBowling/barfgrenderable.xml">barfgrenderable.xml</asset>
+    <asset path="../../../data/GHBowling/bgrect.png">bgrect.png</asset>
+    <asset path="../../../data/GHBowling/bgrect.xml">bgrect.xml</asset>
+    <asset path="../../../data/GHBowling/bgrectclear.png">bgrectclear.png</asset>
+    <asset path="../../../data/GHBowling/bgrecthalfheight.png">bgrecthalfheight.png</asset>
+    <asset path="../../../data/GHBowling/blackballent.xml">blackballent.xml</asset>
+    <asset path="../../../data/GHBowling/blocker.md3">blocker.md3</asset>
+    <asset path="../../../data/GHBowling/blocker1ent.xml">blocker1ent.xml</asset>
+    <asset path="../../../data/GHBowling/blocker1model.xml">blocker1model.xml</asset>
+    <asset path="../../../data/GHBowling/blueballent.xml">blueballent.xml</asset>
+    <asset path="../../../data/GHBowling/bowlingalley.md3">bowlingalley.md3</asset>
+    <asset path="../../../data/GHBowling/bowlingalleyent.xml">bowlingalleyent.xml</asset>
+    <asset path="../../../data/GHBowling/bowlingalleyent2.xml">bowlingalleyent2.xml</asset>
+    <asset path="../../../data/GHBowling/bowlingalleyent3.xml">bowlingalleyent3.xml</asset>
+    <asset path="../../../data/GHBowling/bowlingalleymodel.xml">bowlingalleymodel.xml</asset>
+    <asset path="../../../data/GHBowling/bowlingalleymodel2.xml">bowlingalleymodel2.xml</asset>
+    <asset path="../../../data/GHBowling/bowlingalleymodel3.xml">bowlingalleymodel3.xml</asset>
+    <asset path="../../../data/GHBowling/buttonbase.xml">buttonbase.xml</asset>
+    <asset path="../../../data/GHBowling/buttonbg.png">buttonbg.png</asset>
+    <asset path="../../../data/GHBowling/buttonbg.xml">buttonbg.xml</asset>
+    <asset path="../../../data/GHBowling/buttonbg2.png">buttonbg2.png</asset>
+    <asset path="../../../data/GHBowling/buttonbg2.xml">buttonbg2.xml</asset>
+    <asset path="../../../data/GHBowling/click.wav">click.wav</asset>
+    <asset path="../../../data/GHBowling/cloudball.jpg">cloudball.jpg</asset>
+    <asset path="../../../data/GHBowling/creditsGUI.xml">creditsGUI.xml</asset>
+    <asset path="../../../data/GHBowling/currencybutton.xml">currencybutton.xml</asset>
+    <asset path="../../../data/GHBowling/currencydisplay.xml">currencydisplay.xml</asset>
+    <asset path="../../../data/GHBowling/currencyiconmat.xml">currencyiconmat.xml</asset>
+    <asset path="../../../data/GHBowling/dotball.png">dotball.png</asset>
+    <asset path="../../../data/GHBowling/endgameGUI.xml">endgameGUI.xml</asset>
+    <asset path="../../../data/GHBowling/enterNameGUI.xml">enterNameGUI.xml</asset>
+    <asset path="../../../data/GHBowling/followcam.xml">followcam.xml</asset>
+    <asset path="../../../data/GHBowling/strikespareevents.xml">strikespareevents.xml</asset>
+    <asset path="../../../data/GHBowling/pinlayoutevents.xml">pinlayoutevents.xml</asset>
+    <asset path="../../../data/GHBowling/ghbcursor.png">ghbcursor.png</asset>
+    <asset path="../../../data/GHBowling/ghbCursorPressed.png">ghbCursorPressed.png</asset>
+    <asset path="../../../data/GHBowling/grayedout.png">grayedout.png</asset>
+    <asset path="../../../data/GHBowling/greenballent.xml">greenballent.xml</asset>
+    <asset path="../../../data/GHBowling/greensplat.png">greensplat.png</asset>
+    <asset path="../../../data/GHBowling/gutterball.wav">gutterball.wav</asset>
+    <asset path="../../../data/GHBowling/hammerbox.jpg">hammerbox.jpg</asset>
+    <asset path="../../../data/GHBowling/hourglass.png">hourglass.png</asset>
+    <asset path="../../../data/GHBowlingMetro/IAPGUI.xml">IAPGUI.xml</asset>
+    <asset path="../../../data/GHBowling/iapids.xml">iapids.xml</asset>
+    <asset path="../../../data/GHBowling/iconbluegreen.png">iconbluegreen.png</asset>
+    <asset path="../../../data/GHBowling/iconbrazil.png">iconbrazil.png</asset>
+    <asset path="../../../data/GHBowling/iconbumbleball.png">iconbumbleball.png</asset>
+    <asset path="../../../data/GHBowling/iconcandycane.png">iconcandycane.png</asset>
+    <asset path="../../../data/GHBowling/iconeye.png">iconeye.png</asset>
+    <asset path="../../../data/GHBowling/icongreensplat.png">icongreensplat.png</asset>
+    <asset path="../../../data/GHBowling/iconjapan.png">iconjapan.png</asset>
+    <asset path="../../../data/GHBowling/iconlightning.png">iconlightning.png</asset>
+    <asset path="../../../data/GHBowling/iconmarble1.png">iconmarble1.png</asset>
+    <asset path="../../../data/GHBowling/iconmarble2.png">iconmarble2.png</asset>
+    <asset path="../../../data/GHBowling/iconmarble3.png">iconmarble3.png</asset>
+    <asset path="../../../data/GHBowling/iconspiral.png">iconspiral.png</asset>
+    <asset path="../../../data/GHBowling/iconspiral2.png">iconspiral2.png</asset>
+    <asset path="../../../data/GHBowling/iconuk.png">iconuk.png</asset>
+    <asset path="../../../data/GHBowling/iconusa.png">iconusa.png</asset>
+    <asset path="../../../data/GHBowling/iconwood.png">iconwood.png</asset>
+    <asset path="../../../data/GHBowling/iconyinyang.png">iconyinyang.png</asset>
+    <asset path="../../../data/GHBowling/inGameOptionsGUI.xml">inGameOptionsGUI.xml</asset>
+    <asset path="../../../data/GHBowling/iris.png">iris.png</asset>
+    <asset path="../../../data/GHBowling/lanearrows.png">lanearrows.png</asset>
+    <asset path="../../../data/GHBowling/leftgutter.jpg">leftgutter.jpg</asset>
+    <asset path="../../../data/GHBowling/lightningbolt.png">lightningbolt.png</asset>
+    <asset path="../../../data/GHBowling/limeballent.xml">limeballent.xml</asset>
+    <asset path="../../../data/GHBowling/lockediconmat.xml">lockediconmat.xml</asset>
+    <asset path="../../../data/GHBowling/lockedswitch.xml">lockedswitch.xml</asset>
+    <asset path="../../../data/GHBowling/lockicon.png">lockicon.png</asset>
+    <asset path="../../../data/GHBowling/logo.png">logo.png</asset>
+    <asset path="../../../data/GHBowling/LouLogo.png">LouLogo.png</asset>
+    <asset path="../../../data/GHBowling/mapselectbutton.xml">mapselectbutton.xml</asset>
+    <asset path="../../../data/GHBowling/mapselectGUI.xml">mapselectGUI.xml</asset>
+    <asset path="../../../data/GHBowling/mapselectInnards.xml">mapselectInnards.xml</asset>
+    <asset path="../../../data/GHBowling/minimap.xml">minimap.xml</asset>
+    <asset path="../../../data/GHBowling/minimapball.png">minimapball.png</asset>
+    <asset path="../../../data/GHBowling/minimapbg.png">minimapbg.png</asset>
+    <asset path="../../../data/GHBowling/minimappin.png">minimappin.png</asset>
+    <asset path="../../../data/GHBowling/minimappin.xml">minimappin.xml</asset>
+    <asset path="../../../data/GHBowling/minus.png">minus.png</asset>
+    <asset path="../../../data/GHBowling/minus.xml">minus.xml</asset>
+    <asset path="../../../data/GHBowling/modalwaitdialog.xml">modalwaitdialog.xml</asset>
+    <asset path="../../../data/GHBowling/multiplayerendgamegui.xml">multiplayerendgamegui.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/multiplayerendgui.xml">multiplayerendgui.xml</asset>
+    <asset path="../../../data/GHBowling/nextbutton.png">nextbutton.png</asset>
+    <asset path="../../../data/GHBowling/nextbuttonmat.xml">nextbuttonmat.xml</asset>
+    <asset path="../../../data/GHBowling/optionsGUI.xml">optionsGUI.xml</asset>
+    <asset path="../../../data/GHBowling/orangeballent.xml">orangeballent.xml</asset>
+    <asset path="../../../data/GHBowling/pause.png">pause.png</asset>
+    <asset path="../../../data/GHBowling/pausebutton.xml">pausebutton.xml</asset>
+    <asset path="../../../data/GHBowling/pin.jpg">pin.jpg</asset>
+    <asset path="../../../data/GHBowling/pin.md3">pin.md3</asset>
+    <asset path="../../../data/GHBowling/pinent.xml">pinent.xml</asset>
+    <asset path="../../../data/GHBowling/pinhit.wav">pinhit.wav</asset>
+    <asset path="../../../data/GHBowling/pinicon.png">pinicon.png</asset>
+    <asset path="../../../data/GHBowling/pinkballent.xml">pinkballent.xml</asset>
+    <asset path="../../../data/GHBowling/pinmodel.xml">pinmodel.xml</asset>
+    <asset path="../../../data/GHBowling/pinsound.wav">pinsound.wav</asset>
+    <asset path="../../../data/GHBowling/playernameinput.xml">playernameinput.xml</asset>
+    <asset path="../../../data/GHBowling/plus.png">plus.png</asset>
+    <asset path="../../../data/GHBowling/purpleballent.xml">purpleballent.xml</asset>
+    <asset path="../../../data/GHBowling/ramp1.md3">ramp1.md3</asset>
+    <asset path="../../../data/GHBowling/ramp1ent.xml">ramp1ent.xml</asset>
+    <asset path="../../../data/GHBowling/ramp1model.xml">ramp1model.xml</asset>
+    <asset path="../../../data/GHBowling/ramptex.png">ramptex.png</asset>
+    <asset path="../../../data/GHBowling/redballent.xml">redballent.xml</asset>
+    <asset path="../../../data/GHBowling/rightgutter.jpg">rightgutter.jpg</asset>
+    <asset path="../../../data/GHBowling/rollingsound.wav">rollingsound.wav</asset>
+    <asset path="../../../data/GHBowling/scorebg.png">scorebg.png</asset>
+    <asset path="../../../data/GHBowling/scorebg.xml">scorebg.xml</asset>
+    <asset path="../../../data/GHBowling/scorebgcenternodiv.png">scorebgcenternodiv.png</asset>
+    <asset path="../../../data/GHBowling/scorebgcenternodiv.xml">scorebgcenternodiv.xml</asset>
+    <asset path="../../../data/GHBowling/scorebgcenternolines.png">scorebgcenternolines.png</asset>
+    <asset path="../../../data/GHBowling/scorebgcenternolines.xml">scorebgcenternolines.xml</asset>
+    <asset path="../../../data/GHBowling/scorebgleft.png">scorebgleft.png</asset>
+    <asset path="../../../data/GHBowling/scorebgleft.xml">scorebgleft.xml</asset>
+    <asset path="../../../data/GHBowling/scorebgleftnolines.png">scorebgleftnolines.png</asset>
+    <asset path="../../../data/GHBowling/scorebgleftnolines.xml">scorebgleftnolines.xml</asset>
+    <asset path="../../../data/GHBowling/scorebgright.png">scorebgright.png</asset>
+    <asset path="../../../data/GHBowling/scorebgright.xml">scorebgright.xml</asset>
+    <asset path="../../../data/GHBowling/scorebgrightnolines.png">scorebgrightnolines.png</asset>
+    <asset path="../../../data/GHBowling/scorebgrightnolines.xml">scorebgrightnolines.xml</asset>
+    <asset path="../../../data/GHBowling/scorepanelcomponents.xml">scorepanelcomponents.xml</asset>
+    <asset path="../../../data/GHBowling/scoresquare.png">scoresquare.png</asset>
+    <asset path="../../../data/GHBowling/scoresquare.xml">scoresquare.xml</asset>
+    <asset path="../../../data/GHBowling/selectedballmat.xml">selectedballmat.xml</asset>
+    <asset path="../../../data/GHBowling/selectedmat.xml">selectedmat.xml</asset>
+    <asset path="../../../data/GHBowling/selecticon1mat.xml">selecticon1mat.xml</asset>
+    <asset path="../../../data/GHBowling/selecticon2mat.xml">selecticon2mat.xml</asset>
+    <asset path="../../../data/GHBowling/selecticon3mat.xml">selecticon3mat.xml</asset>
+    <asset path="../../../data/GHBowling/selecticon4mat.xml">selecticon4mat.xml</asset>
+    <asset path="../../../data/GHBowling/selecticon5mat.xml">selecticon5mat.xml</asset>
+    <asset path="../../../data/GHBowling/selecticon6mat.xml">selecticon6mat.xml</asset>
+    <asset path="../../../data/GHBowling/selecticon7mat.xml">selecticon7mat.xml</asset>
+    <asset path="../../../data/GHBowling/selecticon8mat.xml">selecticon8mat.xml</asset>
+    <asset path="../../../data/GHBowling/sliderbar.png">sliderbar.png</asset>
+    <asset path="../../../data/GHBowling/spinswipearrow.png">spinswipearrow.png</asset>
+    <asset path="../../../data/GHBowling/spinswipeguimat.xml">spinswipeguimat.xml</asset>
+    <asset path="../../../data/GHBowling/spinswipemat.xml">spinswipemat.xml</asset>
+    <asset path="../../../data/GHBowling/spiral.png">spiral.png</asset>
+    <asset path="../../../data/GHBowling/splashGUI.xml">splashGUI.xml</asset>
+    <asset path="../../../data/GHBowling/spotballicon.png">spotballicon.png</asset>
+    <asset path="../../../data/GHBowling/staticpinent.xml">staticpinent.xml</asset>
+    <asset path="../../../data/GHBowling/stoppers.jpg">stoppers.jpg</asset>
+    <asset path="../../../data/GHBowling/store.xml">store.xml</asset>
+    <asset path="../../../data/GHBowling/strikebg.xml">strikebg.xml</asset>
+    <asset path="../../../data/GHBowling/swipearrow.png">swipearrow.png</asset>
+    <asset path="../../../data/GHBowling/swipeguimat.xml">swipeguimat.xml</asset>
+    <asset path="../../../data/GHBowling/swipemat.xml">swipemat.xml</asset>
+    <asset path="../../../data/GHBowling/tealballent.xml">tealballent.xml</asset>
+    <asset path="../../../data/GHBowling/tutorial.xml">tutorial.xml</asset>
+    <asset path="../../../data/GHBowling/tutorialhud.xml">tutorialhud.xml</asset>
+    <asset path="../../../data/GHBowling/tutorialskipbutton.xml">tutorialskipbutton.xml</asset>
+    <asset path="../../../data/GHBowling/whiteballicon.png">whiteballicon.png</asset>
+    <asset path="../../../data/GHBowling/whitecircle.png">whitecircle.png</asset>
+    <asset path="../../../data/GHBowling/woodfloor.jpg">woodfloor.jpg</asset>
+    <asset path="../../../data/GHBowling/woodsquare.png">woodsquare.png</asset>
+    <asset path="../../../data/GHBowling/yellowballent.xml">yellowballent.xml</asset>
+    <asset path="../../../data/iOSShaders/debugpixel.glsl">debugpixel.glsl</asset>
+    <asset path="../../../data/iOSShaders/debugvertex.glsl">debugvertex.glsl</asset>
+    <asset path="../../../data/iOSShaders/fontpixel.glsl">fontpixel.glsl</asset>
+    <asset path="../../../data/iOSShaders/fontvertex.glsl">fontvertex.glsl</asset>
+    <asset path="../../../data/iOSShaders/guivertex.glsl">guivertex.glsl</asset>
+    <asset path="../../../data/iOSShaders/hourglassvertex.glsl">hourglassvertex.glsl</asset>
+    <asset path="../../../data/iOSShaders/hourglasspixel.glsl">hourglasspixel.glsl</asset>
+    <asset path="../../../data/iOSShaders/pixel-1tex-lit.glsl">pixel-1tex-lit.glsl</asset>
+    <asset path="../../../data/iOSShaders/pixel-1tex.glsl">pixel-1tex.glsl</asset>
+    <asset path="../../../data/iOSShaders/pixel-2tex-lit.glsl">pixel-2tex-lit.glsl</asset>
+    <asset path="../../../data/iOSShaders/reflectiontestpixel.glsl">reflectiontestpixel.glsl</asset>
+    <asset path="../../../data/iOSShaders/staticmd3vertex.glsl">staticmd3vertex.glsl</asset>
+    <asset path="../../../data/iOSShaders/worldvertex-1tex.glsl">worldvertex-1tex.glsl</asset>
+    <asset path="../../../data/iOSShaders/worldvertex.glsl">worldvertex.glsl</asset>
+    <asset path="../../../data/shared/debugmat.xml">debugmat.xml</asset>
+    <asset path="../../../data/shared/ericfont.png">ericfont.png</asset>
+    <asset path="../../../data/shared/ericfont.xml">ericfont.xml</asset>
+    <asset path="../../../data/shared/fpsGUI.xml">fpsGUI.xml</asset>
+    <asset path="../../../data/shared/launchiPad.jpg">launchiPad.jpg</asset>
+    <asset path="../../../data/shared/launchiPhone.jpg">launchiPhone.jpg</asset>
+    <asset path="../../../data/GHBowlingiOS/arrowpixel.glsl">arrowpixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/backbutton.xml">backbutton.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/ballcolorpixel.glsl">ballcolorpixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/balldecalpixel.glsl">balldecalpixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/balldecalvertex.glsl">balldecalvertex.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/balldualcolorpixel.glsl">balldualcolorpixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/ballicon1pixel.glsl">ballicon1pixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/ballicon2pixel.glsl">ballicon2pixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/ballicon3pixel.glsl">ballicon3pixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/ballicon4pixel.glsl">ballicon4pixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/ballpixel.glsl">ballpixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/ballselectGUI.xml">ballselectGUI.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/ballvertex.glsl">ballvertex.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/barfgpixel.glsl">barfgpixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/pinreflectionvertex.glsl">pinreflectionvertex.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/pinreflectionpixel.glsl">pinreflectionpixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/pinvertex.glsl">pinvertex.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/pinpixel.glsl">pinpixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/playerballselectbutton.xml">playerballselectbutton.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/playerballselecticon.xml">playerballselecticon.xml</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/SLAwards.bundle">scoreloop/SLAwards.bundle</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/SLScoreFormatter.strings">SLScoreFormatter.strings</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/bowlingconfig.xml">bowlingconfig.xml</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/playernamebutton.xml">playernamebutton.xml</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/stattrackergui.xml">stattrackergui.xml</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/scoreloopscoresconfig.xml">scoreloopscoresconfig.xml</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/scoreloopScoresGUI.xml">scoreloopScoresGUI.xml</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/scoreloopAchievementsGUI.xml">scoreloopAchievementsGUI.xml</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/scoredisplaymat.xml">scoredisplaymat.xml</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/achievementdisplaymat.xml">achievementdisplaymat.xml</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/ourscoredisplaymat.xml">ourscoredisplaymat.xml</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/orangebg.png">orangebg.png</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/orangealphabg.png">orangealphabg.png</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/bluealphabg.png">bluealphabg.png</asset>
+    <asset path="../../../data/GHBowlingMac/demoskipbutton.xml">demoskipbutton.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/floorpixel.glsl">floorpixel.glsl</asset>
+    <asset path="../../../data/GHBowlingMac/gameeventbase.xml">gameeventbase.xml</asset>
+    <asset path="../../../data/GHBowlingMac/gametypeGUI.xml">gametypeGUI.xml</asset>
+    <asset path="../../../data/GHBowlingMac/gutterballskipbutton.xml">gutterballskipbutton.xml</asset>
+    <asset path="../../../data/GHBowling/hudGUI.xml">hudGUI.xml</asset>
+    <asset path="../../../data/GHBowling/countdowncurrencydisplay.xml">countdowncurrencydisplay.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/hudInnards.xml">hudInnards.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/lanepixel.glsl">lanepixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/lanevertex.glsl">lanevertex.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/menubutton.xml">menubutton.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/menubuttoninactive.xml">menubuttoninactive.xml</asset>
+    <asset path="../../../data/GHBowling/menuCurrency.xml">menuCurrency.xml</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/menuGUI.xml">menuGUI.xml</asset>
+    <asset path="../../../data/Bowling/GHBowlingBB/optionsInnards.xml">optionsInnards.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/pauseGUI.xml">pauseGUI.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/pixel-1tex-specular.glsl">pixel-1tex-specular.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/playerselectgui.xml">playerselectgui.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/ramppixel.glsl">ramppixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/rampvertex.glsl">rampvertex.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/rotatingguivertex.glsl">rotatingguivertex.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/scorecardpixel.glsl">scorecardpixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/selectedballpixel.glsl">selectedballpixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/selecticon1pixel.glsl">selecticon1pixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/selecticon2pixel.glsl">selecticon2pixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/selecticon3pixel.glsl">selecticon3pixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/selecticon4pixel.glsl">selecticon4pixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/selecticon5pixel.glsl">selecticon5pixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/selecticon6pixel.glsl">selecticon6pixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/selecticon7pixel.glsl">selecticon7pixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/selecticon8pixel.glsl">selecticon8pixel.glsl</asset>
+    <asset path="../../../data/GHBowlingMac/skipbutton.xml">skipbutton.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/stopperspixel.glsl">stopperspixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/stoppersvertex.glsl">stoppersvertex.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/swipeguivertex.glsl">swipeguivertex.glsl</asset>
+    <asset path="../../../data/GHBowlingMac/tutorialexample.xml">tutorialexample.xml</asset>
+    <asset path="../../../data/GHBowlingMac/tutorialminimap.xml">tutorialminimap.xml</asset>
+    <asset path="../../../data/GHBowlingMac/tutorialtextarea.xml">tutorialtextarea.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/vertex-1tex-specular.glsl">vertex-1tex-specular.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/yinyangpixel.glsl">yinyangpixel.glsl</asset>
+    <asset path="../../../data/GHBowlingiOS/housead.png">housead.png</asset>
+    <asset path="../../../data/GHBowlingiOS/houseads.xml">houseads.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/Icon-72.png">Icon-72.png</asset>
+    <asset path="../../../data/GHBowlingiOS/Icon-72@2x.png">Icon-72@2x.png</asset>
+    <asset path="../../../data/GHBowlingiOS/Icon.png">Icon.png</asset>
+    <asset path="../../../data/GHBowlingiOS/Icon@2x.png">Icon@2x.png</asset>
+    <asset path="../../../data/GHBowling/indicatorcircle.xml">indicatorcircle.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/iPad-houseads.xml">iPad-houseads.xml</asset>
+    <asset path="../../../data/GHBowlingiOS/iPad-indicatorcircle.xml">iPad-indicatorcircle.xml</asset>
+    <asset path="../../../data/GHBowlingMetro/currencypanel.xml">currencypanel.xml</asset>
+    <asset path="../../../data/GHBowling/tsstoppers.png">tsstoppers.png</asset>
+    <asset path="../../../data/GHBowling/tswall.png">tswall.png</asset>
+    <asset path="../../../data/GHBowlingiOS/tintpixel.glsl">tintpixel.glsl</asset>
+    <asset path="../../../data/GHBowling/chrome.png">chrome.png</asset>
+    <asset path="../../../data/GHBowling/trickshotalley.md3">trickshotalley.md3</asset>
+    <asset path="../../../data/GHBowling/smallredcircle.png">smallredcircle.png</asset>
+    <asset path="../../../data/GHBowling/backbuttonmat.xml">backbuttonmat.xml</asset>
+    <asset path="../../../data/GHBowling/bgrectclearmat.xml">bgrectclearmat.xml</asset>
+    <asset path="../../../data/GHBowling/podium.png">podium.png</asset>
+    <asset path="../../../data/GHBowling/trophy.png">trophy.png</asset>
+    <asset path="../../../data/GHBowling/ballphysicsheavy.xml">ballphysicsheavy.xml</asset>
+    <asset path="../../../data/GHBowling/ballphysicslight.xml">ballphysicslight.xml</asset>
+    <asset path="../../../data/GHBowling/ballphysicsmediumweight.xml">ballphysicsmediumweight.xml</asset>
+    <asset path="../../../data/GHBowling/ballphysicssuperheavy.xml">ballphysicssuperheavy.xml</asset>
+    <asset path="../../../data/GHBowling/ballphysicssuperlight.xml">ballphysicssuperlight.xml</asset>
+    <asset path="../../../data/GHBowling/baseballphysics.xml">baseballphysics.xml</asset>
+    <asset path="../../../data/GHBowling/guicontentpanel.xml">guicontentpanel.xml</asset>
+    <asset path="../../../data/GHBowling/blockerlong.md3">blockerlong.md3</asset>
+    <asset path="../../../data/GHBowling/blockerlongent.xml">blockerlongent.xml</asset>
+    <asset path="../../../data/GHBowling/blockerlongmodel.xml">blockerlongmodel.xml</asset>
+    <asset path="../../../data/GHBowling/blockershort.md3">blockershort.md3</asset>
+    <asset path="../../../data/GHBowling/blockershortent.xml">blockershortent.xml</asset>
+    <asset path="../../../data/GHBowling/blockershortmodel.xml">blockershortmodel.xml</asset>
+    <asset path="../../../data/GHBowling/ballrollloop.wav">ballrollloop.wav</asset>
+    <asset path="../../../data/GHBowling/ballrollstart.wav">ballrollstart.wav</asset>
+    <asset path="../../../data/GHBowling/gutterballroll.wav">gutterballroll.wav</asset>
+    <asset path="../../../data/GHBowling/gutterballstart.wav">gutterballstart.wav</asset>
+    
+    <asset path="icon.png">icon.png</asset>
+    <asset path="splash-1280x768.png">splash-1280x768.png</asset>
+    <asset path="splash-768x1280.png">splash-768x1280.png</asset>
+    
+    <configuration id="com.qnx.qcc.configuration.exe.debug.1791046686" name="Device-Debug">
+       <platformArchitecture>armle-v7</platformArchitecture>
+       <asset path="Device-Debug/GHBowling2" entry="true" type="Qnx/Elf">GHBowling2</asset>
+    </configuration>
+    <configuration id="com.qnx.qcc.configuration.exe.release.1785713963" name="Device-Release">
+       <platformArchitecture>armle-v7</platformArchitecture>
+       <asset path="Device-Release/GHBowling2" entry="true" type="Qnx/Elf">GHBowling2</asset>
+    </configuration>
+    <configuration id="com.qnx.qcc.configuration.exe.profile.1214299583" name="Device-Profile">
+       <platformArchitecture>armle-v7</platformArchitecture>
+       <asset path="Device-Profile/GHBowling2" entry="true" type="Qnx/Elf">GHBowling2</asset>
+    </configuration>
+    <configuration id="com.qnx.qcc.configuration.exe.profile.coverage.613729298" name="Device-Coverage">
+       <platformArchitecture>armle-v7</platformArchitecture>
+       <asset path="Device-Coverage/GHBowling2" entry="true" type="Qnx/Elf">GHBowling2</asset>
+    </configuration>
+    <configuration id="com.qnx.qcc.configuration.exe.debug.2012475930" name="Simulator-Debug">
+       <platformArchitecture>x86</platformArchitecture>
+       <asset path="Simulator-Debug/GHBowling2" entry="true" type="Qnx/Elf">GHBowling2</asset>
+    </configuration>
+    <configuration id="com.qnx.qcc.configuration.exe.profile.1783782930" name="Simulator-Profile">
+       <platformArchitecture>x86</platformArchitecture>
+       <asset path="Simulator-Profile/GHBowling2" entry="true" type="Qnx/Elf">GHBowling2</asset>
+    </configuration>
+    <configuration id="com.qnx.qcc.configuration.exe.profile.coverage.1910735896" name="Simulator-Coverage">
+       <platformArchitecture>x86</platformArchitecture>
+       <asset path="Simulator-Coverage/GHBowling2" entry="true" type="Qnx/Elf">GHBowling2</asset>
+    </configuration>
+    
+    <!--  The icon for the application, which should be 86x86. -->
+    
+    <!--  The splash screen that will appear when your application is launching. Should be 1024x600. -->
+    <!-- <splashscreen></splashscreen> -->
+
+    <!-- Request permission to execute native code.  Required for native applications. -->
+    <action system="true">run_native</action>
+    
+    <!--  The permissions requested by your application. -->
+    <!--  <action>access_shared</action> -->
+    <!--  <action>record_audio</action> -->
+    <!--  <action>read_geolocation</action> -->
+    <!--  <action>use_camera</action> -->
+    <!--  <action>access_internet</action> -->
+    <!--  <action>play_audio</action> -->
+    <!--  <action>post_notification</action> -->
+    <!--  <action>set_audio_volume</action> -->
+    <!--  <action>read_device_identifying_information</action> -->
+
+    <!-- Ensure that shared libraries in the package are found at run-time. -->
+    <env var="LD_LIBRARY_PATH" value="app/native/lib"/>
+    
+</qnx>

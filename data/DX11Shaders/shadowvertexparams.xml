@@ -1,0 +1,5 @@
+<shaderParams>
+  <floatParams>
+    <floatParam sizeFloats="16" cbType="CT_PERTRANS" semantic="ModelViewProj"/>
+  </floatParams>
+</shaderParams>

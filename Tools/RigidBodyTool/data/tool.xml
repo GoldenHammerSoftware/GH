@@ -1,0 +1,3 @@
+<ragdollTool desc="snowboarderragdolldesc.xml" activeID="ES_ACTIVE">
+    <redirect file=snowboarderent.xml/>
+</ragdollTool>

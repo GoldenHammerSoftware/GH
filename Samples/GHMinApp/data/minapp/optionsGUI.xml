@@ -1,0 +1,35 @@
+<guiPanel>
+	<guiPos xFill=FT_PCT yFill=FT_PCT align="1 0" offset="0 0" size="1 1"/>
+    <widgetStates>
+        <transitions stateEnum="WS_TRANSITIONOUT WS_TRANSITIONIN">
+            <controllerTransition><guiAnim prop=GP_OPTIONSTRANS>
+                <frame val=0>
+                    <guiPos align="1 0" offset="0 0" size="1 1"/>
+                </frame>
+                <frame val=1>
+                    <guiPos align="0 0" offset="0 0" size="1 1"/>
+                </frame>
+            </guiAnim></controllerTransition>
+        </transitions>
+    </widgetStates>
+    
+    <children>
+        <guiPanel inherit=guicontentpanel.xml>
+            <children>
+                <redirect file="optionsInnards.xml"/>
+                
+                <guiButton inherit=backbutton.xml>
+                    <buttonStates>
+                        <transitions stateEnum="BE_TRIGGERED">
+                            <messageSender><message id=SAVEOPTIONS/></messageSender>
+                            <guiPop widget="optionsGUI.xml" transitionProp=GP_OPTIONSTRANS transitionTime=0.4 transitionWait=0/>
+                            <guiPush widget="menuGUI.xml" transitionProp=GP_MENUTRANS transitionTime=0.4 transitionWait=0/>
+                        </transitions>
+                    </buttonStates>
+                </guiButton>
+            </children>
+        </guiPanel>
+    </children>
+    
+</guiPanel>
+

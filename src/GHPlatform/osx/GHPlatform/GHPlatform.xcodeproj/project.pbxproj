@@ -1,0 +1,803 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		95F0F4B9231DCB3A0097CC1C /* libGHString.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F0F4B5231DCB240097CC1C /* libGHString.a */; };
+		95F0F4BB231DCBB60097CC1C /* GHPlatform.pch in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4BA231DCBB60097CC1C /* GHPlatform.pch */; };
+		95F0F51C231DCCAB0097CC1C /* GHRedirectResourceLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4CE231DCCA30097CC1C /* GHRedirectResourceLoader.h */; };
+		95F0F51D231DCCAB0097CC1C /* GHResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4CF231DCCA30097CC1C /* GHResource.h */; };
+		95F0F51E231DCCAB0097CC1C /* GHMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F4D0231DCCA30097CC1C /* GHMessage.cpp */; };
+		95F0F51F231DCCAB0097CC1C /* GHStaticAssert.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4D1231DCCA30097CC1C /* GHStaticAssert.h */; };
+		95F0F520231DCCAB0097CC1C /* GHPlatformIdentifiers.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4D2231DCCA30097CC1C /* GHPlatformIdentifiers.h */; };
+		95F0F521231DCCAB0097CC1C /* GHProfileRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4D3231DCCA40097CC1C /* GHProfileRecord.h */; };
+		95F0F522231DCCAB0097CC1C /* GHTimeUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4D4231DCCA40097CC1C /* GHTimeUpdater.h */; };
+		95F0F523231DCCAB0097CC1C /* GHTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4D5231DCCA40097CC1C /* GHTransition.h */; };
+		95F0F524231DCCAB0097CC1C /* GHResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F4D6231DCCA40097CC1C /* GHResource.cpp */; };
+		95F0F525231DCCAB0097CC1C /* GHControllerTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4D7231DCCA40097CC1C /* GHControllerTransition.h */; };
+		95F0F526231DCCAB0097CC1C /* GHDebugMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4D8231DCCA40097CC1C /* GHDebugMessage.h */; };
+		95F0F527231DCCAB0097CC1C /* GHDebugMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F4D9231DCCA40097CC1C /* GHDebugMessage.cpp */; };
+		95F0F528231DCCAB0097CC1C /* GHEventMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4DA231DCCA40097CC1C /* GHEventMgr.h */; };
+		95F0F529231DCCAB0097CC1C /* GHDeletionHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4DB231DCCA40097CC1C /* GHDeletionHandle.h */; };
+		95F0F52A231DCCAB0097CC1C /* GHPrioritizedList.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4DC231DCCA40097CC1C /* GHPrioritizedList.h */; };
+		95F0F52B231DCCAB0097CC1C /* GHRefCountedDeletionHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4DD231DCCA40097CC1C /* GHRefCountedDeletionHandle.h */; };
+		95F0F52C231DCCAB0097CC1C /* GHStateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F4DE231DCCA40097CC1C /* GHStateMachine.cpp */; };
+		95F0F52D231DCCAB0097CC1C /* GHFilePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4DF231DCCA40097CC1C /* GHFilePicker.h */; };
+		95F0F52E231DCCAB0097CC1C /* GHPlatformServices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F4E0231DCCA40097CC1C /* GHPlatformServices.cpp */; };
+		95F0F52F231DCCAB0097CC1C /* GHProfileRecord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F4E1231DCCA40097CC1C /* GHProfileRecord.cpp */; };
+		95F0F530231DCCAB0097CC1C /* GHByteStreamPreallocated.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F4E2231DCCA50097CC1C /* GHByteStreamPreallocated.cpp */; };
+		95F0F531231DCCAB0097CC1C /* GHResourceLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4E3231DCCA50097CC1C /* GHResourceLoader.h */; };
+		95F0F532231DCCAB0097CC1C /* GHThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4E4231DCCA50097CC1C /* GHThread.h */; };
+		95F0F533231DCCAB0097CC1C /* GHTimeUpdater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F4E5231DCCA50097CC1C /* GHTimeUpdater.cpp */; };
+		95F0F534231DCCAB0097CC1C /* GHStlUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4E6231DCCA50097CC1C /* GHStlUtil.h */; };
+		95F0F535231DCCAB0097CC1C /* GHThreadSleeper.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4E7231DCCA50097CC1C /* GHThreadSleeper.h */; };
+		95F0F536231DCCAB0097CC1C /* GHProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4E8231DCCA50097CC1C /* GHProperty.h */; };
+		95F0F537231DCCAB0097CC1C /* GHXorFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4E9231DCCA50097CC1C /* GHXorFile.h */; };
+		95F0F538231DCCAB0097CC1C /* GHFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4EA231DCCA50097CC1C /* GHFile.h */; };
+		95F0F539231DCCAB0097CC1C /* GHOutputPipe.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4EB231DCCA50097CC1C /* GHOutputPipe.h */; };
+		95F0F53A231DCCAB0097CC1C /* GHMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4EC231DCCA50097CC1C /* GHMessage.h */; };
+		95F0F53B231DCCAB0097CC1C /* GHPlatformServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4ED231DCCA60097CC1C /* GHPlatformServices.h */; };
+		95F0F53C231DCCAB0097CC1C /* GHTypedVoidFuncRunnable.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4EE231DCCA60097CC1C /* GHTypedVoidFuncRunnable.h */; };
+		95F0F53D231DCCAB0097CC1C /* GHSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4EF231DCCA60097CC1C /* GHSocket.h */; };
+		95F0F53E231DCCAB0097CC1C /* GHRedirectResourceLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F4F0231DCCA60097CC1C /* GHRedirectResourceLoader.cpp */; };
+		95F0F53F231DCCAB0097CC1C /* GHRunnable.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4F1231DCCA60097CC1C /* GHRunnable.h */; };
+		95F0F540231DCCAB0097CC1C /* GHConnectionType.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4F2231DCCA60097CC1C /* GHConnectionType.h */; };
+		95F0F541231DCCAB0097CC1C /* GHByteStreamReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4F3231DCCA60097CC1C /* GHByteStreamReader.h */; };
+		95F0F542231DCCAB0097CC1C /* GHMessageQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F4F4231DCCA60097CC1C /* GHMessageQueue.cpp */; };
+		95F0F543231DCCAB0097CC1C /* GHSocketMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4F5231DCCA60097CC1C /* GHSocketMgr.h */; };
+		95F0F544231DCCAB0097CC1C /* GHStateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4F6231DCCA60097CC1C /* GHStateMachine.h */; };
+		95F0F545231DCCAB0097CC1C /* GHByteStreamReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F4F7231DCCA70097CC1C /* GHByteStreamReader.cpp */; };
+		95F0F546231DCCAB0097CC1C /* GHTimeCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4F8231DCCA70097CC1C /* GHTimeCalculator.h */; };
+		95F0F547231DCCAB0097CC1C /* GHPrintfOutputPipe.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4F9231DCCA70097CC1C /* GHPrintfOutputPipe.h */; };
+		95F0F548231DCCAB0097CC1C /* GHFileC.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4FA231DCCA70097CC1C /* GHFileC.h */; };
+		95F0F549231DCCAB0097CC1C /* GHControllerTransition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F4FB231DCCA70097CC1C /* GHControllerTransition.cpp */; };
+		95F0F54A231DCCAB0097CC1C /* GHOwnershipList.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4FC231DCCA70097CC1C /* GHOwnershipList.h */; };
+		95F0F54B231DCCAB0097CC1C /* GHMessageQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4FD231DCCA70097CC1C /* GHMessageQueue.h */; };
+		95F0F54C231DCCAB0097CC1C /* GHProfiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F4FE231DCCA70097CC1C /* GHProfiler.cpp */; };
+		95F0F54D231DCCAB0097CC1C /* GHPropertyContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F4FF231DCCA70097CC1C /* GHPropertyContainer.h */; };
+		95F0F54E231DCCAB0097CC1C /* GHProfiler.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F500231DCCA70097CC1C /* GHProfiler.h */; };
+		95F0F54F231DCCAB0097CC1C /* GHFileOpener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F501231DCCA80097CC1C /* GHFileOpener.cpp */; };
+		95F0F550231DCCAB0097CC1C /* GHProperty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F502231DCCA80097CC1C /* GHProperty.cpp */; };
+		95F0F551231DCCAB0097CC1C /* GHXorFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F503231DCCA80097CC1C /* GHXorFile.cpp */; };
+		95F0F552231DCCAB0097CC1C /* GHControllerMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F504231DCCA80097CC1C /* GHControllerMgr.cpp */; };
+		95F0F553231DCCAB0097CC1C /* GHController.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F505231DCCA80097CC1C /* GHController.h */; };
+		95F0F554231DCCAB0097CC1C /* GHResourceFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F506231DCCA80097CC1C /* GHResourceFactory.cpp */; };
+		95F0F555231DCCAB0097CC1C /* GHFOpenFileOpener.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F507231DCCA80097CC1C /* GHFOpenFileOpener.h */; };
+		95F0F556231DCCAB0097CC1C /* GHEventMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F508231DCCA80097CC1C /* GHEventMgr.cpp */; };
+		95F0F557231DCCAB0097CC1C /* GHTimeVal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F509231DCCA90097CC1C /* GHTimeVal.cpp */; };
+		95F0F558231DCCAB0097CC1C /* GHMessageHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F50A231DCCA90097CC1C /* GHMessageHandler.h */; };
+		95F0F559231DCCAB0097CC1C /* GHResourceCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F50B231DCCA90097CC1C /* GHResourceCache.h */; };
+		95F0F55A231DCCAB0097CC1C /* GHRefCounted.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F50C231DCCA90097CC1C /* GHRefCounted.cpp */; };
+		95F0F55B231DCCAB0097CC1C /* GHThreadSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F50D231DCCA90097CC1C /* GHThreadSignal.h */; };
+		95F0F55C231DCCAB0097CC1C /* GHByteStreamPreallocated.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F50E231DCCA90097CC1C /* GHByteStreamPreallocated.h */; };
+		95F0F55D231DCCAB0097CC1C /* GHFOpenFileOpener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F50F231DCCA90097CC1C /* GHFOpenFileOpener.cpp */; };
+		95F0F55E231DCCAB0097CC1C /* GHPrintfOutputPipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F510231DCCA90097CC1C /* GHPrintfOutputPipe.cpp */; };
+		95F0F55F231DCCAB0097CC1C /* GHMutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F511231DCCA90097CC1C /* GHMutex.h */; };
+		95F0F560231DCCAB0097CC1C /* GHByteStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F512231DCCAA0097CC1C /* GHByteStream.h */; };
+		95F0F561231DCCAB0097CC1C /* GHRefCounted.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F513231DCCAA0097CC1C /* GHRefCounted.h */; };
+		95F0F562231DCCAB0097CC1C /* GHResourceCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F514231DCCAA0097CC1C /* GHResourceCache.cpp */; };
+		95F0F563231DCCAB0097CC1C /* GHResourceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F515231DCCAA0097CC1C /* GHResourceFactory.h */; };
+		95F0F564231DCCAB0097CC1C /* GHTimeVal.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F516231DCCAA0097CC1C /* GHTimeVal.h */; };
+		95F0F565231DCCAB0097CC1C /* GHPropertyContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F517231DCCAA0097CC1C /* GHPropertyContainer.cpp */; };
+		95F0F566231DCCAB0097CC1C /* GHFileOpener.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F518231DCCAA0097CC1C /* GHFileOpener.h */; };
+		95F0F567231DCCAB0097CC1C /* GHControllerMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F519231DCCAA0097CC1C /* GHControllerMgr.h */; };
+		95F0F568231DCCAB0097CC1C /* GHThreadFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F51A231DCCAA0097CC1C /* GHThreadFactory.h */; };
+		95F0F569231DCCAB0097CC1C /* GHFileC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F51B231DCCAB0097CC1C /* GHFileC.cpp */; };
+		95F0F57A231DCCC10097CC1C /* GHCocoaOutputPipe.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F56A231DCCC00097CC1C /* GHCocoaOutputPipe.h */; };
+		95F0F57B231DCCC10097CC1C /* GHCocoaThreadFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F56B231DCCC00097CC1C /* GHCocoaThreadFactory.mm */; };
+		95F0F57C231DCCC10097CC1C /* GHCocoaThreadSleeper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F56C231DCCC00097CC1C /* GHCocoaThreadSleeper.mm */; };
+		95F0F57D231DCCC10097CC1C /* GHCocoaMutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F56D231DCCC00097CC1C /* GHCocoaMutex.h */; };
+		95F0F57E231DCCC10097CC1C /* GHCocoaTimeCalculator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F56E231DCCC00097CC1C /* GHCocoaTimeCalculator.mm */; };
+		95F0F57F231DCCC10097CC1C /* GHCocoaThread.mm in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F56F231DCCC00097CC1C /* GHCocoaThread.mm */; };
+		95F0F580231DCCC10097CC1C /* GHCocoaOutputPipe.mm in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F570231DCCC00097CC1C /* GHCocoaOutputPipe.mm */; };
+		95F0F581231DCCC10097CC1C /* GHCocoaThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F571231DCCC00097CC1C /* GHCocoaThread.h */; };
+		95F0F582231DCCC10097CC1C /* GHCocoaThreadFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F572231DCCC00097CC1C /* GHCocoaThreadFactory.h */; };
+		95F0F583231DCCC10097CC1C /* GHCocoaFileOpener.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F573231DCCC00097CC1C /* GHCocoaFileOpener.h */; };
+		95F0F584231DCCC10097CC1C /* GHCocoaMutex.mm in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F574231DCCC00097CC1C /* GHCocoaMutex.mm */; };
+		95F0F585231DCCC10097CC1C /* GHCocoaPlatformServices.mm in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F575231DCCC00097CC1C /* GHCocoaPlatformServices.mm */; };
+		95F0F586231DCCC10097CC1C /* GHCocoaFileOpener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F576231DCCC00097CC1C /* GHCocoaFileOpener.mm */; };
+		95F0F587231DCCC10097CC1C /* GHCocoaPlatformServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F577231DCCC00097CC1C /* GHCocoaPlatformServices.h */; };
+		95F0F588231DCCC10097CC1C /* GHCocoaTimeCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F578231DCCC00097CC1C /* GHCocoaTimeCalculator.h */; };
+		95F0F589231DCCC10097CC1C /* GHCocoaThreadSleeper.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F579231DCCC00097CC1C /* GHCocoaThreadSleeper.h */; };
+		95F0F597231DCCDE0097CC1C /* GHNullTimeCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F58A231DCCDD0097CC1C /* GHNullTimeCalculator.h */; };
+		95F0F598231DCCDE0097CC1C /* GHNullPlatformServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F58B231DCCDE0097CC1C /* GHNullPlatformServices.h */; };
+		95F0F599231DCCDE0097CC1C /* GHNullThreadFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F58C231DCCDE0097CC1C /* GHNullThreadFactory.cpp */; };
+		95F0F59A231DCCDE0097CC1C /* GHNullThreadFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F58D231DCCDE0097CC1C /* GHNullThreadFactory.h */; };
+		95F0F59B231DCCDE0097CC1C /* GHNullPlatformServices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F0F58E231DCCDE0097CC1C /* GHNullPlatformServices.cpp */; };
+		95F0F59C231DCCDE0097CC1C /* GHNullMutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F58F231DCCDE0097CC1C /* GHNullMutex.h */; };
+		95F0F59D231DCCDE0097CC1C /* GHNullSocketMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F590231DCCDE0097CC1C /* GHNullSocketMgr.h */; };
+		95F0F59E231DCCDE0097CC1C /* GHNullThreadSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F591231DCCDE0097CC1C /* GHNullThreadSignal.h */; };
+		95F0F59F231DCCDE0097CC1C /* GHNullWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F592231DCCDE0097CC1C /* GHNullWindow.h */; };
+		95F0F5A0231DCCDE0097CC1C /* GHNullThreadSleeper.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F593231DCCDE0097CC1C /* GHNullThreadSleeper.h */; };
+		95F0F5A1231DCCDE0097CC1C /* GHNullFileOpener.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F594231DCCDE0097CC1C /* GHNullFileOpener.h */; };
+		95F0F5A2231DCCDE0097CC1C /* GHNullFilePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F595231DCCDE0097CC1C /* GHNullFilePicker.h */; };
+		95F0F5A3231DCCDE0097CC1C /* GHNullThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F0F596231DCCDE0097CC1C /* GHNullThread.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		95F0F4B4231DCB240097CC1C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95F0F4B0231DCB240097CC1C /* GHString.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 95F0F243231D66360097CC1C;
+			remoteInfo = GHString;
+		};
+		95F0F4B6231DCB320097CC1C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95F0F4B0231DCB240097CC1C /* GHString.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 95F0F242231D66360097CC1C;
+			remoteInfo = GHString;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		95F0F3C2231DC56A0097CC1C /* libGHPlatform.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGHPlatform.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		95F0F4B0231DCB240097CC1C /* GHString.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHString.xcodeproj; path = ../../../GHString/osx/GHString/GHString.xcodeproj; sourceTree = "<group>"; };
+		95F0F4BA231DCBB60097CC1C /* GHPlatform.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHPlatform.pch; sourceTree = SOURCE_ROOT; };
+		95F0F4CE231DCCA30097CC1C /* GHRedirectResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRedirectResourceLoader.h; path = ../../GHRedirectResourceLoader.h; sourceTree = "<group>"; };
+		95F0F4CF231DCCA30097CC1C /* GHResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHResource.h; path = ../../GHResource.h; sourceTree = "<group>"; };
+		95F0F4D0231DCCA30097CC1C /* GHMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHMessage.cpp; path = ../../GHMessage.cpp; sourceTree = "<group>"; };
+		95F0F4D1231DCCA30097CC1C /* GHStaticAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHStaticAssert.h; path = ../../GHStaticAssert.h; sourceTree = "<group>"; };
+		95F0F4D2231DCCA30097CC1C /* GHPlatformIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHPlatformIdentifiers.h; path = ../../GHPlatformIdentifiers.h; sourceTree = "<group>"; };
+		95F0F4D3231DCCA40097CC1C /* GHProfileRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHProfileRecord.h; path = ../../GHProfileRecord.h; sourceTree = "<group>"; };
+		95F0F4D4231DCCA40097CC1C /* GHTimeUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTimeUpdater.h; path = ../../GHTimeUpdater.h; sourceTree = "<group>"; };
+		95F0F4D5231DCCA40097CC1C /* GHTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTransition.h; path = ../../GHTransition.h; sourceTree = "<group>"; };
+		95F0F4D6231DCCA40097CC1C /* GHResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHResource.cpp; path = ../../GHResource.cpp; sourceTree = "<group>"; };
+		95F0F4D7231DCCA40097CC1C /* GHControllerTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHControllerTransition.h; path = ../../GHControllerTransition.h; sourceTree = "<group>"; };
+		95F0F4D8231DCCA40097CC1C /* GHDebugMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHDebugMessage.h; path = ../../GHDebugMessage.h; sourceTree = "<group>"; };
+		95F0F4D9231DCCA40097CC1C /* GHDebugMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHDebugMessage.cpp; path = ../../GHDebugMessage.cpp; sourceTree = "<group>"; };
+		95F0F4DA231DCCA40097CC1C /* GHEventMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHEventMgr.h; path = ../../GHEventMgr.h; sourceTree = "<group>"; };
+		95F0F4DB231DCCA40097CC1C /* GHDeletionHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHDeletionHandle.h; path = ../../GHDeletionHandle.h; sourceTree = "<group>"; };
+		95F0F4DC231DCCA40097CC1C /* GHPrioritizedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHPrioritizedList.h; path = ../../GHPrioritizedList.h; sourceTree = "<group>"; };
+		95F0F4DD231DCCA40097CC1C /* GHRefCountedDeletionHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRefCountedDeletionHandle.h; path = ../../GHRefCountedDeletionHandle.h; sourceTree = "<group>"; };
+		95F0F4DE231DCCA40097CC1C /* GHStateMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHStateMachine.cpp; path = ../../GHStateMachine.cpp; sourceTree = "<group>"; };
+		95F0F4DF231DCCA40097CC1C /* GHFilePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHFilePicker.h; path = ../../GHFilePicker.h; sourceTree = "<group>"; };
+		95F0F4E0231DCCA40097CC1C /* GHPlatformServices.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHPlatformServices.cpp; path = ../../GHPlatformServices.cpp; sourceTree = "<group>"; };
+		95F0F4E1231DCCA40097CC1C /* GHProfileRecord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHProfileRecord.cpp; path = ../../GHProfileRecord.cpp; sourceTree = "<group>"; };
+		95F0F4E2231DCCA50097CC1C /* GHByteStreamPreallocated.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHByteStreamPreallocated.cpp; path = ../../GHByteStreamPreallocated.cpp; sourceTree = "<group>"; };
+		95F0F4E3231DCCA50097CC1C /* GHResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHResourceLoader.h; path = ../../GHResourceLoader.h; sourceTree = "<group>"; };
+		95F0F4E4231DCCA50097CC1C /* GHThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHThread.h; path = ../../GHThread.h; sourceTree = "<group>"; };
+		95F0F4E5231DCCA50097CC1C /* GHTimeUpdater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHTimeUpdater.cpp; path = ../../GHTimeUpdater.cpp; sourceTree = "<group>"; };
+		95F0F4E6231DCCA50097CC1C /* GHStlUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHStlUtil.h; path = ../../GHStlUtil.h; sourceTree = "<group>"; };
+		95F0F4E7231DCCA50097CC1C /* GHThreadSleeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHThreadSleeper.h; path = ../../GHThreadSleeper.h; sourceTree = "<group>"; };
+		95F0F4E8231DCCA50097CC1C /* GHProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHProperty.h; path = ../../GHProperty.h; sourceTree = "<group>"; };
+		95F0F4E9231DCCA50097CC1C /* GHXorFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHXorFile.h; path = ../../GHXorFile.h; sourceTree = "<group>"; };
+		95F0F4EA231DCCA50097CC1C /* GHFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHFile.h; path = ../../GHFile.h; sourceTree = "<group>"; };
+		95F0F4EB231DCCA50097CC1C /* GHOutputPipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHOutputPipe.h; path = ../../GHOutputPipe.h; sourceTree = "<group>"; };
+		95F0F4EC231DCCA50097CC1C /* GHMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHMessage.h; path = ../../GHMessage.h; sourceTree = "<group>"; };
+		95F0F4ED231DCCA60097CC1C /* GHPlatformServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHPlatformServices.h; path = ../../GHPlatformServices.h; sourceTree = "<group>"; };
+		95F0F4EE231DCCA60097CC1C /* GHTypedVoidFuncRunnable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTypedVoidFuncRunnable.h; path = ../../GHTypedVoidFuncRunnable.h; sourceTree = "<group>"; };
+		95F0F4EF231DCCA60097CC1C /* GHSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHSocket.h; path = ../../GHSocket.h; sourceTree = "<group>"; };
+		95F0F4F0231DCCA60097CC1C /* GHRedirectResourceLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRedirectResourceLoader.cpp; path = ../../GHRedirectResourceLoader.cpp; sourceTree = "<group>"; };
+		95F0F4F1231DCCA60097CC1C /* GHRunnable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRunnable.h; path = ../../GHRunnable.h; sourceTree = "<group>"; };
+		95F0F4F2231DCCA60097CC1C /* GHConnectionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHConnectionType.h; path = ../../GHConnectionType.h; sourceTree = "<group>"; };
+		95F0F4F3231DCCA60097CC1C /* GHByteStreamReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHByteStreamReader.h; path = ../../GHByteStreamReader.h; sourceTree = "<group>"; };
+		95F0F4F4231DCCA60097CC1C /* GHMessageQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHMessageQueue.cpp; path = ../../GHMessageQueue.cpp; sourceTree = "<group>"; };
+		95F0F4F5231DCCA60097CC1C /* GHSocketMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHSocketMgr.h; path = ../../GHSocketMgr.h; sourceTree = "<group>"; };
+		95F0F4F6231DCCA60097CC1C /* GHStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHStateMachine.h; path = ../../GHStateMachine.h; sourceTree = "<group>"; };
+		95F0F4F7231DCCA70097CC1C /* GHByteStreamReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHByteStreamReader.cpp; path = ../../GHByteStreamReader.cpp; sourceTree = "<group>"; };
+		95F0F4F8231DCCA70097CC1C /* GHTimeCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTimeCalculator.h; path = ../../GHTimeCalculator.h; sourceTree = "<group>"; };
+		95F0F4F9231DCCA70097CC1C /* GHPrintfOutputPipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHPrintfOutputPipe.h; path = ../../GHPrintfOutputPipe.h; sourceTree = "<group>"; };
+		95F0F4FA231DCCA70097CC1C /* GHFileC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHFileC.h; path = ../../GHFileC.h; sourceTree = "<group>"; };
+		95F0F4FB231DCCA70097CC1C /* GHControllerTransition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHControllerTransition.cpp; path = ../../GHControllerTransition.cpp; sourceTree = "<group>"; };
+		95F0F4FC231DCCA70097CC1C /* GHOwnershipList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHOwnershipList.h; path = ../../GHOwnershipList.h; sourceTree = "<group>"; };
+		95F0F4FD231DCCA70097CC1C /* GHMessageQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHMessageQueue.h; path = ../../GHMessageQueue.h; sourceTree = "<group>"; };
+		95F0F4FE231DCCA70097CC1C /* GHProfiler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHProfiler.cpp; path = ../../GHProfiler.cpp; sourceTree = "<group>"; };
+		95F0F4FF231DCCA70097CC1C /* GHPropertyContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHPropertyContainer.h; path = ../../GHPropertyContainer.h; sourceTree = "<group>"; };
+		95F0F500231DCCA70097CC1C /* GHProfiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHProfiler.h; path = ../../GHProfiler.h; sourceTree = "<group>"; };
+		95F0F501231DCCA80097CC1C /* GHFileOpener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHFileOpener.cpp; path = ../../GHFileOpener.cpp; sourceTree = "<group>"; };
+		95F0F502231DCCA80097CC1C /* GHProperty.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHProperty.cpp; path = ../../GHProperty.cpp; sourceTree = "<group>"; };
+		95F0F503231DCCA80097CC1C /* GHXorFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHXorFile.cpp; path = ../../GHXorFile.cpp; sourceTree = "<group>"; };
+		95F0F504231DCCA80097CC1C /* GHControllerMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHControllerMgr.cpp; path = ../../GHControllerMgr.cpp; sourceTree = "<group>"; };
+		95F0F505231DCCA80097CC1C /* GHController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHController.h; path = ../../GHController.h; sourceTree = "<group>"; };
+		95F0F506231DCCA80097CC1C /* GHResourceFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHResourceFactory.cpp; path = ../../GHResourceFactory.cpp; sourceTree = "<group>"; };
+		95F0F507231DCCA80097CC1C /* GHFOpenFileOpener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHFOpenFileOpener.h; path = ../../GHFOpenFileOpener.h; sourceTree = "<group>"; };
+		95F0F508231DCCA80097CC1C /* GHEventMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHEventMgr.cpp; path = ../../GHEventMgr.cpp; sourceTree = "<group>"; };
+		95F0F509231DCCA90097CC1C /* GHTimeVal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHTimeVal.cpp; path = ../../GHTimeVal.cpp; sourceTree = "<group>"; };
+		95F0F50A231DCCA90097CC1C /* GHMessageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHMessageHandler.h; path = ../../GHMessageHandler.h; sourceTree = "<group>"; };
+		95F0F50B231DCCA90097CC1C /* GHResourceCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHResourceCache.h; path = ../../GHResourceCache.h; sourceTree = "<group>"; };
+		95F0F50C231DCCA90097CC1C /* GHRefCounted.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHRefCounted.cpp; path = ../../GHRefCounted.cpp; sourceTree = "<group>"; };
+		95F0F50D231DCCA90097CC1C /* GHThreadSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHThreadSignal.h; path = ../../GHThreadSignal.h; sourceTree = "<group>"; };
+		95F0F50E231DCCA90097CC1C /* GHByteStreamPreallocated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHByteStreamPreallocated.h; path = ../../GHByteStreamPreallocated.h; sourceTree = "<group>"; };
+		95F0F50F231DCCA90097CC1C /* GHFOpenFileOpener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHFOpenFileOpener.cpp; path = ../../GHFOpenFileOpener.cpp; sourceTree = "<group>"; };
+		95F0F510231DCCA90097CC1C /* GHPrintfOutputPipe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHPrintfOutputPipe.cpp; path = ../../GHPrintfOutputPipe.cpp; sourceTree = "<group>"; };
+		95F0F511231DCCA90097CC1C /* GHMutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHMutex.h; path = ../../GHMutex.h; sourceTree = "<group>"; };
+		95F0F512231DCCAA0097CC1C /* GHByteStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHByteStream.h; path = ../../GHByteStream.h; sourceTree = "<group>"; };
+		95F0F513231DCCAA0097CC1C /* GHRefCounted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHRefCounted.h; path = ../../GHRefCounted.h; sourceTree = "<group>"; };
+		95F0F514231DCCAA0097CC1C /* GHResourceCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHResourceCache.cpp; path = ../../GHResourceCache.cpp; sourceTree = "<group>"; };
+		95F0F515231DCCAA0097CC1C /* GHResourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHResourceFactory.h; path = ../../GHResourceFactory.h; sourceTree = "<group>"; };
+		95F0F516231DCCAA0097CC1C /* GHTimeVal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTimeVal.h; path = ../../GHTimeVal.h; sourceTree = "<group>"; };
+		95F0F517231DCCAA0097CC1C /* GHPropertyContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHPropertyContainer.cpp; path = ../../GHPropertyContainer.cpp; sourceTree = "<group>"; };
+		95F0F518231DCCAA0097CC1C /* GHFileOpener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHFileOpener.h; path = ../../GHFileOpener.h; sourceTree = "<group>"; };
+		95F0F519231DCCAA0097CC1C /* GHControllerMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHControllerMgr.h; path = ../../GHControllerMgr.h; sourceTree = "<group>"; };
+		95F0F51A231DCCAA0097CC1C /* GHThreadFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHThreadFactory.h; path = ../../GHThreadFactory.h; sourceTree = "<group>"; };
+		95F0F51B231DCCAB0097CC1C /* GHFileC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHFileC.cpp; path = ../../GHFileC.cpp; sourceTree = "<group>"; };
+		95F0F56A231DCCC00097CC1C /* GHCocoaOutputPipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHCocoaOutputPipe.h; path = ../GHCocoaOutputPipe.h; sourceTree = "<group>"; };
+		95F0F56B231DCCC00097CC1C /* GHCocoaThreadFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GHCocoaThreadFactory.mm; path = ../GHCocoaThreadFactory.mm; sourceTree = "<group>"; };
+		95F0F56C231DCCC00097CC1C /* GHCocoaThreadSleeper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GHCocoaThreadSleeper.mm; path = ../GHCocoaThreadSleeper.mm; sourceTree = "<group>"; };
+		95F0F56D231DCCC00097CC1C /* GHCocoaMutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHCocoaMutex.h; path = ../GHCocoaMutex.h; sourceTree = "<group>"; };
+		95F0F56E231DCCC00097CC1C /* GHCocoaTimeCalculator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GHCocoaTimeCalculator.mm; path = ../GHCocoaTimeCalculator.mm; sourceTree = "<group>"; };
+		95F0F56F231DCCC00097CC1C /* GHCocoaThread.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GHCocoaThread.mm; path = ../GHCocoaThread.mm; sourceTree = "<group>"; };
+		95F0F570231DCCC00097CC1C /* GHCocoaOutputPipe.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GHCocoaOutputPipe.mm; path = ../GHCocoaOutputPipe.mm; sourceTree = "<group>"; };
+		95F0F571231DCCC00097CC1C /* GHCocoaThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHCocoaThread.h; path = ../GHCocoaThread.h; sourceTree = "<group>"; };
+		95F0F572231DCCC00097CC1C /* GHCocoaThreadFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHCocoaThreadFactory.h; path = ../GHCocoaThreadFactory.h; sourceTree = "<group>"; };
+		95F0F573231DCCC00097CC1C /* GHCocoaFileOpener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHCocoaFileOpener.h; path = ../GHCocoaFileOpener.h; sourceTree = "<group>"; };
+		95F0F574231DCCC00097CC1C /* GHCocoaMutex.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GHCocoaMutex.mm; path = ../GHCocoaMutex.mm; sourceTree = "<group>"; };
+		95F0F575231DCCC00097CC1C /* GHCocoaPlatformServices.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GHCocoaPlatformServices.mm; path = ../GHCocoaPlatformServices.mm; sourceTree = "<group>"; };
+		95F0F576231DCCC00097CC1C /* GHCocoaFileOpener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GHCocoaFileOpener.mm; path = ../GHCocoaFileOpener.mm; sourceTree = "<group>"; };
+		95F0F577231DCCC00097CC1C /* GHCocoaPlatformServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHCocoaPlatformServices.h; path = ../GHCocoaPlatformServices.h; sourceTree = "<group>"; };
+		95F0F578231DCCC00097CC1C /* GHCocoaTimeCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHCocoaTimeCalculator.h; path = ../GHCocoaTimeCalculator.h; sourceTree = "<group>"; };
+		95F0F579231DCCC00097CC1C /* GHCocoaThreadSleeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHCocoaThreadSleeper.h; path = ../GHCocoaThreadSleeper.h; sourceTree = "<group>"; };
+		95F0F58A231DCCDD0097CC1C /* GHNullTimeCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHNullTimeCalculator.h; path = ../../null/GHNullTimeCalculator.h; sourceTree = "<group>"; };
+		95F0F58B231DCCDE0097CC1C /* GHNullPlatformServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHNullPlatformServices.h; path = ../../null/GHNullPlatformServices.h; sourceTree = "<group>"; };
+		95F0F58C231DCCDE0097CC1C /* GHNullThreadFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHNullThreadFactory.cpp; path = ../../null/GHNullThreadFactory.cpp; sourceTree = "<group>"; };
+		95F0F58D231DCCDE0097CC1C /* GHNullThreadFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHNullThreadFactory.h; path = ../../null/GHNullThreadFactory.h; sourceTree = "<group>"; };
+		95F0F58E231DCCDE0097CC1C /* GHNullPlatformServices.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHNullPlatformServices.cpp; path = ../../null/GHNullPlatformServices.cpp; sourceTree = "<group>"; };
+		95F0F58F231DCCDE0097CC1C /* GHNullMutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHNullMutex.h; path = ../../null/GHNullMutex.h; sourceTree = "<group>"; };
+		95F0F590231DCCDE0097CC1C /* GHNullSocketMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHNullSocketMgr.h; path = ../../null/GHNullSocketMgr.h; sourceTree = "<group>"; };
+		95F0F591231DCCDE0097CC1C /* GHNullThreadSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHNullThreadSignal.h; path = ../../null/GHNullThreadSignal.h; sourceTree = "<group>"; };
+		95F0F592231DCCDE0097CC1C /* GHNullWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHNullWindow.h; path = ../../null/GHNullWindow.h; sourceTree = "<group>"; };
+		95F0F593231DCCDE0097CC1C /* GHNullThreadSleeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHNullThreadSleeper.h; path = ../../null/GHNullThreadSleeper.h; sourceTree = "<group>"; };
+		95F0F594231DCCDE0097CC1C /* GHNullFileOpener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHNullFileOpener.h; path = ../../null/GHNullFileOpener.h; sourceTree = "<group>"; };
+		95F0F595231DCCDE0097CC1C /* GHNullFilePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHNullFilePicker.h; path = ../../null/GHNullFilePicker.h; sourceTree = "<group>"; };
+		95F0F596231DCCDE0097CC1C /* GHNullThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHNullThread.h; path = ../../null/GHNullThread.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95F0F3C0231DC56A0097CC1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95F0F4B9231DCB3A0097CC1C /* libGHString.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95F0F3B9231DC56A0097CC1C = {
+			isa = PBXGroup;
+			children = (
+				95F0F4CA231DCC560097CC1C /* GHPlatform */,
+				95F0F4B0231DCB240097CC1C /* GHString.xcodeproj */,
+				95F0F3C3231DC56A0097CC1C /* Products */,
+				95F0F4B8231DCB3A0097CC1C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		95F0F3C3231DC56A0097CC1C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95F0F3C2231DC56A0097CC1C /* libGHPlatform.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95F0F4B1231DCB240097CC1C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95F0F4B5231DCB240097CC1C /* libGHString.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95F0F4B8231DCB3A0097CC1C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95F0F4CA231DCC560097CC1C /* GHPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				95F0F4CD231DCC850097CC1C /* null */,
+				95F0F4CC231DCC7E0097CC1C /* osx */,
+				95F0F4CB231DCC760097CC1C /* base */,
+				95F0F4BA231DCBB60097CC1C /* GHPlatform.pch */,
+			);
+			name = GHPlatform;
+			sourceTree = "<group>";
+		};
+		95F0F4CB231DCC760097CC1C /* base */ = {
+			isa = PBXGroup;
+			children = (
+				95F0F512231DCCAA0097CC1C /* GHByteStream.h */,
+				95F0F4E2231DCCA50097CC1C /* GHByteStreamPreallocated.cpp */,
+				95F0F50E231DCCA90097CC1C /* GHByteStreamPreallocated.h */,
+				95F0F4F7231DCCA70097CC1C /* GHByteStreamReader.cpp */,
+				95F0F4F3231DCCA60097CC1C /* GHByteStreamReader.h */,
+				95F0F4F2231DCCA60097CC1C /* GHConnectionType.h */,
+				95F0F505231DCCA80097CC1C /* GHController.h */,
+				95F0F504231DCCA80097CC1C /* GHControllerMgr.cpp */,
+				95F0F519231DCCAA0097CC1C /* GHControllerMgr.h */,
+				95F0F4FB231DCCA70097CC1C /* GHControllerTransition.cpp */,
+				95F0F4D7231DCCA40097CC1C /* GHControllerTransition.h */,
+				95F0F4D9231DCCA40097CC1C /* GHDebugMessage.cpp */,
+				95F0F4D8231DCCA40097CC1C /* GHDebugMessage.h */,
+				95F0F4DB231DCCA40097CC1C /* GHDeletionHandle.h */,
+				95F0F508231DCCA80097CC1C /* GHEventMgr.cpp */,
+				95F0F4DA231DCCA40097CC1C /* GHEventMgr.h */,
+				95F0F4EA231DCCA50097CC1C /* GHFile.h */,
+				95F0F51B231DCCAB0097CC1C /* GHFileC.cpp */,
+				95F0F4FA231DCCA70097CC1C /* GHFileC.h */,
+				95F0F501231DCCA80097CC1C /* GHFileOpener.cpp */,
+				95F0F518231DCCAA0097CC1C /* GHFileOpener.h */,
+				95F0F4DF231DCCA40097CC1C /* GHFilePicker.h */,
+				95F0F50F231DCCA90097CC1C /* GHFOpenFileOpener.cpp */,
+				95F0F507231DCCA80097CC1C /* GHFOpenFileOpener.h */,
+				95F0F4D0231DCCA30097CC1C /* GHMessage.cpp */,
+				95F0F4EC231DCCA50097CC1C /* GHMessage.h */,
+				95F0F50A231DCCA90097CC1C /* GHMessageHandler.h */,
+				95F0F4F4231DCCA60097CC1C /* GHMessageQueue.cpp */,
+				95F0F4FD231DCCA70097CC1C /* GHMessageQueue.h */,
+				95F0F511231DCCA90097CC1C /* GHMutex.h */,
+				95F0F4EB231DCCA50097CC1C /* GHOutputPipe.h */,
+				95F0F4FC231DCCA70097CC1C /* GHOwnershipList.h */,
+				95F0F4D2231DCCA30097CC1C /* GHPlatformIdentifiers.h */,
+				95F0F4E0231DCCA40097CC1C /* GHPlatformServices.cpp */,
+				95F0F4ED231DCCA60097CC1C /* GHPlatformServices.h */,
+				95F0F510231DCCA90097CC1C /* GHPrintfOutputPipe.cpp */,
+				95F0F4F9231DCCA70097CC1C /* GHPrintfOutputPipe.h */,
+				95F0F4DC231DCCA40097CC1C /* GHPrioritizedList.h */,
+				95F0F4FE231DCCA70097CC1C /* GHProfiler.cpp */,
+				95F0F500231DCCA70097CC1C /* GHProfiler.h */,
+				95F0F4E1231DCCA40097CC1C /* GHProfileRecord.cpp */,
+				95F0F4D3231DCCA40097CC1C /* GHProfileRecord.h */,
+				95F0F502231DCCA80097CC1C /* GHProperty.cpp */,
+				95F0F4E8231DCCA50097CC1C /* GHProperty.h */,
+				95F0F517231DCCAA0097CC1C /* GHPropertyContainer.cpp */,
+				95F0F4FF231DCCA70097CC1C /* GHPropertyContainer.h */,
+				95F0F4F0231DCCA60097CC1C /* GHRedirectResourceLoader.cpp */,
+				95F0F4CE231DCCA30097CC1C /* GHRedirectResourceLoader.h */,
+				95F0F50C231DCCA90097CC1C /* GHRefCounted.cpp */,
+				95F0F513231DCCAA0097CC1C /* GHRefCounted.h */,
+				95F0F4DD231DCCA40097CC1C /* GHRefCountedDeletionHandle.h */,
+				95F0F4D6231DCCA40097CC1C /* GHResource.cpp */,
+				95F0F4CF231DCCA30097CC1C /* GHResource.h */,
+				95F0F514231DCCAA0097CC1C /* GHResourceCache.cpp */,
+				95F0F50B231DCCA90097CC1C /* GHResourceCache.h */,
+				95F0F506231DCCA80097CC1C /* GHResourceFactory.cpp */,
+				95F0F515231DCCAA0097CC1C /* GHResourceFactory.h */,
+				95F0F4E3231DCCA50097CC1C /* GHResourceLoader.h */,
+				95F0F4F1231DCCA60097CC1C /* GHRunnable.h */,
+				95F0F4EF231DCCA60097CC1C /* GHSocket.h */,
+				95F0F4F5231DCCA60097CC1C /* GHSocketMgr.h */,
+				95F0F4DE231DCCA40097CC1C /* GHStateMachine.cpp */,
+				95F0F4F6231DCCA60097CC1C /* GHStateMachine.h */,
+				95F0F4D1231DCCA30097CC1C /* GHStaticAssert.h */,
+				95F0F4E6231DCCA50097CC1C /* GHStlUtil.h */,
+				95F0F4E4231DCCA50097CC1C /* GHThread.h */,
+				95F0F51A231DCCAA0097CC1C /* GHThreadFactory.h */,
+				95F0F50D231DCCA90097CC1C /* GHThreadSignal.h */,
+				95F0F4E7231DCCA50097CC1C /* GHThreadSleeper.h */,
+				95F0F4F8231DCCA70097CC1C /* GHTimeCalculator.h */,
+				95F0F4E5231DCCA50097CC1C /* GHTimeUpdater.cpp */,
+				95F0F4D4231DCCA40097CC1C /* GHTimeUpdater.h */,
+				95F0F509231DCCA90097CC1C /* GHTimeVal.cpp */,
+				95F0F516231DCCAA0097CC1C /* GHTimeVal.h */,
+				95F0F4D5231DCCA40097CC1C /* GHTransition.h */,
+				95F0F4EE231DCCA60097CC1C /* GHTypedVoidFuncRunnable.h */,
+				95F0F503231DCCA80097CC1C /* GHXorFile.cpp */,
+				95F0F4E9231DCCA50097CC1C /* GHXorFile.h */,
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
+		95F0F4CC231DCC7E0097CC1C /* osx */ = {
+			isa = PBXGroup;
+			children = (
+				95F0F573231DCCC00097CC1C /* GHCocoaFileOpener.h */,
+				95F0F576231DCCC00097CC1C /* GHCocoaFileOpener.mm */,
+				95F0F56D231DCCC00097CC1C /* GHCocoaMutex.h */,
+				95F0F574231DCCC00097CC1C /* GHCocoaMutex.mm */,
+				95F0F56A231DCCC00097CC1C /* GHCocoaOutputPipe.h */,
+				95F0F570231DCCC00097CC1C /* GHCocoaOutputPipe.mm */,
+				95F0F577231DCCC00097CC1C /* GHCocoaPlatformServices.h */,
+				95F0F575231DCCC00097CC1C /* GHCocoaPlatformServices.mm */,
+				95F0F571231DCCC00097CC1C /* GHCocoaThread.h */,
+				95F0F56F231DCCC00097CC1C /* GHCocoaThread.mm */,
+				95F0F572231DCCC00097CC1C /* GHCocoaThreadFactory.h */,
+				95F0F56B231DCCC00097CC1C /* GHCocoaThreadFactory.mm */,
+				95F0F579231DCCC00097CC1C /* GHCocoaThreadSleeper.h */,
+				95F0F56C231DCCC00097CC1C /* GHCocoaThreadSleeper.mm */,
+				95F0F578231DCCC00097CC1C /* GHCocoaTimeCalculator.h */,
+				95F0F56E231DCCC00097CC1C /* GHCocoaTimeCalculator.mm */,
+			);
+			name = osx;
+			sourceTree = "<group>";
+		};
+		95F0F4CD231DCC850097CC1C /* null */ = {
+			isa = PBXGroup;
+			children = (
+				95F0F594231DCCDE0097CC1C /* GHNullFileOpener.h */,
+				95F0F595231DCCDE0097CC1C /* GHNullFilePicker.h */,
+				95F0F58F231DCCDE0097CC1C /* GHNullMutex.h */,
+				95F0F58E231DCCDE0097CC1C /* GHNullPlatformServices.cpp */,
+				95F0F58B231DCCDE0097CC1C /* GHNullPlatformServices.h */,
+				95F0F590231DCCDE0097CC1C /* GHNullSocketMgr.h */,
+				95F0F596231DCCDE0097CC1C /* GHNullThread.h */,
+				95F0F58C231DCCDE0097CC1C /* GHNullThreadFactory.cpp */,
+				95F0F58D231DCCDE0097CC1C /* GHNullThreadFactory.h */,
+				95F0F591231DCCDE0097CC1C /* GHNullThreadSignal.h */,
+				95F0F593231DCCDE0097CC1C /* GHNullThreadSleeper.h */,
+				95F0F58A231DCCDD0097CC1C /* GHNullTimeCalculator.h */,
+				95F0F592231DCCDE0097CC1C /* GHNullWindow.h */,
+			);
+			name = null;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		95F0F3BE231DC56A0097CC1C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95F0F521231DCCAB0097CC1C /* GHProfileRecord.h in Headers */,
+				95F0F5A0231DCCDE0097CC1C /* GHNullThreadSleeper.h in Headers */,
+				95F0F581231DCCC10097CC1C /* GHCocoaThread.h in Headers */,
+				95F0F598231DCCDE0097CC1C /* GHNullPlatformServices.h in Headers */,
+				95F0F589231DCCC10097CC1C /* GHCocoaThreadSleeper.h in Headers */,
+				95F0F597231DCCDE0097CC1C /* GHNullTimeCalculator.h in Headers */,
+				95F0F59A231DCCDE0097CC1C /* GHNullThreadFactory.h in Headers */,
+				95F0F559231DCCAB0097CC1C /* GHResourceCache.h in Headers */,
+				95F0F534231DCCAB0097CC1C /* GHStlUtil.h in Headers */,
+				95F0F51D231DCCAB0097CC1C /* GHResource.h in Headers */,
+				95F0F51C231DCCAB0097CC1C /* GHRedirectResourceLoader.h in Headers */,
+				95F0F546231DCCAB0097CC1C /* GHTimeCalculator.h in Headers */,
+				95F0F529231DCCAB0097CC1C /* GHDeletionHandle.h in Headers */,
+				95F0F582231DCCC10097CC1C /* GHCocoaThreadFactory.h in Headers */,
+				95F0F55F231DCCAB0097CC1C /* GHMutex.h in Headers */,
+				95F0F535231DCCAB0097CC1C /* GHThreadSleeper.h in Headers */,
+				95F0F537231DCCAB0097CC1C /* GHXorFile.h in Headers */,
+				95F0F55C231DCCAB0097CC1C /* GHByteStreamPreallocated.h in Headers */,
+				95F0F4BB231DCBB60097CC1C /* GHPlatform.pch in Headers */,
+				95F0F5A1231DCCDE0097CC1C /* GHNullFileOpener.h in Headers */,
+				95F0F564231DCCAB0097CC1C /* GHTimeVal.h in Headers */,
+				95F0F522231DCCAB0097CC1C /* GHTimeUpdater.h in Headers */,
+				95F0F555231DCCAB0097CC1C /* GHFOpenFileOpener.h in Headers */,
+				95F0F57D231DCCC10097CC1C /* GHCocoaMutex.h in Headers */,
+				95F0F531231DCCAB0097CC1C /* GHResourceLoader.h in Headers */,
+				95F0F566231DCCAB0097CC1C /* GHFileOpener.h in Headers */,
+				95F0F541231DCCAB0097CC1C /* GHByteStreamReader.h in Headers */,
+				95F0F544231DCCAB0097CC1C /* GHStateMachine.h in Headers */,
+				95F0F558231DCCAB0097CC1C /* GHMessageHandler.h in Headers */,
+				95F0F567231DCCAB0097CC1C /* GHControllerMgr.h in Headers */,
+				95F0F52B231DCCAB0097CC1C /* GHRefCountedDeletionHandle.h in Headers */,
+				95F0F548231DCCAB0097CC1C /* GHFileC.h in Headers */,
+				95F0F59F231DCCDE0097CC1C /* GHNullWindow.h in Headers */,
+				95F0F59E231DCCDE0097CC1C /* GHNullThreadSignal.h in Headers */,
+				95F0F588231DCCC10097CC1C /* GHCocoaTimeCalculator.h in Headers */,
+				95F0F583231DCCC10097CC1C /* GHCocoaFileOpener.h in Headers */,
+				95F0F568231DCCAB0097CC1C /* GHThreadFactory.h in Headers */,
+				95F0F59C231DCCDE0097CC1C /* GHNullMutex.h in Headers */,
+				95F0F553231DCCAB0097CC1C /* GHController.h in Headers */,
+				95F0F53C231DCCAB0097CC1C /* GHTypedVoidFuncRunnable.h in Headers */,
+				95F0F538231DCCAB0097CC1C /* GHFile.h in Headers */,
+				95F0F525231DCCAB0097CC1C /* GHControllerTransition.h in Headers */,
+				95F0F53A231DCCAB0097CC1C /* GHMessage.h in Headers */,
+				95F0F560231DCCAB0097CC1C /* GHByteStream.h in Headers */,
+				95F0F55B231DCCAB0097CC1C /* GHThreadSignal.h in Headers */,
+				95F0F52D231DCCAB0097CC1C /* GHFilePicker.h in Headers */,
+				95F0F547231DCCAB0097CC1C /* GHPrintfOutputPipe.h in Headers */,
+				95F0F54A231DCCAB0097CC1C /* GHOwnershipList.h in Headers */,
+				95F0F587231DCCC10097CC1C /* GHCocoaPlatformServices.h in Headers */,
+				95F0F51F231DCCAB0097CC1C /* GHStaticAssert.h in Headers */,
+				95F0F5A2231DCCDE0097CC1C /* GHNullFilePicker.h in Headers */,
+				95F0F54B231DCCAB0097CC1C /* GHMessageQueue.h in Headers */,
+				95F0F54D231DCCAB0097CC1C /* GHPropertyContainer.h in Headers */,
+				95F0F523231DCCAB0097CC1C /* GHTransition.h in Headers */,
+				95F0F561231DCCAB0097CC1C /* GHRefCounted.h in Headers */,
+				95F0F536231DCCAB0097CC1C /* GHProperty.h in Headers */,
+				95F0F528231DCCAB0097CC1C /* GHEventMgr.h in Headers */,
+				95F0F53B231DCCAB0097CC1C /* GHPlatformServices.h in Headers */,
+				95F0F539231DCCAB0097CC1C /* GHOutputPipe.h in Headers */,
+				95F0F53D231DCCAB0097CC1C /* GHSocket.h in Headers */,
+				95F0F540231DCCAB0097CC1C /* GHConnectionType.h in Headers */,
+				95F0F52A231DCCAB0097CC1C /* GHPrioritizedList.h in Headers */,
+				95F0F57A231DCCC10097CC1C /* GHCocoaOutputPipe.h in Headers */,
+				95F0F543231DCCAB0097CC1C /* GHSocketMgr.h in Headers */,
+				95F0F53F231DCCAB0097CC1C /* GHRunnable.h in Headers */,
+				95F0F59D231DCCDE0097CC1C /* GHNullSocketMgr.h in Headers */,
+				95F0F532231DCCAB0097CC1C /* GHThread.h in Headers */,
+				95F0F520231DCCAB0097CC1C /* GHPlatformIdentifiers.h in Headers */,
+				95F0F526231DCCAB0097CC1C /* GHDebugMessage.h in Headers */,
+				95F0F54E231DCCAB0097CC1C /* GHProfiler.h in Headers */,
+				95F0F5A3231DCCDE0097CC1C /* GHNullThread.h in Headers */,
+				95F0F563231DCCAB0097CC1C /* GHResourceFactory.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		95F0F3C1231DC56A0097CC1C /* GHPlatform */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95F0F3CB231DC56A0097CC1C /* Build configuration list for PBXNativeTarget "GHPlatform" */;
+			buildPhases = (
+				95F0F3BE231DC56A0097CC1C /* Headers */,
+				95F0F3BF231DC56A0097CC1C /* Sources */,
+				95F0F3C0231DC56A0097CC1C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95F0F4B7231DCB320097CC1C /* PBXTargetDependency */,
+			);
+			name = GHPlatform;
+			productName = GHPlatform;
+			productReference = 95F0F3C2231DC56A0097CC1C /* libGHPlatform.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95F0F3BA231DC56A0097CC1C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Golden Hammer Software";
+				TargetAttributes = {
+					95F0F3C1231DC56A0097CC1C = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 95F0F3BD231DC56A0097CC1C /* Build configuration list for PBXProject "GHPlatform" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 95F0F3B9231DC56A0097CC1C;
+			productRefGroup = 95F0F3C3231DC56A0097CC1C /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 95F0F4B1231DCB240097CC1C /* Products */;
+					ProjectRef = 95F0F4B0231DCB240097CC1C /* GHString.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				95F0F3C1231DC56A0097CC1C /* GHPlatform */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		95F0F4B5231DCB240097CC1C /* libGHString.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGHString.a;
+			remoteRef = 95F0F4B4231DCB240097CC1C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95F0F3BF231DC56A0097CC1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95F0F556231DCCAB0097CC1C /* GHEventMgr.cpp in Sources */,
+				95F0F55A231DCCAB0097CC1C /* GHRefCounted.cpp in Sources */,
+				95F0F57E231DCCC10097CC1C /* GHCocoaTimeCalculator.mm in Sources */,
+				95F0F52C231DCCAB0097CC1C /* GHStateMachine.cpp in Sources */,
+				95F0F554231DCCAB0097CC1C /* GHResourceFactory.cpp in Sources */,
+				95F0F569231DCCAB0097CC1C /* GHFileC.cpp in Sources */,
+				95F0F524231DCCAB0097CC1C /* GHResource.cpp in Sources */,
+				95F0F54C231DCCAB0097CC1C /* GHProfiler.cpp in Sources */,
+				95F0F585231DCCC10097CC1C /* GHCocoaPlatformServices.mm in Sources */,
+				95F0F57C231DCCC10097CC1C /* GHCocoaThreadSleeper.mm in Sources */,
+				95F0F59B231DCCDE0097CC1C /* GHNullPlatformServices.cpp in Sources */,
+				95F0F54F231DCCAB0097CC1C /* GHFileOpener.cpp in Sources */,
+				95F0F562231DCCAB0097CC1C /* GHResourceCache.cpp in Sources */,
+				95F0F580231DCCC10097CC1C /* GHCocoaOutputPipe.mm in Sources */,
+				95F0F527231DCCAB0097CC1C /* GHDebugMessage.cpp in Sources */,
+				95F0F57B231DCCC10097CC1C /* GHCocoaThreadFactory.mm in Sources */,
+				95F0F52F231DCCAB0097CC1C /* GHProfileRecord.cpp in Sources */,
+				95F0F551231DCCAB0097CC1C /* GHXorFile.cpp in Sources */,
+				95F0F55D231DCCAB0097CC1C /* GHFOpenFileOpener.cpp in Sources */,
+				95F0F542231DCCAB0097CC1C /* GHMessageQueue.cpp in Sources */,
+				95F0F549231DCCAB0097CC1C /* GHControllerTransition.cpp in Sources */,
+				95F0F557231DCCAB0097CC1C /* GHTimeVal.cpp in Sources */,
+				95F0F599231DCCDE0097CC1C /* GHNullThreadFactory.cpp in Sources */,
+				95F0F586231DCCC10097CC1C /* GHCocoaFileOpener.mm in Sources */,
+				95F0F53E231DCCAB0097CC1C /* GHRedirectResourceLoader.cpp in Sources */,
+				95F0F530231DCCAB0097CC1C /* GHByteStreamPreallocated.cpp in Sources */,
+				95F0F533231DCCAB0097CC1C /* GHTimeUpdater.cpp in Sources */,
+				95F0F55E231DCCAB0097CC1C /* GHPrintfOutputPipe.cpp in Sources */,
+				95F0F550231DCCAB0097CC1C /* GHProperty.cpp in Sources */,
+				95F0F51E231DCCAB0097CC1C /* GHMessage.cpp in Sources */,
+				95F0F552231DCCAB0097CC1C /* GHControllerMgr.cpp in Sources */,
+				95F0F52E231DCCAB0097CC1C /* GHPlatformServices.cpp in Sources */,
+				95F0F545231DCCAB0097CC1C /* GHByteStreamReader.cpp in Sources */,
+				95F0F57F231DCCC10097CC1C /* GHCocoaThread.mm in Sources */,
+				95F0F584231DCCC10097CC1C /* GHCocoaMutex.mm in Sources */,
+				95F0F565231DCCAB0097CC1C /* GHPropertyContainer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		95F0F4B7231DCB320097CC1C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GHString;
+			targetProxy = 95F0F4B6231DCB320097CC1C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		95F0F3C9231DC56A0097CC1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		95F0F3CA231DC56A0097CC1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		95F0F3CC231DC56A0097CC1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EC6XRWE9L4;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GHPlatform.pch;
+				HEADER_SEARCH_PATHS = ../../../;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		95F0F3CD231DC56A0097CC1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EC6XRWE9L4;
+				EXECUTABLE_PREFIX = lib;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GHPlatform.pch;
+				HEADER_SEARCH_PATHS = ../../../;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95F0F3BD231DC56A0097CC1C /* Build configuration list for PBXProject "GHPlatform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95F0F3C9231DC56A0097CC1C /* Debug */,
+				95F0F3CA231DC56A0097CC1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95F0F3CB231DC56A0097CC1C /* Build configuration list for PBXNativeTarget "GHPlatform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95F0F3CC231DC56A0097CC1C /* Debug */,
+				95F0F3CD231DC56A0097CC1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95F0F3BA231DC56A0097CC1C /* Project object */;
+}

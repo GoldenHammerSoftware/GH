@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\GHByteStream.h" />
+    <ClInclude Include="..\..\GHByteStreamPreallocated.h" />
+    <ClInclude Include="..\..\GHByteStreamReader.h" />
+    <ClInclude Include="..\..\GHConnectionType.h" />
+    <ClInclude Include="..\..\GHDebugMessage.h" />
+    <ClInclude Include="..\..\GHDeletionHandle.h" />
+    <ClInclude Include="..\..\GHFile.h" />
+    <ClInclude Include="..\..\GHFileC.h" />
+    <ClInclude Include="..\..\GHFileOpener.h" />
+    <ClInclude Include="..\..\GHFilePicker.h" />
+    <ClInclude Include="..\..\GHFOpenFileOpener.h" />
+    <ClInclude Include="..\..\GHMutex.h" />
+    <ClInclude Include="..\..\GHOutputPipe.h" />
+    <ClInclude Include="..\..\GHOwnershipList.h" />
+    <ClInclude Include="..\..\GHPlatformIdentifiers.h" />
+    <ClInclude Include="..\..\GHPlatformServices.h" />
+    <ClInclude Include="..\..\GHPrintfOutputPipe.h" />
+    <ClInclude Include="..\..\GHPrioritizedList.h" />
+    <ClInclude Include="..\..\GHRefCounted.h" />
+    <ClInclude Include="..\..\GHRefCountedDeletionHandle.h" />
+    <ClInclude Include="..\..\GHRunnable.h" />
+    <ClInclude Include="..\..\GHSocket.h" />
+    <ClInclude Include="..\..\GHSocketMgr.h" />
+    <ClInclude Include="..\..\GHStaticAssert.h" />
+    <ClInclude Include="..\..\GHStlUtil.h" />
+    <ClInclude Include="..\..\GHThread.h" />
+    <ClInclude Include="..\..\GHThreadFactory.h" />
+    <ClInclude Include="..\..\GHThreadSignal.h" />
+    <ClInclude Include="..\..\GHThreadSleeper.h" />
+    <ClInclude Include="..\..\GHTimeCalculator.h" />
+    <ClInclude Include="..\..\GHTimeVal.h" />
+    <ClInclude Include="..\..\GHTypedVoidFuncRunnable.h" />
+    <ClInclude Include="..\..\GHXorFile.h" />
+    <ClInclude Include="..\..\null\GHNullFileOpener.h" />
+    <ClInclude Include="..\..\null\GHNullFilePicker.h" />
+    <ClInclude Include="..\..\null\GHNullMutex.h" />
+    <ClInclude Include="..\..\null\GHNullPlatformServices.h" />
+    <ClInclude Include="..\..\null\GHNullSocketMgr.h" />
+    <ClInclude Include="..\..\null\GHNullThread.h" />
+    <ClInclude Include="..\..\null\GHNullThreadFactory.h" />
+    <ClInclude Include="..\..\null\GHNullThreadSignal.h" />
+    <ClInclude Include="..\..\null\GHNullThreadSleeper.h" />
+    <ClInclude Include="..\..\null\GHNullTimeCalculator.h" />
+    <ClInclude Include="..\..\null\GHNullWindow.h" />
+    <ClInclude Include="..\GHMetroFile.h" />
+    <ClInclude Include="..\GHMetroFileOpener.h" />
+    <ClInclude Include="..\GHMetroFilePicker.h" />
+    <ClInclude Include="..\GHMetroIdentifiers.h" />
+    <ClInclude Include="..\GHMetroMutex.h" />
+    <ClInclude Include="..\GHMetroOutputPipe.h" />
+    <ClInclude Include="..\GHMetroPlatformServices.h" />
+    <ClInclude Include="..\GHMetroRandomAccessStream.h" />
+    <ClInclude Include="..\GHMetroSocketMgr.h" />
+    <ClInclude Include="..\GHMetroSocketTCP.h" />
+    <ClInclude Include="..\GHMetroStorageFile.h" />
+    <ClInclude Include="..\GHMetroThread.h" />
+    <ClInclude Include="..\GHMetroThreadFactory.h" />
+    <ClInclude Include="..\GHMetroThreadSleeper.h" />
+    <ClInclude Include="..\GHMetroTimeCalculator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\GHByteStreamPreallocated.cpp" />
+    <ClCompile Include="..\..\GHByteStreamReader.cpp" />
+    <ClCompile Include="..\..\GHDebugMessage.cpp" />
+    <ClCompile Include="..\..\GHFileC.cpp" />
+    <ClCompile Include="..\..\GHFileOpener.cpp" />
+    <ClCompile Include="..\..\GHFOpenFileOpener.cpp" />
+    <ClCompile Include="..\..\GHPlatformServices.cpp" />
+    <ClCompile Include="..\..\GHPrintfOutputPipe.cpp" />
+    <ClCompile Include="..\..\GHRefCounted.cpp" />
+    <ClCompile Include="..\..\GHTimeVal.cpp" />
+    <ClCompile Include="..\..\GHXorFile.cpp" />
+    <ClCompile Include="..\..\null\GHNullThreadFactory.cpp" />
+    <ClCompile Include="..\GHMetroFile.cpp" />
+    <ClCompile Include="..\GHMetroFileOpener.cpp" />
+    <ClCompile Include="..\GHMetroFilePicker.cpp" />
+    <ClCompile Include="..\GHMetroMutex.cpp" />
+    <ClCompile Include="..\GHMetroOutputPipe.cpp" />
+    <ClCompile Include="..\GHMetroPlatformServices.cpp" />
+    <ClCompile Include="..\GHMetroSocketMgr.cpp" />
+    <ClCompile Include="..\GHMetroSocketTCP.cpp" />
+    <ClCompile Include="..\GHMetroThread.cpp" />
+    <ClCompile Include="..\GHMetroThreadFactory.cpp" />
+    <ClCompile Include="..\GHMetroThreadSleeper.cpp" />
+    <ClCompile Include="..\GHMetroTimeCalculator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{dc664205-d075-432a-ba8b-16414c62dfa3}</ProjectGuid>
+    <Keyword>StaticLibrary</Keyword>
+    <RootNamespace>GHPlatform</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.18362.0</WindowsTargetPlatformMinVersion>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>true</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>true</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>true</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>true</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>true</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>true</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

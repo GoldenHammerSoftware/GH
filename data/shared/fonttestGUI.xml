@@ -1,0 +1,32 @@
+<guiPanel>
+	<guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0 0" size="1 1"/>
+
+    <children>
+        <guiText text="^^9999001 2 3 4 5 6 7 8 9 0" font=mcericfont.xml textHeight=0.08 fill=FT_PCT hAlign=A_LEFT vAlign=A_TOP>
+            <guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0.2 0.1" size="1 1"/>
+        </guiText>
+        <guiText text="^999a b c d e f g h i j k l m n o" font=mcericfont.xml textHeight=0.08 fill=FT_PCT hAlign=A_LEFT vAlign=A_TOP>
+            <guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0.2 0.2" size="1 1"/>
+        </guiText>
+      <guiText text="^999p q r s t u v w x y z" font="mcericfont.xml" textHeight="0.08" fill="FT_PCT" hAlign="A_LEFT" vAlign="A_TOP">
+        <guiPos xFill="FT_PCT" yFill="FT_PCT" align="0 0" offset="0.2 0.3" size="1 1"/>
+      </guiText>
+      <guiText text="^999A B C D E F G H I J K L M N" font=mcericfont.xml textHeight=0.08 fill=FT_PCT hAlign=A_LEFT vAlign=A_TOP>
+            <guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0.2 0.4" size="1 1"/>
+        </guiText>
+        <guiText text="^999O P Q R S T U V W X Y Z" font=mcericfont.xml textHeight=0.08 fill=FT_PCT hAlign=A_LEFT vAlign=A_TOP>
+            <guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0.2 0.5" size="1 1"/>
+        </guiText>
+        <guiText text="^999` ~ ! @ # % & * ( ) _ + - = [ ] { } \" font=mcericfont.xml textHeight=0.08 fill=FT_PCT hAlign=A_LEFT vAlign=A_TOP>
+            <guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0.2 0.6" size="1 1"/>
+        </guiText>
+      <guiText text="^999| ; : ' , < . > / ? $" font=mcericfont.xml textHeight=0.08 fill=FT_PCT hAlign=A_LEFT vAlign=A_TOP>
+        <guiPos xFill="FT_PCT" yFill="FT_PCT" align="0 0" offset="0.2 0.7" size="1 1"/>
+      </guiText>
+    </children>
+    
+</guiPanel>
+
+<!--
+ ignored ^ and " because we can't put those in strings
+ -->

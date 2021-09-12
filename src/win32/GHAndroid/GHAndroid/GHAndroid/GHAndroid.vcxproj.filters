@@ -1,0 +1,2846 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="sblmc">
+      <UniqueIdentifier>{a2242acf-6600-46cc-aded-2cf91990960f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sbndk">
+      <UniqueIdentifier>{0e4d3ee0-26b2-4de8-a8cf-e16cc26218dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghandroid">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ghenginendk">
+      <UniqueIdentifier>{aadbf5c6-8f0f-43a4-99e3-59ceb27c55bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghbase">
+      <UniqueIdentifier>{256e7056-2f05-48f1-b188-2e0ab69e7820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tsbndk">
+      <UniqueIdentifier>{6347e9f0-2916-4df8-9c63-952aa6730f4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghogles">
+      <UniqueIdentifier>{5e963e64-3720-46d2-9aea-6b328e8323b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bulletndk">
+      <UniqueIdentifier>{c047b6ef-f531-4520-bc9f-eaa315322273}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tsbvrndk">
+      <UniqueIdentifier>{f24e45d1-cc15-4840-9081-7e68cb7365ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghovrgo">
+      <UniqueIdentifier>{0d528c2c-e736-42b3-bcd3-5d52e41f8242}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ovrMobileSdk">
+      <UniqueIdentifier>{ce7085c7-58cb-45c1-ac5e-efc3584580f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ovrMobileSdk\VrApi">
+      <UniqueIdentifier>{77fa52bf-d6ab-4f6e-91ff-c2119df55061}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ovrMobileSdk\AvatarSdk">
+      <UniqueIdentifier>{77968906-e681-42e4-a586-f7795ca65a48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghenginendk\ghenginebase">
+      <UniqueIdentifier>{1805de92-f804-421c-a18a-85da5fa4f9ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghplatform">
+      <UniqueIdentifier>{8db67302-2e2e-43fb-998b-164f33744803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghplatform\base">
+      <UniqueIdentifier>{6eb37ec6-a5e8-42a4-9348-b6e19fe061c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghplatform\android">
+      <UniqueIdentifier>{a49567b8-2b59-4bc9-a160-7b605db21f4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghplatform\jni">
+      <UniqueIdentifier>{ae9b063c-f621-42a4-84d0-f2f9e59a1e64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghamexport">
+      <UniqueIdentifier>{c63a5059-22eb-43ac-9875-43f01759a9e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghios">
+      <UniqueIdentifier>{ca0fe799-8c03-4e50-a0b9-9c398bcd5d4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tsb2ndk">
+      <UniqueIdentifier>{069a6cdc-927d-4956-b2c0-11002cdfeaca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{5ff25766-0f4d-454b-96de-65ad2d6dd97f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghapple">
+      <UniqueIdentifier>{bdf9c1f5-ecc2-4dd4-a8b5-5e25c0a8aa9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ghmetal">
+      <UniqueIdentifier>{ce8be812-810a-4b3f-9670-19859a6e4823}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\ndbuildoutput.txt">
+      <Filter>tsbndk</Filter>
+    </Text>
+    <Text Include="..\..\..\..\GHPlatform\LICENSE.txt">
+      <Filter>ghplatform\base</Filter>
+    </Text>
+    <Text Include="ReadMe.txt">
+      <Filter>ghandroid</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidAdFactory.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidAdHandler.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidBitmapLoader.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidExitHandler.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidExitHandlerXMLLoader.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidGameServices.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidGLESContext.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidIAPStore.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidIAPStoreFactory.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidInterstitialAd.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidMediaPlayer.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidRenderServices.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidRewardsInterstitial.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidSoundDevice.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidSoundEmitter.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidSoundHandle.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidSoundLoader.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidSoundPool.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidSoundPoolHandle.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidSystemServices.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidTexture.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidTextureFactory.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidURLOpenerTransition.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidURLOpenerTransitionLoader.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCApp.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCAutoplayStarter.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCAutoSpinner.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCBeatDetector.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCBeatEntSpawner.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCBeatExploder.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCBeatScorer.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCCamera.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCConeShaderCallback.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCConeShaderCallbackFactory.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCDifficultySetter.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCEndStateSelector.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCFailureMonitor.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCFFTAnalyzer.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCFinalScoreCalculator.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCGameLauncher.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCGameModeMgr.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCGeometryGenerator.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCGraphicsQuality.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCIAPMessageListener.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCIAPRecorder.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCIncludedSongValidator.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCLevelLoadRunnable.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCLine.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCLineGenerator.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCLineGeneratorXMLLoader.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCLineGeometryXMLLoader.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCLineHitDetector.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCLineHitDetectorXMLLoader.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCLineIntensityController.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCLinePropXMLLoader.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCNotificationSpawner.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCOptions.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCRenderer.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCRumbler.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCScoreMgr.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCScrollElementNavResponse.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCScrollElementNavResponseXMLLoader.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCShipMgr.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongAnalyzer.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongBeatAnalyzer.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongCache.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongCacheSorter.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongData.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongFileVerifier.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongGUIPopulater.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongGUIPopulaterXMLLoader.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongLineCreator.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongPickedHandler.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongPlayer.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongPropFiller.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongSelectionHandler.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSongToTunnelPointCenterer.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCSpinner.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCStreakMgr.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCTutorialSplashEnder.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCTutorialSplashEnderXMLLoader.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\mc\MCWaypointList.cpp">
+      <Filter>sblmc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\ghmc\src\AndroidProjects\NDK\ghmc\jni\ghmcmain.cpp">
+      <Filter>sbndk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOpenSLDevice.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHAppRunner.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHAppShard.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHByteStreamPreallocated.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHByteStreamReader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHCharUtil.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHControllerChangeController.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHControllerChangeControllerTransition.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHControllerMgr.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHControllerTransition.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHControllerTransitionXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHDebugMessage.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHDebugTransition.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHDebugTransitionXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHDelayController.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHDelayControllerXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHEventMgr.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHFileC.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHFileOpener.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHFOpenFileOpener.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHFramerateMonitor.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHFramerateSmoother.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHHashListParser.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHHotkeyController.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHInputClaimConcrete.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHInputClaimGroup.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHInputState.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHInputStateClearer.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHInputStateKeySet.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHIntersect.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHKeyDefParser.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHMath.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHMathUnitTests.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHMessage.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHMessageHandlerTransition.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHMessageQueue.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHMessageSenderTransition.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHMessageSenderTransitionXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHMessageXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHMouseCapturerTransition.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHNumberListParser.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPlane.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPointerChangeTracker.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPointerRegionTracker.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPositionFollower.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPrintfOutputPipe.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHProfiler.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHProfileRecord.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHProperty.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyBoolXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyContainer.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyContainerXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyCopyTransition.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyCopyTransitionXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyEnumXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyFloatXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyIdentifierXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyIntXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertySetMessageHandler.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyStacker.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyStringGenerator.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyStringGeneratorXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyStringXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyToggleTransition.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyToggleTransitionXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHPropertyXMLInitializer.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHQuaternion.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHRandom.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHRandomTransition.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHRedirectResourceLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHRefCounted.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHResource.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHResourceCache.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHResourceFactory.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHResourceLoaderXML.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHRunnableMessageHandler.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHSoundEmitter.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHSoundPropertyVolumeChanger.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHSoundSet.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHSoundTransition.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHSoundTransitionXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHSoundVolumeMgr.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHSphere.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHStateChangeMessageListener.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHStateChangeTransition.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHStateChangeTransitionXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHStateMachine.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHStateMachineXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHString.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHStringHashTableDJB2.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHStringTokenizer.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHSystemServices.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHThreadUtil.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHTimeUpdater.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHTimeUpdaterAveraging.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHTimeVal.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHTransform.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHTransformDebugPrinter.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHTransitionListTransition.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHTransitionListTransitionXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHTransitionMessageHandler.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHTransitionSwitch.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHTransitionSwitchXMLLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHWhitespaceUtil.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHXMLCache.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHXMLLoaderResource.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHXMLNode.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHXMLNodeDeepCopier.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHXMLObjFactory.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHXMLObjLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHXMLRedirectLoader.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHXMLSerializer.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Base\GHXorFile.cpp">
+      <Filter>ghbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOpenSLEmitter.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOpenSLLoader.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOpenSLHandle.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\ghbmain.cpp">
+      <Filter>tsbndk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESErrorReporter.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESMaterialParamHandle.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESMaterialSH.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESMaterialSHLoader.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESReinitializer.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESRenderDevice.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESRenderServices.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESRenderTarget.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESRenderTargetFactory.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESShader.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESShaderLoader.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESShaderMgr.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESShaderProgram.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESTexture.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESTextureMgr.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESVBBlitterIndex.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESVBFactory.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESVertexStreamVBO.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidAppRunner.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\GHBowlingAndroidAppRunner.cpp">
+      <Filter>tsbndk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidEGLThread.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidEGLInfo.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOvrGoHMDRenderDevice.cpp">
+      <Filter>ghovrgo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOvrGoHMDServices.cpp">
+      <Filter>ghovrgo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOvrGoHMDTransformApplier.cpp">
+      <Filter>ghovrgo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOvrGoRenderTarget.cpp">
+      <Filter>ghovrgo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOvrGoSystemController.cpp">
+      <Filter>ghovrgo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOvrGoUtil.cpp">
+      <Filter>ghovrgo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOvrGoInputState.cpp">
+      <Filter>ghovrgo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOvrGoInputTranslator.cpp">
+      <Filter>ghovrgo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOvrGoAvatarPoser.cpp">
+      <Filter>ghovrgo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHOculus\GHOvrGoAvatarPoser.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESTextureUtil.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESTextureFromDataFactoryLoader.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidEGLFence.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESStateCache.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHOvrGoTextureLoader.cpp">
+      <Filter>ghovrgo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHByteStreamPreallocated.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHByteStreamReader.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHControllerMgr.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHControllerTransition.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHDebugMessage.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHEventMgr.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHFileC.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHFileOpener.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHFOpenFileOpener.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHMessage.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHMessageQueue.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHPlatformServices.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHPrintfOutputPipe.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHProfiler.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHProfileRecord.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHProperty.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHPropertyContainer.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHRedirectResourceLoader.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHRefCounted.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHResource.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHResourceCache.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHResourceFactory.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHStateMachine.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHTimeUpdater.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHTimeVal.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\GHXorFile.cpp">
+      <Filter>ghplatform\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\android\GHAndroidFileOpener.cpp">
+      <Filter>ghplatform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\android\GHAndroidMutex.cpp">
+      <Filter>ghplatform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\android\GHAndroidOutputPipe.cpp">
+      <Filter>ghplatform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\android\GHAndroidPlatformServices.cpp">
+      <Filter>ghplatform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\android\GHAndroidSocket.cpp">
+      <Filter>ghplatform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\android\GHAndroidSocketMgr.cpp">
+      <Filter>ghplatform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\android\GHAndroidThread.cpp">
+      <Filter>ghplatform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\android\GHAndroidThreadFactory.cpp">
+      <Filter>ghplatform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\android\GHAndroidThreadSignal.cpp">
+      <Filter>ghplatform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\android\GHAndroidThreadSleeper.cpp">
+      <Filter>ghplatform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\android\GHAndroidTimeCalculator.cpp">
+      <Filter>ghplatform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHPlatform\android\GHJNIMgr.cpp">
+      <Filter>ghplatform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESExtensions.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\AndroidProjects\NDK\GHBowling2\jni\ghbmain.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\AndroidProjects\NDK\GHBowling2\jni\GHBowlingAndroidAppRunner.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHiOS\GHiOSAdStack.cpp">
+      <Filter>ghios</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHiOS\GHiOSURLOpenerTransitonXMLLoader.cpp">
+      <Filter>ghios</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidKeyboardTransition.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidKeyboardTransitionXMLLoader.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESCubemapXMLLoader.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\OpenGLES\GHGLESCubemap.cpp">
+      <Filter>ghogles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHApple\GHGameCenterInterruptHandler.cpp">
+      <Filter>ghapple</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\GHAndroid\GHAndroidRatingListener.cpp">
+      <Filter>ghandroid</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidAdFactory.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidAdHandler.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidBitmapLoader.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidExitHandler.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidExitHandlerXMLLoader.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidGameServices.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidGLESContext.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidIAPStore.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidIAPStoreFactory.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidIdentifiers.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidInterstitialAd.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidMediaPlayer.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidRenderServices.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidRewardsInterstitial.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidSoundDevice.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidSoundEmitter.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidSoundHandle.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidSoundLoader.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidSoundPool.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidSoundPoolHandle.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidSystemServices.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidTexture.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidTextureFactory.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidURLOpenerTransition.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidURLOpenerTransitionLoader.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCApp.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCAutoplayStarter.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCAutoSpinner.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCBeatDetector.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCBeatEntSpawner.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCBeatExploder.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCBeatScorer.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCCamera.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCConeShaderCallback.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCConeShaderCallbackFactory.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCControlTypes.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCDifficultyEnum.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCDifficultySetter.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCEndStateSelector.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCFailureMonitor.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCFFTAnalyzer.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCFinalScoreCalculator.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCGameLauncher.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCGameModeMgr.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCGameModes.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCGameStates.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCGeometryGenerator.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCGraphicsQuality.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCIAPMessageListener.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCIAPRecorder.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCIdentifiers.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCIncludedSongValidator.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCLevelLoadRunnable.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCLine.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCLineGenerator.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCLineGeneratorXMLLoader.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCLineGeometry.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCLineGeometryXMLLoader.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCLineHitDetector.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCLineHitDetectorXMLLoader.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCLineIntensityController.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCLinePropXMLLoader.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCNotificationSpawner.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCOptions.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCRenderer.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCRumbler.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCScoreMgr.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCScrollElementNavResponse.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCScrollElementNavResponseXMLLoader.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCShipMgr.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongAnalyzer.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongBeatAnalyzer.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongCache.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongCacheSorter.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongData.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongFileVerifier.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongGUIPopulater.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongGUIPopulaterXMLLoader.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongLineCreator.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongPickedHandler.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongPlayer.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongPropFiller.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongSelectionHandler.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongSortType.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSongToTunnelPointCenterer.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCSpinner.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCStreakMgr.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCTutorialSplashEnder.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCTutorialSplashEnderXMLLoader.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCUpdatePriority.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\mc\MCWaypointList.h">
+      <Filter>sblmc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\ghmc\src\AndroidProjects\NDK\ghmc\jni\GHAndroidMain.h">
+      <Filter>sbndk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOpenSLDevice.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHAlign.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHApp.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHAppRunner.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHAppShard.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHBaseIdentifiers.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHByteStream.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHByteStreamPreallocated.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHByteStreamReader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHCharLess.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHCharUtil.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHColor.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHConnectionType.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHController.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHControllerChangeController.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHControllerChangeControllerTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHControllerMgr.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHControllerTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHControllerTransitionXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHDebugMessage.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHDebugTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHDebugTransitionXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHDelayController.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHDelayControllerXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHDeletionHandle.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHEnum.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHEnumEnd.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHEnumInclude.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHEpsilon.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHEventMgr.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHFile.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHFileC.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHFileOpener.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHFilePicker.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHFloat.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHFOpenFileOpener.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHFramerateMonitor.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHFramerateSmoother.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHHashListParser.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHHotkeyController.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHIdentifier.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHIdentifierMap.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHInputClaim.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHInputClaimConcrete.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHInputClaimGroup.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHInputState.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHInputStateClearer.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHInputStateKeySet.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHIntersect.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHKeyDef.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHKeyDefParser.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHMath.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHMathUnitTests.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHMessage.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHMessageHandler.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHMessageHandlerTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHMessageQueue.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHMessageSenderTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHMessageSenderTransitionXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHMessageTypes.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHMessageXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHMouseCapturer.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHMouseCapturerTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHMutex.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHNumberListParser.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHOutputPipe.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHOwnershipList.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPi.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPlane.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPoint.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPointerChangeTracker.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPointerRegionTracker.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPositionFollower.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPrintfOutputPipe.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPrioritizedList.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHProfiler.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHProfileRecord.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHProperty.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyBoolXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyContainer.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyContainerXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyCopyTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyCopyTransitionXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyEnumXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyFloatXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyIdentifierXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyIntXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyPointXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertySetMessageHandler.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyStacker.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyStringGenerator.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyStringGeneratorXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyStringXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyToggleTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyToggleTransitionXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyTypeXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyXMLInitializer.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHPropertyXMLSaver.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHQuaternion.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHRandom.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHRandomTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHRect.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHRedirectResourceLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHRefCounted.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHRefCountedDeletionHandle.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHResource.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHResourceCache.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHResourceFactory.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHResourceLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHResourceLoaderXML.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHRumbler.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHRunnable.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHRunnableMessageHandler.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHRunningPointAverager.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHServices.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSocket.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSocketMgr.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSoundDevice.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSoundEmitter.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSoundHandle.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSoundIDInfo.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSoundPropertyVolumeChanger.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSoundSet.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSoundTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSoundTransitionXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSoundTypes.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSoundVolumeMgr.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSphere.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHStateChangeMessageListener.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHStateChangeTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHStateChangeTransitionXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHStateMachine.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHStateMachineXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHStaticAssert.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHStlUtil.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHString.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHStringHashTable.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHStringHashTableDJB2.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHStringTokenizer.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHSystemServices.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHThread.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHThreadFactory.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHThreadSleeper.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHThreadUtil.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHTimeCalculator.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHTimeUpdater.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHTimeUpdaterAveraging.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHTimeVal.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHTransform.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHTransformDebugPrinter.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHTransitionListTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHTransitionListTransitionXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHTransitionMessageHandler.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHTransitionSwitch.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHTransitionSwitchXMLLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHTypedVoidFuncRunnable.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHValueSetterTransition.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHWhitespaceUtil.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHXMLCache.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHXMLLoaderResource.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHXMLNode.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHXMLNodeDeepCopier.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHXMLObjFactory.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHXMLObjLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHXMLRedirectLoader.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHXMLSerializer.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Base\GHXorFile.h">
+      <Filter>ghbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOpenSLEmitter.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOpenSLLoader.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOpenSLHandle.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidMain.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESContext.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESErrorReporter.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESIdentifiers.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESInclude.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESMaterialParamHandle.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESMaterialSH.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESMaterialSHLoader.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESReinitializer.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESRenderDevice.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESRenderServices.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESRenderTarget.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESRenderTargetFactory.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESShader.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESShaderLoader.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESShaderMgr.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESShaderProgram.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESTexture.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESTextureMgr.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESVBBlitterIndex.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESVBFactory.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESVertexStreamVBO.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidAppRunner.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\GHBowlingAndroidAppRunner.h">
+      <Filter>tsbndk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidEGLThread.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidEGLInfo.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOvrGoHMDRenderDevice.h">
+      <Filter>ghovrgo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOvrGoHMDServices.h">
+      <Filter>ghovrgo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOvrGoHMDTransformApplier.h">
+      <Filter>ghovrgo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOvrGoRenderTarget.h">
+      <Filter>ghovrgo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOvrGoFrameState.h">
+      <Filter>ghovrgo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOvrGoSystemController.h">
+      <Filter>ghovrgo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOvrGoUtil.h">
+      <Filter>ghovrgo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOvrGoInputState.h">
+      <Filter>ghovrgo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOvrGoInputTranslator.h">
+      <Filter>ghovrgo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOvrGoAvatarPoser.h">
+      <Filter>ghovrgo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\contrib\ovr_sdk_mobile_1.14.0\VrApi\Include\VrApi.h">
+      <Filter>ovrMobileSdk\VrApi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\contrib\ovr_sdk_mobile_1.14.0\VrApi\Include\VrApi_Config.h">
+      <Filter>ovrMobileSdk\VrApi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\contrib\ovr_sdk_mobile_1.14.0\VrApi\Include\VrApi_Ext.h">
+      <Filter>ovrMobileSdk\VrApi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\contrib\ovr_sdk_mobile_1.14.0\VrApi\Include\VrApi_Helpers.h">
+      <Filter>ovrMobileSdk\VrApi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\contrib\ovr_sdk_mobile_1.14.0\VrApi\Include\VrApi_Input.h">
+      <Filter>ovrMobileSdk\VrApi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\contrib\ovr_sdk_mobile_1.14.0\VrApi\Include\VrApi_SystemUtils.h">
+      <Filter>ovrMobileSdk\VrApi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\contrib\ovr_sdk_mobile_1.14.0\VrApi\Include\VrApi_Types.h">
+      <Filter>ovrMobileSdk\VrApi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\contrib\ovr_sdk_mobile_1.14.0\VrApi\Include\VrApi_Version.h">
+      <Filter>ovrMobileSdk\VrApi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\contrib\OculusSDK\ovr_avatar_sdk_1.26.0\Include\OVR_Avatar.h">
+      <Filter>ovrMobileSdk\AvatarSdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\contrib\OculusSDK\ovr_avatar_sdk_1.26.0\Include\OVR_Avatar_Defs.h">
+      <Filter>ovrMobileSdk\AvatarSdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESTextureUtil.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESTextureFromDataFactoryLoader.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidEGLFence.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESStateCache.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESDeviceReinitListener.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHOvrGoTextureLoader.h">
+      <Filter>ghovrgo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHByteStream.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHByteStreamPreallocated.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHByteStreamReader.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHConnectionType.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHController.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHControllerMgr.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHControllerTransition.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHDebugMessage.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHDeletionHandle.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHEventMgr.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHFile.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHFileC.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHFileOpener.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHFilePicker.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHFOpenFileOpener.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHMessage.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHMessageHandler.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHMessageQueue.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHMutex.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHOutputPipe.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHOwnershipList.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHPlatformIdentifiers.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHPlatformServices.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHPrintfOutputPipe.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHPrioritizedList.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHProfiler.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHProfileRecord.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHProperty.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHPropertyContainer.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHRedirectResourceLoader.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHRefCounted.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHRefCountedDeletionHandle.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHResource.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHResourceCache.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHResourceFactory.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHResourceLoader.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHRunnable.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHSocket.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHSocketMgr.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHStateMachine.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHStaticAssert.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHStlUtil.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHThread.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHThreadFactory.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHThreadSignal.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHThreadSleeper.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHTimeCalculator.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHTimeUpdater.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHTimeVal.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHTransition.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHTypedVoidFuncRunnable.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\GHXorFile.h">
+      <Filter>ghplatform\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\android\GHAndroidFileOpener.h">
+      <Filter>ghplatform\android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\android\GHAndroidMutex.h">
+      <Filter>ghplatform\android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\android\GHAndroidOutputPipe.h">
+      <Filter>ghplatform\android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\android\GHAndroidPlatformServices.h">
+      <Filter>ghplatform\android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\android\GHAndroidSocket.h">
+      <Filter>ghplatform\android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\android\GHAndroidSocketMgr.h">
+      <Filter>ghplatform\android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\android\GHAndroidThread.h">
+      <Filter>ghplatform\android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\android\GHAndroidThreadFactory.h">
+      <Filter>ghplatform\android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\android\GHAndroidThreadSignal.h">
+      <Filter>ghplatform\android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\android\GHAndroidThreadSleeper.h">
+      <Filter>ghplatform\android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\android\GHAndroidTimeCalculator.h">
+      <Filter>ghplatform\android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHPlatform\android\GHJNIMgr.h">
+      <Filter>ghplatform\android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESExtensions.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHAdMobDelegate.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHAdMobWrapper.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHChartboostTransition.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHGameCenterUIViewController.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSAdColonyRewardsInterstitial.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSAdFactory.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSAdHandler.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSAdStack.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSAdWrapper.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSAppDelegate.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSAVFSoundLoader.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSFilenameCreator.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSGameCenterFactory.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSGameCenterLocalPlayer.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSGameCenterMultiplayerUIPresenter.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSGameCenterStatTrackerUIPresenter.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSGLESContext.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSHouseAdWrapper.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSIAPStore.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSIAPStoreFactory.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSIdentifiers.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSInterstitialAdHandlingDelegate.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSKeyboardTransition.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSKeyboardTransitionXMLLoader.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSPauseInterruptHandler.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSRenderServices.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSSoundDevice.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSSoundDeviceFactory.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSSoundTransition.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSSystemServices.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSTextureLoader.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSTextureLoaderPVRTC.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSUIThreadSystemServices.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSURLOpenerTransiton.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSURLOpenerTransitonXMLLoader.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSView.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHiOSViewController.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHiOS\GHPVRUtil.h">
+      <Filter>ghios</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidKeyboardTransition.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidKeyboardTransitionXMLLoader.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESCubemapXMLLoader.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OpenGLES\GHGLESCubemap.h">
+      <Filter>ghogles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHAppleFilenameCreator.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHAppleIAPMessageHandler.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHAppleIAPStore.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHAppleIAPStoreFactory.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHAppleIdentifiers.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHAppleOALSoundLoader.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenter.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterAuthenticator.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterFactory.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterInterruptHandler.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterLocalPlayer.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterLog.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterMatchmakerDelegate.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterMultiplayerFactory.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterMultiplayerMessageHandler.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterMultiplayerMgr.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterMultiplayerUIPresenter.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterNetworkDataMgr.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterStatTracker.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterStatTrackerFactory.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHGameCenterStatTrackerUIPresenter.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHStoreKitDelegate.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHApple\GHUpdatedScoreCache.h">
+      <Filter>ghapple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHAndroid\GHAndroidRatingListener.h">
+      <Filter>ghandroid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHiOSViewMetal.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalCubemapXMLLoader.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalMaterial.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalMaterialParamHandle.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalMaterialXMLLoader.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalNameSanitizer.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalPipelineMgr.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalRenderDevice.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalRenderServices.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalRenderTarget.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalRenderTargetFactory.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalShaderLibraryResource.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalShaderLibraryResourceLoader.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalShaderMgr.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalShaderStructs.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalTexture.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalTextureLoader.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalToGHConversions.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalVBBlitterIndex.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalVBFactory.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\GHMetal\GHMetalVertexStream.h">
+      <Filter>ghmetal</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\ghmc\src\AndroidProjects\NDK\ghmc\jni\Android.mk">
+      <Filter>sbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\ghmc\src\AndroidProjects\NDK\ghmc\jni\Application.mk">
+      <Filter>sbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\ghmc\src\AndroidProjects\NDK\ghmc\jni\datacopy.bat">
+      <Filter>sbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\ghmc\src\AndroidProjects\NDK\ghmc\jni\datacopy.sh">
+      <Filter>sbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\ghmc\src\AndroidProjects\NDK\ghmc\jni\mccomp.bat">
+      <Filter>sbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHEngine\jni\Android.mk">
+      <Filter>ghenginendk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHEngine\jni\Application.mk">
+      <Filter>ghenginendk</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\ghmc\src\AndroidProjects\NDK\ghmc\jni\mccompd.bat">
+      <Filter>sbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\Base\GHIntersect.inl">
+      <Filter>ghbase</Filter>
+    </None>
+    <None Include="..\..\..\..\Base\GHPoint.inl">
+      <Filter>ghbase</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\Android.mk">
+      <Filter>tsbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\Application.mk">
+      <Filter>tsbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\bowlingcomp.bat">
+      <Filter>tsbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\bowlingcomp.sh">
+      <Filter>tsbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\datacopy.bat">
+      <Filter>tsbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\datacopy.sh">
+      <Filter>tsbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\datacopyamazon.bat">
+      <Filter>tsbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\datacopyamazon.sh">
+      <Filter>tsbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\datacopynook.sh">
+      <Filter>tsbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling\jni\GHBowling_FilesOnly.mk">
+      <Filter>tsbndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHEngine\jni\GHEngine_FilesOnly.mk">
+      <Filter>ghenginendk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\Bullet\jni\Android.mk">
+      <Filter>bulletndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\Bullet\jni\Application.mk">
+      <Filter>bulletndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\Bullet\jni\Bullet_FilesOnly.mk">
+      <Filter>bulletndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowlingVR\jni\Application.mk">
+      <Filter>tsbvrndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowlingVR\jni\Android.mk">
+      <Filter>tsbvrndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHEngine\jni\GHAndroid_FilesOnly.mk">
+      <Filter>ghenginendk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowlingVR\jni\datacopy.bat">
+      <Filter>tsbvrndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHEngine\jni\GHOvrGo_FilesOnly.mk">
+      <Filter>ghenginendk</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\AvatarFragmentShader.glsl">
+      <Filter>tsbvrndk</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\AvatarFragmentShader_CombinedMesh.glsl">
+      <Filter>tsbvrndk</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\AvatarFragmentShaderPBS.glsl">
+      <Filter>tsbvrndk</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\AvatarVertexShader.glsl">
+      <Filter>tsbvrndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowlingVR\jni\textureconvert.bat">
+      <Filter>tsbvrndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHEngineBase\jni\GHEngineBase_FilesOnly.mk">
+      <Filter>ghenginendk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHEngineBase\jni\Android.mk">
+      <Filter>ghenginendk\ghenginebase</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHEngineBase\jni\Application.mk">
+      <Filter>ghenginendk\ghenginebase</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowlingVR\jni\bowlingcomp.bat">
+      <Filter>tsbvrndk</Filter>
+    </None>
+    <None Include="..\..\..\..\GHPlatform\README.md">
+      <Filter>ghplatform\base</Filter>
+    </None>
+    <None Include="..\..\..\..\GHPlatform\android\jni\Android.mk">
+      <Filter>ghplatform\jni</Filter>
+    </None>
+    <None Include="..\..\..\..\GHPlatform\android\jni\Application.mk">
+      <Filter>ghplatform\jni</Filter>
+    </None>
+    <None Include="..\..\..\..\GHPlatform\android\jni\GHPlatform_FilesOnly.mk">
+      <Filter>ghplatform\jni</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\contrib\blender\GHAM\__init__.py">
+      <Filter>ghamexport</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\contrib\blender\GHAM\gham_export.py">
+      <Filter>ghamexport</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\contrib\blender\GHAM\gham_exportshared.py">
+      <Filter>ghamexport</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\contrib\blender\GHAM\gham_import.py">
+      <Filter>ghamexport</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\contrib\blender\GHAM\gham_lightmap.py">
+      <Filter>ghamexport</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\contrib\blender\GHAM\gham_skeletonexport.py">
+      <Filter>ghamexport</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\contrib\blender\GHAM\gham_structs.py">
+      <Filter>ghamexport</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHAdMobDelegate.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHAdMobWrapper.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHChartboostTransition.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHGameCenterUIViewController.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSAdColonyRewardsInterstitial.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSAdFactory.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSAdHandler.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSAppDelegate.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSAVFSoundLoader.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSFilenameCreator.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSGameCenterFactory.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSGameCenterLocalPlayer.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSGameCenterMultiplayerUIPresenter.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSGameCenterStatTrackerUIPresenter.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSGLESContext.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSHouseAdWrapper.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSIAPStore.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSIAPStoreFactory.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSInterstitialAdHandlingDelegate.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSKeyboardTransition.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSKeyboardTransitionXMLLoader.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSPauseInterruptHandler.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSRenderServices.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSSoundDevice.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSSoundDeviceFactory.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSSoundTransition.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSSystemServices.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSTextureLoader.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSTextureLoaderPVRTC.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSUIThreadSystemServices.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSURLOpenerTransiton.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSView.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHiOSViewController.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\GHiOS\GHPVRUtil.mm">
+      <Filter>ghios</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling2\jni\bowlingcomp.bat">
+      <Filter>tsb2ndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling2\jni\datacopy.bat">
+      <Filter>tsb2ndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling2\jni\datacopy_androidcommon.bat">
+      <Filter>tsb2ndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling2\jni\datacopy_clean.bat">
+      <Filter>tsb2ndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling2\jni\datacopy_flatonly.bat">
+      <Filter>tsb2ndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling2\jni\Android.mk">
+      <Filter>tsb2ndk</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowling2\jni\Application.mk">
+      <Filter>tsb2ndk</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\blackpixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\colorpixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\debugpixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\debugvertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\fontpixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\fontvertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\ghbworldpixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\ghbworldpixel_dynamic.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\ghbworldpixel_ue4packed.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\ghbworldpixel_ue4packed_emissive.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\ghbworldreflectionpixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\ghbworldreflectionvertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\ghbworldvertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\ghbworldvertex_dynamic.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\ghlighting.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\ghmasterpixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\ghmastervertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\guispinvertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\guivertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\guivertexinclude.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\hmdmirrortestpixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\hourglasspixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\hourglassvertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\particlepixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\particlevertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\pixel-1tex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\pixel-1tex-lit.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\pixel-1tex-specular-lightmap.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\pixel-2tex-lit.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\reflectioninclude.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\reflectiontestpixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\shadowpixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\shadowtestpixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\shadowvertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\staticmd3vertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\tintpixel.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\worldvertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\..\data\iOSShaders\worldvertex-1tex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\..\..\AndroidProjects\NDK\GHBowlingVR\jni\datacopy_vronly.bat">
+      <Filter>tsbvrndk</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHAppleIAPMessageHandler.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHAppleIAPStore.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHAppleIAPStoreFactory.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHAppleOALSoundLoader.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHGameCenter.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHGameCenterAuthenticator.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHGameCenterFactory.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHGameCenterLocalPlayer.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHGameCenterLog.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHGameCenterMatchmakerDelegate.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHGameCenterMultiplayerFactory.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHGameCenterMultiplayerMessageHandler.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHGameCenterMultiplayerMgr.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHGameCenterNetworkDataMgr.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHGameCenterStatTracker.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHGameCenterStatTrackerFactory.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHStoreKitDelegate.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHApple\GHUpdatedScoreCache.mm">
+      <Filter>ghapple</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHiOSViewMetal.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalCubemapXMLLoader.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalMaterial.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalMaterialParamHandle.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalMaterialXMLLoader.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalPipelineMgr.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalRenderDevice.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalRenderServices.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalRenderTarget.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalRenderTargetFactory.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalShaderLibraryResourceLoader.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalShaderMgr.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalTexture.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalTextureLoader.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalVBBlitterIndex.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalVBFactory.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+    <None Include="..\..\..\..\GHMetal\GHMetalVertexStream.mm">
+      <Filter>ghmetal</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+<guiButton>
+    <buttonStates>
+        <transitions stateEnum="BE_SELECTED">
+        </transitions>
+        <transitions stateEnum="BE_TRIGGERED">
+            <soundTransition activateSound="click.wav" activateVolume=1 looping=false/>
+        </transitions>
+    </buttonStates>
+</guiButton>
+

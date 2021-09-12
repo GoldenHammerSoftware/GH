@@ -1,0 +1,10 @@
+<shaderParams>
+  <textureParams>
+    <texParam semantic="Texture0" register="0" cbType="CT_PERFRAME"/>
+    <texParam semantic="Texture1" register="1" cbType="CT_PERFRAME"/>
+  </textureParams>
+  <floatParams>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="LightMapScale"/>
+    <floatParam sizeFloats="3" cbType="CT_PERFRAME" semantic="Tint"/>
+  </floatParams>
+</shaderParams>

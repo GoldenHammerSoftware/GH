@@ -1,0 +1,6 @@
+<shaderParams>
+  <textureParams>
+    <texParam semantic="albedoTexture" register="0" cbType="CT_PERFRAME"/>
+    <texParam semantic="surfaceTexture" register="1" cbType="CT_PERFRAME"/>
+  </textureParams>
+</shaderParams>

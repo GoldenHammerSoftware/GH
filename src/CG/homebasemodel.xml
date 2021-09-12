@@ -1,0 +1,30 @@
+<model>
+    <md3LoaderArgs loadingScale=1/>
+    <physics dynamic=false mass=0 offset="0 0 0">
+        <PS_SPHERE radius=0.5/>
+    </physics>
+    <children>
+        <child parentNode=Top>
+            <md3model file=ball.md3>
+                <md3LoaderArgs loadingScale=1/>
+                <matreplace>
+                    <mat replace=default>
+                        
+                        <ghm vertex=worldvertex-1tex.glsl pixel=cgentpixel.glsl 
+                            billboard=none draworder=0 applymode=modulate cullmode=none
+                            zread=true zwrite=true offset=0
+                            alphablend=false invalpha=false blendmode=normal
+                            alphatest=false alphatestless=true alphatestval=0.9>
+                            <textures>
+                                <texture file=ball.jpg handle=Texture0 wrap=wrap mipmap=true/> 
+                            </textures>
+                        </ghm>
+                    </mat>
+                </matreplace>
+                <transformNode id=Pin rotation="1.5 0 1" translate="0 0 0" scale=0.125/>
+            </md3model> 
+        </child>
+    </children>
+    <transformNode id=Top rotation="0 0 0" translate="0 0 0" scale=1/>
+</md3model> 
+

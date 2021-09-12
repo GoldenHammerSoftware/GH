@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{61a7ed91-df11-4a1a-a792-527de8ec0b1d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\GHDX11\DDSTextureLoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHRenderDeviceDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHRenderDeviceDX11Managed.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHRenderDeviceDX11Native.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHRenderDeviceFactoryDX11Managed.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHRenderDeviceFactoryDX11Native.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHRenderServicesDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHRenderStateMgrDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHRenderTargetDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHRenderTargetFactoryDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHVBBlitterIndexDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHVBFactoryDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHVertexStreamDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHMaterialDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHMaterialLoaderDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHMaterialParamHandleDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHMaterialShaderInfoDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHMultiShaderDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHShaderConcreteDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHShaderDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHShaderLoaderDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHShaderParamListDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHTextureDX11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX11\GHDX11SwapChainCreator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\GHDX11\DDSTextureLoader.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHDX11Include.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHDX11SwapChainCreator.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHPropertiesDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHRenderDeviceDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHRenderDeviceDX11Managed.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHRenderDeviceDX11Native.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHRenderDeviceFactoryDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHRenderDeviceFactoryDX11Managed.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHRenderDeviceFactoryDX11Native.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHRenderServicesDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHRenderStateMgrDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHRenderTargetDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHRenderTargetFactoryDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHVBBlitterIndexDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHVBFactoryDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHVertexStreamDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHMaterialDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHMaterialLoaderDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHMaterialParamHandleDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHMaterialShaderInfoDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHMultiShaderDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHShaderConcreteDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHShaderDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHShaderLoaderDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHShaderParamListDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHTextureBindArgsDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHTextureCreatorDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX11\GHTextureDX11.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

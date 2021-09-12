@@ -1,0 +1,8 @@
+#ifndef GHPlatform_pch
+#define GHPlatform_pch
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#endif
+
+#endif /* GHPlatform_pch */

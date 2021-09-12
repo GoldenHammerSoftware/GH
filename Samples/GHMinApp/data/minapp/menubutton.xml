@@ -1,0 +1,13 @@
+<guiButton inherit=buttonbase.xml>
+    <guiPos xFill=FT_PIXELS yFill=FT_PIXELS align="0.5 0.5" offset="-150 -33.75" size="300 67.5" xSizeAlign=A_CENTER ySizeAlign=A_CENTER/>
+    <buttonStates>
+        <transitions stateEnum="BE_SELECTED">
+          <guiSizeTransition sizeMult="1.05"/>          
+        </transitions>
+    </buttonStates>
+    <renderable>
+      <guiQuadRenderable minUV="0 0" maxUV="1 0.35" drawOrderOffset="-2.5">
+        <resource file="buttonbg.xml"/>
+      </guiQuadRenderable>
+    </renderable>
+</guiButton>

@@ -1,0 +1,5 @@
+<shaderParams>
+    <floatParams>
+        <floatParam sizeFloats="16" cbType="CT_PERENT" semantic="GUIInWorldTransform"/>
+    </floatParams>
+</shaderParams>

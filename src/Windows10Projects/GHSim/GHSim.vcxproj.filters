@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\Sim\GHAnimController.h" />
+    <ClInclude Include="..\..\Sim\GHFrameAnimController.h" />
+    <ClInclude Include="..\..\Sim\GHFrameAnimSequence.h" />
+    <ClInclude Include="..\..\Sim\GHFrameAnimSet.h" />
+    <ClInclude Include="..\..\Sim\GHFrameAnimSetLoader.h" />
+    <ClInclude Include="..\..\Sim\GHNewFrameChecker.h" />
+    <ClInclude Include="..\..\Sim\GHSphereBounds.h" />
+    <ClInclude Include="..\..\Sim\GHTransformAnimController.h" />
+    <ClInclude Include="..\..\Sim\GHTransformAnimData.h" />
+    <ClInclude Include="..\..\Sim\GHTransformNode.h" />
+    <ClInclude Include="..\..\Sim\GHTransformNodeXMLLoader.h" />
+    <ClInclude Include="..\..\Sim\GHFrameAnimBlend.h" />
+    <ClInclude Include="..\..\Sim\GHFrameAnimSetXMLSerializer.h" />
+    <ClInclude Include="..\..\Sim\GHSkeletonAnimController.h" />
+    <ClInclude Include="..\..\Sim\GHTransformAnimHelper.h" />
+    <ClInclude Include="..\..\Sim\GHTransformNodeFollower.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Sim\GHFrameAnimController.cpp" />
+    <ClCompile Include="..\..\Sim\GHFrameAnimSet.cpp" />
+    <ClCompile Include="..\..\Sim\GHFrameAnimSetLoader.cpp" />
+    <ClCompile Include="..\..\Sim\GHNewFrameChecker.cpp" />
+    <ClCompile Include="..\..\Sim\GHSphereBounds.cpp" />
+    <ClCompile Include="..\..\Sim\GHTransformAnimController.cpp" />
+    <ClCompile Include="..\..\Sim\GHTransformNode.cpp" />
+    <ClCompile Include="..\..\Sim\GHTransformNodeXMLLoader.cpp" />
+    <ClCompile Include="..\..\Sim\GHFrameAnimSequence.cpp" />
+    <ClCompile Include="..\..\Sim\GHFrameAnimSetXMLSerializer.cpp" />
+    <ClCompile Include="..\..\Sim\GHSkeletonAnimController.cpp" />
+    <ClCompile Include="..\..\Sim\GHTransformAnimHelper.cpp" />
+    <ClCompile Include="..\..\Sim\GHTransformNodeFollower.cpp" />
+  </ItemGroup>
+</Project>

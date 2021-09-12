@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'GHTestApp' target in the 'GHTestApp' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

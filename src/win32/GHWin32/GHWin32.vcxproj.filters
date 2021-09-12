@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Metro">
+      <UniqueIdentifier>{9b86ad9d-2b43-496e-a3bf-2bff0a9f2c9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectSound">
+      <UniqueIdentifier>{bb2c586a-955d-41d6-b2ba-c79d73ada6e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX">
+      <UniqueIdentifier>{fdf21571-6d72-431b-88b8-62ce9e6aa5d1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\GHWin32\GHWin32SystemServices.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32AppLauncher.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32DX11RenderServices.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHXInputHandler.cpp">
+      <Filter>Metro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMetro\GHTextureCreatorDDS.cpp">
+      <Filter>Metro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMetro\GHTextureCreatorWIC.cpp">
+      <Filter>Metro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMetro\GHTextureLoaderDDS.cpp">
+      <Filter>Metro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMetro\GHTextureLoaderDX11.cpp">
+      <Filter>Metro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHWin32\GHDirectSoundDevice.cpp">
+      <Filter>DirectSound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHWin32\GHWin32SwapChainCreator.cpp">
+      <Filter>DX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHWin32\GHWin32TextureFinder.cpp">
+      <Filter>DX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHWin32\GHDirectSoundHandle.cpp">
+      <Filter>DirectSound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHWin32\GHDirectSoundEmitter.cpp">
+      <Filter>DirectSound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHWin32\GHDirectSoundLoader.cpp">
+      <Filter>DirectSound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHWin32\GHWin32MouseCapturer.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHMetroSoundDevice.cpp">
+      <Filter>Metro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMetro\GHMetroSoundEmitter.cpp">
+      <Filter>Metro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMetro\GHMetroSoundLoader.cpp">
+      <Filter>Metro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHWin32\GHWin32SoundFinder.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHXInputRumbler.cpp">
+      <Filter>Metro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHWin32\GHWin32URLOpenerTransition.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32URLOpenerTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32ExitAppTransition.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32ExitAppTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHMetroSoundHandle.cpp">
+      <Filter>Metro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMetro\GHWin32DeviceFinder.cpp">
+      <Filter>Metro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMetro\GHMetro3DAudioMgr.cpp">
+      <Filter>Metro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHMetro\GHMetroSoundErrorHandler.cpp">
+      <Filter>Metro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHWin32\GHWin32Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\GHWin32\GHWin32SystemServices.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32AppLauncher.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32LaunchCfg.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32DX11RenderServices.h" />
+    <ClInclude Include="..\..\GHMetro\GHXInputHandler.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMetro\GHTextureCreatorDDS.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMetro\GHTextureCreatorWIC.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMetro\GHTextureFinderDX11.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMetro\GHTextureLoaderDDS.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMetro\GHTextureLoaderDX11.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHWin32\GHDirectSoundDevice.h">
+      <Filter>DirectSound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHWin32\GHWin32SwapChainCreator.h">
+      <Filter>DX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHWin32\GHWin32TextureFinder.h">
+      <Filter>DX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHWin32\GHDirectSoundHandle.h">
+      <Filter>DirectSound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHWin32\GHDirectSoundEmitter.h">
+      <Filter>DirectSound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHWin32\GHDirectSoundLoader.h">
+      <Filter>DirectSound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHWin32\GHWin32MouseCapturer.h" />
+    <ClInclude Include="..\..\GHMetro\GHMetroSoundEmitter.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMetro\GHMetroSoundHandle.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMetro\GHMetroSoundLoader.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMetro\GHXAudio2SoundFinder.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHWin32\GHWin32SoundFinder.h" />
+    <ClInclude Include="..\..\GHMetro\GHXAudio2Include.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMetro\GHXInputRumbler.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHWin32\GHWin32URLOpenerTransition.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32URLOpenerTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32ExitAppTransition.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32ExitAppTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\GHMetro\GHMetroSoundDevice.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMetro\GHWin32DeviceFinder.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMetro\GHMetro3DAudioMgr.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHMetro\GHMetroSoundErrorHandler.h">
+      <Filter>Metro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHWin32\GHWin32Window.h" />
+  </ItemGroup>
+</Project>

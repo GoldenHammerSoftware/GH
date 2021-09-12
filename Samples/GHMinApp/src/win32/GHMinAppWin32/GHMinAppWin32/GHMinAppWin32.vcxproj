@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9A2847D6-B86B-43D8-A28E-643D283D3B9A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>GHMinAppWin32</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\src\;$(ProjectDir)..\..\..\..\..\GHMinApp\src\minapp\</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\..\src\;$(ProjectDir)..\..\..\..\..\GHMinApp\src\minapp\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\minapp\MCApp.h" />
+    <ClInclude Include="..\..\..\minapp\MCGameStates.h" />
+    <ClInclude Include="..\..\..\minapp\MCIdentifiers.h" />
+    <ClInclude Include="..\..\..\minapp\MCRenderer.h" />
+    <ClInclude Include="..\..\..\minapp\MCUpdatePriority.h" />
+    <ClInclude Include="GHMinAppWin32.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\minapp\MCApp.cpp" />
+    <ClCompile Include="..\..\..\minapp\MCRenderer.cpp" />
+    <ClCompile Include="GHMinAppWin32.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GHMinAppWin32.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="GHMinAppWin32.ico" />
+    <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\src\GHPlatform\win32\GHPlatformWin32\GHPlatformWin32.vcxproj">
+      <Project>{3b229936-f72e-4cfe-8c5c-136fa00e1360}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\GHString\win32\GHStringWin32\GHStringWin32.vcxproj">
+      <Project>{b4e3fa26-3a8a-475a-b6b8-d94a85ac95ad}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\win32\BaseWin32\BaseWin32.vcxproj">
+      <Project>{d7673b02-3cb5-4914-a932-754dd756af3d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\win32\BulletWin32\BulletWin32\BulletWin32.vcxproj">
+      <Project>{adb268ac-36a3-42c6-9055-e33bb9368c1a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\win32\DX11Win32\DX11Win32.vcxproj">
+      <Project>{0efefad0-1d3c-46e4-afcd-4e80e24fc81a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\win32\GameWin32\GameWin32\GameWin32.vcxproj">
+      <Project>{86d104da-766e-4975-87eb-726fbfe11964}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\win32\GHBullet\GHBullet.vcxproj">
+      <Project>{e69350ed-e5e5-4a61-a9b7-4278834d7fa4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\win32\GHMath\GHMath.vcxproj">
+      <Project>{5af39d65-93e2-4b03-9fc1-9aea6cdc9dea}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\win32\GHUtilsWin32\GHUtilsWin32.vcxproj">
+      <Project>{697413fa-d512-45de-874b-b4b6634a8b4c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\win32\GHWin32\GHWin32.vcxproj">
+      <Project>{e24d1163-f923-43f3-a8c4-cb4c2a258e2a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\win32\GUIWin32\GUIWin32\GUIWin32.vcxproj">
+      <Project>{a855bdaf-0532-4e62-9278-a68e138618a8}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\win32\NullPlatformWin32\NullPlatformWin32\NullPlatformWin32.vcxproj">
+      <Project>{6027eb95-96f4-45e5-af09-2547a43a6334}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\win32\RenderWin32\Render\Render.vcxproj">
+      <Project>{d4e9200c-6008-4b2d-bfad-efc758f47fca}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\win32\ShadersWin32\ShadersWin32.vcxproj">
+      <Project>{073db60e-adde-43c9-8365-5b051173c399}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\src\win32\SimWin32\SimWin32\SimWin32.vcxproj">
+      <Project>{d790fd89-3429-4a85-ab26-683d1ecd33ce}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

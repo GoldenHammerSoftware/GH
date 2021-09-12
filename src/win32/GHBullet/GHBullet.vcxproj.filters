@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\GHBullet\GHBulletBroadphaseFilter.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletCollisionLayerMgr.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletDebugDraw.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletObjectXMLLoader.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletOffsetModifierTool.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletPhysicsObject.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletPhysicsServices.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletPhysicsSim.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletRagdoll.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletRagdollConstraint.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletRagdollConstraintXMLLoader.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletRagdollXMLLoader.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletRigidBodyCopier.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletUtil.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletVehicle.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletVehicleXMLLoader.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletTextureLookupFrictionOverride.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletContactAddedOverrides.cpp" />
+    <ClCompile Include="..\..\GHBullet\GHBulletTextureLookupFrictionOverrideXMLLoader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\GHBullet\GHBulletBroadphaseFilter.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletCollisionLayerMgr.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletDebugDraw.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletObjectXMLLoader.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletOffsetModifierTool.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletPhysicsObject.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletPhysicsServices.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletPhysicsSim.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletRagdoll.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletRagdollConstraint.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletRagdollConstraintXMLLoader.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletRagdollXMLLoader.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletRigidBodyCopier.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletUtil.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletVehicle.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletVehicleXMLLoader.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletTextureLookupFrictionOverride.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletContactAddedFrictionOverride.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletTextureLookupFrictionOverrideXMLLoader.h" />
+    <ClInclude Include="..\..\GHBullet\GHBulletBtInclude.h" />
+  </ItemGroup>
+</Project>

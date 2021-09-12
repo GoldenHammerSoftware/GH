@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="launcher">
+      <UniqueIdentifier>{cde17974-8f9d-42b2-83cb-d20275ba89d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{6e676833-b717-4a88-9a42-3c521d7fc70c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GHMinAppWin32.h">
+      <Filter>launcher</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>launcher</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>launcher</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>launcher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\minapp\MCApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\minapp\MCGameStates.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\minapp\MCIdentifiers.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\minapp\MCRenderer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\minapp\MCUpdatePriority.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GHMinAppWin32.cpp">
+      <Filter>launcher</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>launcher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\minapp\MCApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\minapp\MCRenderer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="GHMinAppWin32.ico">
+      <Filter>launcher</Filter>
+    </Image>
+    <Image Include="small.ico">
+      <Filter>launcher</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GHMinAppWin32.rc">
+      <Filter>launcher</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

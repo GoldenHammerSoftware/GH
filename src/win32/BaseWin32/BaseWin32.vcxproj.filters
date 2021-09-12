@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="XML">
+      <UniqueIdentifier>{88397c24-5f9e-4ebc-8bd3-edadf7530312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="input">
+      <UniqueIdentifier>{454d62eb-dedf-4eef-b1f8-364e46f77f64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sound">
+      <UniqueIdentifier>{fe86f32c-2826-4c8b-8a15-bead27f92aea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XMLFactory">
+      <UniqueIdentifier>{bf7c3281-dc7a-4bc5-8a9b-bf514a17991e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xmlloaders">
+      <UniqueIdentifier>{9ae84332-5837-4213-ae3a-6ad03b268634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{8653d995-2a31-4791-a843-7d37bfaebd57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="app">
+      <UniqueIdentifier>{fe31ab5a-a5a5-46c3-b94b-27b08bf47a12}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Base\GHBaseIdentifiers.h" />
+    <ClInclude Include="..\..\Base\GHServices.h" />
+    <ClInclude Include="..\..\Base\GHSystemServices.h" />
+    <ClInclude Include="..\..\Base\GHXMLSerializer.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHXMLCache.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHXMLNode.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHXMLNodeDeepCopier.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHInputClaim.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHInputClaimConcrete.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHInputClaimGroup.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHInputState.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHInputStateClearer.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHInputStateKeySet.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHKeyDef.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHKeyDefParser.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPointerChangeTracker.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPointerRegionTracker.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundVolumeMgr.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundDevice.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundEmitter.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundHandle.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundIDInfo.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundPropertyVolumeChanger.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundSet.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundTransition.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundTransitionXMLLoader.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundTypes.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHMouseCapturer.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHMouseCapturerTransition.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHHotkeyController.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHRumbler.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundProfile.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundProfileTransition.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundProfileTransitionXMLLoader.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSoundListenerPoseableFollower.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHCharUtil.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHXMLObjFactory.h">
+      <Filter>XMLFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHXMLObjLoader.h">
+      <Filter>XMLFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHXMLRedirectLoader.h">
+      <Filter>XMLFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHXMLLoaderResource.h">
+      <Filter>XMLFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHXMLDebugPrint.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHActionClaim.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHSharedSoundPool.h">
+      <Filter>sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHInputStructs.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHMessageHandlerTransitionXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHMessageSenderTransitionXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHMessageXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHMessageTypes.h" />
+    <ClInclude Include="..\..\Base\GHPropertyBoolXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyContainerXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyCopyTransitionXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="GHPropertyCopyXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyCopyXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyEnumXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyFloatXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyIdentifierXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyIntXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyPointXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyStringGeneratorXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyStringXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyToggleTransitionXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyTypeXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyXMLInitializer.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPropertyXMLSaver.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHResourceLoaderXML.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHControllerTransitionXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHDebugTransitionXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHStateChangeTransitionXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHStateMachineXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHTransitionSwitchXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHTransitionMessageHandlerXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHTransitionListTransitionXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHDelayControllerXMLLoader.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHFramerateMonitor.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHFramerateSmoother.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHKeyframeRecorder.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHRunningPointAverager.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHPositionFollower.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHApp.h">
+      <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHAppRunner.h">
+      <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHAppShard.h">
+      <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHWindow.h">
+      <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHWindowListener.h">
+      <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\GHBaseXMLInitializer.h">
+      <Filter>xmlloaders</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Base\GHSystemServices.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLCache.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHXMLNode.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHXMLNodeDeepCopier.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHXMLSerializer.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHInputClaimConcrete.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHInputClaimGroup.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHInputState.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHInputStateClearer.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHInputStateKeySet.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHKeyDefParser.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPointerChangeTracker.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPointerRegionTracker.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHSoundEmitter.cpp">
+      <Filter>sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHSoundPropertyVolumeChanger.cpp">
+      <Filter>sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHSoundSet.cpp">
+      <Filter>sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHSoundTransition.cpp">
+      <Filter>sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHSoundTransitionXMLLoader.cpp">
+      <Filter>sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHSoundVolumeMgr.cpp">
+      <Filter>sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHMouseCapturerTransition.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHHotkeyController.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHSoundProfile.cpp">
+      <Filter>sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHSoundProfileTransition.cpp">
+      <Filter>sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHSoundProfileTransitionXMLLoader.cpp">
+      <Filter>sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHSoundListenerPoseableFollower.cpp">
+      <Filter>sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHCharUtil.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHXMLObjFactory.cpp">
+      <Filter>XMLFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHXMLObjLoader.cpp">
+      <Filter>XMLFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHXMLRedirectLoader.cpp">
+      <Filter>XMLFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHResourceLoaderXML.cpp">
+      <Filter>XMLFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHXMLLoaderResource.cpp">
+      <Filter>XMLFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHXMLDebugPrint.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHSharedSoundPool.cpp">
+      <Filter>sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHMessageHandlerTransitionXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHMessageSenderTransitionXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHMessageXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPropertyBoolXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPropertyContainerXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPropertyCopyTransitionXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPropertyCopyXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPropertyEnumXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPropertyFloatXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPropertyIdentifierXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPropertyIntXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPropertyStringGeneratorXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPropertyStringXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPropertyToggleTransitionXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPropertyXMLInitializer.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHControllerTransitionXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHDebugTransitionXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHStateChangeTransitionXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHStateMachineXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHTransitionSwitchXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHTransitionMessageHandlerXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHTransitionListTransitionXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHDelayControllerXMLLoader.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHFramerateMonitor.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHFramerateSmoother.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHPositionFollower.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHAppRunner.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHAppShard.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHWindowListener.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\GHBaseXMLInitializer.cpp">
+      <Filter>xmlloaders</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

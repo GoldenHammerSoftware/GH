@@ -1,0 +1,10 @@
+<ghm vertex=guivertex.glsl pixel=redpixel.glsl 
+    billboard=none draworder=0 applymode=modulate cullmode=none
+    zread=false zwrite=false offset=0
+    alphablend=false invalpha=false blendmode=normal
+    alphatest=false alphatestless=true alphatestval=0.9>
+    <textures>
+    </textures>
+    <floatargs>
+    </floatargs>
+</ghm>

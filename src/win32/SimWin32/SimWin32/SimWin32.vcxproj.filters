@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="sim">
+      <UniqueIdentifier>{5f48ea11-8faf-4b00-9f2e-4012d4760835}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physics">
+      <UniqueIdentifier>{07c4f903-37e5-431c-ac18-da03a311bd2c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Sim\GHAnimController.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHFrameAnimBlend.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHFrameAnimController.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHFrameAnimSequence.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHFrameAnimSet.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHFrameAnimSetLoader.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHFrameAnimSetXMLSerializer.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHNewFrameChecker.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHSkeletonAnimController.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHSphereBounds.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHTransformAnimController.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHTransformAnimData.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHTransformAnimHelper.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHTransformNode.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHTransformNodeXMLLoader.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\Physics\GHPhysicsCollisionCallback.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\Physics\GHPhysicsCollisionCallbackTransition.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\Physics\GHPhysicsCollisionData.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\Physics\GHPhysicsObject.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\Physics\GHPhysicsServices.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\Physics\GHPhysicsShapeType.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\Physics\GHPhysicsSim.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\GHTransformNodeFollower.h">
+      <Filter>sim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\Physics\GHMultiPhysicsObject.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Sim\Physics\GHMultiPhysicsObjectXMLLoader.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Sim\GHFrameAnimController.cpp">
+      <Filter>sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\GHFrameAnimSequence.cpp">
+      <Filter>sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\GHFrameAnimSet.cpp">
+      <Filter>sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\GHFrameAnimSetLoader.cpp">
+      <Filter>sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\GHFrameAnimSetXMLSerializer.cpp">
+      <Filter>sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\GHNewFrameChecker.cpp">
+      <Filter>sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\GHSkeletonAnimController.cpp">
+      <Filter>sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\GHSphereBounds.cpp">
+      <Filter>sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\GHTransformAnimController.cpp">
+      <Filter>sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\GHTransformAnimHelper.cpp">
+      <Filter>sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\GHTransformNode.cpp">
+      <Filter>sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\GHTransformNodeXMLLoader.cpp">
+      <Filter>sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\Physics\GHPhysicsCollisionCallback.cpp">
+      <Filter>physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\Physics\GHPhysicsCollisionCallbackTransition.cpp">
+      <Filter>physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\Physics\GHPhysicsObject.cpp">
+      <Filter>physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\Physics\GHPhysicsServices.cpp">
+      <Filter>physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\Physics\GHPhysicsSim.cpp">
+      <Filter>physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\GHTransformNodeFollower.cpp">
+      <Filter>sim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\Physics\GHMultiPhysicsObject.cpp">
+      <Filter>physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Sim\Physics\GHMultiPhysicsObjectXMLLoader.cpp">
+      <Filter>physics</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

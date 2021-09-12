@@ -1,0 +1,9 @@
+<entity>
+    <stateMachine>
+        <transitions stateId="ES_ACTIVE">
+            <entitySpawn pos="0 -0.6 5" activate="ES_ACTIVE">
+                <redirect file=floorent.xml/>
+            </entitySpawn>
+        </transitions>
+    </stateMachine>
+</entity>

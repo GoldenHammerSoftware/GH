@@ -1,0 +1,48 @@
+<!--
+
+<guiPanel>
+    <guiPos xFill="FT_PCT" yFill="FT_PCT" align="0 0" offset="0.1 0.1" size="0.8 0.8"/>
+    <renderable>
+        <guiQuadRenderable>
+            <ghm vertex="guivertex.glsl" pixel="hmdmirrortestpixel.glsl" zread="true" zwrite="false"
+                billboard="none" draworder="100" cullmode="none"
+                alphablend="false">
+            </ghm>
+        </guiQuadRenderable>
+    </renderable>
+</guiPanel>
+
+-->
+
+<!-- this block overrides the mirror texture with the avatar debug texture.
+<guiPanel>
+  <guiPos xFill="FT_PCT" yFill="FT_PCT" align="0 0" offset="0.1 0.1" size="0.8 0.8"/>
+  <renderable>
+    <guiQuadRenderable>
+      <ghm vertex="guivertex.glsl" pixel="hmdmirrortestpixel.glsl" zread="true" zwrite="false"
+          billboard="none" draworder="100" cullmode="none"
+          alphablend="false">
+        <paramAliases>
+          <alias target="HMDMirrorTexture" alias="AvatarDebugTexture"/>
+        </paramAliases>
+      </ghm>
+    </guiQuadRenderable>
+  </renderable>
+</guiPanel>
+-->
+
+<!-- this block overrides the mirror texture with the reflection texture. -->
+<guiPanel>
+  <guiPos xFill="FT_PCT" yFill="FT_PCT" align="0 0" offset="0.1 0.1" size="0.8 0.8"/>
+  <renderable>
+    <guiQuadRenderable>
+      <ghm vertex="guivertex.glsl" pixel="hmdmirrortestpixel.glsl" zread="true" zwrite="false"
+          billboard="none" draworder="100" cullmode="none"
+          alphablend="false">
+        <paramAliases>
+          <alias target="HMDMirrorTexture" alias="ReflectionTexture"/>
+        </paramAliases>
+      </ghm>
+    </guiQuadRenderable>
+  </renderable>
+</guiPanel>

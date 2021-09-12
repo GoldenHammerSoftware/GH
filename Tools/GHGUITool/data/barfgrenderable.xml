@@ -1,0 +1,3 @@
+<renderable>
+    <guiQuadRenderable minUV="0 0.9" maxUV="1 1"><resource file=barfgmat.xml/></guiQuadRenderable>
+</renderable>

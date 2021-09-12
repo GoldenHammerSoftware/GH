@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="message">
+      <UniqueIdentifier>{74993de9-82a6-4150-a0c9-acd57353d18a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="property">
+      <UniqueIdentifier>{943c8a05-f245-4ab5-ac99-0a1336b2a2ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{06211d12-c88a-40de-a38b-dad5b6dd4076}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="statemachine">
+      <UniqueIdentifier>{ad7db909-dac1-4ec7-bd48-c3e60b543eee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="profiler">
+      <UniqueIdentifier>{aa95d5b7-b40a-4c2e-ac7c-c624804aa614}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="controller">
+      <UniqueIdentifier>{c18295c9-397c-45ad-abf1-32e1deed6d8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform-extensions">
+      <UniqueIdentifier>{928c1b12-34fc-4592-9d59-b8ce0c2df2f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utilities">
+      <UniqueIdentifier>{db2bbc5d-490b-4224-81a6-d5421ddb28f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="statemachine-utils">
+      <UniqueIdentifier>{cc0ee5aa-2cc1-44f8-93eb-5f211c2f0758}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\GHUtils\GHEventMgr.cpp">
+      <Filter>message</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHMessage.cpp">
+      <Filter>message</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHMessageQueue.cpp">
+      <Filter>message</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHControllerMgr.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHProfiler.cpp">
+      <Filter>profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHProfileRecord.cpp">
+      <Filter>profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHStateMachine.cpp">
+      <Filter>statemachine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHRedirectResourceLoader.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHResource.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHResourceCache.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHResourceFactory.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHProperty.cpp">
+      <Filter>property</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertyContainer.cpp">
+      <Filter>property</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHTimeUpdater.cpp">
+      <Filter>platform-extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHUtilsServices.cpp" />
+    <ClCompile Include="..\..\GHUtils\GHRunnableMessageHandler.cpp">
+      <Filter>platform-extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHThreadUtil.cpp">
+      <Filter>platform-extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHTimeUpdaterAveraging.cpp">
+      <Filter>platform-extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHMessageHandlerTransition.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHMessageSenderTransition.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHUtilsMessageTypes.h">
+      <Filter>message</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertyCopyTransition.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertyOverrideTransition.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertyToggleTransition.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertySetMessageHandler.cpp">
+      <Filter>property</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertyStacker.cpp">
+      <Filter>property</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHPropertyStringGenerator.cpp">
+      <Filter>property</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHControllerChangeControllerTransition.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHDebugTransition.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHRandomTransition.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHStateChangeMessageListener.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHStateChangeTransition.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHTransitionChangeTransition.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHTransitionListTransition.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHTransitionMessageHandler.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHTransitionSwitch.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHControllerChangeController.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHControllerTransition.cpp">
+      <Filter>statemachine-utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHDelayController.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHUtils\GHProfileController.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\GHUtils\GHEventMgr.h">
+      <Filter>message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHMessage.h">
+      <Filter>message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHMessageHandler.h">
+      <Filter>message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHMessageQueue.h">
+      <Filter>message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHController.h">
+      <Filter>controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHControllerMgr.h">
+      <Filter>controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHProfiler.h">
+      <Filter>profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHProfileRecord.h">
+      <Filter>profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHStateMachine.h">
+      <Filter>statemachine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTransition.h">
+      <Filter>statemachine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHRedirectResourceLoader.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHResource.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHResourceCache.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHResourceFactory.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHResourceLoader.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHProperty.h">
+      <Filter>property</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertyContainer.h">
+      <Filter>property</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTimeUpdater.h">
+      <Filter>platform-extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHUtilsServices.h" />
+    <ClInclude Include="..\..\GHUtils\GHUtilsIdentifiers.h" />
+    <ClInclude Include="..\..\GHUtils\GHAlign.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPredicate.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHRunnableMessageHandler.h">
+      <Filter>platform-extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHThreadUtil.h">
+      <Filter>platform-extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTimeUpdaterAveraging.h">
+      <Filter>platform-extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHMessageHandlerTransition.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHMessageSenderTransition.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertyCopyTransition.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertyOverrideTransition.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertyToggleTransition.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertySetMessageHandler.h">
+      <Filter>property</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertyStacker.h">
+      <Filter>property</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHPropertyStringGenerator.h">
+      <Filter>property</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHSharedRefCountedProperty.h">
+      <Filter>property</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHControllerChangeControllerTransition.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHDebugTransition.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHRandomTransition.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHStateChangeMessageListener.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHStateChangeTransition.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTransitionChangeTransition.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTransitionListTransition.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTransitionMessageHandler.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHTransitionSwitch.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHValueSetterTransition.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHControllerChangeController.h">
+      <Filter>controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHControllerTransition.h">
+      <Filter>statemachine-utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHDelayController.h">
+      <Filter>controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHUtils\GHProfileController.h">
+      <Filter>controller</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\GHUtils\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\GHUtils\README.md" />
+  </ItemGroup>
+</Project>

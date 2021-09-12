@@ -1,0 +1,20 @@
+<ghm vertex=staticmd3vertex.glsl pixel=pixel-1tex-lit.glsl
+    billboard=none draworder=0 applymode=modulate cullmode=none
+    zread=true zwrite=true offset=0
+    alphablend=false invalpha=false blendmode=normal
+    alphatest=false alphatestless=true alphatestval=0.9>
+    <textures>
+        <texture file=Board_Dman256.png handle=Texture0 wrap=wrap mipmap=true/>
+    </textures>
+    <floatargs>
+        <floatarg handle=MaterialEmissive count=1 value=0.3/>
+    </floatargs>
+    <materialPassOverrides>
+        <mpo pass=shadow>
+            <resource file=shadowmat.xml/>
+        </mpo>
+        <mpo pass=trail>
+            <resource file=trailmat.xml/>
+        </mpo>
+    </materialPassOverrides>
+</ghm>

@@ -1,0 +1,1 @@
+This project is not meant to be compiled by dev studio.  It is just meant for easier editing of the android files.

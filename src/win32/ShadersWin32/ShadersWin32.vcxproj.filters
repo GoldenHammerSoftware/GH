@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="DX11Shaders">
+      <UniqueIdentifier>{1d77d121-6ebf-4976-a0d7-2dea551e02cf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\..\..\data\DX11Shaders\AvatarFragmentShader.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\AvatarFragmentShaderPBS.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\AvatarVertexShader.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\barfgpixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\blackpixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\colorpixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\debugpixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\debugvertex.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\font3dvertex.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\fontpixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\fontvertex.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\ghbmattepixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\ghbmattevertex.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\guipixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\guispinvertex.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\guivertex.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\hmdmirrortestpixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\hourglasspixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\hourglassvertex.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\opaquebgpixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\particlepixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\particlevertex.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\pixel-1tex.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\pixel-1tex-alphatest.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\pixel-1tex-lit.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\pixel-1tex-specular.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\pixel-1tex-specular-lightmap.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\shadowoccludepixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\shadowpixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\shadowvertex.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\staticmd3vertex.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\tintpixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\vertex-1tex-specular.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\worldvertex.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\ghmasterpixel.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\ghmastervertex.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\..\data\DX11Shaders\AvatarFragmentShaderparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\AvatarFragmentShaderPBSparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\AvatarVertexShaderparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\barfgpixelparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\blackpixelparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\colorpixelparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\debugpixelparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\debugvertexparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\font3dvertexparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\fontpixelparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\fontvertexparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\ghbmattepixelparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\ghbmattevertexparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\ghboptions.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\guispinvertexparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\guivertexparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\hmdmirrortestpixelparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\hourglasspixelparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\hourglassvertexparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\newssave.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\opaquebgpixelparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\particlepixelparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\particlevertexparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\pixel-1tex-alphatestparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\pixel-1tex-litparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\pixel-1texparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\pixel-1tex-specular-lightmapparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\pixel-1tex-specularparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\shadowoccludepixelparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\shadowpixelparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\shadowvertexparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\staticmd3vertexparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\tintpixelparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\vertex-1tex-specularparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+    <Xml Include="..\..\..\data\DX11Shaders\worldvertexparams.xml">
+      <Filter>DX11Shaders</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\data\DX11Shaders\ghbcurrency.exml">
+      <Filter>DX11Shaders</Filter>
+    </None>
+    <None Include="..\..\..\data\DX11Shaders\ghbinventory.exml">
+      <Filter>DX11Shaders</Filter>
+    </None>
+    <None Include="..\..\..\data\DX11Shaders\ghbisys.exml">
+      <Filter>DX11Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\data\DX11Shaders\guiposition.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </Text>
+    <Text Include="..\..\..\data\DX11Shaders\ghdefines.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </Text>
+    <Text Include="..\..\..\data\DX11Shaders\reflectioninclude.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

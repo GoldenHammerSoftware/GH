@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Retail|Win32">
+      <Configuration>Retail</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Retail|x64">
+      <Configuration>Retail</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D7673B02-3CB5-4914-A932-754DD756AF3D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>BaseWin32</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>GHRETAIL;_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>GHRETAIL;_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Base\GHActionClaim.h" />
+    <ClInclude Include="..\..\Base\GHApp.h" />
+    <ClInclude Include="..\..\Base\GHAppRunner.h" />
+    <ClInclude Include="..\..\Base\GHAppShard.h" />
+    <ClInclude Include="..\..\Base\GHBaseIdentifiers.h" />
+    <ClInclude Include="..\..\Base\GHBaseXMLInitializer.h" />
+    <ClInclude Include="..\..\Base\GHCharUtil.h" />
+    <ClInclude Include="..\..\Base\GHControllerTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHDebugTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHDelayControllerXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHFramerateMonitor.h" />
+    <ClInclude Include="..\..\Base\GHFramerateSmoother.h" />
+    <ClInclude Include="..\..\Base\GHHotkeyController.h" />
+    <ClInclude Include="..\..\Base\GHInputClaim.h" />
+    <ClInclude Include="..\..\Base\GHInputClaimConcrete.h" />
+    <ClInclude Include="..\..\Base\GHInputClaimGroup.h" />
+    <ClInclude Include="..\..\Base\GHInputState.h" />
+    <ClInclude Include="..\..\Base\GHInputStateClearer.h" />
+    <ClInclude Include="..\..\Base\GHInputStateKeySet.h" />
+    <ClInclude Include="..\..\Base\GHInputStructs.h" />
+    <ClInclude Include="..\..\Base\GHKeyDef.h" />
+    <ClInclude Include="..\..\Base\GHKeyDefParser.h" />
+    <ClInclude Include="..\..\Base\GHKeyframeRecorder.h" />
+    <ClInclude Include="..\..\Base\GHMessageHandlerTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHMessageSenderTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHMessageTypes.h" />
+    <ClInclude Include="..\..\Base\GHMessageXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHMouseCapturer.h" />
+    <ClInclude Include="..\..\Base\GHMouseCapturerTransition.h" />
+    <ClInclude Include="..\..\Base\GHPointerChangeTracker.h" />
+    <ClInclude Include="..\..\Base\GHPointerRegionTracker.h" />
+    <ClInclude Include="..\..\Base\GHPositionFollower.h" />
+    <ClInclude Include="..\..\Base\GHPropertyBoolXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyContainerXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyCopyTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyCopyXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyEnumXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyFloatXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyIdentifierXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyIntXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyPointXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyStringGeneratorXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyStringXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyToggleTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyTypeXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHPropertyXMLInitializer.h" />
+    <ClInclude Include="..\..\Base\GHPropertyXMLSaver.h" />
+    <ClInclude Include="..\..\Base\GHResourceLoaderXML.h" />
+    <ClInclude Include="..\..\Base\GHRumbler.h" />
+    <ClInclude Include="..\..\Base\GHRunningPointAverager.h" />
+    <ClInclude Include="..\..\Base\GHServices.h" />
+    <ClInclude Include="..\..\Base\GHSharedSoundPool.h" />
+    <ClInclude Include="..\..\Base\GHSoundDevice.h" />
+    <ClInclude Include="..\..\Base\GHSoundEmitter.h" />
+    <ClInclude Include="..\..\Base\GHSoundHandle.h" />
+    <ClInclude Include="..\..\Base\GHSoundIDInfo.h" />
+    <ClInclude Include="..\..\Base\GHSoundListenerPoseableFollower.h" />
+    <ClInclude Include="..\..\Base\GHSoundProfile.h" />
+    <ClInclude Include="..\..\Base\GHSoundProfileTransition.h" />
+    <ClInclude Include="..\..\Base\GHSoundProfileTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHSoundPropertyVolumeChanger.h" />
+    <ClInclude Include="..\..\Base\GHSoundSet.h" />
+    <ClInclude Include="..\..\Base\GHSoundTransition.h" />
+    <ClInclude Include="..\..\Base\GHSoundTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHSoundTypes.h" />
+    <ClInclude Include="..\..\Base\GHSoundVolumeMgr.h" />
+    <ClInclude Include="..\..\Base\GHStateChangeTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHStateMachineXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHSystemServices.h" />
+    <ClInclude Include="..\..\Base\GHTransitionListTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHTransitionMessageHandlerXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHTransitionSwitchXMLLoader.h" />
+    <ClInclude Include="..\..\Base\GHWindow.h" />
+    <ClInclude Include="..\..\Base\GHWindowListener.h" />
+    <ClInclude Include="..\..\Base\GHXMLCache.h" />
+    <ClInclude Include="..\..\Base\GHXMLDebugPrint.h" />
+    <ClInclude Include="..\..\Base\GHXMLLoaderResource.h" />
+    <ClInclude Include="..\..\Base\GHXMLNode.h" />
+    <ClInclude Include="..\..\Base\GHXMLNodeDeepCopier.h" />
+    <ClInclude Include="..\..\Base\GHXMLObjFactory.h" />
+    <ClInclude Include="..\..\Base\GHXMLObjLoader.h" />
+    <ClInclude Include="..\..\Base\GHXMLRedirectLoader.h" />
+    <ClInclude Include="..\..\Base\GHXMLSerializer.h" />
+    <ClInclude Include="GHPropertyCopyXMLLoader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Base\GHAppRunner.cpp" />
+    <ClCompile Include="..\..\Base\GHAppShard.cpp" />
+    <ClCompile Include="..\..\Base\GHBaseXMLInitializer.cpp" />
+    <ClCompile Include="..\..\Base\GHCharUtil.cpp" />
+    <ClCompile Include="..\..\Base\GHControllerTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHDebugTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHDelayControllerXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHFramerateMonitor.cpp" />
+    <ClCompile Include="..\..\Base\GHFramerateSmoother.cpp" />
+    <ClCompile Include="..\..\Base\GHHotkeyController.cpp" />
+    <ClCompile Include="..\..\Base\GHInputClaimConcrete.cpp" />
+    <ClCompile Include="..\..\Base\GHInputClaimGroup.cpp" />
+    <ClCompile Include="..\..\Base\GHInputState.cpp" />
+    <ClCompile Include="..\..\Base\GHInputStateClearer.cpp" />
+    <ClCompile Include="..\..\Base\GHInputStateKeySet.cpp" />
+    <ClCompile Include="..\..\Base\GHKeyDefParser.cpp" />
+    <ClCompile Include="..\..\Base\GHMessageHandlerTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHMessageSenderTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHMessageXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHMouseCapturerTransition.cpp" />
+    <ClCompile Include="..\..\Base\GHPointerChangeTracker.cpp" />
+    <ClCompile Include="..\..\Base\GHPointerRegionTracker.cpp" />
+    <ClCompile Include="..\..\Base\GHPositionFollower.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyBoolXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyContainerXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyCopyTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyCopyXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyEnumXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyFloatXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyIdentifierXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyIntXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyStringGeneratorXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyStringXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyToggleTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHPropertyXMLInitializer.cpp" />
+    <ClCompile Include="..\..\Base\GHResourceLoaderXML.cpp" />
+    <ClCompile Include="..\..\Base\GHSharedSoundPool.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundEmitter.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundListenerPoseableFollower.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundProfile.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundProfileTransition.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundProfileTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundPropertyVolumeChanger.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundSet.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundTransition.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHSoundVolumeMgr.cpp" />
+    <ClCompile Include="..\..\Base\GHStateChangeTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHStateMachineXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHSystemServices.cpp" />
+    <ClCompile Include="..\..\Base\GHTransitionListTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHTransitionMessageHandlerXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHTransitionSwitchXMLLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHWindowListener.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLCache.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLDebugPrint.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLLoaderResource.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLNode.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLNodeDeepCopier.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLObjFactory.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLObjLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLRedirectLoader.cpp" />
+    <ClCompile Include="..\..\Base\GHXMLSerializer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GHPlatform\win32\GHPlatformWin32\GHPlatformWin32.vcxproj">
+      <Project>{3b229936-f72e-4cfe-8c5c-136fa00e1360}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GHString\win32\GHStringWin32\GHStringWin32.vcxproj">
+      <Project>{b4e3fa26-3a8a-475a-b6b8-d94a85ac95ad}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GHMath\GHMath.vcxproj">
+      <Project>{5af39d65-93e2-4b03-9fc1-9aea6cdc9dea}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GHUtilsWin32\GHUtilsWin32.vcxproj">
+      <Project>{697413fa-d512-45de-874b-b4b6634a8b4c}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

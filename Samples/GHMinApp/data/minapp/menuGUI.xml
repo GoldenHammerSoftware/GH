@@ -1,0 +1,107 @@
+<guiPanel>
+	<guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0 0" size="1 1"/>
+    <widgetStates>
+        <transitions stateEnum="WS_TRANSITIONIN WS_ACTIVE WS_TRANSITIONOUT">
+            <exitOnBack/>
+        </transitions>
+        <transitions stateEnum="WS_TRANSITIONOUT WS_TRANSITIONIN">
+            <controllerTransition><guiAnim prop=GP_MENUTRANS>
+                <frame val=0>
+                    <guiPos align="-1 0" offset="0 0" size="1 1"/>
+                </frame>
+                <frame val=1>
+                    <guiPos align="0 0" offset="0 0" size="1 1"/>
+                </frame>
+            </guiAnim></controllerTransition>
+        </transitions>
+    </widgetStates>
+
+    <children>
+      <guiPanel inherit="guicontentpanel.xml">
+          <children>
+              
+              <guiPanel>
+                  <guiPos align="0 0.5" offset="150 -50" size="100 100" xFill="FT_PIXELS" yFill="FT_PIXELS" />
+                  <children>
+                      <guiText text="^999Super" font="ericfont.xml" textHeight="0.4" fill="FT_PCT" hAlign="A_CENTER" vAlign="A_CENTER">
+                          <guiPos align="0 0" offset="0 0" size="1 1" xFill="FT_PCT" yFill="FT_PCT" />
+                      </guiText>
+                      <guiText text="^999GH" font="ericfont.xml" textHeight="0.4" fill="FT_PCT" hAlign="A_CENTER" vAlign="A_CENTER">
+                          <guiPos align="0 0" offset="0 0.4" size="1 1" xFill="FT_PCT" yFill="FT_PCT" />
+                      </guiText>
+                      <guiText text="^999MinApp" font="ericfont.xml" textHeight="0.4" fill="FT_PCT" hAlign="A_CENTER" vAlign="A_CENTER">
+                          <guiPos align="0 0" offset="0 0.8" size="1 1" xFill="FT_PCT" yFill="FT_PCT" />
+                      </guiText>
+                  </children>
+              </guiPanel>
+              
+              <guiButton inherit="menubutton.xml">
+                  <guiPos align="1 0.5" xSizeAlign="A_LEFT" offset="-30 -170"/>
+                  <buttonStates>
+                      <transitions stateEnum="BE_TRIGGERED">
+                          <messageSender>
+                              <message id="M_CHANGEMAINSTATE">
+                                  <prop name="GP_STATE">
+                                      <identifierProp val="GS_GAME"/>
+                                  </prop>
+                              </message>
+                          </messageSender>
+                      </transitions>
+                  </buttonStates>
+                  <children>
+                      <guiText text="^999Play" font="ericfont.xml" textHeight="0.4" fill="FT_PCT" hAlign="A_CENTER" vAlign="A_CENTER"/>
+                  </children>
+              </guiButton>
+              
+              <guiButton inherit="menubutton.xml">
+                  <guiPos align="1 0.5" xSizeAlign="A_LEFT" offset="-30 105"/>
+                  <buttonStates>
+                      <transitions stateEnum="BE_TRIGGERED">
+                          <guiPop widget="menuGUI.xml" transitionProp="GP_MENUTRANS" transitionTime="0.4" transitionWait="0"/>
+                          <guiPush widget="optionsGUI.xml" transitionProp="GP_OPTIONSTRANS" transitionTime="0.4" transitionWait="0"/>
+                      </transitions>
+                  </buttonStates>
+                  <children>
+                      <guiText text="^999Options" font="ericfont.xml" textHeight="0.4" fill="FT_PCT" hAlign="A_CENTER" vAlign="A_CENTER"/>
+                  </children>
+              </guiButton>
+              
+              <guiButton inherit="menubutton.xml">
+                  <guiPos align="1 0.5" xSizeAlign="A_LEFT" offset="-30 170"/>
+                  <buttonStates>
+                      <transitions stateEnum="BE_TRIGGERED">
+                          <guiPop widget="menuGUI.xml" transitionProp="GP_MENUTRANS" transitionTime="0.4" transitionWait="0"/>
+                          <guiPush widget="creditsGUI.xml" transitionProp="GP_CREDITSTRANS" transitionTime="0.4" transitionWait="0"/>
+                      </transitions>
+                  </buttonStates>
+                  <children>
+                      <guiText text="^999About" font="ericfont.xml" textHeight="0.4" fill="FT_PCT" hAlign="A_CENTER" vAlign="A_CENTER"/>
+                  </children>
+              </guiButton>
+              
+
+              <guiButton triggerKeys="KEY_ESC">
+                  <guiPos align="0 0.5" offset="0 0" size="0 0"/>
+                  <buttonStates>
+                      <transitions stateEnum="BE_TRIGGERED">
+                          <exitApp/>
+                      </transitions>
+                  </buttonStates>
+              </guiButton>
+              
+              <guiPropText text="^999Version %s0" font="ericfont.xml" textHeight="20" fill="FT_PIXELS" hAlign="A_CENTER" vAlign="A_BOTTOM">
+                  <guiPos xFill="FT_PIXELS" yFill="FT_PIXELS" align="0.5 1" offset="-400 -40" size="800 20"/>
+                  <monitorProperties>
+                      <GP_GAMEVERSION/>
+                  </monitorProperties>
+              </guiPropText>
+              
+              <guiText text="http://goldenhammersoftware.com" font="ericfont.xml" textHeight="20" fill="FT_PIXELS" hAlign="A_CENTER" vAlign="A_BOTTOM">
+                  <guiPos xFill="FT_PIXELS" yFill="FT_PIXELS" align="0.5 1" offset="-400 -20" size="800 20"/>
+              </guiText>
+          </children>
+      </guiPanel>
+    </children>
+    
+</guiPanel>
+

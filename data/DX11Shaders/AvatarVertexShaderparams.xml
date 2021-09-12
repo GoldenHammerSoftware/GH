@@ -1,0 +1,8 @@
+<shaderParams>
+  <floatParams>
+    <floatParam sizeFloats="3" cbType="CT_PERFRAME" semantic="viewPos"/>
+    <floatParam sizeFloats="1024" cbType="CT_PERFRAME" semantic="meshPose"/>
+    <floatParam sizeFloats="16" cbType="CT_PERTRANS" semantic="WorldToModel"/>
+    <floatParam sizeFloats="16" cbType="CT_PERTRANS" semantic="ModelViewProj"/>
+  </floatParams>
+</shaderParams>

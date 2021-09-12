@@ -1,0 +1,348 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0ADC7FA7255DB2F900F6F683 /* GHFilenameUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC7F96255DB2F800F6F683 /* GHFilenameUtil.cpp */; };
+		0ADC7FA8255DB2F900F6F683 /* GHHashListParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC7F97255DB2F800F6F683 /* GHHashListParser.cpp */; };
+		0ADC7FA9255DB2F900F6F683 /* GHWhitespaceUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC7F9C255DB2F800F6F683 /* GHWhitespaceUtil.cpp */; };
+		0ADC7FAA255DB2F900F6F683 /* GHStringTokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC7F9E255DB2F800F6F683 /* GHStringTokenizer.cpp */; };
+		0ADC7FAB255DB2F900F6F683 /* GHStringIdFactoryDJB2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC7FA2255DB2F800F6F683 /* GHStringIdFactoryDJB2.cpp */; };
+		0ADC7FAC255DB2F900F6F683 /* GHString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC7FA5255DB2F800F6F683 /* GHString.cpp */; };
+		0ADC7FAD255DB2F900F6F683 /* GHNumberListParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC7FA6255DB2F900F6F683 /* GHNumberListParser.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		95F0F208231D63990097CC1C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0ADC7F92255DB2F800F6F683 /* GHCharLess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHCharLess.h; sourceTree = "<group>"; };
+		0ADC7F93255DB2F800F6F683 /* GHEnumEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHEnumEnd.h; sourceTree = "<group>"; };
+		0ADC7F94255DB2F800F6F683 /* GHString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHString.h; sourceTree = "<group>"; };
+		0ADC7F95255DB2F800F6F683 /* GHWhitespaceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHWhitespaceUtil.h; sourceTree = "<group>"; };
+		0ADC7F96255DB2F800F6F683 /* GHFilenameUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GHFilenameUtil.cpp; sourceTree = "<group>"; };
+		0ADC7F97255DB2F800F6F683 /* GHHashListParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GHHashListParser.cpp; sourceTree = "<group>"; };
+		0ADC7F98255DB2F800F6F683 /* GHStringIdFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHStringIdFactory.h; sourceTree = "<group>"; };
+		0ADC7F99255DB2F800F6F683 /* GHStringIdFactoryDJB2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHStringIdFactoryDJB2.h; sourceTree = "<group>"; };
+		0ADC7F9A255DB2F800F6F683 /* GHIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHIdentifier.h; sourceTree = "<group>"; };
+		0ADC7F9B255DB2F800F6F683 /* GHFilenameUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHFilenameUtil.h; sourceTree = "<group>"; };
+		0ADC7F9C255DB2F800F6F683 /* GHWhitespaceUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GHWhitespaceUtil.cpp; sourceTree = "<group>"; };
+		0ADC7F9D255DB2F800F6F683 /* GHHashListParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHHashListParser.h; sourceTree = "<group>"; };
+		0ADC7F9E255DB2F800F6F683 /* GHStringTokenizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GHStringTokenizer.cpp; sourceTree = "<group>"; };
+		0ADC7F9F255DB2F800F6F683 /* GHEnumInclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHEnumInclude.h; sourceTree = "<group>"; };
+		0ADC7FA0255DB2F800F6F683 /* GHNumberListParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHNumberListParser.h; sourceTree = "<group>"; };
+		0ADC7FA1255DB2F800F6F683 /* GHEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHEnum.h; sourceTree = "<group>"; };
+		0ADC7FA2255DB2F800F6F683 /* GHStringIdFactoryDJB2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GHStringIdFactoryDJB2.cpp; sourceTree = "<group>"; };
+		0ADC7FA3255DB2F800F6F683 /* GHStringTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHStringTokenizer.h; sourceTree = "<group>"; };
+		0ADC7FA4255DB2F800F6F683 /* GHIdentifierMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHIdentifierMap.h; sourceTree = "<group>"; };
+		0ADC7FA5255DB2F800F6F683 /* GHString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GHString.cpp; sourceTree = "<group>"; };
+		0ADC7FA6255DB2F900F6F683 /* GHNumberListParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GHNumberListParser.cpp; sourceTree = "<group>"; };
+		95F0F20A231D63990097CC1C /* libGHString.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGHString.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95F0F207231D63990097CC1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95F0F201231D63990097CC1C = {
+			isa = PBXGroup;
+			children = (
+				95F0F20C231D63990097CC1C /* GHString */,
+				95F0F20B231D63990097CC1C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		95F0F20B231D63990097CC1C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95F0F20A231D63990097CC1C /* libGHString.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95F0F20C231D63990097CC1C /* GHString */ = {
+			isa = PBXGroup;
+			children = (
+				0ADC7F92255DB2F800F6F683 /* GHCharLess.h */,
+				0ADC7FA1255DB2F800F6F683 /* GHEnum.h */,
+				0ADC7F93255DB2F800F6F683 /* GHEnumEnd.h */,
+				0ADC7F9F255DB2F800F6F683 /* GHEnumInclude.h */,
+				0ADC7F96255DB2F800F6F683 /* GHFilenameUtil.cpp */,
+				0ADC7F9B255DB2F800F6F683 /* GHFilenameUtil.h */,
+				0ADC7F97255DB2F800F6F683 /* GHHashListParser.cpp */,
+				0ADC7F9D255DB2F800F6F683 /* GHHashListParser.h */,
+				0ADC7F9A255DB2F800F6F683 /* GHIdentifier.h */,
+				0ADC7FA4255DB2F800F6F683 /* GHIdentifierMap.h */,
+				0ADC7FA6255DB2F900F6F683 /* GHNumberListParser.cpp */,
+				0ADC7FA0255DB2F800F6F683 /* GHNumberListParser.h */,
+				0ADC7FA5255DB2F800F6F683 /* GHString.cpp */,
+				0ADC7F94255DB2F800F6F683 /* GHString.h */,
+				0ADC7F98255DB2F800F6F683 /* GHStringIdFactory.h */,
+				0ADC7FA2255DB2F800F6F683 /* GHStringIdFactoryDJB2.cpp */,
+				0ADC7F99255DB2F800F6F683 /* GHStringIdFactoryDJB2.h */,
+				0ADC7F9E255DB2F800F6F683 /* GHStringTokenizer.cpp */,
+				0ADC7FA3255DB2F800F6F683 /* GHStringTokenizer.h */,
+				0ADC7F9C255DB2F800F6F683 /* GHWhitespaceUtil.cpp */,
+				0ADC7F95255DB2F800F6F683 /* GHWhitespaceUtil.h */,
+			);
+			name = GHString;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95F0F209231D63990097CC1C /* GHString */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95F0F213231D63990097CC1C /* Build configuration list for PBXNativeTarget "GHString" */;
+			buildPhases = (
+				95F0F206231D63990097CC1C /* Sources */,
+				95F0F207231D63990097CC1C /* Frameworks */,
+				95F0F208231D63990097CC1C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GHString;
+			productName = GHString;
+			productReference = 95F0F20A231D63990097CC1C /* libGHString.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95F0F202231D63990097CC1C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Golden Hammer Software";
+				TargetAttributes = {
+					95F0F209231D63990097CC1C = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 95F0F205231D63990097CC1C /* Build configuration list for PBXProject "GHString" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 95F0F201231D63990097CC1C;
+			productRefGroup = 95F0F20B231D63990097CC1C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95F0F209231D63990097CC1C /* GHString */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95F0F206231D63990097CC1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ADC7FA9255DB2F900F6F683 /* GHWhitespaceUtil.cpp in Sources */,
+				0ADC7FA7255DB2F900F6F683 /* GHFilenameUtil.cpp in Sources */,
+				0ADC7FA8255DB2F900F6F683 /* GHHashListParser.cpp in Sources */,
+				0ADC7FAB255DB2F900F6F683 /* GHStringIdFactoryDJB2.cpp in Sources */,
+				0ADC7FAA255DB2F900F6F683 /* GHStringTokenizer.cpp in Sources */,
+				0ADC7FAD255DB2F900F6F683 /* GHNumberListParser.cpp in Sources */,
+				0ADC7FAC255DB2F900F6F683 /* GHString.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		95F0F211231D63990097CC1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					GH_IOS,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		95F0F212231D63990097CC1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					GHRETAIL,
+					GH_IOS,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95F0F214231D63990097CC1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EC6XRWE9L4;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		95F0F215231D63990097CC1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EC6XRWE9L4;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95F0F205231D63990097CC1C /* Build configuration list for PBXProject "GHString" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95F0F211231D63990097CC1C /* Debug */,
+				95F0F212231D63990097CC1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95F0F213231D63990097CC1C /* Build configuration list for PBXNativeTarget "GHString" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95F0F214231D63990097CC1C /* Debug */,
+				95F0F215231D63990097CC1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95F0F202231D63990097CC1C /* Project object */;
+}

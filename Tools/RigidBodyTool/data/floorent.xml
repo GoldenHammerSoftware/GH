@@ -1,0 +1,11 @@
+<entity>
+    <properties>
+        <prop name=model><modelProp file=floormodel.xml/></prop>
+    </properties>
+    <stateMachine>
+        <transitions stateId="ES_ACTIVE">
+            <entityRenderTransition/>
+            <entityPhysicsTransition/>
+        </transitions>
+    </stateMachine>
+</entity>

@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="HeightField">
+      <UniqueIdentifier>{71cd0476-60d0-4733-b294-b0ae56f2eb90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="clientserver">
+      <UniqueIdentifier>{3a7f226d-9389-4f35-b459-3dafed41ad41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Spline">
+      <UniqueIdentifier>{7b5271d0-9bf5-4ec2-8c4a-b7258980d7ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="model">
+      <UniqueIdentifier>{65528f44-37bd-4538-9abd-21f0858cb0b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="model\gham">
+      <UniqueIdentifier>{56ecf2ef-e091-4161-bc1b-bf531354d0bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="model\md3">
+      <UniqueIdentifier>{ccb52fa1-611a-494a-9f0d-4c70e2146c8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="achievements">
+      <UniqueIdentifier>{5a2c1ac2-5334-42e1-90dd-cc5339fa02f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="stattracker">
+      <UniqueIdentifier>{c0229d1c-d874-46df-ad7f-47051409dff8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ads">
+      <UniqueIdentifier>{3a4c4a6b-e0e5-4c69-aa89-ed96e7dfdca4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="news">
+      <UniqueIdentifier>{5502e2f1-3b18-427f-a099-57be4e5b3008}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Game\CGCharacterBehaviorMonitor.h" />
+    <ClInclude Include="..\..\..\Game\GHEntity.h" />
+    <ClInclude Include="..\..\..\Game\GHEntityHashes.h" />
+    <ClInclude Include="..\..\..\Game\GHEntityMgr.h" />
+    <ClInclude Include="..\..\..\Game\GHEntityMgrMessageListener.h" />
+    <ClInclude Include="..\..\..\Game\GHEntityModelAnimTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\..\Game\GHEntityModelPhysicsTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\..\Game\GHEntityModelRenderTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\..\Game\GHEntitySpawnTransition.h" />
+    <ClInclude Include="..\..\..\Game\GHEntitySpawnTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\..\Game\GHEntityXMLLoader.h" />
+    <ClInclude Include="..\..\..\Game\GHGameIdentifiers.h" />
+    <ClInclude Include="..\..\..\Game\GHGameServices.h" />
+    <ClInclude Include="..\..\..\Game\GHIAPCallback.h" />
+    <ClInclude Include="..\..\..\Game\GHIAPStore.h" />
+    <ClInclude Include="..\..\..\Game\GHIAPStoreFactory.h" />
+    <ClInclude Include="..\..\..\Game\GHInputObjectMover.h" />
+    <ClInclude Include="..\..\..\Game\GHInterruptableTransition.h" />
+    <ClInclude Include="..\..\..\Game\GHMultiplayerFactory.h" />
+    <ClInclude Include="..\..\..\Game\GHMultiplayerIdentifiers.h" />
+    <ClInclude Include="..\..\..\Game\GHMultiplayerMatchCallback.h" />
+    <ClInclude Include="..\..\..\Game\GHMultiplayerMatchOutcome.h" />
+    <ClInclude Include="..\..\..\Game\GHMultiplayerMgr.h" />
+    <ClInclude Include="..\..\..\Game\GHOptionsSerializer.h" />
+    <ClInclude Include="..\..\..\Game\GHPhysicsCursorPicker.h" />
+    <ClInclude Include="..\..\..\Game\GHPositionFollowerEntXMLLoader.h" />
+    <ClInclude Include="..\..\..\Game\GHSkeletonDebugDrawerXMLLoader.h" />
+    <ClInclude Include="..\..\..\Game\GHHeightField.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldCollideModifier.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldCollideModifierXMLLoader.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldEntXMLLoader.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldMeshCreator.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldMeshDesc.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldMeshShared.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldNMeshLoader.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldOMeshBucket.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldOMeshBucketA.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldOMeshCreator.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldOMeshLoader.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldOMeshStructs.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldOMeshVertChooser.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldProperties.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldXMLLoader.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldHFFSaveModifier.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldHFFSaveModifierXMLLoader.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldUVMaker.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHAMAnimFactory.h">
+      <Filter>model\gham</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHAMAnimFactoryGPU.h">
+      <Filter>model\gham</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHAMModelLoader.h">
+      <Filter>model\gham</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHAMSerializer.h">
+      <Filter>model\gham</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHAMStructs.h">
+      <Filter>model\gham</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHeightFieldBlitterCache.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHConnectionHandle.h">
+      <Filter>clientserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHConnectionHandleController.h">
+      <Filter>clientserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHConnectionHandleLocal.h">
+      <Filter>clientserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHCSClient.h">
+      <Filter>clientserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHCSClientInfo.h">
+      <Filter>clientserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHCSClientList.h">
+      <Filter>clientserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHCSEntityMgr.h">
+      <Filter>clientserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHCSGameLauncher.h">
+      <Filter>clientserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHCSIdentifiers.h">
+      <Filter>clientserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHCSServer.h">
+      <Filter>clientserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHOverheadMessageQueue.h" />
+    <ClInclude Include="..\..\..\Game\GHBezierCurve.h">
+      <Filter>Spline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHSpline.h">
+      <Filter>Spline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHCatmullRomCurve.h">
+      <Filter>Spline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHMD3LoaderAnimModifier.h">
+      <Filter>model\md3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHMD3LoaderAnimModifierGPU.h">
+      <Filter>model\md3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHMD3LoaderConfig.h">
+      <Filter>model\md3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHMD3ModelLoader.h">
+      <Filter>model\md3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHMD3Structs.h">
+      <Filter>model\md3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHMD3TagLoader.h">
+      <Filter>model\md3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHModelTransformAnimCloner.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHModel.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHModelAnimControllerCloner.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHModelAnimTransition.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHModelAnimUpdateTrigger.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHModelFrameAnimVBAnimCloner.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHModelLoader.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHModelParticleAnimCloner.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHModelPhysicsTransition.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHModelPropertyXMLLoader.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHModelRenderTransition.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHModelSkeletonAnimCloner.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHModelSkinAnimCloner.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHAchievementNotifier.h">
+      <Filter>achievements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHAchievementsData.h">
+      <Filter>achievements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHAchievementsGUIFiller.h">
+      <Filter>achievements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHAchievementsGUIFillerXMLLoader.h">
+      <Filter>achievements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHCacheModelLoader.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHFUVType.h">
+      <Filter>HeightField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHStatTracker.h">
+      <Filter>stattracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHStatTrackerFactory.h">
+      <Filter>stattracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHStatTrackerFactoryLocal.h">
+      <Filter>stattracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHStatTrackerIdentifiers.h">
+      <Filter>stattracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHStatTrackerLocal.h">
+      <Filter>stattracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHStatTrackerMessageHandler.h">
+      <Filter>stattracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHEntityParticleTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\..\Game\GHAdTransition.h">
+      <Filter>ads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHAdFactory.h">
+      <Filter>ads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHAdHandlingDelegate.h">
+      <Filter>ads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHouseAd.h">
+      <Filter>ads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHHouseAdXMLLoader.h">
+      <Filter>ads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHInstantAbortAd.h">
+      <Filter>ads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHGUIAchievementNotifier.h">
+      <Filter>achievements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHNewsMgr.h">
+      <Filter>news</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHNewsGUITransition.h">
+      <Filter>news</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHNewsGUITransitionXMLLoader.h">
+      <Filter>news</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHWebNewsMgr.h">
+      <Filter>news</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHConsoleCommandStringHandler.h" />
+    <ClInclude Include="..\..\..\Game\GHInterstitialMgrTransition.h">
+      <Filter>ads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Game\GHPointerIndicator.h" />
+    <ClInclude Include="..\..\..\Game\GHCameraAnimateController.h" />
+    <ClInclude Include="..\..\..\Game\GHCameraAnimateControllerXMLLoader.h" />
+    <ClInclude Include="..\..\..\Game\GHInputStateRecorder.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Game\GHEntity.cpp" />
+    <ClCompile Include="..\..\..\Game\GHEntityMgr.cpp" />
+    <ClCompile Include="..\..\..\Game\GHEntityMgrMessageListener.cpp" />
+    <ClCompile Include="..\..\..\Game\GHEntityModelAnimTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\Game\GHEntityModelPhysicsTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\Game\GHEntityModelRenderTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\Game\GHEntitySpawnTransition.cpp" />
+    <ClCompile Include="..\..\..\Game\GHEntitySpawnTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\Game\GHEntityXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\Game\GHGameServices.cpp" />
+    <ClCompile Include="..\..\..\Game\GHInputObjectMover.cpp" />
+    <ClCompile Include="..\..\..\Game\GHInterruptableTransition.cpp" />
+    <ClCompile Include="..\..\..\Game\GHOptionsSerializer.cpp" />
+    <ClCompile Include="..\..\..\Game\GHPhysicsCursorPicker.cpp" />
+    <ClCompile Include="..\..\..\Game\GHPositionFollowerEntXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\Game\GHSkeletonDebugDrawerXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\Game\GHHeightField.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldCollideModifier.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldCollideModifierXMLLoader.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldEntXMLLoader.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldMeshCreator.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldMeshDesc.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldMeshShared.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldNMeshLoader.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldOMeshBucketA.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldOMeshCreator.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldOMeshLoader.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldOMeshStructs.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldOMeshVertChooser.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldXMLLoader.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldHFFSaveModifier.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldHFFSaveModifierXMLLoader.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldUVMaker.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHAMAnimFactoryGPU.cpp">
+      <Filter>model\gham</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHAMModelLoader.cpp">
+      <Filter>model\gham</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHAMSerializer.cpp">
+      <Filter>model\gham</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHeightFieldBlitterCache.cpp">
+      <Filter>HeightField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHConnectionHandleController.cpp">
+      <Filter>clientserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHConnectionHandleLocal.cpp">
+      <Filter>clientserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHCSClient.cpp">
+      <Filter>clientserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHCSClientInfo.cpp">
+      <Filter>clientserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHCSClientList.cpp">
+      <Filter>clientserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHCSEntityMgr.cpp">
+      <Filter>clientserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHCSGameLauncher.cpp">
+      <Filter>clientserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHCSServer.cpp">
+      <Filter>clientserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHOverheadMessageQueue.cpp" />
+    <ClCompile Include="..\..\..\Game\GHBezierCurve.cpp">
+      <Filter>Spline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHCatmullRomCurve.cpp">
+      <Filter>Spline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHMD3LoaderAnimModifierGPU.cpp">
+      <Filter>model\md3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHMD3ModelLoader.cpp">
+      <Filter>model\md3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHMD3TagLoader.cpp">
+      <Filter>model\md3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHModel.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHModelAnimTransition.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHModelAnimUpdateTrigger.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHModelFrameAnimVBAnimCloner.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHModelLoader.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHModelParticleAnimCloner.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHModelPhysicsTransition.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHModelPropertyXMLLoader.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHModelRenderTransition.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHModelSkeletonAnimCloner.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHModelSkinAnimCloner.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHModelTransformAnimCloner.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHAchievementsData.cpp">
+      <Filter>achievements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHAchievementsGUIFiller.cpp">
+      <Filter>achievements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHAchievementsGUIFillerXMLLoader.cpp">
+      <Filter>achievements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHCacheModelLoader.cpp">
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHStatTrackerFactory.cpp">
+      <Filter>stattracker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHStatTrackerFactoryLocal.cpp">
+      <Filter>stattracker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHStatTrackerLocal.cpp">
+      <Filter>stattracker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHStatTrackerMessageHandler.cpp">
+      <Filter>stattracker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHEntityParticleTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\Game\GHHouseAd.cpp">
+      <Filter>ads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHHouseAdXMLLoader.cpp">
+      <Filter>ads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHInstantAbortAd.cpp">
+      <Filter>ads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHGUIAchievementNotifier.cpp">
+      <Filter>achievements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHNewsGUITransition.cpp">
+      <Filter>news</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHNewsGUITransitionXMLLoader.cpp">
+      <Filter>news</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHNewsMgr.cpp">
+      <Filter>news</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHWebNewsMgr.cpp">
+      <Filter>news</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHConsoleCommandStringHandler.cpp" />
+    <ClCompile Include="..\..\..\Game\GHInterstitialMgrTransition.cpp">
+      <Filter>ads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Game\GHPointerIndicator.cpp" />
+    <ClCompile Include="..\..\..\Game\GHCameraAnimateController.cpp" />
+    <ClCompile Include="..\..\..\Game\GHCameraAnimateControllerXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\Game\GHInputStateRecorder.cpp" />
+  </ItemGroup>
+</Project>

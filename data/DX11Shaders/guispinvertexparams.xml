@@ -1,0 +1,6 @@
+<shaderParams>
+    <floatParams>
+        <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="Time"/>
+        <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="GuiSpinSpeed"/>
+    </floatParams>
+</shaderParams>

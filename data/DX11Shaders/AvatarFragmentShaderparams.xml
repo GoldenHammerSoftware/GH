@@ -1,0 +1,41 @@
+<shaderParams>
+  <textureParams>
+    <texParam semantic="alphaMaskTexture" register="0" cbType="CT_PERFRAME"/>
+    <texParam semantic="normalMapTexture" register="1" cbType="CT_PERFRAME"/>
+    <texParam semantic="parallaxMapTexture" register="2" cbType="CT_PERFRAME"/>
+    <texParam semantic="roughnessMapTexture" register="3" cbType="CT_PERFRAME"/>
+    <texParam semantic="layerSurfaceTextures" register="4" cbType="CT_PERFRAME" count="8"/>
+    <texParam semantic="layerSurfaceTextures2" register="5" cbType="CT_PERFRAME"/>
+    <texParam semantic="layerSurfaceTextures3" register="6" cbType="CT_PERFRAME"/>
+    <texParam semantic="layerSurfaceTextures4" register="7" cbType="CT_PERFRAME"/>
+    <texParam semantic="layerSurfaceTextures5" register="8" cbType="CT_PERFRAME"/>
+    <texParam semantic="layerSurfaceTextures6" register="9" cbType="CT_PERFRAME"/>
+    <texParam semantic="layerSurfaceTextures7" register="10" cbType="CT_PERFRAME"/>
+    <texParam semantic="layerSurfaceTextures8" register="11" cbType="CT_PERFRAME"/>
+  </textureParams>
+  <floatParams>
+    <floatParam sizeFloats="4" cbType="CT_PERFRAME" semantic="baseColor"/>
+    <floatParam sizeFloats="4" cbType="CT_PERFRAME" semantic="baseMaskParameters"/>
+    <floatParam sizeFloats="4" cbType="CT_PERFRAME" semantic="baseMaskAxis"/>
+    <floatParam sizeFloats="4" cbType="CT_PERFRAME" semantic="alphaMaskScaleOffset"/>
+    <floatParam sizeFloats="4" cbType="CT_PERFRAME" semantic="normalMapScaleOffset"/>
+    <floatParam sizeFloats="4" cbType="CT_PERFRAME" semantic="parallaxMapScaleOffset"/>
+    <floatParam sizeFloats="4" cbType="CT_PERFRAME" semantic="roughnessMapScaleOffset"/>
+    <floatParam sizeFloats="16" cbType="CT_PERFRAME" semantic="projectorInv"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="layerSamplerModes" type="int" count="8"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="layerBlendModes" type="int" count="8"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="layerMaskTypes" type="int"  count="8"/>
+    <floatParam sizeFloats="4" cbType="CT_PERFRAME" semantic="layerColors"  count="8"/>
+    <floatParam sizeFloats="4" cbType="CT_PERFRAME" semantic="layerSurfaceScaleOffsets" count="8"/>
+    <floatParam sizeFloats="4" cbType="CT_PERFRAME" semantic="layerSampleParameters" count="8"/>
+    <floatParam sizeFloats="4" cbType="CT_PERFRAME" semantic="layerMaskParameters" count="8"/>
+    <floatParam sizeFloats="4" cbType="CT_PERFRAME" semantic="layerMaskAxes" count="8"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="layerCount" type="int"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="Time" renamedFrom="elapsedSeconds"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="baseMaskType" type="int"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="useAlpha" type="bool"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="useNormalMap" type="bool"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="useRoughnessMap" type="bool"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="useProjector" type="bool"/>
+   </floatParams>
+</shaderParams>

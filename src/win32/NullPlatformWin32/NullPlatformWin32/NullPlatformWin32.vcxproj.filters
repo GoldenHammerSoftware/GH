@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\NullPlatform\GHNullController.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullIAPStore.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullIAPStoreFactory.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullMouseCapturer.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullMultiplayerFactory.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullMultiplayerMgr.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullRenderDevice.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullRenderServices.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullRenderTargetFactory.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullSoundDevice.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullSoundEmitter.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullStatTracker.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullStatTrackerFactory.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullSystemServices.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullVBBlitterIndex.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullVBFactory.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullVertexStream.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullPhysicsSim.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullWindow.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullHMDServices.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullAdFactory.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullTransition.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHNullInterstitial.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHTestMultiplayerMgr.h" />
+    <ClInclude Include="..\..\..\NullPlatform\GHTestMultiplayerFactory.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\NullPlatform\GHNullIAPStore.cpp" />
+    <ClCompile Include="..\..\..\NullPlatform\GHNullIAPStoreFactory.cpp" />
+    <ClCompile Include="..\..\..\NullPlatform\GHNullRenderServices.cpp" />
+    <ClCompile Include="..\..\..\NullPlatform\GHNullSoundDevice.cpp" />
+    <ClCompile Include="..\..\..\NullPlatform\GHNullSystemServices.cpp" />
+    <ClCompile Include="..\..\..\NullPlatform\GHNullHMDServices.cpp" />
+    <ClCompile Include="..\..\..\NullPlatform\GHNullAdFactory.cpp" />
+    <ClCompile Include="..\..\..\NullPlatform\GHNullInterstitial.cpp" />
+    <ClCompile Include="..\..\..\NullPlatform\GHTestMultiplayerMgr.cpp" />
+  </ItemGroup>
+</Project>

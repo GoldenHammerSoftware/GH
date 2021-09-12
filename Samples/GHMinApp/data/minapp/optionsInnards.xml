@@ -1,0 +1,50 @@
+<guiPanel>
+	<guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0 0" size="1 1"/>
+    
+    <children>
+        <guiText text="Options" font=ericfont.xml textHeight=50 fill=FT_PIXELS hAlign=A_CENTER vAlign=A_TOP/>
+        
+        <guiPanel>
+            <guiPos xFill=FT_PIXELS yFill=FT_PIXELS align="0.5 0.5" offset="-200 -210" size="400 100"/>
+            <renderable>
+                <guiQuadRenderable minUV="0 0" maxUV="1 0.35">
+                    <ghm vertex=guivertex.glsl pixel=pixel-1tex.glsl zread=false zwrite=false
+                        billboard=none draworder=0 cullmode=none
+                        alphablend=true srcblend=alpha dstblend=invalpha>
+                        <textures>
+                            <texture file=sliderbar.png handle=Texture0 wrap=wrap mipmap=true/>
+                        </textures>
+                    </ghm>
+                </guiQuadRenderable>
+            </renderable>
+            <children>
+                <guiText text="^999Volume" font=ericfont.xml textHeight=30 fill=FT_PIXELS hAlign=A_CENTER vAlign=A_TOP>
+                    <guiPos xFill=FT_PIXELS yFill=FT_PIXELS align="0.5 0.5" offset="-200 -50" size="400 100"/>
+                </guiText>
+                <guiPanel>
+                    <guiPos xFill=FT_PIXELS yFill=FT_PIXELS align="0.5 0.5" offset="-40 -40" size="80 80"/>
+                    <renderable>
+                        <guiQuadRenderable minUV="0 0.75" maxUV="0.25 1">
+                            <ghm vertex=guivertex.glsl pixel=pixel-1tex.glsl zread=false zwrite=false
+                                billboard=none draworder=0 cullmode=none
+                                alphablend=true srcblend=alpha dstblend=invalpha>
+                                <textures>
+                                    <texture file=sliderbar.png handle=Texture0 wrap=wrap mipmap=true/>
+                                </textures>
+                            </ghm>
+                        </guiQuadRenderable>
+                    </renderable>
+                    <widgetStates>
+                        <transitions stateEnum="WS_ACTIVE">
+                            <guiSlider prop=GP_VOLUME range="0 1" minPos="0.15 0.5" maxPos="0.87 0.5"/>
+                        </transitions>
+                    </widgetStates>
+                </guiPanel>
+            </children>
+        </guiPanel>
+        
+    </children>
+    
+</guiPanel>
+
+

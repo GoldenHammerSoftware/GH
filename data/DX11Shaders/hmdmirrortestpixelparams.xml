@@ -1,0 +1,5 @@
+<shaderParams>
+  <textureParams>
+    <texParam semantic="HMDMirrorTexture" register="0" cbType="CT_PERFRAME"/>
+  </textureParams>
+</shaderParams>

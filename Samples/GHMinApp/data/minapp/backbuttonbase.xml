@@ -1,0 +1,28 @@
+<guiButton triggerKeys="KEY_ESC" inherit=buttonbase.xml>
+    <guiPos xFill=FT_PIXELS yFill=FT_PIXELS align="0 1" offset="10 -100" size="90 90"/>
+    <buttonStates>
+        <transitions stateEnum="BE_SELECTED BE_TRIGGERED">
+            <guiWidgetTransition addToParent=true>
+                <guiPanel>
+                    <guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="-0.025 -0.025" size="1.05 1.05"/>
+                    <renderable>
+                        <guiQuadRenderable>
+                            <resource file=backbuttonmat.xml/>
+                        </guiQuadRenderable>
+                    </renderable>
+                </guiPanel>
+            </guiWidgetTransition>
+        </transitions>
+        <transitions stateEnum="BE_IDLE BE_DISABLED">
+            <guiWidgetTransition addToParent=true>
+                <guiPanel>
+                    <renderable>
+                        <guiQuadRenderable>
+                            <resource file=backbuttonmat.xml/>
+                        </guiQuadRenderable>
+                    </renderable>
+                </guiPanel>
+            </guiWidgetTransition>
+        </transitions>
+    </buttonStates>
+</guiButton>

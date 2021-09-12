@@ -1,0 +1,15 @@
+<font>
+    <material>
+        <ghm vertex=font3dvertex.glsl pixel=fontpixel.glsl 
+            billboard=full draworder=0 cullmode=none
+            zread="true" zwrite=false
+            alphablend=true srcblend=alpha dstblend=invalpha>
+            <textures>
+                <texture file=ericfontoutline.png handle=Texture0 wrap=wrap mipmap=true/> 
+            </textures>
+            <renderPassMembership emptySupportsAll="false"/>
+        </ghm>
+    </material>
+    <include file="ericfontletters.xml"/>
+</font>
+

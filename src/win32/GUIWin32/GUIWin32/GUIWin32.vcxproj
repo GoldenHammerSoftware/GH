@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Retail|Win32">
+      <Configuration>Retail</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Retail|x64">
+      <Configuration>Retail</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A855BDAF-0532-4E62-9278-A68E138618A8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>GUIWin32</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\..\;$(ProjectDir)\..\..\..\Base\;$(ProjectDir)\..\..\..\Sim\;$(ProjectDir)\..\..\..\Game\;$(ProjectDir)\..\..\..\Render\;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\..\;$(ProjectDir)\..\..\..\Base\;$(ProjectDir)\..\..\..\Sim\;$(ProjectDir)\..\..\..\Game\;$(ProjectDir)\..\..\..\Render\;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\..\;$(ProjectDir)\..\..\..\Base\;$(ProjectDir)\..\..\..\Sim\;$(ProjectDir)\..\..\..\Game\;$(ProjectDir)\..\..\..\Render\;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>GHRETAIL;_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\..\;$(ProjectDir)\..\..\..\Base\;$(ProjectDir)\..\..\..\Sim\;$(ProjectDir)\..\..\..\Game\;$(ProjectDir)\..\..\..\Render\;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\..\;$(ProjectDir)\..\..\..\Base\;$(ProjectDir)\..\..\..\Sim\;$(ProjectDir)\..\..\..\Game\;$(ProjectDir)\..\..\..\Render\;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>GHRETAIL;_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\..\;$(ProjectDir)\..\..\..\Base\;$(ProjectDir)\..\..\..\Sim\;$(ProjectDir)\..\..\..\Game\;$(ProjectDir)\..\..\..\Render\;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\GUI\GHButtonState.h" />
+    <ClInclude Include="..\..\..\GUI\GHFillType.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUI3DPositionFollower.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUI3DPositionFollowerXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIAnim.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIAnimXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIButton.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIButtonXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUICanvas.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUICanvasInputMoverXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUICanvasMgr.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUICanvasPropertyXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUICanvasSwitch.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUICanvasSwitchXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIChildList.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIController.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIControllerTransition.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIHistory.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIJoystick.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIJoystickXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIMaterialCallbackFactoryTransform.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIMaterialCallbackTransform.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIMgr.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIMgrMessageListener.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUINavMgr.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUINavRegistrationTrans.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUINavToIDResponse.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUINotchedSliderMonitor.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUINotchedSliderMonitorXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUINotchedSliderNavResponse.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUINotchedSliderNavResponseXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIPanel.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIPanelXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIPopTransition.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIPopTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIPosDesc.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIPosDescXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIPoseableCanvasController.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIPoseableCanvasControllerXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIProjectedLineRenderer.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIProperties.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIPropTextUpdater.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIPropTextXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIPushTransition.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIPushTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIQuadRenderer.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIQuadRendererXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIRectMaker.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIRenderable.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIScroll.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIScrollXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUISizeOscillater.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUISizeOscillateTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUISizeTransition.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUISizeTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUISlider.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUISliderInputWhileSelected.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUISliderInputWhileSelectedXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUISliderXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUISwitchXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUISystem.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIText.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUITextXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUITransitionController.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUITransitionControllerFactory.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUITransitionDesc.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUITransitionDescXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUITransitionNavResponse.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUITransitionNavResponseXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIWidget.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIWidgetLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIWidgetMessageTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIWidgetRenderer.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIWidgetRendererModel.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIWidgetRendererModelXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIWidgetRendererWrapper.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIWidgetTransition.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUIWidgetTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\..\GUI\GHGUICanvasInputMover.h" />
+    <ClInclude Include="..\..\..\GUI\GHWidescreenPropertySetter.h" />
+    <ClInclude Include="..\..\..\GUI\GHWidgetStates.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\GUI\GHGUI3DPositionFollower.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUI3DPositionFollowerXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIAnim.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIAnimXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIButton.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIButtonXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUICanvas.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUICanvasInputMover.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUICanvasInputMoverXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUICanvasMgr.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUICanvasPropertyXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUICanvasSwitch.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUICanvasSwitchXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIChildList.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIControllerTransition.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIHistory.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIJoystick.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIJoystickXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIMaterialCallbackFactoryTransform.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIMaterialCallbackTransform.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIMgr.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIMgrMessageListener.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUINavMgr.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUINavRegistrationTrans.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUINavToIDResponse.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUINotchedSliderMonitor.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUINotchedSliderMonitorXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUINotchedSliderNavResponse.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUINotchedSliderNavResponseXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIPanel.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIPanelXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIPopTransition.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIPopTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIPosDescXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIPoseableCanvasController.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIPoseableCanvasControllerXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIProjectedLineRenderer.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIPropTextUpdater.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIPropTextXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIPushTransition.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIPushTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIQuadRenderer.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIQuadRendererXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIRectMaker.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIRenderable.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIScroll.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIScrollXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUISizeOscillater.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUISizeOscillateTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUISizeTransition.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUISizeTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUISlider.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUISliderInputWhileSelected.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUISliderInputWhileSelectedXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUISliderXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUISwitchXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUISystem.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIText.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUITextXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUITransitionController.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUITransitionControllerFactory.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUITransitionDescXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUITransitionNavResponse.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUITransitionNavResponseXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIWidget.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIWidgetLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIWidgetMessageTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIWidgetRendererModel.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIWidgetRendererModelXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIWidgetRendererWrapper.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIWidgetTransition.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHGUIWidgetTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\GUI\GHWidescreenPropertySetter.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

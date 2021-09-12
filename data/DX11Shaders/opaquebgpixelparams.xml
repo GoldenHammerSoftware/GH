@@ -1,0 +1,5 @@
+<shaderParams>
+  <floatParams>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="Opacity"/>
+  </floatParams>
+</shaderParams>

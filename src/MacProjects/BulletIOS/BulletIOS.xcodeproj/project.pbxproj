@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		95CB2F08244C96ED00BA8729 /* btBulletCollisionAll.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95CB2F00244C96EC00BA8729 /* btBulletCollisionAll.cpp */; };
+		95CB2F09244C96ED00BA8729 /* btBulletDynamicsCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 95CB2F01244C96ED00BA8729 /* btBulletDynamicsCommon.h */; };
+		95CB2F0A244C96ED00BA8729 /* btLinearMathAll.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95CB2F02244C96ED00BA8729 /* btLinearMathAll.cpp */; };
+		95CB2F0B244C96ED00BA8729 /* btBulletDynamicsAll.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95CB2F03244C96ED00BA8729 /* btBulletDynamicsAll.cpp */; };
+		95CB2F0C244C96ED00BA8729 /* btBulletCollisionCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 95CB2F07244C96ED00BA8729 /* btBulletCollisionCommon.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		95910C2014D75E0E00FA04E4 /* libBulletIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBulletIOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		95CB2EF8244C96EC00BA8729 /* Bullet3Serialize */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Bullet3Serialize; path = "../../bullet3-master/src/Bullet3Serialize"; sourceTree = "<group>"; };
+		95CB2EF9244C96EC00BA8729 /* BulletDynamics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BulletDynamics; path = "../../bullet3-master/src/BulletDynamics"; sourceTree = "<group>"; };
+		95CB2EFA244C96EC00BA8729 /* BulletInverseDynamics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BulletInverseDynamics; path = "../../bullet3-master/src/BulletInverseDynamics"; sourceTree = "<group>"; };
+		95CB2EFB244C96EC00BA8729 /* BulletCollision */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BulletCollision; path = "../../bullet3-master/src/BulletCollision"; sourceTree = "<group>"; };
+		95CB2EFC244C96EC00BA8729 /* Bullet3Collision */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Bullet3Collision; path = "../../bullet3-master/src/Bullet3Collision"; sourceTree = "<group>"; };
+		95CB2EFD244C96EC00BA8729 /* LinearMath */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LinearMath; path = "../../bullet3-master/src/LinearMath"; sourceTree = "<group>"; };
+		95CB2EFE244C96EC00BA8729 /* Bullet3Geometry */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Bullet3Geometry; path = "../../bullet3-master/src/Bullet3Geometry"; sourceTree = "<group>"; };
+		95CB2EFF244C96EC00BA8729 /* BulletSoftBody */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BulletSoftBody; path = "../../bullet3-master/src/BulletSoftBody"; sourceTree = "<group>"; };
+		95CB2F00244C96EC00BA8729 /* btBulletCollisionAll.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = btBulletCollisionAll.cpp; path = "../../bullet3-master/src/btBulletCollisionAll.cpp"; sourceTree = "<group>"; };
+		95CB2F01244C96ED00BA8729 /* btBulletDynamicsCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = btBulletDynamicsCommon.h; path = "../../bullet3-master/src/btBulletDynamicsCommon.h"; sourceTree = "<group>"; };
+		95CB2F02244C96ED00BA8729 /* btLinearMathAll.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = btLinearMathAll.cpp; path = "../../bullet3-master/src/btLinearMathAll.cpp"; sourceTree = "<group>"; };
+		95CB2F03244C96ED00BA8729 /* btBulletDynamicsAll.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = btBulletDynamicsAll.cpp; path = "../../bullet3-master/src/btBulletDynamicsAll.cpp"; sourceTree = "<group>"; };
+		95CB2F04244C96ED00BA8729 /* Bullet3Dynamics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Bullet3Dynamics; path = "../../bullet3-master/src/Bullet3Dynamics"; sourceTree = "<group>"; };
+		95CB2F05244C96ED00BA8729 /* Bullet3Common */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Bullet3Common; path = "../../bullet3-master/src/Bullet3Common"; sourceTree = "<group>"; };
+		95CB2F06244C96ED00BA8729 /* Bullet3OpenCL */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Bullet3OpenCL; path = "../../bullet3-master/src/Bullet3OpenCL"; sourceTree = "<group>"; };
+		95CB2F07244C96ED00BA8729 /* btBulletCollisionCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = btBulletCollisionCommon.h; path = "../../bullet3-master/src/btBulletCollisionCommon.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95910C1D14D75E0E00FA04E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1067C68D17A1B9B500016F6B /* src */ = {
+			isa = PBXGroup;
+			children = (
+				95CB2F00244C96EC00BA8729 /* btBulletCollisionAll.cpp */,
+				95CB2F07244C96ED00BA8729 /* btBulletCollisionCommon.h */,
+				95CB2F03244C96ED00BA8729 /* btBulletDynamicsAll.cpp */,
+				95CB2F01244C96ED00BA8729 /* btBulletDynamicsCommon.h */,
+				95CB2F02244C96ED00BA8729 /* btLinearMathAll.cpp */,
+				95CB2EFC244C96EC00BA8729 /* Bullet3Collision */,
+				95CB2F05244C96ED00BA8729 /* Bullet3Common */,
+				95CB2F04244C96ED00BA8729 /* Bullet3Dynamics */,
+				95CB2EFE244C96EC00BA8729 /* Bullet3Geometry */,
+				95CB2F06244C96ED00BA8729 /* Bullet3OpenCL */,
+				95CB2EF8244C96EC00BA8729 /* Bullet3Serialize */,
+				95CB2EFB244C96EC00BA8729 /* BulletCollision */,
+				95CB2EF9244C96EC00BA8729 /* BulletDynamics */,
+				95CB2EFA244C96EC00BA8729 /* BulletInverseDynamics */,
+				95CB2EFF244C96EC00BA8729 /* BulletSoftBody */,
+				95CB2EFD244C96EC00BA8729 /* LinearMath */,
+			);
+			name = src;
+			path = "../../../../../contrib/bullet-2.81-rev2613/src";
+			sourceTree = "<group>";
+		};
+		95910C1514D75E0E00FA04E4 = {
+			isa = PBXGroup;
+			children = (
+				95910C2514D75E0E00FA04E4 /* BulletIOS */,
+				95910C2214D75E0E00FA04E4 /* Frameworks */,
+				95910C2114D75E0E00FA04E4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		95910C2114D75E0E00FA04E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95910C2014D75E0E00FA04E4 /* libBulletIOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95910C2214D75E0E00FA04E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95910C2514D75E0E00FA04E4 /* BulletIOS */ = {
+			isa = PBXGroup;
+			children = (
+				1067C68D17A1B9B500016F6B /* src */,
+			);
+			path = BulletIOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		95910C1E14D75E0E00FA04E4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95CB2F0C244C96ED00BA8729 /* btBulletCollisionCommon.h in Headers */,
+				95CB2F09244C96ED00BA8729 /* btBulletDynamicsCommon.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		95910C1F14D75E0E00FA04E4 /* BulletIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95910C2D14D75E0E00FA04E4 /* Build configuration list for PBXNativeTarget "BulletIOS" */;
+			buildPhases = (
+				95910C1C14D75E0E00FA04E4 /* Sources */,
+				95910C1D14D75E0E00FA04E4 /* Frameworks */,
+				95910C1E14D75E0E00FA04E4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BulletIOS;
+			productName = BulletIOS;
+			productReference = 95910C2014D75E0E00FA04E4 /* libBulletIOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95910C1714D75E0E00FA04E4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+			};
+			buildConfigurationList = 95910C1A14D75E0E00FA04E4 /* Build configuration list for PBXProject "BulletIOS" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 95910C1514D75E0E00FA04E4;
+			productRefGroup = 95910C2114D75E0E00FA04E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95910C1F14D75E0E00FA04E4 /* BulletIOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95910C1C14D75E0E00FA04E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95CB2F0A244C96ED00BA8729 /* btLinearMathAll.cpp in Sources */,
+				95CB2F0B244C96ED00BA8729 /* btBulletDynamicsAll.cpp in Sources */,
+				95CB2F08244C96ED00BA8729 /* btBulletCollisionAll.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		95910C2B14D75E0E00FA04E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-all_load";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Debug;
+		};
+		95910C2C14D75E0E00FA04E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				OTHER_LDFLAGS = "-all_load";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Release;
+		};
+		95910C2E14D75E0E00FA04E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = NO;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_COMMA = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = NO;
+				CLANG_WARN_PRAGMA_PACK = NO;
+				CLANG_WARN_PRIVATE_MODULE = NO;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = NO;
+				CLANG_WARN_UNREACHABLE_CODE = NO;
+				DSTROOT = /tmp/BulletIOS.dst;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_OPTIMIZATION_LEVEL = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BulletIOS/BulletIOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					GH_IOS,
+				);
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = "../../../../contrib/bullet3-master/src";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s arm64e";
+			};
+			name = Debug;
+		};
+		95910C2F14D75E0E00FA04E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = NO;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_COMMA = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = NO;
+				CLANG_WARN_PRAGMA_PACK = NO;
+				CLANG_WARN_PRIVATE_MODULE = NO;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = NO;
+				CLANG_WARN_UNREACHABLE_CODE = NO;
+				DSTROOT = /tmp/BulletIOS.dst;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BulletIOS/BulletIOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					GHRETAIL,
+					GH_IOS,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = "../../../../contrib/bullet3-master/src";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s arm64e";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95910C1A14D75E0E00FA04E4 /* Build configuration list for PBXProject "BulletIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95910C2B14D75E0E00FA04E4 /* Debug */,
+				95910C2C14D75E0E00FA04E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95910C2D14D75E0E00FA04E4 /* Build configuration list for PBXNativeTarget "BulletIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95910C2E14D75E0E00FA04E4 /* Debug */,
+				95910C2F14D75E0E00FA04E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95910C1714D75E0E00FA04E4 /* Project object */;
+}

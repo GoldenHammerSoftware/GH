@@ -1,0 +1,717 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		100DA13B1757C175004B7E76 /* skeltestnoanim.gham in Resources */ = {isa = PBXBuildFile; fileRef = 100DA13A1757C174004B7E76 /* skeltestnoanim.gham */; };
+		100DA17817590FB3004B7E76 /* GHTestAppRagdollInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 100DA17617590FB3004B7E76 /* GHTestAppRagdollInput.cpp */; };
+		100DA17B17590FC2004B7E76 /* GHTestAppRagdollInputXMLLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 100DA17917590FC2004B7E76 /* GHTestAppRagdollInputXMLLoader.cpp */; };
+		100DA17F17594C9B004B7E76 /* skeltestragdoll.xml in Resources */ = {isa = PBXBuildFile; fileRef = 100DA17E17594C9A004B7E76 /* skeltestragdoll.xml */; };
+		100DA187175BD800004B7E76 /* snowboarderragdoll.xml in Resources */ = {isa = PBXBuildFile; fileRef = 100DA186175BD7FF004B7E76 /* snowboarderragdoll.xml */; };
+		106E4BBD17944E5F00B9ACD9 /* snowboarder-ik.gham in Resources */ = {isa = PBXBuildFile; fileRef = 106E4BBC17944E5F00B9ACD9 /* snowboarder-ik.gham */; };
+		1081195D16D94999000C36FB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1081195C16D94999000C36FB /* StoreKit.framework */; };
+		1081195F16D949A6000C36FB /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1081195E16D949A6000C36FB /* GameKit.framework */; };
+		10B31FF814ABA67A0046683B /* debugpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 10B31FF714ABA67A0046683B /* debugpixel.glsl */; };
+		10B31FFA14ABA7B30046683B /* debugmat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10B31FF914ABA7B10046683B /* debugmat.xml */; };
+		950271ED1483F4D100F02511 /* kyaent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 950271EC1483F4D100F02511 /* kyaent.xml */; };
+		950937C01707413B004E3CB8 /* ghamtest.gham in Resources */ = {isa = PBXBuildFile; fileRef = 950937BE1707413B004E3CB8 /* ghamtest.gham */; };
+		950937C11707413B004E3CB8 /* ghamtestent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 950937BF1707413B004E3CB8 /* ghamtestent.xml */; };
+		950937C3170743BF004E3CB8 /* ghamtestmodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 950937C2170743BF004E3CB8 /* ghamtestmodel.xml */; };
+		950937CA170B2AB6004E3CB8 /* snowboarder.gham in Resources */ = {isa = PBXBuildFile; fileRef = 950937C7170B2AB1004E3CB8 /* snowboarder.gham */; };
+		950937CB170B2AB6004E3CB8 /* snowboarderent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 950937C8170B2AB2004E3CB8 /* snowboarderent.xml */; };
+		950937CC170B2AB6004E3CB8 /* snowboardermodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 950937C9170B2AB4004E3CB8 /* snowboardermodel.xml */; };
+		950937CF170B2BCF004E3CB8 /* Board_Dman256.png in Resources */ = {isa = PBXBuildFile; fileRef = 950937CD170B2BCB004E3CB8 /* Board_Dman256.png */; };
+		950937D0170B2BCF004E3CB8 /* Dude_Color256.png in Resources */ = {isa = PBXBuildFile; fileRef = 950937CE170B2BCC004E3CB8 /* Dude_Color256.png */; };
+		951D25011492845C0017BA45 /* console.xml in Resources */ = {isa = PBXBuildFile; fileRef = 951D25001492845C0017BA45 /* console.xml */; };
+		951D2503149284CD0017BA45 /* consolepixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 951D2502149284CD0017BA45 /* consolepixel.glsl */; };
+		952D16C6145A6B66009A8C29 /* shadowtestpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 952D16C5145A6B66009A8C29 /* shadowtestpixel.glsl */; };
+		953406941719A771005B2A50 /* skeltest.gham in Resources */ = {isa = PBXBuildFile; fileRef = 953406911719A771005B2A50 /* skeltest.gham */; };
+		953406951719A771005B2A50 /* skeltestent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 953406921719A771005B2A50 /* skeltestent.xml */; };
+		953406961719A771005B2A50 /* skeltestmodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 953406931719A771005B2A50 /* skeltestmodel.xml */; };
+		953674B417430E740070E14F /* debugvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 953674B317430E740070E14F /* debugvertex.glsl */; };
+		95610B9616F8D75400A54B9D /* defaultmat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 95610B9516F8D75400A54B9D /* defaultmat.xml */; };
+		95610B9816F8E03500A54B9D /* kyamat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 95610B9716F8E03500A54B9D /* kyamat.xml */; };
+		95610BA016F8EFAD00A54B9D /* kyaheadmodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 95610B9D16F8EFAD00A54B9D /* kyaheadmodel.xml */; };
+		95610BA116F8EFAD00A54B9D /* kyalegsmodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 95610B9E16F8EFAD00A54B9D /* kyalegsmodel.xml */; };
+		95610BA216F8EFAD00A54B9D /* kyatorsomodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 95610B9F16F8EFAD00A54B9D /* kyatorsomodel.xml */; };
+		9567544B1455C181003B6CA6 /* guipixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 9567544A1455C181003B6CA6 /* guipixel.glsl */; };
+		95675450145649E8003B6CA6 /* fontpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 9567544E145649E8003B6CA6 /* fontpixel.glsl */; };
+		95675451145649E8003B6CA6 /* fontvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 9567544F145649E8003B6CA6 /* fontvertex.glsl */; };
+		956C103214A8F6D5003F0144 /* cubeent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 956C103014A8F6D5003F0144 /* cubeent.xml */; };
+		956C103314A8F6D5003F0144 /* cubemodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 956C103114A8F6D5003F0144 /* cubemodel.xml */; };
+		956D7D3C14A26AC1000277A4 /* cube.dae in Resources */ = {isa = PBXBuildFile; fileRef = 956D7D3B14A26AC1000277A4 /* cube.dae */; };
+		957509401408D27C00D510C2 /* guivertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 9575093D1408D27C00D510C2 /* guivertex.glsl */; };
+		957509411408D27C00D510C2 /* testpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 9575093E1408D27C00D510C2 /* testpixel.glsl */; };
+		957509421408D27C00D510C2 /* testguimat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9575093F1408D27C00D510C2 /* testguimat.xml */; };
+		957509461409558700D510C2 /* testworldmat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 957509441409558600D510C2 /* testworldmat.xml */; };
+		957509471409558700D510C2 /* worldvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 957509451409558700D510C2 /* worldvertex.glsl */; };
+		957509491409832500D510C2 /* goldenlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 957509481409832400D510C2 /* goldenlogo.png */; };
+		95825F911417D1840083472C /* md3morphpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 95825F8F1417D1840083472C /* md3morphpixel.glsl */; };
+		95825F921417D1840083472C /* md3morphvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 95825F901417D1840083472C /* md3morphvertex.glsl */; };
+		95896756140D7F570071191B /* snowtree.md3 in Resources */ = {isa = PBXBuildFile; fileRef = 95896753140D7F560071191B /* snowtree.md3 */; };
+		95896757140D7F570071191B /* SnowTree.png in Resources */ = {isa = PBXBuildFile; fileRef = 95896754140D7F560071191B /* SnowTree.png */; };
+		95896758140D7F570071191B /* treemodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 95896755140D7F560071191B /* treemodel.xml */; };
+		95896766140EBB810071191B /* treepixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 95896764140EBB790071191B /* treepixel.glsl */; };
+		95896767140EBB810071191B /* treevertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 95896765140EBB7A0071191B /* treevertex.glsl */; };
+		9589676D140EE2E40071191B /* kya_body.png in Resources */ = {isa = PBXBuildFile; fileRef = 95896768140EE2DB0071191B /* kya_body.png */; };
+		9589676E140EE2E40071191B /* kya_head.md3 in Resources */ = {isa = PBXBuildFile; fileRef = 95896769140EE2DC0071191B /* kya_head.md3 */; };
+		9589676F140EE2E40071191B /* kya_lower.md3 in Resources */ = {isa = PBXBuildFile; fileRef = 9589676A140EE2DE0071191B /* kya_lower.md3 */; };
+		95896770140EE2E40071191B /* kya_upper.md3 in Resources */ = {isa = PBXBuildFile; fileRef = 9589676B140EE2E20071191B /* kya_upper.md3 */; };
+		95896771140EE2E40071191B /* kyamodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9589676C140EE2E30071191B /* kyamodel.xml */; };
+		9590756013F95DB80043D40E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9590755F13F95DB80043D40E /* OpenGL.framework */; };
+		95926B93153788B300A45F6C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95926B92153788B300A45F6C /* AudioToolbox.framework */; };
+		95926B95153788EC00A45F6C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95926B94153788EB00A45F6C /* OpenAL.framework */; };
+		959A028D13D1C8A7007BC91F /* GHTestApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 959A028B13D1C8A7007BC91F /* GHTestApp.cpp */; };
+		959A028F13D1C933007BC91F /* libGHMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 959A028E13D1C933007BC91F /* libGHMac.a */; };
+		95A2FA761443F197006D357E /* testGUI.xml in Resources */ = {isa = PBXBuildFile; fileRef = 95A2FA751443F197006D357E /* testGUI.xml */; };
+		95C02453148BA5C1009902D0 /* testlevel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 95C02452148BA5C1009902D0 /* testlevel.xml */; };
+		95C02459148BA95F009902D0 /* treeent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 95C02458148BA95F009902D0 /* treeent.xml */; };
+		95DB275714A6874100CB293B /* cube.md3 in Resources */ = {isa = PBXBuildFile; fileRef = 95DB275614A6874100CB293B /* cube.md3 */; };
+		95DB276914A778BE00CB293B /* floor.md3 in Resources */ = {isa = PBXBuildFile; fileRef = 95DB276514A778BE00CB293B /* floor.md3 */; };
+		95DB276A14A778BE00CB293B /* floorent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 95DB276614A778BE00CB293B /* floorent.xml */; };
+		95DB276B14A778BE00CB293B /* floormodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 95DB276714A778BE00CB293B /* floormodel.xml */; };
+		95DB276C14A778BE00CB293B /* floorpixel.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 95DB276814A778BE00CB293B /* floorpixel.glsl */; };
+		95DB277714A792E100CB293B /* grass1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95DB277614A792E100CB293B /* grass1.jpg */; };
+		95DB277914A7943E00CB293B /* floorvertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 95DB277814A7943D00CB293B /* floorvertex.glsl */; };
+		95EADCAD13CE7ADA0090BC13 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95EADCAC13CE7ADA0090BC13 /* Cocoa.framework */; };
+		95EADCB713CE7ADA0090BC13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95EADCB513CE7ADA0090BC13 /* InfoPlist.strings */; };
+		95EADCBA13CE7ADA0090BC13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EADCB913CE7ADA0090BC13 /* main.m */; };
+		95EADCC013CE7ADA0090BC13 /* GHTestAppAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 95EADCBF13CE7ADA0090BC13 /* GHTestAppAppDelegate.mm */; };
+		95EADCC313CE7ADA0090BC13 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95EADCC113CE7ADA0090BC13 /* MainMenu.xib */; };
+		95F7B71A1447AF8300EEDAB8 /* ericfont.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F7B7181447AF8200EEDAB8 /* ericfont.png */; };
+		95F7B71B1447AF8300EEDAB8 /* ericfont.xml in Resources */ = {isa = PBXBuildFile; fileRef = 95F7B7191447AF8200EEDAB8 /* ericfont.xml */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		95EADCCB13CE7C090090BC13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95EADCC713CE7C080090BC13 /* GHMac.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = GHMac;
+		};
+		95EADCED13CF73160090BC13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95EADCC713CE7C080090BC13 /* GHMac.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = GHMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		100DA13A1757C174004B7E76 /* skeltestnoanim.gham */ = {isa = PBXFileReference; lastKnownFileType = file; name = skeltestnoanim.gham; path = ../../../../data/GHMacTest/skeltestnoanim.gham; sourceTree = "<group>"; };
+		100DA17617590FB3004B7E76 /* GHTestAppRagdollInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GHTestAppRagdollInput.cpp; sourceTree = "<group>"; };
+		100DA17717590FB3004B7E76 /* GHTestAppRagdollInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestAppRagdollInput.h; sourceTree = "<group>"; };
+		100DA17917590FC2004B7E76 /* GHTestAppRagdollInputXMLLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GHTestAppRagdollInputXMLLoader.cpp; sourceTree = "<group>"; };
+		100DA17A17590FC2004B7E76 /* GHTestAppRagdollInputXMLLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestAppRagdollInputXMLLoader.h; sourceTree = "<group>"; };
+		100DA17E17594C9A004B7E76 /* skeltestragdoll.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = skeltestragdoll.xml; path = ../../../../data/GHMacTest/skeltestragdoll.xml; sourceTree = "<group>"; };
+		100DA186175BD7FF004B7E76 /* snowboarderragdoll.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = snowboarderragdoll.xml; path = ../../../../data/GHMacTest/snowboarderragdoll.xml; sourceTree = "<group>"; };
+		106E4BBC17944E5F00B9ACD9 /* snowboarder-ik.gham */ = {isa = PBXFileReference; lastKnownFileType = file; name = "snowboarder-ik.gham"; path = "../../../../data/GHMacTest/snowboarder-ik.gham"; sourceTree = "<group>"; };
+		1081195C16D94999000C36FB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		1081195E16D949A6000C36FB /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
+		10B31FF714ABA67A0046683B /* debugpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = debugpixel.glsl; path = ../../../../data/Shaders/debugpixel.glsl; sourceTree = "<group>"; };
+		10B31FF914ABA7B10046683B /* debugmat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = debugmat.xml; path = ../../../../data/shared/debugmat.xml; sourceTree = "<group>"; };
+		950271EC1483F4D100F02511 /* kyaent.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = kyaent.xml; path = ../../../../data/GHMacTest/kyaent.xml; sourceTree = "<group>"; };
+		950937BE1707413B004E3CB8 /* ghamtest.gham */ = {isa = PBXFileReference; lastKnownFileType = file; name = ghamtest.gham; path = ../../../../data/GHMacTest/ghamtest.gham; sourceTree = "<group>"; };
+		950937BF1707413B004E3CB8 /* ghamtestent.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ghamtestent.xml; path = ../../../../data/GHMacTest/ghamtestent.xml; sourceTree = "<group>"; };
+		950937C2170743BF004E3CB8 /* ghamtestmodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ghamtestmodel.xml; path = ../../../../data/GHMacTest/ghamtestmodel.xml; sourceTree = "<group>"; };
+		950937C7170B2AB1004E3CB8 /* snowboarder.gham */ = {isa = PBXFileReference; lastKnownFileType = file; name = snowboarder.gham; path = ../../../../data/GHMacTest/snowboarder.gham; sourceTree = "<group>"; };
+		950937C8170B2AB2004E3CB8 /* snowboarderent.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = snowboarderent.xml; path = ../../../../data/GHMacTest/snowboarderent.xml; sourceTree = "<group>"; };
+		950937C9170B2AB4004E3CB8 /* snowboardermodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = snowboardermodel.xml; path = ../../../../data/GHMacTest/snowboardermodel.xml; sourceTree = "<group>"; };
+		950937CD170B2BCB004E3CB8 /* Board_Dman256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Board_Dman256.png; path = ../../../../data/GHMacTest/Board_Dman256.png; sourceTree = "<group>"; };
+		950937CE170B2BCC004E3CB8 /* Dude_Color256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Dude_Color256.png; path = ../../../../data/GHMacTest/Dude_Color256.png; sourceTree = "<group>"; };
+		951D25001492845C0017BA45 /* console.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = console.xml; path = ../../../../data/GHMacTest/console.xml; sourceTree = "<group>"; };
+		951D2502149284CD0017BA45 /* consolepixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = consolepixel.glsl; path = ../../../../data/GHMacTest/consolepixel.glsl; sourceTree = "<group>"; };
+		952D16C5145A6B66009A8C29 /* shadowtestpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = shadowtestpixel.glsl; path = ../../../../data/GHMacTest/shadowtestpixel.glsl; sourceTree = "<group>"; };
+		953406911719A771005B2A50 /* skeltest.gham */ = {isa = PBXFileReference; lastKnownFileType = file; name = skeltest.gham; path = ../../../../data/GHMacTest/skeltest.gham; sourceTree = "<group>"; };
+		953406921719A771005B2A50 /* skeltestent.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = skeltestent.xml; path = ../../../../data/GHMacTest/skeltestent.xml; sourceTree = "<group>"; };
+		953406931719A771005B2A50 /* skeltestmodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = skeltestmodel.xml; path = ../../../../data/GHMacTest/skeltestmodel.xml; sourceTree = "<group>"; };
+		953674B317430E740070E14F /* debugvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = debugvertex.glsl; path = ../../../../data/Shaders/debugvertex.glsl; sourceTree = "<group>"; };
+		95610B9516F8D75400A54B9D /* defaultmat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = defaultmat.xml; path = ../../../../data/shared/defaultmat.xml; sourceTree = "<group>"; };
+		95610B9716F8E03500A54B9D /* kyamat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = kyamat.xml; path = ../../../../data/GHMacTest/kyamat.xml; sourceTree = "<group>"; };
+		95610B9D16F8EFAD00A54B9D /* kyaheadmodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = kyaheadmodel.xml; path = ../../../../data/GHMacTest/kyaheadmodel.xml; sourceTree = "<group>"; };
+		95610B9E16F8EFAD00A54B9D /* kyalegsmodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = kyalegsmodel.xml; path = ../../../../data/GHMacTest/kyalegsmodel.xml; sourceTree = "<group>"; };
+		95610B9F16F8EFAD00A54B9D /* kyatorsomodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = kyatorsomodel.xml; path = ../../../../data/GHMacTest/kyatorsomodel.xml; sourceTree = "<group>"; };
+		9567544A1455C181003B6CA6 /* guipixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = guipixel.glsl; path = ../../../../data/GHMacTest/guipixel.glsl; sourceTree = "<group>"; };
+		9567544E145649E8003B6CA6 /* fontpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fontpixel.glsl; path = ../../../../data/GHMacTest/fontpixel.glsl; sourceTree = "<group>"; };
+		9567544F145649E8003B6CA6 /* fontvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fontvertex.glsl; path = ../../../../data/GHMacTest/fontvertex.glsl; sourceTree = "<group>"; };
+		956C103014A8F6D5003F0144 /* cubeent.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = cubeent.xml; path = ../../../../data/GHMacTest/cubeent.xml; sourceTree = "<group>"; };
+		956C103114A8F6D5003F0144 /* cubemodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = cubemodel.xml; path = ../../../../data/GHMacTest/cubemodel.xml; sourceTree = "<group>"; };
+		956D7D3B14A26AC1000277A4 /* cube.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = cube.dae; path = ../../../../data/GHMacTest/cube.dae; sourceTree = "<group>"; };
+		9575093D1408D27C00D510C2 /* guivertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = guivertex.glsl; path = ../../../../data/GHMacTest/guivertex.glsl; sourceTree = "<group>"; };
+		9575093E1408D27C00D510C2 /* testpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = testpixel.glsl; path = ../../../../data/GHMacTest/testpixel.glsl; sourceTree = "<group>"; };
+		9575093F1408D27C00D510C2 /* testguimat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = testguimat.xml; path = ../../../../data/GHMacTest/testguimat.xml; sourceTree = "<group>"; };
+		957509441409558600D510C2 /* testworldmat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = testworldmat.xml; path = ../../../../data/GHMacTest/testworldmat.xml; sourceTree = "<group>"; };
+		957509451409558700D510C2 /* worldvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = worldvertex.glsl; path = ../../../../data/GHMacTest/worldvertex.glsl; sourceTree = "<group>"; };
+		957509481409832400D510C2 /* goldenlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = goldenlogo.png; path = ../../../../data/GHMacTest/goldenlogo.png; sourceTree = "<group>"; };
+		95825F8F1417D1840083472C /* md3morphpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = md3morphpixel.glsl; path = ../../../../data/GHMacTest/md3morphpixel.glsl; sourceTree = "<group>"; };
+		95825F901417D1840083472C /* md3morphvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = md3morphvertex.glsl; path = ../../../../data/GHMacTest/md3morphvertex.glsl; sourceTree = "<group>"; };
+		95896753140D7F560071191B /* snowtree.md3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = snowtree.md3; path = ../../../../data/GHMacTest/snowtree.md3; sourceTree = "<group>"; };
+		95896754140D7F560071191B /* SnowTree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SnowTree.png; path = ../../../../data/GHMacTest/SnowTree.png; sourceTree = "<group>"; };
+		95896755140D7F560071191B /* treemodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = treemodel.xml; path = ../../../../data/GHMacTest/treemodel.xml; sourceTree = "<group>"; };
+		95896764140EBB790071191B /* treepixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = treepixel.glsl; path = ../../../../data/GHMacTest/treepixel.glsl; sourceTree = "<group>"; };
+		95896765140EBB7A0071191B /* treevertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = treevertex.glsl; path = ../../../../data/GHMacTest/treevertex.glsl; sourceTree = "<group>"; };
+		95896768140EE2DB0071191B /* kya_body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kya_body.png; path = ../../../../data/GHMacTest/kya_body.png; sourceTree = "<group>"; };
+		95896769140EE2DC0071191B /* kya_head.md3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = kya_head.md3; path = ../../../../data/GHMacTest/kya_head.md3; sourceTree = "<group>"; };
+		9589676A140EE2DE0071191B /* kya_lower.md3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = kya_lower.md3; path = ../../../../data/GHMacTest/kya_lower.md3; sourceTree = "<group>"; };
+		9589676B140EE2E20071191B /* kya_upper.md3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = kya_upper.md3; path = ../../../../data/GHMacTest/kya_upper.md3; sourceTree = "<group>"; };
+		9589676C140EE2E30071191B /* kyamodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = kyamodel.xml; path = ../../../../data/GHMacTest/kyamodel.xml; sourceTree = "<group>"; };
+		9590755F13F95DB80043D40E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
+		95926B92153788B300A45F6C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		95926B94153788EB00A45F6C /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenAL.framework; sourceTree = DEVELOPER_DIR; };
+		959A028B13D1C8A7007BC91F /* GHTestApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GHTestApp.cpp; sourceTree = "<group>"; };
+		959A028C13D1C8A7007BC91F /* GHTestApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTestApp.h; sourceTree = "<group>"; };
+		959A028E13D1C933007BC91F /* libGHMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libGHMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		95A2FA751443F197006D357E /* testGUI.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = testGUI.xml; path = ../../../../data/GHMacTest/testGUI.xml; sourceTree = "<group>"; };
+		95C02452148BA5C1009902D0 /* testlevel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = testlevel.xml; path = ../../../../data/GHMacTest/testlevel.xml; sourceTree = "<group>"; };
+		95C02458148BA95F009902D0 /* treeent.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = treeent.xml; path = ../../../../data/GHMacTest/treeent.xml; sourceTree = "<group>"; };
+		95DB275614A6874100CB293B /* cube.md3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = cube.md3; path = ../../../../data/GHMacTest/cube.md3; sourceTree = "<group>"; };
+		95DB276514A778BE00CB293B /* floor.md3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = floor.md3; path = ../../../../data/GHMacTest/floor.md3; sourceTree = "<group>"; };
+		95DB276614A778BE00CB293B /* floorent.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = floorent.xml; path = ../../../../data/GHMacTest/floorent.xml; sourceTree = "<group>"; };
+		95DB276714A778BE00CB293B /* floormodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = floormodel.xml; path = ../../../../data/GHMacTest/floormodel.xml; sourceTree = "<group>"; };
+		95DB276814A778BE00CB293B /* floorpixel.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = floorpixel.glsl; path = ../../../../data/GHMacTest/floorpixel.glsl; sourceTree = "<group>"; };
+		95DB277614A792E100CB293B /* grass1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grass1.jpg; path = ../../../../data/GHMacTest/grass1.jpg; sourceTree = "<group>"; };
+		95DB277814A7943D00CB293B /* floorvertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = floorvertex.glsl; path = ../../../../data/GHMacTest/floorvertex.glsl; sourceTree = "<group>"; };
+		95EADCA813CE7ADA0090BC13 /* GHTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95EADCAC13CE7ADA0090BC13 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		95EADCAF13CE7ADA0090BC13 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		95EADCB013CE7ADA0090BC13 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		95EADCB113CE7ADA0090BC13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		95EADCB413CE7ADA0090BC13 /* GHTestApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GHTestApp-Info.plist"; sourceTree = "<group>"; };
+		95EADCB613CE7ADA0090BC13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		95EADCB813CE7ADA0090BC13 /* GHTestApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHTestApp-Prefix.pch"; sourceTree = "<group>"; };
+		95EADCB913CE7ADA0090BC13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		95EADCBE13CE7ADA0090BC13 /* GHTestAppAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHTestAppAppDelegate.h; sourceTree = "<group>"; };
+		95EADCBF13CE7ADA0090BC13 /* GHTestAppAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GHTestAppAppDelegate.mm; sourceTree = "<group>"; };
+		95EADCC213CE7ADA0090BC13 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		95EADCC713CE7C080090BC13 /* GHMac.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHMac.xcodeproj; path = ../GHMac/GHMac.xcodeproj; sourceTree = "<group>"; };
+		95F7B7181447AF8200EEDAB8 /* ericfont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ericfont.png; path = ../../../../data/GHMacTest/ericfont.png; sourceTree = "<group>"; };
+		95F7B7191447AF8200EEDAB8 /* ericfont.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ericfont.xml; path = ../../../../data/GHMacTest/ericfont.xml; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95EADCA513CE7ADA0090BC13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1081195F16D949A6000C36FB /* GameKit.framework in Frameworks */,
+				1081195D16D94999000C36FB /* StoreKit.framework in Frameworks */,
+				95926B95153788EC00A45F6C /* OpenAL.framework in Frameworks */,
+				95926B93153788B300A45F6C /* AudioToolbox.framework in Frameworks */,
+				9590756013F95DB80043D40E /* OpenGL.framework in Frameworks */,
+				959A028F13D1C933007BC91F /* libGHMac.a in Frameworks */,
+				95EADCAD13CE7ADA0090BC13 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		951D25041492850A0017BA45 /* gui */ = {
+			isa = PBXGroup;
+			children = (
+				951D25001492845C0017BA45 /* console.xml */,
+				95A2FA751443F197006D357E /* testGUI.xml */,
+				9575093F1408D27C00D510C2 /* testguimat.xml */,
+			);
+			name = gui;
+			sourceTree = "<group>";
+		};
+		957509431408D2F900D510C2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				95610B9516F8D75400A54B9D /* defaultmat.xml */,
+				951D25041492850A0017BA45 /* gui */,
+				95C0245A148BABBC009902D0 /* entities */,
+				95F7B7181447AF8200EEDAB8 /* ericfont.png */,
+				95F7B7191447AF8200EEDAB8 /* ericfont.xml */,
+				95825F931417D19F0083472C /* shaders */,
+				957509481409832400D510C2 /* goldenlogo.png */,
+				957509441409558600D510C2 /* testworldmat.xml */,
+				10B31FF914ABA7B10046683B /* debugmat.xml */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		95825F931417D19F0083472C /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				953674B317430E740070E14F /* debugvertex.glsl */,
+				95DB276814A778BE00CB293B /* floorpixel.glsl */,
+				951D2502149284CD0017BA45 /* consolepixel.glsl */,
+				952D16C5145A6B66009A8C29 /* shadowtestpixel.glsl */,
+				9567544E145649E8003B6CA6 /* fontpixel.glsl */,
+				9567544F145649E8003B6CA6 /* fontvertex.glsl */,
+				9567544A1455C181003B6CA6 /* guipixel.glsl */,
+				9575093D1408D27C00D510C2 /* guivertex.glsl */,
+				95825F8F1417D1840083472C /* md3morphpixel.glsl */,
+				95825F901417D1840083472C /* md3morphvertex.glsl */,
+				95896764140EBB790071191B /* treepixel.glsl */,
+				95896765140EBB7A0071191B /* treevertex.glsl */,
+				957509451409558700D510C2 /* worldvertex.glsl */,
+				9575093E1408D27C00D510C2 /* testpixel.glsl */,
+				10B31FF714ABA67A0046683B /* debugpixel.glsl */,
+			);
+			name = shaders;
+			sourceTree = "<group>";
+		};
+		959A028A13D1C8A7007BC91F /* GHTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				959A028B13D1C8A7007BC91F /* GHTestApp.cpp */,
+				959A028C13D1C8A7007BC91F /* GHTestApp.h */,
+				100DA17617590FB3004B7E76 /* GHTestAppRagdollInput.cpp */,
+				100DA17717590FB3004B7E76 /* GHTestAppRagdollInput.h */,
+				100DA17917590FC2004B7E76 /* GHTestAppRagdollInputXMLLoader.cpp */,
+				100DA17A17590FC2004B7E76 /* GHTestAppRagdollInputXMLLoader.h */,
+			);
+			name = GHTestApp;
+			path = ../../../GHTestApp;
+			sourceTree = "<group>";
+		};
+		95C0245A148BABBC009902D0 /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				106E4BBC17944E5F00B9ACD9 /* snowboarder-ik.gham */,
+				950937CD170B2BCB004E3CB8 /* Board_Dman256.png */,
+				956D7D3B14A26AC1000277A4 /* cube.dae */,
+				95DB275614A6874100CB293B /* cube.md3 */,
+				956C103014A8F6D5003F0144 /* cubeent.xml */,
+				956C103114A8F6D5003F0144 /* cubemodel.xml */,
+				950937CE170B2BCC004E3CB8 /* Dude_Color256.png */,
+				95DB276514A778BE00CB293B /* floor.md3 */,
+				95DB276614A778BE00CB293B /* floorent.xml */,
+				95DB276714A778BE00CB293B /* floormodel.xml */,
+				95DB277814A7943D00CB293B /* floorvertex.glsl */,
+				950937BE1707413B004E3CB8 /* ghamtest.gham */,
+				950937BF1707413B004E3CB8 /* ghamtestent.xml */,
+				950937C2170743BF004E3CB8 /* ghamtestmodel.xml */,
+				95DB277614A792E100CB293B /* grass1.jpg */,
+				95896768140EE2DB0071191B /* kya_body.png */,
+				95896769140EE2DC0071191B /* kya_head.md3 */,
+				9589676A140EE2DE0071191B /* kya_lower.md3 */,
+				9589676B140EE2E20071191B /* kya_upper.md3 */,
+				950271EC1483F4D100F02511 /* kyaent.xml */,
+				95610B9D16F8EFAD00A54B9D /* kyaheadmodel.xml */,
+				95610B9E16F8EFAD00A54B9D /* kyalegsmodel.xml */,
+				95610B9716F8E03500A54B9D /* kyamat.xml */,
+				9589676C140EE2E30071191B /* kyamodel.xml */,
+				95610B9F16F8EFAD00A54B9D /* kyatorsomodel.xml */,
+				953406911719A771005B2A50 /* skeltest.gham */,
+				953406921719A771005B2A50 /* skeltestent.xml */,
+				953406931719A771005B2A50 /* skeltestmodel.xml */,
+				100DA13A1757C174004B7E76 /* skeltestnoanim.gham */,
+				100DA17E17594C9A004B7E76 /* skeltestragdoll.xml */,
+				950937C7170B2AB1004E3CB8 /* snowboarder.gham */,
+				950937C8170B2AB2004E3CB8 /* snowboarderent.xml */,
+				950937C9170B2AB4004E3CB8 /* snowboardermodel.xml */,
+				95896753140D7F560071191B /* snowtree.md3 */,
+				95896754140D7F560071191B /* SnowTree.png */,
+				95C02452148BA5C1009902D0 /* testlevel.xml */,
+				95C02458148BA95F009902D0 /* treeent.xml */,
+				95896755140D7F560071191B /* treemodel.xml */,
+				100DA186175BD7FF004B7E76 /* snowboarderragdoll.xml */,
+			);
+			name = entities;
+			sourceTree = "<group>";
+		};
+		95EADC9B13CE7AB50090BC13 = {
+			isa = PBXGroup;
+			children = (
+				1081195E16D949A6000C36FB /* GameKit.framework */,
+				1081195C16D94999000C36FB /* StoreKit.framework */,
+				95EADCC713CE7C080090BC13 /* GHMac.xcodeproj */,
+				95EADCB213CE7ADA0090BC13 /* GHMacTestApp */,
+				95EADCAB13CE7ADA0090BC13 /* Frameworks */,
+				95EADCA913CE7ADA0090BC13 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		95EADCA913CE7ADA0090BC13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95EADCA813CE7ADA0090BC13 /* GHTestApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95EADCAB13CE7ADA0090BC13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95926B94153788EB00A45F6C /* OpenAL.framework */,
+				95926B92153788B300A45F6C /* AudioToolbox.framework */,
+				959A028E13D1C933007BC91F /* libGHMac.a */,
+				9590755F13F95DB80043D40E /* OpenGL.framework */,
+				95EADCAC13CE7ADA0090BC13 /* Cocoa.framework */,
+				95EADCAF13CE7ADA0090BC13 /* AppKit.framework */,
+				95EADCB013CE7ADA0090BC13 /* CoreData.framework */,
+				95EADCB113CE7ADA0090BC13 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95EADCB213CE7ADA0090BC13 /* GHMacTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				957509431408D2F900D510C2 /* Data */,
+				959A028A13D1C8A7007BC91F /* GHTestApp */,
+				95EADCE113CE7C6B0090BC13 /* Mac */,
+				95EADCB313CE7ADA0090BC13 /* Supporting Files */,
+			);
+			name = GHMacTestApp;
+			path = GHTestApp;
+			sourceTree = "<group>";
+		};
+		95EADCB313CE7ADA0090BC13 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				95EADCC113CE7ADA0090BC13 /* MainMenu.xib */,
+				95EADCB413CE7ADA0090BC13 /* GHTestApp-Info.plist */,
+				95EADCB513CE7ADA0090BC13 /* InfoPlist.strings */,
+				95EADCB813CE7ADA0090BC13 /* GHTestApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95EADCC813CE7C080090BC13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95EADCCC13CE7C090090BC13 /* libGHMac.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95EADCE113CE7C6B0090BC13 /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				95EADCBE13CE7ADA0090BC13 /* GHTestAppAppDelegate.h */,
+				95EADCBF13CE7ADA0090BC13 /* GHTestAppAppDelegate.mm */,
+				95EADCB913CE7ADA0090BC13 /* main.m */,
+			);
+			name = Mac;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95EADCA713CE7ADA0090BC13 /* GHTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95EADCC413CE7ADA0090BC13 /* Build configuration list for PBXNativeTarget "GHTestApp" */;
+			buildPhases = (
+				95EADCA413CE7ADA0090BC13 /* Sources */,
+				95EADCA513CE7ADA0090BC13 /* Frameworks */,
+				95EADCA613CE7ADA0090BC13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95EADCEE13CF73160090BC13 /* PBXTargetDependency */,
+			);
+			name = GHTestApp;
+			productName = GHTestApp;
+			productReference = 95EADCA813CE7ADA0090BC13 /* GHTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95EADC9D13CE7AB50090BC13 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = 95EADCA013CE7AB50090BC13 /* Build configuration list for PBXProject "GHMacTestApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 95EADC9B13CE7AB50090BC13;
+			productRefGroup = 95EADCA913CE7ADA0090BC13 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 95EADCC813CE7C080090BC13 /* Products */;
+					ProjectRef = 95EADCC713CE7C080090BC13 /* GHMac.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				95EADCA713CE7ADA0090BC13 /* GHTestApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		95EADCCC13CE7C090090BC13 /* libGHMac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGHMac.a;
+			remoteRef = 95EADCCB13CE7C090090BC13 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95EADCA613CE7ADA0090BC13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95EADCB713CE7ADA0090BC13 /* InfoPlist.strings in Resources */,
+				95EADCC313CE7ADA0090BC13 /* MainMenu.xib in Resources */,
+				957509401408D27C00D510C2 /* guivertex.glsl in Resources */,
+				957509411408D27C00D510C2 /* testpixel.glsl in Resources */,
+				957509421408D27C00D510C2 /* testguimat.xml in Resources */,
+				957509461409558700D510C2 /* testworldmat.xml in Resources */,
+				957509471409558700D510C2 /* worldvertex.glsl in Resources */,
+				957509491409832500D510C2 /* goldenlogo.png in Resources */,
+				95896756140D7F570071191B /* snowtree.md3 in Resources */,
+				95896757140D7F570071191B /* SnowTree.png in Resources */,
+				95896758140D7F570071191B /* treemodel.xml in Resources */,
+				95896766140EBB810071191B /* treepixel.glsl in Resources */,
+				95896767140EBB810071191B /* treevertex.glsl in Resources */,
+				9589676D140EE2E40071191B /* kya_body.png in Resources */,
+				9589676E140EE2E40071191B /* kya_head.md3 in Resources */,
+				9589676F140EE2E40071191B /* kya_lower.md3 in Resources */,
+				95896770140EE2E40071191B /* kya_upper.md3 in Resources */,
+				95896771140EE2E40071191B /* kyamodel.xml in Resources */,
+				95825F911417D1840083472C /* md3morphpixel.glsl in Resources */,
+				95825F921417D1840083472C /* md3morphvertex.glsl in Resources */,
+				95A2FA761443F197006D357E /* testGUI.xml in Resources */,
+				95F7B71A1447AF8300EEDAB8 /* ericfont.png in Resources */,
+				95F7B71B1447AF8300EEDAB8 /* ericfont.xml in Resources */,
+				9567544B1455C181003B6CA6 /* guipixel.glsl in Resources */,
+				95675450145649E8003B6CA6 /* fontpixel.glsl in Resources */,
+				95675451145649E8003B6CA6 /* fontvertex.glsl in Resources */,
+				952D16C6145A6B66009A8C29 /* shadowtestpixel.glsl in Resources */,
+				950271ED1483F4D100F02511 /* kyaent.xml in Resources */,
+				95C02453148BA5C1009902D0 /* testlevel.xml in Resources */,
+				95C02459148BA95F009902D0 /* treeent.xml in Resources */,
+				951D25011492845C0017BA45 /* console.xml in Resources */,
+				951D2503149284CD0017BA45 /* consolepixel.glsl in Resources */,
+				956D7D3C14A26AC1000277A4 /* cube.dae in Resources */,
+				95DB275714A6874100CB293B /* cube.md3 in Resources */,
+				95DB276914A778BE00CB293B /* floor.md3 in Resources */,
+				95DB276A14A778BE00CB293B /* floorent.xml in Resources */,
+				95DB276B14A778BE00CB293B /* floormodel.xml in Resources */,
+				95DB276C14A778BE00CB293B /* floorpixel.glsl in Resources */,
+				95DB277714A792E100CB293B /* grass1.jpg in Resources */,
+				95DB277914A7943E00CB293B /* floorvertex.glsl in Resources */,
+				956C103214A8F6D5003F0144 /* cubeent.xml in Resources */,
+				956C103314A8F6D5003F0144 /* cubemodel.xml in Resources */,
+				10B31FF814ABA67A0046683B /* debugpixel.glsl in Resources */,
+				10B31FFA14ABA7B30046683B /* debugmat.xml in Resources */,
+				95610B9616F8D75400A54B9D /* defaultmat.xml in Resources */,
+				95610B9816F8E03500A54B9D /* kyamat.xml in Resources */,
+				95610BA016F8EFAD00A54B9D /* kyaheadmodel.xml in Resources */,
+				95610BA116F8EFAD00A54B9D /* kyalegsmodel.xml in Resources */,
+				95610BA216F8EFAD00A54B9D /* kyatorsomodel.xml in Resources */,
+				950937C01707413B004E3CB8 /* ghamtest.gham in Resources */,
+				950937C11707413B004E3CB8 /* ghamtestent.xml in Resources */,
+				950937C3170743BF004E3CB8 /* ghamtestmodel.xml in Resources */,
+				950937CA170B2AB6004E3CB8 /* snowboarder.gham in Resources */,
+				950937CB170B2AB6004E3CB8 /* snowboarderent.xml in Resources */,
+				950937CC170B2AB6004E3CB8 /* snowboardermodel.xml in Resources */,
+				950937CF170B2BCF004E3CB8 /* Board_Dman256.png in Resources */,
+				950937D0170B2BCF004E3CB8 /* Dude_Color256.png in Resources */,
+				953406941719A771005B2A50 /* skeltest.gham in Resources */,
+				953406951719A771005B2A50 /* skeltestent.xml in Resources */,
+				953406961719A771005B2A50 /* skeltestmodel.xml in Resources */,
+				953674B417430E740070E14F /* debugvertex.glsl in Resources */,
+				100DA13B1757C175004B7E76 /* skeltestnoanim.gham in Resources */,
+				100DA17F17594C9B004B7E76 /* skeltestragdoll.xml in Resources */,
+				100DA187175BD800004B7E76 /* snowboarderragdoll.xml in Resources */,
+				106E4BBD17944E5F00B9ACD9 /* snowboarder-ik.gham in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95EADCA413CE7ADA0090BC13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95EADCBA13CE7ADA0090BC13 /* main.m in Sources */,
+				95EADCC013CE7ADA0090BC13 /* GHTestAppAppDelegate.mm in Sources */,
+				959A028D13D1C8A7007BC91F /* GHTestApp.cpp in Sources */,
+				100DA17817590FB3004B7E76 /* GHTestAppRagdollInput.cpp in Sources */,
+				100DA17B17590FC2004B7E76 /* GHTestAppRagdollInputXMLLoader.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		95EADCEE13CF73160090BC13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GHMac;
+			targetProxy = 95EADCED13CF73160090BC13 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		95EADCB513CE7ADA0090BC13 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95EADCB613CE7ADA0090BC13 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		95EADCC113CE7ADA0090BC13 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95EADCC213CE7ADA0090BC13 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		95EADCA213CE7AB50090BC13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				RUN_CLANG_STATIC_ANALYZER = NO;
+			};
+			name = Debug;
+		};
+		95EADCA313CE7AB50090BC13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				RUN_CLANG_STATIC_ANALYZER = NO;
+			};
+			name = Release;
+		};
+		95EADCC513CE7ADA0090BC13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GHTestApp/GHTestApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "GHTestApp/GHTestApp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "../../**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		95EADCC613CE7ADA0090BC13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GHTestApp/GHTestApp-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "GHTestApp/GHTestApp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "../../**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95EADCA013CE7AB50090BC13 /* Build configuration list for PBXProject "GHMacTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95EADCA213CE7AB50090BC13 /* Debug */,
+				95EADCA313CE7AB50090BC13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95EADCC413CE7ADA0090BC13 /* Build configuration list for PBXNativeTarget "GHTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95EADCC513CE7ADA0090BC13 /* Debug */,
+				95EADCC613CE7ADA0090BC13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95EADC9D13CE7AB50090BC13 /* Project object */;
+}

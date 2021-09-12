@@ -1,0 +1,71 @@
+<model>
+    <children>
+        <child parentNode=ModelTop>
+            <gham file="snowboarder.gham" combinedBounds=true>
+                <transformNode id=RenderTop/>
+                <matreplace>
+                    <mat replace=default>
+                        <resource file=snowboardermat.xml/>
+                    </mat>
+                    <mat replace=Geo_Board>
+                        <resource file=snowboardmat.xml/>
+                    </mat>
+                </matreplace>
+                <animSet>
+                    <Seq name=stand start=0 numFrames=1 loopFrames=1 fps=2/>
+                    <Seq name=leanleft start=2 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=leanright start=3 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=stand_goofy start=4 numFrames=1 loopFrames=1 fps=2/>
+                    <Seq name=leanright_goofy start=6 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=leanleft_goofy start=7 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=inair start=8 numFrames=1 loopFrames=1 fps=2/>
+                    <Seq name=inairleft start=10 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=inairright start=11 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=land_prepare start=12 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=land start=13 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tuck_goofy start=14 numFrames=1 loopFrames=1 fps=2/>
+                    <Seq name=tuckleft_goofy start=16 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tuckright_goofy start=17 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tuck start=18 numFrames=1 loopFrames=1 fps=2/>
+                    <Seq name=tuckleft start=20 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tuckright start=21 numFrames=0 loopFrames=0 fps=25/>
+                    
+                    <Seq name=grableft start=22 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=grabright start=23 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=grabboth start=24 numFrames=0 loopFrames=0 fps=25/>
+                    
+                    <Seq name=tilttail start=25 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tilttailleanleft start=26 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tilttailleanright start=27 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tilttailgrableft start=28 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tilttailgrabright start=29 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tilttailgrabboth start=30 numFrames=0 loopFrames=0 fps=25/>
+                    
+                    <Seq name=tilttip start=31 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tilttipleanleft start=32 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tilttipleanright start=33 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tilttipgrableft start=34 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tilttipgrabright start=35 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tilttipgrabboth start=36 numFrames=0 loopFrames=0 fps=25/>
+                    
+                    <Seq name=tiltforward start=37 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tiltforwardleanleft start=38 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tiltforwardleanright start=39 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tiltforwardgrableft start=40 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tiltforwardgrabright start=41 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tiltforwardgrabboth start=42 numFrames=0 loopFrames=0 fps=25/>
+                    
+                    <Seq name=tiltback start=43 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tiltbackleanleft start=44 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tiltbackleanright start=45 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tiltbackgrableft start=46 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tiltbackgrabright start=47 numFrames=0 loopFrames=0 fps=25/>
+                    <Seq name=tiltbackgrabboth start=48 numFrames=0 loopFrames=0 fps=25/>
+                    
+                </animSet>
+                
+            </gham>
+        </child>
+    </children>
+</model>
+

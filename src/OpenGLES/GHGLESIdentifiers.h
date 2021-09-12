@@ -1,0 +1,16 @@
+// Copyright 2010 Golden Hammer Software
+#if defined(GHPUTSTRINGSINTABLES) || defined(GHPUTDECLARATIONS) || !defined(_GHGLESIDENTIFIERS_H_)
+#ifndef _GHGLESIDENTIFIERS_H_
+#define _GHGLESIDENTIFIERS_H_
+#endif
+
+#include "GHString/GHEnum.h"
+
+GHIDENTIFIERBEGIN(GHGLESIdentifiers)
+GHIDENTIFIER(SHADERTYPE)
+GHIDENTIFIER(M_RELOADMATERIALPARAMS)
+GHIDENTIFIEREND
+
+#include "GHString/GHEnumEnd.h"
+
+#endif

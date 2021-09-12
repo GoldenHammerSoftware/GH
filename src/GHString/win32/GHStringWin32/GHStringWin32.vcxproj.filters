@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\GHCharLess.h" />
+    <ClInclude Include="..\..\GHEnum.h" />
+    <ClInclude Include="..\..\GHEnumEnd.h" />
+    <ClInclude Include="..\..\GHEnumInclude.h" />
+    <ClInclude Include="..\..\GHFilenameUtil.h" />
+    <ClInclude Include="..\..\GHHashListParser.h" />
+    <ClInclude Include="..\..\GHIdentifier.h" />
+    <ClInclude Include="..\..\GHIdentifierMap.h" />
+    <ClInclude Include="..\..\GHNumberListParser.h" />
+    <ClInclude Include="..\..\GHString.h" />
+    <ClInclude Include="..\..\GHStringIdFactory.h" />
+    <ClInclude Include="..\..\GHStringIdFactoryDJB2.h" />
+    <ClInclude Include="..\..\GHStringTokenizer.h" />
+    <ClInclude Include="..\..\GHWhitespaceUtil.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\GHFilenameUtil.cpp" />
+    <ClCompile Include="..\..\GHHashListParser.cpp" />
+    <ClCompile Include="..\..\GHNumberListParser.cpp" />
+    <ClCompile Include="..\..\GHString.cpp" />
+    <ClCompile Include="..\..\GHStringIdFactoryDJB2.cpp" />
+    <ClCompile Include="..\..\GHStringTokenizer.cpp" />
+    <ClCompile Include="..\..\GHWhitespaceUtil.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" />
+  </ItemGroup>
+</Project>

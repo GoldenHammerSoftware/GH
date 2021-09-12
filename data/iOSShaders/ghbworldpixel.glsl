@@ -1,0 +1,4 @@
+#define SHADER_SUPPORTS_LIGHTMAP 1
+#define SHADER_SUPPORTS_BUMPMAP 1
+#define SHADER_SUPPORTS_DETAIL_TEXTURE 1
+#include "ghmasterpixel.glsl"

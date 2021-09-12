@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Retail|ARM">
+      <Configuration>Retail</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Retail|Win32">
+      <Configuration>Retail</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Retail|x64">
+      <Configuration>Retail</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="speedbug|ARM">
+      <Configuration>speedbug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="speedbug|Win32">
+      <Configuration>speedbug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="speedbug|x64">
+      <Configuration>speedbug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Game\CGCharacterBehaviorMonitor.h" />
+    <ClInclude Include="..\..\Game\GHAchievementNotifier.h" />
+    <ClInclude Include="..\..\Game\GHAchievementsData.h" />
+    <ClInclude Include="..\..\Game\GHAchievementsGUIFiller.h" />
+    <ClInclude Include="..\..\Game\GHAchievementsGUIFillerXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHAdFactory.h" />
+    <ClInclude Include="..\..\Game\GHAdHandlingDelegate.h" />
+    <ClInclude Include="..\..\Game\GHAdTransition.h" />
+    <ClInclude Include="..\..\Game\GHAMAnimFactory.h" />
+    <ClInclude Include="..\..\Game\GHAMAnimFactoryGPU.h" />
+    <ClInclude Include="..\..\Game\GHAMModelLoader.h" />
+    <ClInclude Include="..\..\Game\GHAMSerializer.h" />
+    <ClInclude Include="..\..\Game\GHAMStructs.h" />
+    <ClInclude Include="..\..\Game\GHBezierCurve.h" />
+    <ClInclude Include="..\..\Game\GHCacheModelLoader.h" />
+    <ClInclude Include="..\..\Game\GHCameraAnimateController.h" />
+    <ClInclude Include="..\..\Game\GHCameraAnimateControllerXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHCatmullRomCurve.h" />
+    <ClInclude Include="..\..\Game\GHConnectionHandle.h" />
+    <ClInclude Include="..\..\Game\GHConnectionHandleController.h" />
+    <ClInclude Include="..\..\Game\GHConnectionHandleLocal.h" />
+    <ClInclude Include="..\..\Game\GHConsoleCommandStringHandler.h" />
+    <ClInclude Include="..\..\Game\GHCSClient.h" />
+    <ClInclude Include="..\..\Game\GHCSClientInfo.h" />
+    <ClInclude Include="..\..\Game\GHCSClientList.h" />
+    <ClInclude Include="..\..\Game\GHCSEntityMgr.h" />
+    <ClInclude Include="..\..\Game\GHCSGameLauncher.h" />
+    <ClInclude Include="..\..\Game\GHCSIdentifiers.h" />
+    <ClInclude Include="..\..\Game\GHCSServer.h" />
+    <ClInclude Include="..\..\Game\GHEntity.h" />
+    <ClInclude Include="..\..\Game\GHEntityHashes.h" />
+    <ClInclude Include="..\..\Game\GHEntityMgr.h" />
+    <ClInclude Include="..\..\Game\GHEntityMgrMessageListener.h" />
+    <ClInclude Include="..\..\Game\GHEntityModelAnimTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHEntityModelPhysicsTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHEntityModelRenderTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHEntityParticleTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHEntitySpawnTransition.h" />
+    <ClInclude Include="..\..\Game\GHEntitySpawnTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHEntityXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHGameIdentifiers.h" />
+    <ClInclude Include="..\..\Game\GHGameServices.h" />
+    <ClInclude Include="..\..\Game\GHGUIAchievementNotifier.h" />
+    <ClInclude Include="..\..\Game\GHHeightField.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldBlitterCache.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldCollideModifier.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldCollideModifierXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldEntXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldHFFSaveModifier.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldHFFSaveModifierXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldMeshCreator.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldMeshDesc.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldMeshShared.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldNMeshLoader.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldOMeshBucket.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldOMeshBucketA.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldOMeshCreator.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldOMeshLoader.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldOMeshStructs.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldOMeshVertChooser.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldProperties.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldUVMaker.h" />
+    <ClInclude Include="..\..\Game\GHHeightFieldXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHHFUVType.h" />
+    <ClInclude Include="..\..\Game\GHHouseAd.h" />
+    <ClInclude Include="..\..\Game\GHHouseAdXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHIAPCallback.h" />
+    <ClInclude Include="..\..\Game\GHIAPStore.h" />
+    <ClInclude Include="..\..\Game\GHIAPStoreFactory.h" />
+    <ClInclude Include="..\..\Game\GHInputObjectMover.h" />
+    <ClInclude Include="..\..\Game\GHInputStateRecorder.h" />
+    <ClInclude Include="..\..\Game\GHInstantAbortAd.h" />
+    <ClInclude Include="..\..\Game\GHInterruptableTransition.h" />
+    <ClInclude Include="..\..\Game\GHInterstitialMgrTransition.h" />
+    <ClInclude Include="..\..\Game\GHMD3LoaderAnimModifier.h" />
+    <ClInclude Include="..\..\Game\GHMD3LoaderAnimModifierGPU.h" />
+    <ClInclude Include="..\..\Game\GHMD3LoaderConfig.h" />
+    <ClInclude Include="..\..\Game\GHMD3ModelLoader.h" />
+    <ClInclude Include="..\..\Game\GHMD3Structs.h" />
+    <ClInclude Include="..\..\Game\GHMD3TagLoader.h" />
+    <ClInclude Include="..\..\Game\GHModel.h" />
+    <ClInclude Include="..\..\Game\GHModelAnimControllerCloner.h" />
+    <ClInclude Include="..\..\Game\GHModelAnimTransition.h" />
+    <ClInclude Include="..\..\Game\GHModelAnimUpdateTrigger.h" />
+    <ClInclude Include="..\..\Game\GHModelFrameAnimVBAnimCloner.h" />
+    <ClInclude Include="..\..\Game\GHModelLoader.h" />
+    <ClInclude Include="..\..\Game\GHModelParticleAnimCloner.h" />
+    <ClInclude Include="..\..\Game\GHModelPhysicsTransition.h" />
+    <ClInclude Include="..\..\Game\GHModelPropertyXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHModelRenderTransition.h" />
+    <ClInclude Include="..\..\Game\GHModelSkeletonAnimCloner.h" />
+    <ClInclude Include="..\..\Game\GHModelSkinAnimCloner.h" />
+    <ClInclude Include="..\..\Game\GHModelTransformAnimCloner.h" />
+    <ClInclude Include="..\..\Game\GHMultiplayerFactory.h" />
+    <ClInclude Include="..\..\Game\GHMultiplayerIdentifiers.h" />
+    <ClInclude Include="..\..\Game\GHMultiplayerMatchCallback.h" />
+    <ClInclude Include="..\..\Game\GHMultiplayerMatchOutcome.h" />
+    <ClInclude Include="..\..\Game\GHMultiplayerMgr.h" />
+    <ClInclude Include="..\..\Game\GHNewsGUITransition.h" />
+    <ClInclude Include="..\..\Game\GHNewsGUITransitionXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHNewsMgr.h" />
+    <ClInclude Include="..\..\Game\GHOptionsSerializer.h" />
+    <ClInclude Include="..\..\Game\GHOverheadMessageQueue.h" />
+    <ClInclude Include="..\..\Game\GHPhysicsCursorPicker.h" />
+    <ClInclude Include="..\..\Game\GHPointerIndicator.h" />
+    <ClInclude Include="..\..\Game\GHPointerWorldIndicator.h" />
+    <ClInclude Include="..\..\Game\GHPositionFollowerEntXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHSkeletonDebugDrawerXMLLoader.h" />
+    <ClInclude Include="..\..\Game\GHSpline.h" />
+    <ClInclude Include="..\..\Game\GHStatTracker.h" />
+    <ClInclude Include="..\..\Game\GHStatTrackerFactory.h" />
+    <ClInclude Include="..\..\Game\GHStatTrackerFactoryLocal.h" />
+    <ClInclude Include="..\..\Game\GHStatTrackerIdentifiers.h" />
+    <ClInclude Include="..\..\Game\GHStatTrackerLocal.h" />
+    <ClInclude Include="..\..\Game\GHStatTrackerMessageHandler.h" />
+    <ClInclude Include="..\..\Game\GHWebNewsMgr.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Game\GHAchievementsData.cpp" />
+    <ClCompile Include="..\..\Game\GHAchievementsGUIFiller.cpp" />
+    <ClCompile Include="..\..\Game\GHAchievementsGUIFillerXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHAMAnimFactoryGPU.cpp" />
+    <ClCompile Include="..\..\Game\GHAMModelLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHAMSerializer.cpp" />
+    <ClCompile Include="..\..\Game\GHBezierCurve.cpp" />
+    <ClCompile Include="..\..\Game\GHCacheModelLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHCameraAnimateController.cpp" />
+    <ClCompile Include="..\..\Game\GHCameraAnimateControllerXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHCatmullRomCurve.cpp" />
+    <ClCompile Include="..\..\Game\GHConnectionHandleController.cpp" />
+    <ClCompile Include="..\..\Game\GHConnectionHandleLocal.cpp" />
+    <ClCompile Include="..\..\Game\GHConsoleCommandStringHandler.cpp" />
+    <ClCompile Include="..\..\Game\GHCSClient.cpp" />
+    <ClCompile Include="..\..\Game\GHCSClientInfo.cpp" />
+    <ClCompile Include="..\..\Game\GHCSClientList.cpp" />
+    <ClCompile Include="..\..\Game\GHCSEntityMgr.cpp" />
+    <ClCompile Include="..\..\Game\GHCSGameLauncher.cpp" />
+    <ClCompile Include="..\..\Game\GHCSServer.cpp" />
+    <ClCompile Include="..\..\Game\GHEntity.cpp" />
+    <ClCompile Include="..\..\Game\GHEntityMgr.cpp" />
+    <ClCompile Include="..\..\Game\GHEntityMgrMessageListener.cpp" />
+    <ClCompile Include="..\..\Game\GHEntityModelAnimTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHEntityModelPhysicsTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHEntityModelRenderTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHEntityParticleTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHEntitySpawnTransition.cpp" />
+    <ClCompile Include="..\..\Game\GHEntitySpawnTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHEntityXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHGameServices.cpp" />
+    <ClCompile Include="..\..\Game\GHGUIAchievementNotifier.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightField.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldBlitterCache.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldCollideModifier.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldCollideModifierXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldEntXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldHFFSaveModifier.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldHFFSaveModifierXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldMeshCreator.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldMeshDesc.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldMeshShared.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldNMeshLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldOMeshBucketA.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldOMeshCreator.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldOMeshLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldOMeshStructs.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldOMeshVertChooser.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldUVMaker.cpp" />
+    <ClCompile Include="..\..\Game\GHHeightFieldXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHHouseAd.cpp" />
+    <ClCompile Include="..\..\Game\GHHouseAdXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHInputObjectMover.cpp" />
+    <ClCompile Include="..\..\Game\GHInputStateRecorder.cpp" />
+    <ClCompile Include="..\..\Game\GHInstantAbortAd.cpp" />
+    <ClCompile Include="..\..\Game\GHInterruptableTransition.cpp" />
+    <ClCompile Include="..\..\Game\GHInterstitialMgrTransition.cpp" />
+    <ClCompile Include="..\..\Game\GHMD3LoaderAnimModifierGPU.cpp" />
+    <ClCompile Include="..\..\Game\GHMD3ModelLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHMD3TagLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHModel.cpp" />
+    <ClCompile Include="..\..\Game\GHModelAnimTransition.cpp" />
+    <ClCompile Include="..\..\Game\GHModelAnimUpdateTrigger.cpp" />
+    <ClCompile Include="..\..\Game\GHModelFrameAnimVBAnimCloner.cpp" />
+    <ClCompile Include="..\..\Game\GHModelLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHModelParticleAnimCloner.cpp" />
+    <ClCompile Include="..\..\Game\GHModelPhysicsTransition.cpp" />
+    <ClCompile Include="..\..\Game\GHModelPropertyXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHModelRenderTransition.cpp" />
+    <ClCompile Include="..\..\Game\GHModelSkeletonAnimCloner.cpp" />
+    <ClCompile Include="..\..\Game\GHModelSkinAnimCloner.cpp" />
+    <ClCompile Include="..\..\Game\GHModelTransformAnimCloner.cpp" />
+    <ClCompile Include="..\..\Game\GHNewsGUITransition.cpp" />
+    <ClCompile Include="..\..\Game\GHNewsGUITransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHNewsMgr.cpp" />
+    <ClCompile Include="..\..\Game\GHOptionsSerializer.cpp" />
+    <ClCompile Include="..\..\Game\GHOverheadMessageQueue.cpp" />
+    <ClCompile Include="..\..\Game\GHPhysicsCursorPicker.cpp" />
+    <ClCompile Include="..\..\Game\GHPointerIndicator.cpp" />
+    <ClCompile Include="..\..\Game\GHPointerWorldIndicator.cpp" />
+    <ClCompile Include="..\..\Game\GHPositionFollowerEntXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHSkeletonDebugDrawerXMLLoader.cpp" />
+    <ClCompile Include="..\..\Game\GHStatTrackerFactory.cpp" />
+    <ClCompile Include="..\..\Game\GHStatTrackerFactoryLocal.cpp" />
+    <ClCompile Include="..\..\Game\GHStatTrackerLocal.cpp" />
+    <ClCompile Include="..\..\Game\GHStatTrackerMessageHandler.cpp" />
+    <ClCompile Include="..\..\Game\GHWebNewsMgr.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3d96ebbe-d747-4111-a9f8-8bb30ae08fd4}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectName>GHGame</ProjectName>
+    <RootNamespace>GHGame</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.18362.0</WindowsTargetPlatformMinVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='speedbug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='speedbug|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='speedbug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='speedbug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='speedbug|ARM'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Retail|ARM'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='speedbug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='speedbug|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='speedbug|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='speedbug|x64'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\GUI\;$(ProjectDir)\..\..\Sim\Physics\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Base\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level2</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='speedbug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\GUI\;$(ProjectDir)\..\..\Sim\Physics\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Base\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level2</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\GUI\;$(ProjectDir)\..\..\Sim\Physics\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Base\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level2</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\GUI\;$(ProjectDir)\..\..\Sim\Physics\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Base\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GHRETAIL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level2</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\GUI\;$(ProjectDir)\..\..\Sim\Physics\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Base\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level2</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='speedbug|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\GUI\;$(ProjectDir)\..\..\Sim\Physics\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Base\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level2</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\GUI\;$(ProjectDir)\..\..\Sim\Physics\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Base\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level2</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\GUI\;$(ProjectDir)\..\..\Sim\Physics\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Base\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GHRETAIL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level2</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\GUI\;$(ProjectDir)\..\..\Sim\Physics\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Base\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level2</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='speedbug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\GUI\;$(ProjectDir)\..\..\Sim\Physics\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Base\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level2</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\GUI\;$(ProjectDir)\..\..\Sim\Physics\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Base\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level2</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\GUI\;$(ProjectDir)\..\..\Sim\Physics\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Base\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GHRETAIL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level2</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

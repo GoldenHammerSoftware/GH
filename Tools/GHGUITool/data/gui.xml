@@ -1,0 +1,77 @@
+<guiPanel>
+	<guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0 0" size="1 1"/>
+    <children>
+        <guiPropText text="^999%s0 Selected" font=ericfont.xml textHeight=30 fill=FT_PIXELS hAlign=A_LEFT vAlign=A_TOP>
+            <monitorProperties>
+                <GP_CURRSELECTEDNAME/>
+            </monitorProperties>
+        </guiPropText>
+        <guiPropText bufferSize="512" text="^999%s0" font="ericfont.xml" textHeight="20" fill="FT_PIXELS" hAlign="A_LEFT" vAlign="A_TOP" wrap="true">
+            <guiPos xFill="FT_PCT" yFill="FT_PCT" align="0 0" offset="0.3 0" size=".68 0.8"/>
+            <monitorProperties>
+                <GP_CURRSELECTEDDESC/>
+            </monitorProperties>
+        </guiPropText>
+        <guiPropText text="^999%s0" font=ericfont.xml textHeight=30 fill=FT_PIXELS hAlign=A_LEFT vAlign=A_TOP>
+            <guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0 0.05" size="1 0.8"/>
+            <monitorProperties>
+                <GP_CONSOLEINPUTSTR/>
+            </monitorProperties>
+        </guiPropText>
+        <guiPropText text="^999%s0" font=ericfont.xml textHeight=30 fill=FT_PIXELS hAlign=A_LEFT vAlign=A_TOP>
+            <guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0 0.16" size="1 0.8"/>
+            <monitorProperties>
+                <GP_CONSOLERESULTSTR/>
+            </monitorProperties>
+        </guiPropText>
+      
+      <!--      
+        <guiText text="Blah!" font=ericfont.xml textHeight=15 fill=FT_PIXELS hAlign=A_RIGHT vAlign=A_TOP>
+        </guiText>
+        <guiPropText text="^999%d0ms/%d1fps" font=ericfont.xml textHeight=15 fill=FT_PIXELS hAlign=A_RIGHT vAlign=A_TOP>
+            <guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0 0.1" size="1 0.9"/>
+            <monitorProperties>
+                <MS/>
+                <FPS/>
+            </monitorProperties>
+        </guiPropText>
+        -->
+        
+        <guiButton hotkeys="` ~">
+            <guiPos xFill=FT_PIXELS yFill=FT_PIXELS align="1 0" offset="-10 10" size="16 16"/>
+            <stateMachine>
+                <transitions stateId=GS_ACTIVE>
+                    <guiWidgetTrans>
+                        <guiPanel>
+                            <guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0 0" size="1 1"/>
+                            <renderable>
+                                <guiQuadRenderable>
+                                    <ghm vertex=guivertex.glsl pixel=shadowtestpixel.glsl zread=false zwrite=false/>
+                                </guiQuadRenderable>
+                            </renderable>
+                        </guiPanel>
+                    </guiWidgetTrans>
+                </transitions>
+                <transitions stateId=GS_SELECTED>
+                    <guiWidgetTrans>
+                        <guiPanel>
+                            <guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0 0" size="1 1"/>
+                            <renderable>
+                                <guiQuadRenderable>
+                                    <ghm vertex=guivertex.glsl pixel=shadowtestpixel.glsl zread=false zwrite=false/>
+                                </guiQuadRenderable>
+                            </renderable>
+                        </guiPanel>
+                    </guiWidgetTrans>
+                </transitions>
+                <transitions stateId=GS_TRIGGERED>
+                    <messageSender>
+                        <stringMessage id="pushWidget" val="console.xml"/>
+                    </messageSender>
+                </transitions>
+            </stateMachine>
+        </guiButton>
+        
+    </children>
+</guiPanel>
+

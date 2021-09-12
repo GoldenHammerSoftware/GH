@@ -1,0 +1,16 @@
+// Copyright Golden Hammer Software
+#if defined(GHPUTSTRINGSINTABLES) || defined(GHPUTDECLARATIONS) || !defined(_GHHEIGHTFIELDPROPERTIES_H_)
+#ifndef _GHHEIGHTFIELDPROPERTIES_H_
+#define _GHHEIGHTFIELDPROPERTIES_H_
+#endif
+
+#include "GHString/GHEnum.h"
+
+GHIDENTIFIERBEGIN(GHHeightFieldProperties)
+GHIDENTIFIER(HEIGHTFIELD)
+GHIDENTIFIER(HFTEXTUREWORLDSIZE)
+GHIDENTIFIEREND
+
+#include "GHString/GHEnumEnd.h"
+
+#endif

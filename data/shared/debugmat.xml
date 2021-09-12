@@ -1,0 +1,11 @@
+<ghm vertex=debugvertex.glsl pixel=debugpixel.glsl
+    billboard=none draworder=5 cullmode=none
+    zread="false" zwrite=false offset=0
+    alphablend=false invalpha=false 
+    alphatest=false alphatestless=true alphatestval=0.9>
+    <floatargs>
+        <floatarg handle=MaterialAmbient count=1 value=0.75/>
+    </floatargs>
+    <renderPassMembership emptySupportsAll="true"/>
+    <;renderPassMembership passes="line" emptySupportsAll="false"/>
+</ghm>

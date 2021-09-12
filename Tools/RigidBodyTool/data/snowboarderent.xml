@@ -1,0 +1,13 @@
+<entity>
+    <properties>
+        <prop name=model><modelProp file=snowboardermodel.xml/></prop>
+    </properties>
+    <stateMachine>
+        <transitions stateId="ES_ACTIVE">
+            <entityRenderTransition/>
+            <entityPhysicsTransition/>
+            <entityAnimTransition anim="default" randTimeOffset=3/>
+            <;skeletonDebugDrawer color="1 0 0"/>
+        </transitions>
+    </stateMachine>
+</entity>

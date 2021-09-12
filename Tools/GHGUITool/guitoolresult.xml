@@ -1,0 +1,249 @@
+<guiPanel id="endNavTop">
+    <guiPos align="0.5 1" offset="0 -70" size="600 100" xFill="FT_PIXELS" yFill="FT_PIXELS" xSizeAlign="A_CENTER" ySizeAlign="A_CENTER"/>
+    <children>
+
+        <guiButton inherit="buttonbase.xml" id="playbutton">
+            <guiPos align="0 0" offset="0 0" size="0.166 1" xFill="FT_PCT" yFill="FT_PCT" xSizeAlign="A_RIGHT" ySizeAlign="A_BOTTOM"/>
+            <buttonStates>
+                <transitions stateEnum="BE_TRIGGERED">
+                    <messageSender>
+                        <message id="M_SELECTNEXTSONG">
+                        </message>
+                    </messageSender>
+                    <messageSender>
+                        <message id="M_LOADLEVEL">
+                        </message>
+                    </messageSender>
+                </transitions>
+                <transitions stateEnum="BE_SELECTED">
+                    <guiSizeOscillate speed="5.0" max="0.05"/>
+                    <messageSender>
+                        <message id="SETAPPPROPERTY">
+                            <prop name="PROPID">
+                                <identifierProp val="GP_OPTIONSMOUSEOVER"/>
+                            </prop>
+                            <prop name="PROPVAL">
+                                <stringProp val="Play the next song."/>
+                            </prop>
+                        </message>
+                    </messageSender>
+                </transitions>
+                <transitions stateEnum="BE_IDLE">
+                    <messageSender>
+                        <message id="SETAPPPROPERTY">
+                            <prop name="PROPID">
+                                <identifierProp val="GP_OPTIONSMOUSEOVER"/>
+                            </prop>
+                            <prop name="PROPVAL">
+                                <stringProp val=""/>
+                            </prop>
+                        </message>
+                    </messageSender>
+                </transitions>
+            </buttonStates>
+            <renderable>
+                <guiQuadRenderable gridSize="4 4">
+                    <ghm vertex="mcguicyclevertex.glsl" pixel="mcguicyclepixel.glsl" zread="false" zwrite="false"
+                        billboard="none" draworder="0" cullmode="none"
+                        alphablend="true" srcblend="alpha" dstblend="invalpha">
+                        <textures>
+                            <texture file="playbutton.png" handle="Texture0" wrap="clamp" mipmap="true"/>
+                        </textures>
+                    </ghm>
+                </guiQuadRenderable>
+            </renderable>
+        </guiButton>
+
+        <guiButton inherit="buttonbase.xml" id="exitbutton">
+            <guiPos align="0 0" offset="0.2 0" size="0.166 1" xFill="FT_PCT" yFill="FT_PCT" xSizeAlign="A_RIGHT" ySizeAlign="A_BOTTOM"/>
+            <buttonStates>
+                <transitions stateEnum="BE_TRIGGERED">
+                    <messageSender>
+                        <message id="M_EXITLEVEL"/>
+                    </messageSender>
+                </transitions>
+                <transitions stateEnum="BE_SELECTED">
+                    <guiSizeOscillate speed="5.0" max="0.05"/>
+                    <messageSender>
+                        <message id="SETAPPPROPERTY">
+                            <prop name="PROPID">
+                                <identifierProp val="GP_OPTIONSMOUSEOVER"/>
+                            </prop>
+                            <prop name="PROPVAL">
+                                <stringProp val="Return to main menu."/>
+                            </prop>
+                        </message>
+                    </messageSender>
+                </transitions>
+                <transitions stateEnum="BE_IDLE">
+                    <messageSender>
+                        <message id="SETAPPPROPERTY">
+                            <prop name="PROPID">
+                                <identifierProp val="GP_OPTIONSMOUSEOVER"/>
+                            </prop>
+                            <prop name="PROPVAL">
+                                <stringProp val=""/>
+                            </prop>
+                        </message>
+                    </messageSender>
+                </transitions>
+            </buttonStates>
+            <renderable>
+                <guiQuadRenderable gridSize="4 4">
+                    <ghm vertex="mcguicyclevertex.glsl" pixel="mcguicyclepixel.glsl" zread="false" zwrite="false"
+                        billboard="none" draworder="0" cullmode="none"
+                        alphablend="true" srcblend="alpha" dstblend="invalpha">
+                        <textures>
+                            <texture file="stopbutton.png" handle="Texture0" wrap="clamp" mipmap="true"/>
+                        </textures>
+                    </ghm>
+                </guiQuadRenderable>
+            </renderable>
+        </guiButton>
+
+        <guiButton inherit="buttonbase.xml" id="replaybutton">
+            <guiPos align="0 0" offset="0.4 0" size="0.166 1" xFill="FT_PCT" yFill="FT_PCT" xSizeAlign="A_RIGHT" ySizeAlign="A_BOTTOM"/>
+            <buttonStates>
+                <transitions stateEnum="BE_TRIGGERED">
+                    <messageSender>
+                        <message id="M_STARTLEVEL">
+                        </message>
+                    </messageSender>
+                </transitions>
+                <transitions stateEnum="BE_SELECTED">
+                    <guiSizeOscillate speed="5.0" max="0.05"/>
+                    <messageSender>
+                        <message id="SETAPPPROPERTY">
+                            <prop name="PROPID">
+                                <identifierProp val="GP_OPTIONSMOUSEOVER"/>
+                            </prop>
+                            <prop name="PROPVAL">
+                                <stringProp val="Replay this song."/>
+                            </prop>
+                        </message>
+                    </messageSender>
+                </transitions>
+                <transitions stateEnum="BE_IDLE">
+                    <messageSender>
+                        <message id="SETAPPPROPERTY">
+                            <prop name="PROPID">
+                                <identifierProp val="GP_OPTIONSMOUSEOVER"/>
+                            </prop>
+                            <prop name="PROPVAL">
+                                <stringProp val=""/>
+                            </prop>
+                        </message>
+                    </messageSender>
+                </transitions>
+            </buttonStates>
+            <renderable>
+                <guiQuadRenderable gridSize="4 4">
+                    <ghm vertex="mcguicyclevertex.glsl" pixel="mcguicyclepixel.glsl" zread="false" zwrite="false"
+                        billboard="none" draworder="0" cullmode="none"
+                        alphablend="true" srcblend="alpha" dstblend="invalpha">
+                        <textures>
+                            <texture file="replaybutton.png" handle="Texture0" wrap="clamp" mipmap="true"/>
+                        </textures>
+                    </ghm>
+                </guiQuadRenderable>
+            </renderable>
+        </guiButton>
+
+        <guiButton inherit="buttonbase.xml" id="skipbutton">
+            <guiPos align="0 0" offset="0.6 0" size="0.166 1" xFill="FT_PCT" yFill="FT_PCT" xSizeAlign="A_RIGHT" ySizeAlign="A_BOTTOM"/>
+            <buttonStates>
+                <transitions stateEnum="BE_TRIGGERED">
+                    <messageSender>
+                        <message id="M_SKIPNEXTSONG">
+                        </message>
+                    </messageSender>
+                </transitions>
+                <transitions stateEnum="BE_SELECTED">
+                    <guiSizeOscillate speed="5.0" max="0.05"/>
+                    <messageSender>
+                        <message id="SETAPPPROPERTY">
+                            <prop name="PROPID">
+                                <identifierProp val="GP_OPTIONSMOUSEOVER"/>
+                            </prop>
+                            <prop name="PROPVAL">
+                                <stringProp val="Skip next song."/>
+                            </prop>
+                        </message>
+                    </messageSender>
+                </transitions>
+                <transitions stateEnum="BE_IDLE">
+                    <messageSender>
+                        <message id="SETAPPPROPERTY">
+                            <prop name="PROPID">
+                                <identifierProp val="GP_OPTIONSMOUSEOVER"/>
+                            </prop>
+                            <prop name="PROPVAL">
+                                <stringProp val=""/>
+                            </prop>
+                        </message>
+                    </messageSender>
+                </transitions>
+            </buttonStates>
+            <renderable>
+                <guiQuadRenderable gridSize="4 4">
+                    <ghm vertex="mcguicyclevertex.glsl" pixel="mcguicyclepixel.glsl" zread="false" zwrite="false"
+                        billboard="none" draworder="0" cullmode="none"
+                        alphablend="true" srcblend="alpha" dstblend="invalpha">
+                        <textures>
+                            <texture file="skipbutton.png" handle="Texture0" wrap="clamp" mipmap="true"/>
+                        </textures>
+                    </ghm>
+                </guiQuadRenderable>
+            </renderable>
+        </guiButton>
+
+        <guiButton inherit="buttonbase.xml" id="shufflebutton">
+            <guiPos align="0 0" offset="0.8 0" size="0.166 1" xFill="FT_PCT" yFill="FT_PCT" xSizeAlign="A_RIGHT" ySizeAlign="A_BOTTOM"/>
+            <buttonStates>
+                <transitions stateEnum="BE_TRIGGERED">
+                    <messageSender>
+                        <message id="M_TOGGLESHUFFLE">
+                        </message>
+                    </messageSender>
+                </transitions>
+                <transitions stateEnum="BE_SELECTED">
+                    <guiSizeOscillate speed="5.0" max="0.05"/>
+                    <messageSender>
+                        <message id="SETAPPPROPERTY">
+                            <prop name="PROPID">
+                                <identifierProp val="GP_OPTIONSMOUSEOVER"/>
+                            </prop>
+                            <prop name="PROPVAL">
+                                <stringProp val="Toggle shuffle."/>
+                            </prop>
+                        </message>
+                    </messageSender>
+                </transitions>
+                <transitions stateEnum="BE_IDLE">
+                    <messageSender>
+                        <message id="SETAPPPROPERTY">
+                            <prop name="PROPID">
+                                <identifierProp val="GP_OPTIONSMOUSEOVER"/>
+                            </prop>
+                            <prop name="PROPVAL">
+                                <stringProp val=""/>
+                            </prop>
+                        </message>
+                    </messageSender>
+                </transitions>
+            </buttonStates>
+            <renderable>
+                <guiQuadRenderable gridSize="4 4">
+                    <ghm vertex="mcguicyclevertex.glsl" pixel="mcguicyclepixel.glsl" zread="false" zwrite="false"
+                        billboard="none" draworder="0" cullmode="none"
+                        alphablend="true" srcblend="alpha" dstblend="invalpha">
+                        <textures>
+                            <texture file="shufflebutton.png" handle="Texture0" wrap="clamp" mipmap="true"/>
+                        </textures>
+                    </ghm>
+                </guiQuadRenderable>
+            </renderable>
+        </guiButton>
+
+    </children>
+</guiPanel>

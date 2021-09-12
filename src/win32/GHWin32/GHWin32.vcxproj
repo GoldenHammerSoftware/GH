@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Retail|Win32">
+      <Configuration>Retail</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Retail|x64">
+      <Configuration>Retail</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E24D1163-F923-43F3-A8C4-CB4C2A258E2A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>GHWin32</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\Base\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\NullPlatform\;$(ProjectDir)\..\..\GHMetro\;$(ProjectDir)\..\..\Game\;$(ProjectDir)\..\..\GHDX11\</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>Ws2_32.lib;windowscodecs.lib;XINPUT9_1_0.LIB;dsound.lib;xaudio2.lib;mfcore.lib;mfplat.lib;mfreadwrite.lib;mfuuid.lib;setupapi.lib</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\Base\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\NullPlatform\;$(ProjectDir)\..\..\GHMetro\;$(ProjectDir)\..\..\Game\;$(ProjectDir)\..\..\GHDX11\</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>Ws2_32.lib;windowscodecs.lib;XINPUT9_1_0.LIB;dsound.lib;xaudio2.lib;mfcore.lib;mfplat.lib;mfreadwrite.lib;mfuuid.lib;setupapi.lib</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\Base\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\NullPlatform\;$(ProjectDir)\..\..\GHMetro\;$(ProjectDir)\..\..\Game\;$(ProjectDir)\..\..\GHDX11\;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>Ws2_32.lib;windowscodecs.lib;XINPUT9_1_0.LIB;dsound.lib;xaudio2.lib;mfcore.lib;mfplat.lib;mfreadwrite.lib;mfuuid.lib;setupapi.lib</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>GHRETAIL;_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\Base\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\NullPlatform\;$(ProjectDir)\..\..\GHMetro\;$(ProjectDir)\..\..\Game\;$(ProjectDir)\..\..\GHDX11\;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>Ws2_32.lib;windowscodecs.lib;XINPUT9_1_0.LIB;dsound.lib;xaudio2.lib;mfcore.lib;mfplat.lib;mfreadwrite.lib;mfuuid.lib;setupapi.lib</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\Base\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\NullPlatform\;$(ProjectDir)\..\..\GHMetro\;$(ProjectDir)\..\..\Game\;$(ProjectDir)\..\..\GHDX11\;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>Ws2_32.lib;windowscodecs.lib;XINPUT9_1_0.LIB;dsound.lib;xaudio2.lib;mfcore.lib;mfplat.lib;mfreadwrite.lib;mfuuid.lib;setupapi.lib</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Retail|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>GHRETAIL;_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\Base\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\NullPlatform\;$(ProjectDir)\..\..\GHMetro\;$(ProjectDir)\..\..\Game\;$(ProjectDir)\..\..\GHDX11\;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>Ws2_32.lib;windowscodecs.lib;XINPUT9_1_0.LIB;dsound.lib;xaudio2.lib;mfcore.lib;mfplat.lib;mfreadwrite.lib;mfuuid.lib;setupapi.lib</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\GHMetro\GHMetro3DAudioMgr.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHMetroSoundDevice.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHMetroSoundEmitter.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHMetroSoundErrorHandler.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHMetroSoundHandle.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHMetroSoundLoader.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHTextureCreatorDDS.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHTextureCreatorWIC.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHTextureLoaderDDS.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHTextureLoaderDX11.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHWin32DeviceFinder.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHXInputHandler.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHXInputRumbler.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHDirectSoundDevice.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHDirectSoundEmitter.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHDirectSoundHandle.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHDirectSoundLoader.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32AppLauncher.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32DX11RenderServices.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32ExitAppTransition.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32ExitAppTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32MouseCapturer.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32SoundFinder.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32SwapChainCreator.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32SystemServices.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32TextureFinder.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32URLOpenerTransition.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32URLOpenerTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\GHMetro\GHMetro3DAudioMgr.h" />
+    <ClInclude Include="..\..\GHMetro\GHMetroSoundDevice.h" />
+    <ClInclude Include="..\..\GHMetro\GHMetroSoundEmitter.h" />
+    <ClInclude Include="..\..\GHMetro\GHMetroSoundErrorHandler.h" />
+    <ClInclude Include="..\..\GHMetro\GHMetroSoundHandle.h" />
+    <ClInclude Include="..\..\GHMetro\GHMetroSoundLoader.h" />
+    <ClInclude Include="..\..\GHMetro\GHTextureCreatorDDS.h" />
+    <ClInclude Include="..\..\GHMetro\GHTextureCreatorWIC.h" />
+    <ClInclude Include="..\..\GHMetro\GHTextureFinderDX11.h" />
+    <ClInclude Include="..\..\GHMetro\GHTextureLoaderDDS.h" />
+    <ClInclude Include="..\..\GHMetro\GHTextureLoaderDX11.h" />
+    <ClInclude Include="..\..\GHMetro\GHWin32DeviceFinder.h" />
+    <ClInclude Include="..\..\GHMetro\GHXAudio2Include.h" />
+    <ClInclude Include="..\..\GHMetro\GHXAudio2SoundFinder.h" />
+    <ClInclude Include="..\..\GHMetro\GHXInputHandler.h" />
+    <ClInclude Include="..\..\GHMetro\GHXInputRumbler.h" />
+    <ClInclude Include="..\..\GHWin32\GHDirectSoundDevice.h" />
+    <ClInclude Include="..\..\GHWin32\GHDirectSoundEmitter.h" />
+    <ClInclude Include="..\..\GHWin32\GHDirectSoundHandle.h" />
+    <ClInclude Include="..\..\GHWin32\GHDirectSoundLoader.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32AppLauncher.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32DX11RenderServices.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32ExitAppTransition.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32ExitAppTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32LaunchCfg.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32MouseCapturer.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32SoundFinder.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32SwapChainCreator.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32SystemServices.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32TextureFinder.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32URLOpenerTransition.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32URLOpenerTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32Window.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

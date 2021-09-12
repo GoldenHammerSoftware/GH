@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\GHOculusAvatar\GHOculusAvatar.cpp" />
+    <ClCompile Include="..\..\GHOculusAvatar\GHOculusAvatarComponentOverride.cpp" />
+    <ClCompile Include="..\..\GHOculusAvatar\GHOculusAvatarCustomGestureFinder.cpp" />
+    <ClCompile Include="..\..\GHOculusAvatar\GHOculusAvatarCustomGestureSetter.cpp" />
+    <ClCompile Include="..\..\GHOculusAvatar\GHOculusAvatarDebugDrawHands.cpp" />
+    <ClCompile Include="..\..\GHOculusAvatar\GHOculusAvatarUtil.cpp" />
+    <ClCompile Include="..\..\GHOculusAvatar\GHOculusAvatarXMLLoader.cpp" />
+    <ClCompile Include="..\..\GHOculusAvatar\GHInputStateOculusAvatarPoser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\GHOculusAvatar\GHOculusAvatar.h" />
+    <ClInclude Include="..\..\GHOculusAvatar\GHOculusAvatarComponentOverride.h" />
+    <ClInclude Include="..\..\GHOculusAvatar\GHOculusAvatarCustomGestureFinder.h" />
+    <ClInclude Include="..\..\GHOculusAvatar\GHOculusAvatarCustomGestureSetter.h" />
+    <ClInclude Include="..\..\GHOculusAvatar\GHOculusAvatarDebugDrawHands.h" />
+    <ClInclude Include="..\..\GHOculusAvatar\GHOculusAvatarPlatformPoser.h" />
+    <ClInclude Include="..\..\GHOculusAvatar\GHOculusAvatarUtil.h" />
+    <ClInclude Include="..\..\GHOculusAvatar\GHOculusAvatarXMLLoader.h" />
+    <ClInclude Include="..\..\GHOculusAvatar\GHInputStateOculusAvatarPoser.h" />
+  </ItemGroup>
+</Project>

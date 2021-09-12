@@ -1,0 +1,21 @@
+
+Enter:
+	Open Console
+	Send command and close Console
+
+N:
+	Create new Panel at the top level, automatically select it.
+
+C:
+	Create new Panel as immediate child of currently selected panel, automatically select it.
+
+Backspace/Delete:
+	Delete currently selected panel and all children.
+
+
+Console Commands
+--------------------------------------------------------------------------
+
+tex=blargh.png
+
+	Change the background texture of the currently selected panel to blargh.png (or replace blargh.png with another file)

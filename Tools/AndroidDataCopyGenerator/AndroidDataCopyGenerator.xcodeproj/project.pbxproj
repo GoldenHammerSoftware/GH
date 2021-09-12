@@ -1,0 +1,239 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1001FB40170623EA00CB3780 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1001FB3F170623EA00CB3780 /* main.mm */; };
+		1001FB42170623EA00CB3780 /* AndroidDataCopyGenerator.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1001FB41170623EA00CB3780 /* AndroidDataCopyGenerator.1 */; };
+		1001FB4A170629D600CB3780 /* AndroidDataMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1001FB48170629D600CB3780 /* AndroidDataMap.mm */; };
+		1001FB4D17062E3C00CB3780 /* CommandLineParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1001FB4B17062E3B00CB3780 /* CommandLineParser.mm */; };
+		1001FB501706347A00CB3780 /* ScriptGenerator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1001FB4E1706347A00CB3780 /* ScriptGenerator.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1001FB3A170623EA00CB3780 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				1001FB42170623EA00CB3780 /* AndroidDataCopyGenerator.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1001FB3C170623EA00CB3780 /* AndroidDataCopyGenerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AndroidDataCopyGenerator; sourceTree = BUILT_PRODUCTS_DIR; };
+		1001FB3F170623EA00CB3780 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		1001FB41170623EA00CB3780 /* AndroidDataCopyGenerator.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = AndroidDataCopyGenerator.1; sourceTree = "<group>"; };
+		1001FB48170629D600CB3780 /* AndroidDataMap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AndroidDataMap.mm; sourceTree = "<group>"; };
+		1001FB49170629D600CB3780 /* AndroidDataMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AndroidDataMap.h; sourceTree = "<group>"; };
+		1001FB4B17062E3B00CB3780 /* CommandLineParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CommandLineParser.mm; sourceTree = "<group>"; };
+		1001FB4C17062E3B00CB3780 /* CommandLineParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandLineParser.h; sourceTree = "<group>"; };
+		1001FB4E1706347A00CB3780 /* ScriptGenerator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScriptGenerator.mm; sourceTree = "<group>"; };
+		1001FB4F1706347A00CB3780 /* ScriptGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptGenerator.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1001FB39170623EA00CB3780 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1001FB33170623EA00CB3780 = {
+			isa = PBXGroup;
+			children = (
+				1001FB3E170623EA00CB3780 /* AndroidDataCopyGenerator */,
+				1001FB3D170623EA00CB3780 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1001FB3D170623EA00CB3780 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1001FB3C170623EA00CB3780 /* AndroidDataCopyGenerator */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1001FB3E170623EA00CB3780 /* AndroidDataCopyGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				1001FB3F170623EA00CB3780 /* main.mm */,
+				1001FB41170623EA00CB3780 /* AndroidDataCopyGenerator.1 */,
+				1001FB48170629D600CB3780 /* AndroidDataMap.mm */,
+				1001FB49170629D600CB3780 /* AndroidDataMap.h */,
+				1001FB4B17062E3B00CB3780 /* CommandLineParser.mm */,
+				1001FB4C17062E3B00CB3780 /* CommandLineParser.h */,
+				1001FB4E1706347A00CB3780 /* ScriptGenerator.mm */,
+				1001FB4F1706347A00CB3780 /* ScriptGenerator.h */,
+			);
+			path = AndroidDataCopyGenerator;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1001FB3B170623EA00CB3780 /* AndroidDataCopyGenerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1001FB45170623EA00CB3780 /* Build configuration list for PBXNativeTarget "AndroidDataCopyGenerator" */;
+			buildPhases = (
+				1001FB38170623EA00CB3780 /* Sources */,
+				1001FB39170623EA00CB3780 /* Frameworks */,
+				1001FB3A170623EA00CB3780 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AndroidDataCopyGenerator;
+			productName = AndroidDataCopyGenerator;
+			productReference = 1001FB3C170623EA00CB3780 /* AndroidDataCopyGenerator */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1001FB34170623EA00CB3780 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Golden Hammer";
+			};
+			buildConfigurationList = 1001FB37170623EA00CB3780 /* Build configuration list for PBXProject "AndroidDataCopyGenerator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1001FB33170623EA00CB3780;
+			productRefGroup = 1001FB3D170623EA00CB3780 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1001FB3B170623EA00CB3780 /* AndroidDataCopyGenerator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1001FB38170623EA00CB3780 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1001FB40170623EA00CB3780 /* main.mm in Sources */,
+				1001FB4A170629D600CB3780 /* AndroidDataMap.mm in Sources */,
+				1001FB4D17062E3C00CB3780 /* CommandLineParser.mm in Sources */,
+				1001FB501706347A00CB3780 /* ScriptGenerator.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1001FB43170623EA00CB3780 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1001FB44170623EA00CB3780 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1001FB46170623EA00CB3780 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1001FB47170623EA00CB3780 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1001FB37170623EA00CB3780 /* Build configuration list for PBXProject "AndroidDataCopyGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1001FB43170623EA00CB3780 /* Debug */,
+				1001FB44170623EA00CB3780 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1001FB45170623EA00CB3780 /* Build configuration list for PBXNativeTarget "AndroidDataCopyGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1001FB46170623EA00CB3780 /* Debug */,
+				1001FB47170623EA00CB3780 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1001FB34170623EA00CB3780 /* Project object */;
+}

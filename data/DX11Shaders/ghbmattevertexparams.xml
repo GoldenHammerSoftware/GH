@@ -1,0 +1,12 @@
+<shaderParams>
+  <floatParams>
+    <floatParam sizeFloats="16" cbType="CT_PERTRANS" semantic="ModelViewProj"/>
+    <floatParam sizeFloats="3" cbType="CT_PERTRANS" semantic="LightDir0"/>
+
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="MaterialAmbient"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="MaterialEmissive"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="uScale"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="vScale"/>
+    <floatParam sizeFloats="1" cbType="CT_PERFRAME" semantic="LightAmbientAmount"/>
+  </floatParams>
+</shaderParams>

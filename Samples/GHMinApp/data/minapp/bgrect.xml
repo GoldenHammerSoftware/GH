@@ -1,0 +1,7 @@
+<ghm vertex=guivertex.glsl pixel=pixel-1tex.glsl zread=false zwrite=false
+    billboard=none draworder=0 cullmode=none
+    alphablend=true srcblend=alpha dstblend=invalpha>
+    <textures>
+        <texture file=bgrect.png handle=Texture0 wrap=wrap mipmap=true/> 
+    </textures>
+</ghm>

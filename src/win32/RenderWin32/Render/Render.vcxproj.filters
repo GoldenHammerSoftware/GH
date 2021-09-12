@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Particles">
+      <UniqueIdentifier>{149fed00-5f45-4805-84be-99fdb06930a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HMD">
+      <UniqueIdentifier>{5c4cae39-d824-49f8-b6d0-c1137d2d405b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{6918f8f7-6434-4c4c-85c6-7f897848acce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Font">
+      <UniqueIdentifier>{4b6f69be-04f6-4c2a-8f56-f7c870d55e64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Material">
+      <UniqueIdentifier>{d3bd2007-87d7-49df-8967-f2e0453afc56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Geometry">
+      <UniqueIdentifier>{5cfe3e49-274e-4b43-ab0b-b255c44bc658}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Render\GHAlternatingRenderTarget.cpp" />
+    <ClCompile Include="..\..\..\Render\GHBillboardTransformAdjuster.cpp" />
+    <ClCompile Include="..\..\..\Render\GHCamera.cpp" />
+    <ClCompile Include="..\..\..\Render\GHDebugDraw.cpp" />
+    <ClCompile Include="..\..\..\Render\GHFrameAnimControllerVB.cpp" />
+    <ClCompile Include="..\..\..\Render\GHFrustum.cpp" />
+    <ClCompile Include="..\..\..\Render\GHGeometryRenderable.cpp" />
+    <ClCompile Include="..\..\..\Render\GHGPUVertexAnimController.cpp" />
+    <ClCompile Include="..\..\..\Render\GHLightMaterialCallback.cpp" />
+    <ClCompile Include="..\..\..\Render\GHLightMgr.cpp" />
+    <ClCompile Include="..\..\..\Render\GHMaterialReplacer.cpp" />
+    <ClCompile Include="..\..\..\Render\GHMaterialReplacerXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\Render\GHRenderGroupCategorizing.cpp" />
+    <ClCompile Include="..\..\..\Render\GHRenderGroupSimple.cpp" />
+    <ClCompile Include="..\..\..\Render\GHRenderList.cpp" />
+    <ClCompile Include="..\..\..\Render\GHRenderListContainer.cpp" />
+    <ClCompile Include="..\..\..\Render\GHRenderPass.cpp" />
+    <ClCompile Include="..\..\..\Render\GHRenderPassMembership.cpp" />
+    <ClCompile Include="..\..\..\Render\GHRenderPassMembershipXMLLoader.cpp" />
+    <ClCompile Include="..\..\..\Render\GHRenderServices.cpp" />
+    <ClCompile Include="..\..\..\Render\GHRenderStats.cpp" />
+    <ClCompile Include="..\..\..\Render\GHRenderTargetMaterialCallback.cpp" />
+    <ClCompile Include="..\..\..\Render\GHRenderTargetMaterialCallbackFactory.cpp" />
+    <ClCompile Include="..\..\..\Render\GHSceneRenderer.cpp" />
+    <ClCompile Include="..\..\..\Render\GHScreenPosUnprojector.cpp" />
+    <ClCompile Include="..\..\..\Render\GHShadowCameraPositioner.cpp" />
+    <ClCompile Include="..\..\..\Render\GHSkeletonDebugDrawer.cpp" />
+    <ClCompile Include="..\..\..\Render\GHSkinAnimControllerCPU.cpp" />
+    <ClCompile Include="..\..\..\Render\GHVBAnimData.cpp" />
+    <ClCompile Include="..\..\..\Render\GHViewInfo.cpp" />
+    <ClCompile Include="..\..\..\Render\GHParticle.cpp">
+      <Filter>Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHParticleAnimController.cpp">
+      <Filter>Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHParticleSpawner.cpp">
+      <Filter>Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHParticleSystem.cpp">
+      <Filter>Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHParticleSystemDesc.cpp">
+      <Filter>Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHParticleSystemDescXMLLoader.cpp">
+      <Filter>Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHParticleTransition.cpp">
+      <Filter>Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHHMDRenderDeviceNull.cpp">
+      <Filter>HMD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHRenderDevice.cpp" />
+    <ClCompile Include="..\..\..\Render\GHTexture.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHTextureLoaderHFF.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHTextureWorldMap.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHFont.cpp">
+      <Filter>Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHFontEditor.cpp">
+      <Filter>Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHFontLoader.cpp">
+      <Filter>Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHFontRenderer.cpp">
+      <Filter>Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHTextureDataFactoryASTC.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHTextureDataLoader.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHTextureDataFactoryKTX.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHTextureTypeUtil.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterial.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialCallbackFactoryProperty.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialCallbackFactoryTexture.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialCallbackFactoryTime.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialCallbackFactoryTransform.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialCallbackFactoryViewInfo.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialCallbackMgr.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialCallbackProperty.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialCallbackTexture.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialCallbackTime.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialCallbackTransform.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialCallbackViewInfo.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialPassOverrideXMLLoader.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMDesc.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHXMLObjLoaderGHM.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMemoryTexture.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHGeoCreationUtil.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHGeometry.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHGeometryComparison.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHIndexBufferUtil.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHVBFactory.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHVertexBuffer.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHVertexBufferUtil.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHVertexComponent.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHVertexStreamFormat.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHVertexStreamOverride.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHShaderPreprocessor.cpp" />
+    <ClCompile Include="..\..\..\Render\GHEnvironmentCapturer.cpp" />
+    <ClCompile Include="..\..\..\Render\GHTextureBMPSaver.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialCallbackShadowInfo.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHMaterialCallbackFactoryShadowInfo.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHScreenshotCapturer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Render\GHAlternatingRenderTarget.h" />
+    <ClInclude Include="..\..\..\Render\GHBillboardTransformAdjuster.h" />
+    <ClInclude Include="..\..\..\Render\GHCamera.h" />
+    <ClInclude Include="..\..\..\Render\GHDebugDraw.h" />
+    <ClInclude Include="..\..\..\Render\GHFrameAnimControllerVB.h" />
+    <ClInclude Include="..\..\..\Render\GHFrustum.h" />
+    <ClInclude Include="..\..\..\Render\GHGeometryRenderable.h" />
+    <ClInclude Include="..\..\..\Render\GHGPUVertexAnimController.h" />
+    <ClInclude Include="..\..\..\Render\GHLightMaterialCallback.h" />
+    <ClInclude Include="..\..\..\Render\GHLightMgr.h" />
+    <ClInclude Include="..\..\..\Render\GHMaterialReplacer.h" />
+    <ClInclude Include="..\..\..\Render\GHMaterialReplacerXMLLoader.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderable.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderDevice.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderGroup.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderGroupCategorizing.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderGroupSimple.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderList.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderListContainer.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderPass.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderPassMembership.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderPassMembershipXMLLoader.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderProperties.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderServices.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderStats.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderTarget.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderTargetFactory.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderTargetMaterialCallback.h" />
+    <ClInclude Include="..\..\..\Render\GHRenderTargetMaterialCallbackFactory.h" />
+    <ClInclude Include="..\..\..\Render\GHSceneRenderer.h" />
+    <ClInclude Include="..\..\..\Render\GHScreenInfo.h" />
+    <ClInclude Include="..\..\..\Render\GHScreenPosUnprojector.h" />
+    <ClInclude Include="..\..\..\Render\GHShadowCameraPositioner.h" />
+    <ClInclude Include="..\..\..\Render\GHSkeletonDebugDrawer.h" />
+    <ClInclude Include="..\..\..\Render\GHSkinAnimController.h" />
+    <ClInclude Include="..\..\..\Render\GHSkinAnimControllerCPU.h" />
+    <ClInclude Include="..\..\..\Render\GHVBAnimData.h" />
+    <ClInclude Include="..\..\..\Render\GHViewInfo.h" />
+    <ClInclude Include="..\..\..\Render\GHVisType.h" />
+    <ClInclude Include="..\..\..\Render\GHParticle.h">
+      <Filter>Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHParticleAnimController.h">
+      <Filter>Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHParticleSort.h">
+      <Filter>Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHParticleSpawner.h">
+      <Filter>Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHParticleSystem.h">
+      <Filter>Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHParticleSystemDesc.h">
+      <Filter>Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHParticleSystemDescXMLLoader.h">
+      <Filter>Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHParticleTransition.h">
+      <Filter>Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHHMDRenderDevice.h">
+      <Filter>HMD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHHMDRenderDeviceNull.h">
+      <Filter>HMD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHHMDServices.h">
+      <Filter>HMD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHHMDIdentifiers.h">
+      <Filter>HMD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHTexture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHTextureFormat.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHTextureLoaderHFF.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHTextureWorldMap.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHTextureChannelType.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHTextureData.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHFont.h">
+      <Filter>Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHFontEditor.h">
+      <Filter>Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHFontLoader.h">
+      <Filter>Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHFontRenderer.h">
+      <Filter>Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHTextureDataFactory.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHTextureDataFactoryASTC.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHTextureDataLoader.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHTextureDataFactoryKTX.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHGLTypes.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHTextureTypeUtil.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterial.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallback.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackFactory.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackFactoryProperty.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackFactoryTexture.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackFactoryTime.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackFactoryTransform.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackFactoryViewInfo.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackMgr.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackProperty.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackTexture.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackTime.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackTransform.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackType.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackViewInfo.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialParamHandle.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialPassOverrideXMLLoader.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMDesc.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHXMLObjLoaderGHM.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMemoryTexture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHGeoCreationUtil.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHGeometry.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHGeometryComparison.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHIndexBufferUtil.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHVBBlitter.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHVBDescription.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHVBFactory.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHVBUsage.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHVertexBuffer.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHVertexBufferUtil.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHVertexComponent.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHVertexComponentShaderID.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHVertexComponentType.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHVertexStream.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHVertexStreamFormat.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHVertexStreamOverride.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHRenderDeviceReinitListener.h" />
+    <ClInclude Include="..\..\..\Render\GHShaderPreprocessor.h" />
+    <ClInclude Include="..\..\..\Render\GHEnvironmentCapturer.h" />
+    <ClInclude Include="..\..\..\Render\GHTextureBMPSaver.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackShadowInfo.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHMaterialCallbackFactoryShadowInfo.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHScreenshotCapturer.h" />
+    <ClInclude Include="..\..\..\Render\GHShaderType.h" />
+  </ItemGroup>
+</Project>

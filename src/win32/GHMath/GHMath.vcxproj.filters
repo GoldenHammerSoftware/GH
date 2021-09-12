@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\GHMath\GHColor.h" />
+    <ClInclude Include="..\..\GHMath\GHEpsilon.h" />
+    <ClInclude Include="..\..\GHMath\GHFloat.h" />
+    <ClInclude Include="..\..\GHMath\GHIntersect.h" />
+    <ClInclude Include="..\..\GHMath\GHMath.h" />
+    <ClInclude Include="..\..\GHMath\GHMathUnitTests.h" />
+    <ClInclude Include="..\..\GHMath\GHPi.h" />
+    <ClInclude Include="..\..\GHMath\GHPlane.h" />
+    <ClInclude Include="..\..\GHMath\GHPoint.h" />
+    <ClInclude Include="..\..\GHMath\GHQuaternion.h" />
+    <ClInclude Include="..\..\GHMath\GHRandom.h" />
+    <ClInclude Include="..\..\GHMath\GHRect.h" />
+    <ClInclude Include="..\..\GHMath\GHSphere.h" />
+    <ClInclude Include="..\..\GHMath\GHTransform.h" />
+    <ClInclude Include="..\..\GHMath\GHMathInclude.h" />
+    <ClInclude Include="..\..\GHMath\GHMathDebugPrint.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\GHMath\GHIntersect.cpp" />
+    <ClCompile Include="..\..\GHMath\GHMath.cpp" />
+    <ClCompile Include="..\..\GHMath\GHMathUnitTests.cpp" />
+    <ClCompile Include="..\..\GHMath\GHPlane.cpp" />
+    <ClCompile Include="..\..\GHMath\GHQuaternion.cpp" />
+    <ClCompile Include="..\..\GHMath\GHRandom.cpp" />
+    <ClCompile Include="..\..\GHMath\GHSphere.cpp" />
+    <ClCompile Include="..\..\GHMath\GHTransform.cpp" />
+    <ClCompile Include="..\..\GHMath\GHMathDebugPrint.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\GHMath\GHIntersect.inl" />
+    <None Include="..\..\GHMath\GHPoint.inl" />
+    <None Include="..\..\GHMath\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\GHMath\LICENSE.txt" />
+  </ItemGroup>
+</Project>

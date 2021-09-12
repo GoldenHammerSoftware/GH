@@ -1,0 +1,17 @@
+<guiPanel>
+    <!--
+	<guiPos xFill=FT_PCT yFill=FT_PCT align="0 0" offset="0 0" size="1 0.2"/>
+    <renderable>
+        <guiQuadRenderable>
+            <ghm vertex="guivertex.glsl" pixel="colorpixel.glsl" zread="false" zwrite="false">
+                <floatargs>
+                    <floatarg handle="TintColor" count="4" value="0 1 0 1"/>
+                </floatargs>
+            </ghm>
+        </guiQuadRenderable>
+    </renderable>
+    <children>
+    </children>
+    --->->
+</guiPanel>
+

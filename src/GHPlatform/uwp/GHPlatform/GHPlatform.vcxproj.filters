@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="uwp">
+      <UniqueIdentifier>{3c8aa9c4-df4e-42d3-a87f-b1279c208bac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nullplatform">
+      <UniqueIdentifier>{39f8c05b-2457-4ad8-9fcc-fa1f77846921}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\GHByteStream.h" />
+    <ClInclude Include="..\..\GHByteStreamPreallocated.h" />
+    <ClInclude Include="..\..\GHByteStreamReader.h" />
+    <ClInclude Include="..\..\GHConnectionType.h" />
+    <ClInclude Include="..\..\GHDebugMessage.h" />
+    <ClInclude Include="..\..\GHDeletionHandle.h" />
+    <ClInclude Include="..\..\GHFile.h" />
+    <ClInclude Include="..\..\GHFileC.h" />
+    <ClInclude Include="..\..\GHFileOpener.h" />
+    <ClInclude Include="..\..\GHFilePicker.h" />
+    <ClInclude Include="..\..\GHFOpenFileOpener.h" />
+    <ClInclude Include="..\..\GHMutex.h" />
+    <ClInclude Include="..\..\GHOutputPipe.h" />
+    <ClInclude Include="..\..\GHOwnershipList.h" />
+    <ClInclude Include="..\..\GHPlatformIdentifiers.h" />
+    <ClInclude Include="..\..\GHPlatformServices.h" />
+    <ClInclude Include="..\..\GHPrintfOutputPipe.h" />
+    <ClInclude Include="..\..\GHPrioritizedList.h" />
+    <ClInclude Include="..\..\GHRefCounted.h" />
+    <ClInclude Include="..\..\GHRefCountedDeletionHandle.h" />
+    <ClInclude Include="..\..\GHRunnable.h" />
+    <ClInclude Include="..\..\GHSocket.h" />
+    <ClInclude Include="..\..\GHSocketMgr.h" />
+    <ClInclude Include="..\..\GHStaticAssert.h" />
+    <ClInclude Include="..\..\GHStlUtil.h" />
+    <ClInclude Include="..\..\GHThread.h" />
+    <ClInclude Include="..\..\GHThreadFactory.h" />
+    <ClInclude Include="..\..\GHThreadSignal.h" />
+    <ClInclude Include="..\..\GHThreadSleeper.h" />
+    <ClInclude Include="..\..\GHTimeCalculator.h" />
+    <ClInclude Include="..\..\GHTimeVal.h" />
+    <ClInclude Include="..\..\GHTypedVoidFuncRunnable.h" />
+    <ClInclude Include="..\..\GHXorFile.h" />
+    <ClInclude Include="..\..\null\GHNullFileOpener.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullFilePicker.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullMutex.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullPlatformServices.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullSocketMgr.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullThread.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullThreadFactory.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullThreadSignal.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullThreadSleeper.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullTimeCalculator.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\null\GHNullWindow.h">
+      <Filter>nullplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroFile.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroFileOpener.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroFilePicker.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroMutex.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroOutputPipe.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroPlatformServices.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroSocketMgr.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroSocketTCP.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroStorageFile.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroThread.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroThreadFactory.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroThreadSleeper.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroTimeCalculator.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroRandomAccessStream.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GHMetroIdentifiers.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\GHByteStreamPreallocated.cpp" />
+    <ClCompile Include="..\..\GHByteStreamReader.cpp" />
+    <ClCompile Include="..\..\GHDebugMessage.cpp" />
+    <ClCompile Include="..\..\GHFileC.cpp" />
+    <ClCompile Include="..\..\GHFileOpener.cpp" />
+    <ClCompile Include="..\..\GHFOpenFileOpener.cpp" />
+    <ClCompile Include="..\..\GHPlatformServices.cpp" />
+    <ClCompile Include="..\..\GHPrintfOutputPipe.cpp" />
+    <ClCompile Include="..\..\GHRefCounted.cpp" />
+    <ClCompile Include="..\..\GHTimeVal.cpp" />
+    <ClCompile Include="..\..\GHXorFile.cpp" />
+    <ClCompile Include="..\..\null\GHNullThreadFactory.cpp">
+      <Filter>nullplatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHMetroFile.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHMetroFileOpener.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHMetroFilePicker.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHMetroMutex.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHMetroOutputPipe.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHMetroPlatformServices.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHMetroSocketMgr.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHMetroSocketTCP.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHMetroThread.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHMetroThreadFactory.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHMetroThreadSleeper.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GHMetroTimeCalculator.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" />
+  </ItemGroup>
+</Project>
