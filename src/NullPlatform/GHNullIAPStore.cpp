@@ -1,6 +1,6 @@
 // Copyright Golden Hammer Software
 #include "GHNullIAPStore.h"
-#include "GHIAPCallback.h"
+#include "Game/GHIAPCallback.h"
 #include <stddef.h>
 #include <algorithm>
 

@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHSystemServices.h"
+#include "Base/GHSystemServices.h"
 
 class GHNullSystemServices : public GHSystemServices
 {

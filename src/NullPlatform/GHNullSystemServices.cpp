@@ -1,6 +1,6 @@
 // Copyright Golden Hammer Software
 #include "GHNullSystemServices.h"
-#include "GHInputState.h"
+#include "Base/GHInputState.h"
 #include "GHNullSoundDevice.h"
 #include "GHNullMouseCapturer.h"
 #include "GHNullIAPStoreFactory.h"
