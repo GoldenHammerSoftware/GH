@@ -1,6 +1,6 @@
 #include "GHRenderServicesDX12.h"
 
-#include "NullPlatform/GHNullRenderDevice.h"
+#include "GHRenderDeviceDX12.h"
 #include "NullPlatform/GHNullVBFactory.h"
 #include "Render/GHFontRenderer.h"
 #include "NullPlatform/GHNullRenderTargetFactory.h"
@@ -10,7 +10,7 @@
 GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices)
 : GHRenderServices(systemServices)
 {
-    GHRenderDevice* renderDevice = new GHNullRenderDevice();
+    GHRenderDevice* renderDevice = new GHRenderDeviceDX12();
     setDevice(renderDevice);
     setVBFactory(new GHNullVBFactory());
     mFontRenderer = new GHFontRenderer(*mVBFactory);

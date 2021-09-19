@@ -28,6 +28,10 @@ public:
 		const GHCamera& camera, bool isRenderToTexture) const = 0;
 	virtual const GHViewInfo& getViewInfo(void) const = 0;
 
+	virtual void handleGraphicsQualityChange(void) = 0;
+
+	virtual GHTexture* resolveBackbuffer(void) = 0;
+
 	void setHMDDevice(GHHMDRenderDevice* hmd);
 	GHHMDRenderDevice* getHMDDevice(void) const { return mHMDDevice; }
 	void createStereoView(const GHViewInfo& mainView, const GHCamera& camera,
@@ -35,10 +39,6 @@ public:
 	// is stereo means we are currently rendering a stereo pass.
 	void setIsStereo(bool val);
 	bool getIsStereo(void) const;
-
-    virtual void handleGraphicsQualityChange(void) = 0;
-
-	virtual GHTexture* resolveBackbuffer(void) = 0;
 
 protected:
 	bool mIsStereo{ false };

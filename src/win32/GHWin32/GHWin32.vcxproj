@@ -295,6 +295,11 @@
     <ClInclude Include="..\..\GHWin32\GHWin32URLOpenerTransitionXMLLoader.h" />
     <ClInclude Include="..\..\GHWin32\GHWin32Window.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DX12Win32\DX12Win32.vcxproj">
+      <Project>{d16099b2-7962-4dd1-bbbe-129903cce7c2}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
