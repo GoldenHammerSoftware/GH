@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHVBBlitter.h"
+#include "Render/GHVBBlitter.h"
 
 class GHNullVBBlitterIndex : public GHVBBlitterIndex
 {

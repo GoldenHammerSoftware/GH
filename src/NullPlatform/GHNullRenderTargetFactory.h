@@ -1,8 +1,8 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHRenderTargetFactory.h"
-#include "GHRenderTarget.h"
+#include "Render/GHRenderTargetFactory.h"
+#include "Render/GHRenderTarget.h"
 
 class GHNullRenderTarget : public GHRenderTarget
 {

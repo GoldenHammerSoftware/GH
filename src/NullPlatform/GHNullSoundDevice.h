@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHSoundDevice.h"
+#include "Base/GHSoundDevice.h"
 class GHSoundVolumeMgr;
 
 class GHNullSoundDevice : public GHSoundDevice

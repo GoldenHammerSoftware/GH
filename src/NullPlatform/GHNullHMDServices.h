@@ -1,5 +1,5 @@
 #pragma once
-#include "GHHMDServices.h"
+#include "Render/GHHMDServices.h"
 
 class GHNullHMDServices : public GHHMDServices
 {

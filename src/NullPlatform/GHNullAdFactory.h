@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GHAdFactory.h"
+#include "Game/GHAdFactory.h"
 
 class GHMessageHandler;
 
