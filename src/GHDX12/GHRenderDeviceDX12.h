@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Render/GHRenderDevice.h"
+#include "GHDX12Include.h"
 
 class GHRenderDeviceDX12 : public GHRenderDevice
 {
@@ -27,5 +28,7 @@ public:
 
 protected:
 	GHViewInfo mViewInfo;
+	Microsoft::WRL::ComPtr<ID3D12Device2> mDXDevice;
+	Microsoft::WRL::ComPtr<ID3D12CommandQueue> mDXCommandQueue;
 };
 

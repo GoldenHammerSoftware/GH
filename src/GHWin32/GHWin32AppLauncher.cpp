@@ -1,6 +1,6 @@
 // Copyright Golden Hammer Software
 
-//#define DX12 1
+#define DX12 1
 
 #include "GHWin32AppLauncher.h"
 #include "GHWin32SystemServices.h"
@@ -81,7 +81,7 @@ GHWin32AppLauncher::GHWin32AppLauncher(HINSTANCE hInstance, HINSTANCE hPrevInsta
 	mWindow->setMessageQueue(mAppMessageQueue);
 
 #ifdef DX12
-	mRenderServices = new GHRenderServicesDX12(*mSystemServices);
+	mRenderServices = new GHRenderServicesDX12(*mSystemServices, *mWindow);
 #else
 	GHWin32SwapChainCreator* swapChainCreator = new GHWin32SwapChainCreator(*mWindow, mAllowDXFullscreen);
 	GHRenderDeviceFactoryDX11Native* rdFactory = new GHRenderDeviceFactoryDX11Native(*swapChainCreator, *mAppMessageQueue, 4);

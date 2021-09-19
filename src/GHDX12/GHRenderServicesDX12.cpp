@@ -7,8 +7,9 @@
 #include "GHPlatform/GHDeletionHandle.h"
 #include "Render/GHLightMgr.h"
 
-GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices)
+GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHWin32Window& window)
 : GHRenderServices(systemServices)
+, mWindow(window)
 {
     GHRenderDevice* renderDevice = new GHRenderDeviceDX12();
     setDevice(renderDevice);
