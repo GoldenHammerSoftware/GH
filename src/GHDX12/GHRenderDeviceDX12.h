@@ -3,10 +3,13 @@
 #include "Render/GHRenderDevice.h"
 #include "GHDX12Include.h"
 
+class GHWin32Window;
+
 class GHRenderDeviceDX12 : public GHRenderDevice
 {
 public:
-	GHRenderDeviceDX12(void);
+	GHRenderDeviceDX12(GHWin32Window& window);
+	~GHRenderDeviceDX12(void);
 
 	void reinit(void);
 
@@ -28,7 +31,10 @@ public:
 
 protected:
 	GHViewInfo mViewInfo;
+	GHWin32Window& mWindow;
 	Microsoft::WRL::ComPtr<ID3D12Device2> mDXDevice;
 	Microsoft::WRL::ComPtr<ID3D12CommandQueue> mDXCommandQueue;
+	Microsoft::WRL::ComPtr<IDXGISwapChain1> mDXSwapChain;
+	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDXDescriptorHeap;
 };
 
