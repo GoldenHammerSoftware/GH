@@ -1,10 +1,10 @@
 #include "GHNullAdFactory.h"
 #include "GHNullTransition.h"
 #include "GHNullInterstitial.h"
-#include "GHInterstitialMgrTransition.h"
+#include "Game/GHInterstitialMgrTransition.h"
 #include "GHUtils/GHPropertyContainer.h"
-#include "GHMessageTypes.h"
-#include "GHHouseAd.h"
+#include "Base/GHMessageTypes.h"
+#include "Game/GHHouseAd.h"
 
 GHNullAdFactory::GHNullAdFactory(GHMessageHandler& messageHandler)
     : mMessageHandler(messageHandler)

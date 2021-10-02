@@ -1,7 +1,7 @@
 #pragma once
 
-#include "GHMultiplayerMgr.h"
-#include "GHMultiplayerMatchCallback.h"
+#include "Game/GHMultiplayerMgr.h"
+#include "Game/GHMultiplayerMatchCallback.h"
 
 class GHFileOpener;
 

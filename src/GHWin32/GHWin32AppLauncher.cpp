@@ -1,4 +1,7 @@
 // Copyright Golden Hammer Software
+
+//#define DX12 1
+
 #include "GHWin32AppLauncher.h"
 #include "GHWin32SystemServices.h"
 #include "GHPlatform/GHDebugMessage.h"
@@ -8,14 +11,10 @@
 #include "GHUtils/GHMessageQueue.h"
 #include "GHWin32LaunchCfg.h"
 #include "GHPlatform/GHFileOpener.h"
-#include "GHRenderDeviceFactoryDX11Native.h"
 #include "GHWin32SwapChainCreator.h"
-#include "GHRenderDeviceFactoryDX11Native.h"
-#include "GHWin32DX11RenderServices.h"
 #include "GHInputState.h"
 #include "GHKeyDef.h"
 #include "GHXInputHandler.h"
-#include "GHRenderDeviceDX11.h"
 #include "GHMessageTypes.h"
 #include "GHUtils/GHMessage.h"
 #include "GHWin32MouseCapturer.h"
@@ -23,6 +22,16 @@
 #include <Ks.h>
 #include <Ksmedia.h>
 #include "GHBaseIdentifiers.h"
+
+#ifdef DX12
+#include "GHDX12/GHRenderServicesDX12.h"
+#include "GHDX12/GHRenderDeviceDX12.h"
+#else
+#include "GHRenderDeviceDX11.h"
+#include "GHRenderDeviceFactoryDX11Native.h"
+#include "GHRenderDeviceFactoryDX11Native.h"
+#include "GHWin32DX11RenderServices.h"
+#endif
 
 // debug setting to allow arbitrary window sizes
 #define FREEFORM_WINDOW_SIZE
@@ -71,10 +80,13 @@ GHWin32AppLauncher::GHWin32AppLauncher(HINSTANCE hInstance, HINSTANCE hPrevInsta
 
 	mWindow->setMessageQueue(mAppMessageQueue);
 
+#ifdef DX12
+	mRenderServices = new GHRenderServicesDX12(*mSystemServices, *mWindow);
+#else
 	GHWin32SwapChainCreator* swapChainCreator = new GHWin32SwapChainCreator(*mWindow, mAllowDXFullscreen);
 	GHRenderDeviceFactoryDX11Native* rdFactory = new GHRenderDeviceFactoryDX11Native(*swapChainCreator, *mAppMessageQueue, 4);
-
 	mRenderServices = new GHWin32DX11RenderServices(*mSystemServices, rdFactory, swapChainCreator, mWindow->getClientAreaSize());
+#endif
 
 	mGameServices = new GHGameServices(*mSystemServices, *mRenderServices, *mAppMessageQueue);
 
@@ -457,7 +469,11 @@ void GHWin32AppLauncher::updateWindowSize(void)
 		GHPoint2i newSize = mWindow->getClientAreaSize();
 		mRenderServices->getScreenInfo().setSize(newSize);
 
+#ifdef DX12
+		GHRenderDeviceDX12* device = (GHRenderDeviceDX12*)mRenderServices->getDevice();
+#else
 		GHRenderDeviceDX11* device = (GHRenderDeviceDX11*)mRenderServices->getDevice();
+#endif
 		device->reinit();
 
 		GHMessage resizeMessage(GHMessageTypes::WINDOWRESIZE);

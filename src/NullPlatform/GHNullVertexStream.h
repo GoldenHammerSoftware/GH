@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHVertexStream.h"
+#include "Render/GHVertexStream.h"
 
 class GHNullVertexStream : public GHVertexStream
 {

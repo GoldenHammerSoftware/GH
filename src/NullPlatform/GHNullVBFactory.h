@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHVBFactory.h"
+#include "Render/GHVBFactory.h"
 #include "GHNullVBBlitterIndex.h"
 #include "GHNullVertexStream.h"
 

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "GHMultiplayerFactory.h"
+#include "Game/GHMultiplayerFactory.h"
 #include "GHTestMultiplayerMgr.h"
 #include "GHUtils/GHPropertyContainer.h"
-#include "GHMultiplayerIdentifiers.h"
-#include "GHAppShard.h"
+#include "Game/GHMultiplayerIdentifiers.h"
+#include "Base/GHAppShard.h"
 #include "GHString/GHString.h"
-#include "GHSystemServices.h"
+#include "Base/GHSystemServices.h"
 
 class GHTestMultiplayerFactory : public GHMultiplayerFactory
 {

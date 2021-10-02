@@ -1,16 +1,17 @@
-// Copyright Golden Hammer Software
-#include "GHNullRenderServices.h"
-#include "GHNullRenderDevice.h"
-#include "GHNullVBFactory.h"
+#include "GHRenderServicesDX12.h"
+
+#include "GHRenderDeviceDX12.h"
+#include "NullPlatform/GHNullVBFactory.h"
 #include "Render/GHFontRenderer.h"
-#include "GHNullRenderTargetFactory.h"
+#include "NullPlatform/GHNullRenderTargetFactory.h"
 #include "GHPlatform/GHDeletionHandle.h"
 #include "Render/GHLightMgr.h"
 
-GHNullRenderServices::GHNullRenderServices(GHSystemServices& systemServices)
+GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHWin32Window& window)
 : GHRenderServices(systemServices)
+, mWindow(window)
 {
-    GHRenderDevice* renderDevice = new GHNullRenderDevice();
+    GHRenderDevice* renderDevice = new GHRenderDeviceDX12(mWindow);
     setDevice(renderDevice);
     setVBFactory(new GHNullVBFactory());
     mFontRenderer = new GHFontRenderer(*mVBFactory);

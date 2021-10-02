@@ -1,7 +1,7 @@
 // Copyright 2010 Golden Hammer Software
 #pragma once
 
-#include "GHRumbler.h"
+#include "Base/GHRumbler.h"
 
 class GHNullRumbler : public GHRumbler
 {

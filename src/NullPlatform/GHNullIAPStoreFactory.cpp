@@ -1,8 +1,8 @@
 // Copyright Golden Hammer Software
 #include "GHNullIAPStoreFactory.h"
 #include "GHNullIAPStore.h"
-#include "GHXMLNode.h"
-#include "GHXMLSerializer.h"
+#include "Base/GHXMLNode.h"
+#include "Base/GHXMLSerializer.h"
 
 GHNullIAPStoreFactory::GHNullIAPStoreFactory(bool alwaysBuy)
 : mPurchaseResult(alwaysBuy)

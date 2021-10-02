@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GHAdTransition.h"
+#include "Game/GHAdTransition.h"
 #include "GHString/GHIdentifier.h"
 
 class GHMessageHandler;

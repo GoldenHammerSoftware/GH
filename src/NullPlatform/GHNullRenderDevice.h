@@ -1,9 +1,9 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHRenderDevice.h"
-#include "GHViewInfo.h"
-#include "GHHMDRenderDevice.h"
+#include "Render/GHRenderDevice.h"
+#include "Render/GHViewInfo.h"
+#include "Render/GHHMDRenderDevice.h"
 
 class GHNullRenderDevice : public GHRenderDevice
 {

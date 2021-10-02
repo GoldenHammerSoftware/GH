@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHWindow.h"
+#include "Base/GHWindow.h"
 
 class GHNullWindow : public GHWindow
 {

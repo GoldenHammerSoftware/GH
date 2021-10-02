@@ -143,7 +143,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\Base\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\NullPlatform\;$(ProjectDir)\..\..\GHMetro\;$(ProjectDir)\..\..\Game\;$(ProjectDir)\..\..\GHDX11\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -189,7 +189,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_RELEASEWIN10;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\;$(ProjectDir)\..\..\Base\;$(ProjectDir)\..\..\Sim\;$(ProjectDir)\..\..\Render\;$(ProjectDir)\..\..\NullPlatform\;$(ProjectDir)\..\..\GHMetro\;$(ProjectDir)\..\..\Game\;$(ProjectDir)\..\..\GHDX11\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -294,6 +294,11 @@
     <ClInclude Include="..\..\GHWin32\GHWin32URLOpenerTransition.h" />
     <ClInclude Include="..\..\GHWin32\GHWin32URLOpenerTransitionXMLLoader.h" />
     <ClInclude Include="..\..\GHWin32\GHWin32Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DX12Win32\DX12Win32.vcxproj">
+      <Project>{d16099b2-7962-4dd1-bbbe-129903cce7c2}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
