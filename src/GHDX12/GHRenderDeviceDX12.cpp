@@ -14,10 +14,22 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 	}
 	mDXCommandQueue = createCommandQueue(mDXDevice, D3D12_COMMAND_LIST_TYPE_DIRECT);
 	const GHPoint2i& size = mWindow.getClientAreaSize();
-	const int swapBufferCount = 3;
-	mDXSwapChain = createSwapChain(mWindow.getHWND(), mDXCommandQueue, size[0], size[1], swapBufferCount);
+	mDXSwapChain = createSwapChain(mWindow.getHWND(), mDXCommandQueue, size[0], size[1], NUM_SWAP_BUFFERS);
 	const int numDescriptors = 256;
 	mDXDescriptorHeap = createDescriptorHeap(mDXDevice, D3D12_DESCRIPTOR_HEAP_TYPE_RTV, numDescriptors);
+	createBackBuffers(mDXDevice, mDXSwapChain, mDXDescriptorHeap, mBackBuffers, NUM_SWAP_BUFFERS);
+
+	HRESULT allocRes = mDXDevice->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, __uuidof(ID3D12CommandAllocator), (void**)&mDXCommandAllocator);
+	if (allocRes != S_OK)
+	{
+		GHDebugMessage::outputString("Failed to create d3d12 command allocator");
+	}
+	HRESULT listRes = mDXDevice->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, mDXCommandAllocator.Get(), nullptr, IID_PPV_ARGS(&mDXCommandList));
+	if (allocRes != S_OK)
+	{
+		GHDebugMessage::outputString("Failed to create d3d12 command list");
+	}
+
 }
 
 GHRenderDeviceDX12::~GHRenderDeviceDX12(void)

@@ -30,11 +30,17 @@ public:
 	virtual GHTexture* resolveBackbuffer(void) override;
 
 protected:
+	#define NUM_SWAP_BUFFERS 3
 	GHViewInfo mViewInfo;
 	GHWin32Window& mWindow;
 	Microsoft::WRL::ComPtr<ID3D12Device2> mDXDevice;
-	Microsoft::WRL::ComPtr<ID3D12CommandQueue> mDXCommandQueue;
 	Microsoft::WRL::ComPtr<IDXGISwapChain1> mDXSwapChain;
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDXDescriptorHeap;
+	Microsoft::WRL::ComPtr<ID3D12Resource> mBackBuffers[NUM_SWAP_BUFFERS];
+
+	// Direct commands.  todo: abstract for compute etc.
+	Microsoft::WRL::ComPtr<ID3D12CommandQueue> mDXCommandQueue;
+	Microsoft::WRL::ComPtr<ID3D12CommandAllocator> mDXCommandAllocator;
+	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mDXCommandList;
 };
 
