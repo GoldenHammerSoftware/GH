@@ -19,12 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\GHDX12\GHDX12Fence.h" />
     <ClInclude Include="..\..\GHDX12\GHDX12Helpers.h" />
     <ClInclude Include="..\..\GHDX12\GHDX12Include.h" />
     <ClInclude Include="..\..\GHDX12\GHRenderDeviceDX12.h" />
     <ClInclude Include="..\..\GHDX12\GHRenderServicesDX12.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\GHDX12\GHDX12Fence.cpp" />
     <ClCompile Include="..\..\GHDX12\GHRenderDeviceDX12.cpp" />
     <ClCompile Include="..\..\GHDX12\GHRenderServicesDX12.cpp" />
   </ItemGroup>

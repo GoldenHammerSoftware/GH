@@ -4,6 +4,7 @@
 #include "GHDX12Include.h"
 
 class GHWin32Window;
+class GHDX12Fence;
 
 class GHRenderDeviceDX12 : public GHRenderDevice
 {
@@ -30,17 +31,25 @@ public:
 	virtual GHTexture* resolveBackbuffer(void) override;
 
 protected:
-	#define NUM_SWAP_BUFFERS 3
 	GHViewInfo mViewInfo;
 	GHWin32Window& mWindow;
 	Microsoft::WRL::ComPtr<ID3D12Device2> mDXDevice;
 	Microsoft::WRL::ComPtr<IDXGISwapChain1> mDXSwapChain;
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDXDescriptorHeap;
-	Microsoft::WRL::ComPtr<ID3D12Resource> mBackBuffers[NUM_SWAP_BUFFERS];
-
-	// Direct commands.  todo: abstract for compute etc.
 	Microsoft::WRL::ComPtr<ID3D12CommandQueue> mDXCommandQueue;
-	Microsoft::WRL::ComPtr<ID3D12CommandAllocator> mDXCommandAllocator;
-	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mDXCommandList;
+
+	// The info needed for one frame in our swap buffer.
+	struct FrameBackend
+	{
+		Microsoft::WRL::ComPtr<ID3D12Resource> mBackBuffer;
+		Microsoft::WRL::ComPtr<ID3D12CommandAllocator> mDXCommandAllocator;
+		Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mDXCommandList;
+		GHDX12Fence* mFence;
+		uint64_t mFenceWaitVal;
+	};
+
+	#define NUM_SWAP_BUFFERS 2
+	FrameBackend mFrameBackends[NUM_SWAP_BUFFERS];
+	int32_t mCurrBackend{ -1 };
 };
 

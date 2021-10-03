@@ -146,23 +146,17 @@ Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> createDescriptorHeap(Microsoft::WRL
 	return descriptorHeap;
 }
 
-void createBackBuffers(Microsoft::WRL::ComPtr<ID3D12Device2> &device, Microsoft::WRL::ComPtr<IDXGISwapChain1> &swapChain, Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> &descriptorHeap,  Microsoft::WRL::ComPtr<ID3D12Resource> *backBuffers, size_t numSwapBuffers)
+void createBackBuffer(Microsoft::WRL::ComPtr<ID3D12Device2> &device, Microsoft::WRL::ComPtr<IDXGISwapChain1> &swapChain, Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> &descriptorHeap,  Microsoft::WRL::ComPtr<ID3D12Resource>& backBuffer, uint32_t backbufferIndex)
 {
 	auto rtvDescriptorSize = device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = descriptorHeap->GetCPUDescriptorHandleForHeapStart();
+	rtvHandle.ptr += rtvDescriptorSize*backbufferIndex;
 
-	for (int i = 0; i < numSwapBuffers; ++i)
+	HRESULT swapRes = swapChain->GetBuffer(backbufferIndex, IID_PPV_ARGS(&backBuffer));
+	if (swapRes != S_OK)
 	{
-		Microsoft::WRL::ComPtr<ID3D12Resource> backBuffer;
-		HRESULT swapRes = swapChain->GetBuffer(i, IID_PPV_ARGS(&backBuffer));
-		if (swapRes != S_OK)
-		{
-			GHDebugMessage::outputString("Failed to create swap buffer");
-		}
-
-		device->CreateRenderTargetView(backBuffer.Get(), nullptr, rtvHandle);
-		backBuffers[i] = backBuffer;
-
-		rtvHandle.ptr += rtvDescriptorSize;
+		GHDebugMessage::outputString("Failed to create swap buffer");
 	}
+
+	device->CreateRenderTargetView(backBuffer.Get(), nullptr, rtvHandle);
 }
