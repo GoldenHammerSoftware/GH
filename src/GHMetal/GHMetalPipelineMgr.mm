@@ -33,13 +33,13 @@ GHMetalPipelineMgr::~GHMetalPipelineMgr(void)
     mPipelineDescriptor = nil;
 }
 
-const GHMetalPipelineMgr::PipelineWrapper& GHMetalPipelineMgr::getPipelineState(const GHMDesc& desc, GHMetalVBBlitterIndex* blitter, id<MTLFunction> __strong (&shaders)[ST_MAX])
+const GHMetalPipelineMgr::PipelineWrapper& GHMetalPipelineMgr::getPipelineState(const GHMDesc& desc, GHMetalVBBlitterIndex* blitter, id<MTLFunction> __strong (&shaders)[GHShaderType::ST_MAX])
 {
     CacheIndex cacheId;
     cacheId.mBlitter = blitter;
     cacheId.mDesc = &desc;
-    cacheId.mVertexShader = shaders[ST_VERTEX];
-    cacheId.mPixelShader = shaders[ST_PIXEL];
+    cacheId.mVertexShader = shaders[GHShaderType::ST_VERTEX];
+    cacheId.mPixelShader = shaders[GHShaderType::ST_PIXEL];
 
     auto cacheFind = mPipelineCache.find(cacheId);
     if (cacheFind != mPipelineCache.end())
@@ -64,8 +64,8 @@ const GHMetalPipelineMgr::PipelineWrapper& GHMetalPipelineMgr::getPipelineState(
         mPipelineDescriptor.colorAttachments[0].sourceRGBBlendFactor = GHMetal::metalBlendForGHBlend(desc.mSrcBlend);
         mPipelineDescriptor.colorAttachments[0].destinationRGBBlendFactor = GHMetal::metalBlendForGHBlend(desc.mDstBlend);
     }
-    mPipelineDescriptor.vertexFunction = shaders[ST_VERTEX];
-    mPipelineDescriptor.fragmentFunction = shaders[ST_PIXEL];
+    mPipelineDescriptor.vertexFunction = shaders[GHShaderType::ST_VERTEX];
+    mPipelineDescriptor.fragmentFunction = shaders[GHShaderType::ST_PIXEL];
     
     // We don't have per-pass pipeline descriptors,
     // so MSAA has to apply to all targets atm.

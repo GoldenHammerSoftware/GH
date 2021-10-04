@@ -26,8 +26,8 @@ GHMaterialDX11::GHMaterialDX11(GHRenderDeviceDX11& device,
 , mEventMgr(eventMgr)
 , mMessageListener(*this)
 {
-	mShaders[GHShaderDX11::ST_VERTEX] = new GHMaterialShaderInfoDX11(device, vs);
-	mShaders[GHShaderDX11::ST_PIXEL] = new GHMaterialShaderInfoDX11(device, ps);
+	mShaders[GHShaderType::ST_VERTEX] = new GHMaterialShaderInfoDX11(device, vs);
+	mShaders[GHShaderType::ST_PIXEL] = new GHMaterialShaderInfoDX11(device, ps);
 
 	GHMDesc::ParamHandles* descParamHandles = desc->initMaterial(*this);
 	desc->applyDefaultArgs(*this, *descParamHandles);
@@ -44,7 +44,7 @@ GHMaterialDX11::GHMaterialDX11(GHRenderDeviceDX11& device,
 GHMaterialDX11::~GHMaterialDX11(void)
 {
 	delete mDesc;
-	for (unsigned int shaderType = 0; shaderType < GHShaderDX11::ST_MAX; ++shaderType) {
+	for (unsigned int shaderType = 0; shaderType < GHShaderType::ST_MAX; ++shaderType) {
 		delete mShaders[shaderType];
 	}
 	mEventMgr.unregisterListener(GHRenderProperties::DEVICEREINIT, mMessageListener);
@@ -52,8 +52,8 @@ GHMaterialDX11::~GHMaterialDX11(void)
 
 void GHMaterialDX11::beginMaterial(const GHViewInfo&)
 {
-	for (unsigned int shaderType = 0; shaderType < GHShaderDX11::ST_MAX; ++shaderType) {
-		mStateMgr.applyShader(mShaders[shaderType]->mShader, (GHShaderDX11::ShaderType)shaderType);
+	for (unsigned int shaderType = 0; shaderType < GHShaderType::ST_MAX; ++shaderType) {
+		mStateMgr.applyShader(mShaders[shaderType]->mShader, (GHShaderType::Enum)shaderType);
 	}
 
 	mStateMgr.applyRasterizerState(mRasterizerState);
@@ -110,7 +110,7 @@ GHMaterialParamHandle* GHMaterialDX11::getParamHandle(const char* paramName)
 {
 	GHMaterialParamHandleDX11* ret = 0;
 	GHString paramString(mDesc->checkParamAlias(paramName), GHString::CHT_REFERENCE);
-	for (unsigned int shaderType = 0; shaderType < GHShaderDX11::ST_MAX; ++shaderType) 
+	for (unsigned int shaderType = 0; shaderType < GHShaderType::ST_MAX; ++shaderType) 
 	{
 		const GHShaderParamListDX11& paramList = mShaders[shaderType]->mShader->get()->getParamList();
 		const GHShaderParamListDX11::Param* param = paramList.getParam(paramString);
@@ -125,16 +125,16 @@ GHMaterialParamHandle* GHMaterialDX11::getParamHandle(const char* paramName)
 
 void GHMaterialDX11::sendVSArgs(GHMaterialCallbackType::Enum ct)
 {
-	if (mShaders[GHShaderDX11::ST_VERTEX]->mCBuffers[(int)ct] && 
-		mShaders[GHShaderDX11::ST_VERTEX]->mCBuffers[(int)ct]->mD3DBuffer) 
+	if (mShaders[GHShaderType::ST_VERTEX]->mCBuffers[(int)ct] && 
+		mShaders[GHShaderType::ST_VERTEX]->mCBuffers[(int)ct]->mD3DBuffer) 
 	{
-		mShaders[GHShaderDX11::ST_VERTEX]->mCBuffers[(int)ct]->updateD3DBuffer(mDevice);
+		mShaders[GHShaderType::ST_VERTEX]->mCBuffers[(int)ct]->updateD3DBuffer(mDevice);
 		mDevice.getD3DContext()->VSSetConstantBuffers((int)ct, 1, 
-			mShaders[GHShaderDX11::ST_VERTEX]->mCBuffers[(int)ct]->mD3DBuffer.GetAddressOf());
+			mShaders[GHShaderType::ST_VERTEX]->mCBuffers[(int)ct]->mD3DBuffer.GetAddressOf());
 	}
-	for (unsigned int i = 0; i < mShaders[GHShaderDX11::ST_VERTEX]->mTextures[(int)ct].size(); ++i)
+	for (unsigned int i = 0; i < mShaders[GHShaderType::ST_VERTEX]->mTextures[(int)ct].size(); ++i)
 	{
-		GHMaterialShaderInfoDX11::TextureSlot* currTex = mShaders[GHShaderDX11::ST_VERTEX]->mTextures[(int)ct][i];
+		GHMaterialShaderInfoDX11::TextureSlot* currTex = mShaders[GHShaderType::ST_VERTEX]->mTextures[(int)ct][i];
 		if (!currTex->getTexture()) continue;
 
 		GHTextureDX11* currTexDX = (GHTextureDX11*)currTex->getTexture();
@@ -151,16 +151,16 @@ void GHMaterialDX11::sendVSArgs(GHMaterialCallbackType::Enum ct)
 
 void GHMaterialDX11::sendPSArgs(GHMaterialCallbackType::Enum ct)
 {
-	if (mShaders[GHShaderDX11::ST_PIXEL]->mCBuffers[(int)ct] && 
-		mShaders[GHShaderDX11::ST_PIXEL]->mCBuffers[(int)ct]->mD3DBuffer) 
+	if (mShaders[GHShaderType::ST_PIXEL]->mCBuffers[(int)ct] && 
+		mShaders[GHShaderType::ST_PIXEL]->mCBuffers[(int)ct]->mD3DBuffer) 
 	{
-		mShaders[GHShaderDX11::ST_PIXEL]->mCBuffers[(int)ct]->updateD3DBuffer(mDevice);
+		mShaders[GHShaderType::ST_PIXEL]->mCBuffers[(int)ct]->updateD3DBuffer(mDevice);
 		mDevice.getD3DContext()->PSSetConstantBuffers((int)ct, 1, 
-			mShaders[GHShaderDX11::ST_PIXEL]->mCBuffers[(int)ct]->mD3DBuffer.GetAddressOf());
+			mShaders[GHShaderType::ST_PIXEL]->mCBuffers[(int)ct]->mD3DBuffer.GetAddressOf());
 	}
-	for (unsigned int i = 0; i < mShaders[GHShaderDX11::ST_PIXEL]->mTextures[(int)ct].size(); ++i)
+	for (unsigned int i = 0; i < mShaders[GHShaderType::ST_PIXEL]->mTextures[(int)ct].size(); ++i)
 	{
-		GHMaterialShaderInfoDX11::TextureSlot* currTex = mShaders[GHShaderDX11::ST_PIXEL]->mTextures[(int)ct][i];
+		GHMaterialShaderInfoDX11::TextureSlot* currTex = mShaders[GHShaderType::ST_PIXEL]->mTextures[(int)ct][i];
 		if (!currTex->getTexture()) continue;
 
 		GHTextureDX11* currTexDX = (GHTextureDX11*)currTex->getTexture();
@@ -299,6 +299,6 @@ void GHMaterialDX11::reinit(void)
 	createDepthStencilState();
 	createBlendState();
 
-	mShaders[GHShaderDX11::ST_VERTEX]->reinit();
-	mShaders[GHShaderDX11::ST_PIXEL]->reinit();
+	mShaders[GHShaderType::ST_VERTEX]->reinit();
+	mShaders[GHShaderType::ST_PIXEL]->reinit();
 }

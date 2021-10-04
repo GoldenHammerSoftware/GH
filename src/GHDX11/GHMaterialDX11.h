@@ -7,6 +7,7 @@
 #include "GHMaterialShaderInfoDX11.h"
 #include "GHMaterialCallbackType.h"
 #include "GHUtils/GHMessageHandler.h"
+#include "GHShaderType.h"
 
 class GHRenderDeviceDX11;
 class GHRenderStateMgrDX11;
@@ -56,7 +57,7 @@ private:
 	GHEventMgr& mEventMgr;
 	MessageListener mMessageListener;
 
-	GHMaterialShaderInfoDX11* mShaders[GHShaderDX11::ST_MAX];
+	GHMaterialShaderInfoDX11* mShaders[GHShaderType::ST_MAX];
 
 	D3D11_RASTERIZER_DESC mRasterizerDesc;
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> mRasterizerState;

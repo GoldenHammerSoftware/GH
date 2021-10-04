@@ -24,7 +24,7 @@ public:
     GHMetalPipelineMgr(GHMetalRenderDevice& device);
     ~GHMetalPipelineMgr(void);
 
-    const PipelineWrapper& getPipelineState(const GHMDesc& desc, GHMetalVBBlitterIndex* blitter, id<MTLFunction> __strong (&shaders)[ST_MAX]);
+    const PipelineWrapper& getPipelineState(const GHMDesc& desc, GHMetalVBBlitterIndex* blitter, id<MTLFunction> __strong (&shaders)[GHShaderType::ST_MAX]);
     
 private:
     // turn a pipeline descriptor into a pipeline state.

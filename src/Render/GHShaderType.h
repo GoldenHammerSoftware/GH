@@ -1,8 +1,11 @@
 #pragma once
 
-enum GHShaderType
+namespace GHShaderType
 {
-    ST_VERTEX=0,
-    ST_PIXEL,
-    ST_MAX
-};
+    enum Enum
+    {
+        ST_VERTEX=0,
+        ST_PIXEL,
+        ST_MAX
+    };
+}

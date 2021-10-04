@@ -3,6 +3,7 @@
 
 #include "GHDX11Include.h"
 #include "GHShaderDX11.h"
+#include "GHShaderType.h"
 
 class GHRenderDeviceDX11;
 
@@ -12,7 +13,7 @@ class GHRenderStateMgrDX11
 public:
 	GHRenderStateMgrDX11(GHRenderDeviceDX11& device);
 
-	void applyShader(GHShaderResource* shader, GHShaderDX11::ShaderType type);
+	void applyShader(GHShaderResource* shader, GHShaderType::Enum type);
 	void applyRasterizerState(Microsoft::WRL::ComPtr<ID3D11RasterizerState> state);
 	void applyDepthStencilState(Microsoft::WRL::ComPtr<ID3D11DepthStencilState> state);
 	void applyBlendState(Microsoft::WRL::ComPtr<ID3D11BlendState> state);
@@ -22,7 +23,7 @@ public:
 private:
 	GHRenderDeviceDX11& mDevice;
 
-	GHShaderResource* mShaders[GHShaderDX11::ST_MAX];
+	GHShaderResource* mShaders[GHShaderType::ST_MAX];
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> mRasterizerState;
 	Microsoft::WRL::ComPtr<ID3D11DepthStencilState> mDepthStencilState;
 	Microsoft::WRL::ComPtr<ID3D11BlendState> mBlendState;

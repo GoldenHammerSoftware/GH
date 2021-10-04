@@ -31,7 +31,7 @@ private:
     void createRenderPipelineState(void);
     void applyTextures(void);
     void initShaderReflection(void);
-    void parseMTLArgument(MTLArgument* arg, GHShaderType st);
+    void parseMTLArgument(MTLArgument* arg, GHShaderType::Enum st);
     void applyCBBuffer(GHMaterialCallbackType::Enum ghIdx);
     
 private:
@@ -53,8 +53,8 @@ private:
     {
         ShaderBuffer mConstantBuffers[GHMaterialCallbackType::CT_MAX];
     };
-    ShaderBindings mShaderBindings[ST_MAX];
-    id<MTLFunction> mShaders[ST_MAX];
+    ShaderBindings mShaderBindings[GHShaderType::ST_MAX];
+    id<MTLFunction> mShaders[GHShaderType::ST_MAX];
     
     id<MTLRenderPipelineState> mPipelineState;
     MTLDepthStencilDescriptor* mDepthDescriptor{0};
@@ -66,7 +66,7 @@ private:
         size_t mOffset{0};
         GHMaterialCallbackType::Enum mCBType;
         bool mIsTexture{false};
-        GHShaderType mShaderType{ST_VERTEX};
+        GHShaderType::Enum mShaderType{GHShaderType::ST_VERTEX};
     };
     std::vector<ParamHandleDesc> mParamHandleDescs;
 };

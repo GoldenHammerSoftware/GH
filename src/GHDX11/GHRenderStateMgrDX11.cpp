@@ -1,6 +1,7 @@
 // Copyright Golden Hammer Software
 #include "GHRenderStateMgrDX11.h"
 #include "GHRenderDeviceDX11.h"
+#include "GHShaderType.h"
 
 GHRenderStateMgrDX11::GHRenderStateMgrDX11(GHRenderDeviceDX11& device)
 : mDevice(device)
@@ -11,7 +12,7 @@ GHRenderStateMgrDX11::GHRenderStateMgrDX11(GHRenderDeviceDX11& device)
 	clearStates();
 }
 
-void GHRenderStateMgrDX11::applyShader(GHShaderResource* shader, GHShaderDX11::ShaderType type)
+void GHRenderStateMgrDX11::applyShader(GHShaderResource* shader, GHShaderType::Enum type)
 {
 	if (mShaders[type] == shader) return;
 	mShaders[type] = shader;
@@ -41,7 +42,7 @@ void GHRenderStateMgrDX11::applyBlendState(Microsoft::WRL::ComPtr<ID3D11BlendSta
 
 void GHRenderStateMgrDX11::clearStates(void)
 {
-	for (unsigned int shaderType = 0; shaderType < GHShaderDX11::ST_MAX; ++shaderType) {
+	for (unsigned int shaderType = 0; shaderType < GHShaderType::ST_MAX; ++shaderType) {
 		mShaders[shaderType] = 0;
 	}
 	mRasterizerState = nullptr;

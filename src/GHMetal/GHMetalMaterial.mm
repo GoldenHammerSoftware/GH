@@ -20,13 +20,13 @@ GHMetalMaterial::GHMetalMaterial(GHMetalRenderDevice& device, GHMetalPipelineMgr
 , mPipelineMgr(pipelineMgr)
 , mShaderMgr(shaderMgr)
 {
-    for (int st = 0; st < ST_MAX; ++st)
+    for (int st = 0; st < GHShaderType::ST_MAX; ++st)
     {
         mShaders[st] = nil;
     }
     
-    mShaders[ST_VERTEX] = mShaderMgr.getShaderFunction(desc->mVertexFile);
-    mShaders[ST_PIXEL] = mShaderMgr.getShaderFunction(desc->mPixelFile);
+    mShaders[GHShaderType::ST_VERTEX] = mShaderMgr.getShaderFunction(desc->mVertexFile);
+    mShaders[GHShaderType::ST_PIXEL] = mShaderMgr.getShaderFunction(desc->mPixelFile);
     initShaderReflection();
     
     mDescParamHandles = mDesc->initMaterial(*this);
@@ -45,7 +45,7 @@ GHMetalMaterial::~GHMetalMaterial(void)
 {
     // It probably isn't necessary to explicitly set metal objects to nil here.
     mPipelineState = nil;
-    for (int st = 0; st < ST_MAX; ++st)
+    for (int st = 0; st < GHShaderType::ST_MAX; ++st)
     {
         mShaders[st] = nil;
         for (size_t i = 0; i < GHMaterialCallbackType::CT_MAX; ++i)
@@ -182,15 +182,15 @@ void GHMetalMaterial::initShaderReflection(void)
     
     for (MTLArgument* arg in wrapper.mReflection.vertexArguments)
     {
-        parseMTLArgument(arg, ST_VERTEX);
+        parseMTLArgument(arg, GHShaderType::ST_VERTEX);
     }
     for (MTLArgument* arg in wrapper.mReflection.fragmentArguments)
     {
-        parseMTLArgument(arg, ST_PIXEL);
+        parseMTLArgument(arg, GHShaderType::ST_PIXEL);
     }
 }
 
-void GHMetalMaterial::parseMTLArgument(MTLArgument* arg, GHShaderType st)
+void GHMetalMaterial::parseMTLArgument(MTLArgument* arg, GHShaderType::Enum st)
 {
     if (!(int)arg.active)
     {
@@ -244,7 +244,7 @@ void GHMetalMaterial::applyCBBuffer(GHMaterialCallbackType::Enum ghIdx)
 {
     const int numBufferTypesPerShaderType = (int)GHMTL_BI_PPERFRAME - (int)GHMTL_BI_VPERFRAME;
     
-    for (int st = 0; st < ST_MAX; ++st)
+    for (int st = 0; st < GHShaderType::ST_MAX; ++st)
     {
         if (!mShaderBindings[st].mConstantBuffers[ghIdx].mData)
         {
@@ -255,7 +255,7 @@ void GHMetalMaterial::applyCBBuffer(GHMaterialCallbackType::Enum ghIdx)
         
         id<MTLRenderCommandEncoder> commandEncoder = mDevice.getRenderCommandEncoder();
 
-        if (st == ST_VERTEX)
+        if (st == GHShaderType::ST_VERTEX)
         {
             [commandEncoder setVertexBytes:mShaderBindings[st].mConstantBuffers[ghIdx].mData
                                      length:mShaderBindings[st].mConstantBuffers[ghIdx].mDataSize

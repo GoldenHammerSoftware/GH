@@ -11,14 +11,6 @@ class GHShaderParamListDX11;
 class GHShaderDX11
 {
 public:
-	enum ShaderType
-	{
-		ST_VERTEX = 0,
-		ST_PIXEL,
-		ST_MAX
-	};
-
-public:
 	virtual ~GHShaderDX11(void) {}
 
 	virtual void bind(void) = 0;
