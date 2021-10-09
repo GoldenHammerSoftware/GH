@@ -16,22 +16,18 @@
 #include "GHShaderDX11.h"
 #include "GHUtils/GHPropertyContainer.h"
 #include "GHPropertiesDX11.h"
-#include "GHXMLSerializer.h"
-#include "GHXMLNode.h"
 #include "GHMaterialCallbackType.h"
 #include "GHShaderConcreteDX11.h"
 #include "GHMultiShaderDX11.h"
 
 GHShaderLoaderDX11::GHShaderLoaderDX11(GHFileOpener& fileOpener, GHRenderDeviceDX11& device,
-									   GHShaderDX11*& activeVS, GHXMLSerializer& xmlSerializer,
-									   const GHIdentifierMap<int>& enumStore,
+									   GHShaderDX11*& activeVS, const GHShaderParamListLoader& paramListLoader,
 									   const int& graphicsQuality, const char* shaderDirectory,
 									   GHEventMgr& eventMgr)
 : mFileOpener(fileOpener)
 , mDevice(device)
 , mActiveVS(activeVS)
-, mXMLSerializer(xmlSerializer)
-, mEnumStore(enumStore)
+, mParamListLoader(paramListLoader)
 , mGraphicsQuality(graphicsQuality)
 , mShaderDirectory(shaderDirectory, GHString::CHT_COPY)
 , mEventMgr(eventMgr)
@@ -43,7 +39,7 @@ GHResource* GHShaderLoaderDX11::loadFile(const char* filename, GHPropertyContain
 	if (!extraData) return 0;
 	int shaderType = extraData->getProperty(GHPropertiesDX11::SHADERTYPE);
 	GHShaderDX11* retRaw = 0;
-	GHResourcePtr<GHShaderParamListDX11>* params = loadParams(filename);
+	GHResourcePtr<GHShaderParamList>* params = mParamListLoader.loadParams(filename);
     params->acquire();
     
 	char lowName[512];
@@ -89,7 +85,7 @@ GHResource* GHShaderLoaderDX11::loadFile(const char* filename, GHPropertyContain
 	return new GHShaderResource(retRaw);
 }
 
-GHShaderDX11* GHShaderLoaderDX11::loadVS(const char* shaderName, GHResourcePtr<GHShaderParamListDX11>* params) const
+GHShaderDX11* GHShaderLoaderDX11::loadVS(const char* shaderName, GHResourcePtr<GHShaderParamList>* params) const
 {
 	GHFile* file = mFileOpener.openFile(shaderName, GHFile::FT_BINARY, GHFile::FM_READONLY);
 	if (!file) {
@@ -121,7 +117,7 @@ GHShaderDX11* GHShaderLoaderDX11::loadVS(const char* shaderName, GHResourcePtr<G
 	return ret;
 }
 
-GHShaderDX11* GHShaderLoaderDX11::loadPS(const char* shaderName, GHResourcePtr<GHShaderParamListDX11>* params) const
+GHShaderDX11* GHShaderLoaderDX11::loadPS(const char* shaderName, GHResourcePtr<GHShaderParamList>* params) const
 {
 	GHFile* file = mFileOpener.openFile(shaderName, GHFile::FT_BINARY, GHFile::FM_READONLY);
 	if (!file) {
@@ -151,98 +147,4 @@ GHShaderDX11* GHShaderLoaderDX11::loadPS(const char* shaderName, GHResourcePtr<G
 
 	delete file;
 	return ret;
-}
-
-GHResourcePtr<GHShaderParamListDX11>* GHShaderLoaderDX11::loadParams(const char* shaderName) const
-{
-	GHShaderParamListDX11* ret = new GHShaderParamListDX11();
-	GHResourcePtr<GHShaderParamListDX11>* retPtr = new GHResourcePtr<GHShaderParamListDX11>(ret);
-
-	// we're looking for shadername+params.xml
-	char paramFileName[2048];
-	assert(strlen(shaderName) < 2030);
-
-	const char* extStart = ::strrchr(shaderName, '.');
-	if (!extStart) {
-		::snprintf(paramFileName, 1024, "%sparams.xml", shaderName);
-	}
-	else {
-		::snprintf(paramFileName, extStart-shaderName+1, "%s", shaderName);
-		paramFileName[extStart-shaderName] = '\0';
-		::snprintf(paramFileName, 1024, "%sparams.xml", paramFileName);
-	}
-
-	GHXMLNode* node = mXMLSerializer.loadXMLFile(paramFileName);
-	if (!node) {
-		return retPtr;
-	}
-
-	const GHXMLNode* texturesNode = node->getChild("textureParams", false);
-	if (texturesNode)
-	{
-		const GHXMLNode::NodeList& childList = texturesNode->getChildren();
-		for (unsigned int i = 0; i < childList.size(); ++i)
-		{
-			GHShaderParamListDX11::Param param;
-			param.mHandleType = GHMaterialParamHandle::HT_TEXTURE;
-			childList[i]->readAttrUInt("register", param.mRegister);
-
-			loadSharedArguments(param, *childList[i]);
-			ret->addParam(param);
-		}
-	}
-	const GHXMLNode* floatsNode = node->getChild("floatParams", false);
-	if (floatsNode)
-	{
-		const GHXMLNode::NodeList& childList = floatsNode->getChildren();
-		for (unsigned int i = 0; i < childList.size(); ++i)
-		{
-			GHShaderParamListDX11::Param param;
-			unsigned int sizeVals;
-			childList[i]->readAttrUInt("sizeFloats", sizeVals);
-			sizeVals *= sizeof(float);
-
-			const char* typeAttr = childList[i]->getAttribute("type");
-			//default to float. Treat bools as float too
-			if (!typeAttr || !strcmp(typeAttr, "float") || !strcmp(typeAttr, "bool"))
-			{
-				param.mHandleType = GHMaterialParamHandle::calcHandleType(sizeVals);
-			}
-			else 
-			{
-				if (!strcmp(typeAttr, "int"))
-				{
-					param.mHandleType = GHMaterialParamHandle::calcIntHandleType(sizeVals);
-				}
-				else
-				{
-					//default to float anyway
-					assert(false && "invalid type for floatParam (supported: float, bool, int)");
-					param.mHandleType = GHMaterialParamHandle::calcHandleType(sizeVals);
-				}
-			}
-
-			loadSharedArguments(param, *childList[i]);
-			ret->addParam(param);
-		}
-	}
-	ret->calcParamOffsets();
-	return retPtr;
-}
-
-void GHShaderLoaderDX11::loadSharedArguments(GHShaderParamListDX11::Param& param, const GHXMLNode& node) const
-{
-	param.mCBType = GHMaterialCallbackType::CT_PERFRAME;
-	const char* cbTypeStr = node.getAttribute("cbType");
-	if (cbTypeStr) {
-		const int* cbTypePtr = mEnumStore.find(cbTypeStr);
-		if (cbTypePtr) {
-			param.mCBType = (GHMaterialCallbackType::Enum)*cbTypePtr;
-		}
-	}
-
-	const char* semanticStr = node.getAttribute("semantic");
-	param.mSemantic.setConstChars(semanticStr, GHString::CHT_COPY);
-
-	node.readAttrUInt("count", param.mCount);
 }

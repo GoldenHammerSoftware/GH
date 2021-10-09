@@ -1,13 +1,13 @@
 // Copyright Golden Hammer Software
 #include "GHShaderConcreteDX11.h"
 #include "GHRenderDeviceDX11.h"
-#include "GHShaderParamListDX11.h"
+#include "GHShaderParamList.h"
 #include "GHUtils/GHEventMgr.h"
 #include "GHRenderProperties.h"
 
 GHShaderConcreteDX11::GHShaderConcreteDX11(GHRenderDeviceDX11& device, 
 										   char* data, size_t dataLen, GHShaderDX11*& activeVS, 
-										   GHResourcePtr<GHShaderParamListDX11>* params,
+										   GHResourcePtr<GHShaderParamList>* params,
 										   GHEventMgr& eventMgr, const char* shaderName)
 : mDevice(device)
 , mData(data)

@@ -23,6 +23,9 @@
     <Filter Include="Geometry">
       <UniqueIdentifier>{5cfe3e49-274e-4b43-ab0b-b255c44bc658}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{8ff6a29d-dcb4-411e-998b-4329f541deab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -194,7 +197,6 @@
     <ClCompile Include="..\..\..\Render\GHVertexStreamOverride.cpp">
       <Filter>Geometry</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Render\GHShaderPreprocessor.cpp" />
     <ClCompile Include="..\..\..\Render\GHEnvironmentCapturer.cpp" />
     <ClCompile Include="..\..\..\Render\GHTextureBMPSaver.cpp">
       <Filter>Texture</Filter>
@@ -206,6 +208,15 @@
       <Filter>Material</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Render\GHScreenshotCapturer.cpp" />
+    <ClCompile Include="..\..\..\Render\GHShaderPreprocessor.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHShaderParamList.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHShaderParamListLoader.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Render\GHAlternatingRenderTarget.h" />
@@ -440,7 +451,6 @@
       <Filter>Geometry</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Render\GHRenderDeviceReinitListener.h" />
-    <ClInclude Include="..\..\..\Render\GHShaderPreprocessor.h" />
     <ClInclude Include="..\..\..\Render\GHEnvironmentCapturer.h" />
     <ClInclude Include="..\..\..\Render\GHTextureBMPSaver.h">
       <Filter>Texture</Filter>
@@ -452,6 +462,17 @@
       <Filter>Material</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Render\GHScreenshotCapturer.h" />
-    <ClInclude Include="..\..\..\Render\GHShaderType.h" />
+    <ClInclude Include="..\..\..\Render\GHShaderPreprocessor.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHShaderType.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHShaderParamList.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHShaderParamListLoader.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

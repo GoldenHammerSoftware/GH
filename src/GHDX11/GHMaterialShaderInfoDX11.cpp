@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #include "GHMaterialShaderInfoDX11.h"
 #include "GHPlatform/GHDebugMessage.h"
-#include "GHShaderParamListDX11.h"
+#include "GHShaderParamList.h"
 #include "GHRenderDeviceDX11.h"
 #include "GHTexture.h"
 
@@ -57,7 +57,7 @@ void GHMaterialShaderInfoDX11::createCBuffers(GHRenderDeviceDX11& device)
 		}
 	}
 	// extract the texture info
-	const std::vector<GHShaderParamListDX11::Param>& vsparams = mShader->get()->getParamList().getParams();
+	const std::vector<GHShaderParamList::Param>& vsparams = mShader->get()->getParamList().getParams();
 	for (unsigned int i = 0; i < vsparams.size(); ++i)
 	{
 		if (vsparams[i].mHandleType != GHMaterialParamHandle::HT_TEXTURE) continue;

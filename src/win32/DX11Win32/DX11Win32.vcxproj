@@ -266,7 +266,6 @@
     <ClCompile Include="..\..\GHDX11\GHShaderConcreteDX11.cpp" />
     <ClCompile Include="..\..\GHDX11\GHShaderDX11.cpp" />
     <ClCompile Include="..\..\GHDX11\GHShaderLoaderDX11.cpp" />
-    <ClCompile Include="..\..\GHDX11\GHShaderParamListDX11.cpp" />
     <ClCompile Include="..\..\GHDX11\GHTextureDX11.cpp" />
     <ClCompile Include="..\..\GHDX11\GHVBBlitterIndexDX11.cpp" />
     <ClCompile Include="..\..\GHDX11\GHVBFactoryDX11.cpp" />
@@ -295,7 +294,6 @@
     <ClInclude Include="..\..\GHDX11\GHShaderConcreteDX11.h" />
     <ClInclude Include="..\..\GHDX11\GHShaderDX11.h" />
     <ClInclude Include="..\..\GHDX11\GHShaderLoaderDX11.h" />
-    <ClInclude Include="..\..\GHDX11\GHShaderParamListDX11.h" />
     <ClInclude Include="..\..\GHDX11\GHTextureBindArgsDX11.h" />
     <ClInclude Include="..\..\GHDX11\GHTextureCreatorDX11.h" />
     <ClInclude Include="..\..\GHDX11\GHTextureDX11.h" />

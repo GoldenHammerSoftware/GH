@@ -4,7 +4,7 @@
 #include "GHMaterialShaderInfoDX11.h"
 
 void GHMaterialParamHandleDX11::addShaderHandle(GHMaterialShaderInfoDX11* shader, 
-												const GHShaderParamListDX11::Param* param)
+												const GHShaderParamList::Param* param)
 {
 	mHandles.push_back(Entry(shader, param));
 }

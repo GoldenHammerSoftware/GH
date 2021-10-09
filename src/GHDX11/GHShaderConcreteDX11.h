@@ -15,7 +15,7 @@ class GHShaderConcreteDX11 : public GHShaderDX11
 {
 public:
 	GHShaderConcreteDX11(GHRenderDeviceDX11& device, char* data, size_t dataLen, 
-		GHShaderDX11*& activeVS, GHResourcePtr<GHShaderParamListDX11>* params,
+		GHShaderDX11*& activeVS, GHResourcePtr<GHShaderParamList>* params,
 		GHEventMgr& eventMgr, const char* shaderName);
 	~GHShaderConcreteDX11(void);
 
@@ -27,7 +27,7 @@ public:
 	virtual void bind(void);
 
 	virtual void getBytecode(const char*& data, size_t& dataLen) const;
-	virtual const GHShaderParamListDX11& getParamList(void) const { return *mParams->get(); }
+	virtual const GHShaderParamList& getParamList(void) const { return *mParams->get(); }
 
 	void reinit(void);
 
@@ -48,7 +48,7 @@ private:
 	MessageListener mMessageListener;
 	GHString mShaderName; // for debugging.
 
-	GHResourcePtr<GHShaderParamListDX11>* mParams; // assumed to not be null.
+	GHResourcePtr<GHShaderParamList>* mParams; // assumed to not be null.
 	// we expect to have either a vertex shader or a pixel shader but not both.
 	Microsoft::WRL::ComPtr<ID3D11VertexShader> mVertexShader;
 	Microsoft::WRL::ComPtr<ID3D11PixelShader> mPixelShader;

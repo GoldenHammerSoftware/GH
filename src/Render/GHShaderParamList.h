@@ -1,4 +1,5 @@
-// Copyright Golden Hammer Software
+#pragma once
+
 #pragma once
 
 #include "GHString/GHString.h"
@@ -6,8 +7,9 @@
 #include "GHMaterialParamHandle.h"
 #include <vector>
 
+// Optional struct for loading shader params info from xml when reflection is not available.
 // A struct to say what params a shader supports, and where those live.
-class GHShaderParamListDX11
+class GHShaderParamList
 {
 public:
 	struct Param
@@ -28,7 +30,7 @@ public:
 	};
 
 public:
-	GHShaderParamListDX11(void);
+	GHShaderParamList(void);
 
 	// calculate the size of the buffer and where items live based on 4 byte register boundaries.
 	void calcParamOffsets(void);

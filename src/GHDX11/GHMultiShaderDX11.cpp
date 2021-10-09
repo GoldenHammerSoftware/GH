@@ -48,7 +48,7 @@ void GHMultiShaderDX11::getBytecode(const char*& data, size_t& dataLen) const
 	return mDefaultShader->get()->getBytecode(data, dataLen);
 }
 
-const GHShaderParamListDX11& GHMultiShaderDX11::getParamList(void) const
+const GHShaderParamList& GHMultiShaderDX11::getParamList(void) const
 {
 	return mDefaultShader->get()->getParamList();
 }

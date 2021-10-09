@@ -1,7 +1,6 @@
-// Copyright Golden Hammer Software
-#include "GHShaderParamListDX11.h"
+#include "GHShaderParamList.h"
 
-GHShaderParamListDX11::GHShaderParamListDX11(void)
+GHShaderParamList::GHShaderParamList(void)
 {
 	for (int i = 0; i < (int)GHMaterialCallbackType::CT_MAX; ++i)
 	{
@@ -17,15 +16,16 @@ inline unsigned int padValue(unsigned int val, unsigned int boundarySize)
 	return val;
 }
 
-void GHShaderParamListDX11::calcParamOffsets(void)
+void GHShaderParamList::calcParamOffsets(void)
 {
+	// NOTE: If we use this outside of dx11/dx12 then the offsets in here might not be correct.
 	// d3d pads out variable location to work with 4 byte boundaries with some special rules.
 	for (unsigned int cbType = 0; cbType < (int)GHMaterialCallbackType::CT_MAX; ++cbType)
 	{
 		for (unsigned int paramIdx = 0; paramIdx < mParams.size(); ++paramIdx)
 		{
 			auto& param = mParams[paramIdx];
-			if (param.mCBType == cbType && param.mHandleType != GHMaterialParamHandle::HT_TEXTURE) 
+			if (param.mCBType == cbType && param.mHandleType != GHMaterialParamHandle::HT_TEXTURE)
 			{
 				unsigned int currSize = GHMaterialParamHandle::calcHandleSizeBytes(mParams[paramIdx].mHandleType);
 
@@ -43,14 +43,14 @@ void GHShaderParamListDX11::calcParamOffsets(void)
 				unsigned int bufferOffsetFromBoundary = mBufferSizes[cbType] % 16;
 				if (bufferOffsetFromBoundary)
 				{
-					if (currSize >= 16) 
+					if (currSize >= 16)
 					{
 						// anything 4 floats or bigger is guaranteed to cross a threshold
-						mBufferSizes[cbType] += 16-bufferOffsetFromBoundary;
+						mBufferSizes[cbType] += 16 - bufferOffsetFromBoundary;
 					}
-					else if (bufferOffsetFromBoundary + currSize > 16) 
+					else if (bufferOffsetFromBoundary + currSize > 16)
 					{
-						mBufferSizes[cbType] += 16-bufferOffsetFromBoundary;
+						mBufferSizes[cbType] += 16 - bufferOffsetFromBoundary;
 					}
 				}
 
@@ -61,12 +61,12 @@ void GHShaderParamListDX11::calcParamOffsets(void)
 	}
 }
 
-unsigned int GHShaderParamListDX11::getBufferSize(GHMaterialCallbackType::Enum type) const
+unsigned int GHShaderParamList::getBufferSize(GHMaterialCallbackType::Enum type) const
 {
 	return mBufferSizes[(int)type];
 }
 
-const GHShaderParamListDX11::Param* GHShaderParamListDX11::getParam(const GHString& semantic) const
+const GHShaderParamList::Param* GHShaderParamList::getParam(const GHString& semantic) const
 {
 	for (unsigned int i = 0; i < mParams.size(); ++i)
 	{
@@ -77,7 +77,7 @@ const GHShaderParamListDX11::Param* GHShaderParamListDX11::getParam(const GHStri
 	return 0;
 }
 
-void GHShaderParamListDX11::addParam(const Param& param)
+void GHShaderParamList::addParam(const Param& param)
 {
 	mParams.push_back(param);
 }

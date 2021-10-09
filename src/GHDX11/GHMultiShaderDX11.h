@@ -16,7 +16,7 @@ public:
 
 	void bind(void);
 	void getBytecode(const char*& data, size_t& dataLen) const;
-	const GHShaderParamListDX11& getParamList(void) const;
+	const GHShaderParamList& getParamList(void) const;
 
 private:
 	// The shader we use if we don't have one for the specified value.

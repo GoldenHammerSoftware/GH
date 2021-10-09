@@ -4,7 +4,7 @@
 #include "GHUtils/GHResource.h"
 
 class GHRenderDeviceDX11;
-class GHShaderParamListDX11;
+class GHShaderParamList;
 
 // wrapper class to associate an ID3D11[vert/pixel]Shader with its bytecode.
 // also handles binding the shader to the device.
@@ -15,7 +15,7 @@ public:
 
 	virtual void bind(void) = 0;
 	virtual void getBytecode(const char*& data, size_t& dataLen) const = 0;
-	virtual const GHShaderParamListDX11& getParamList(void) const = 0;
+	virtual const GHShaderParamList& getParamList(void) const = 0;
 };
 
 typedef GHResourcePtr<GHShaderDX11> GHShaderResource;

@@ -2,7 +2,7 @@
 #include "GHMaterialDX11.h"
 #include "GHBillboardTransformAdjuster.h"
 #include "GHMath/GHTransform.h"
-#include "GHShaderParamListDX11.h"
+#include "GHShaderParamList.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHRenderDeviceDX11.h"
 #include "GHTexture.h"
@@ -112,8 +112,8 @@ GHMaterialParamHandle* GHMaterialDX11::getParamHandle(const char* paramName)
 	GHString paramString(mDesc->checkParamAlias(paramName), GHString::CHT_REFERENCE);
 	for (unsigned int shaderType = 0; shaderType < GHShaderType::ST_MAX; ++shaderType) 
 	{
-		const GHShaderParamListDX11& paramList = mShaders[shaderType]->mShader->get()->getParamList();
-		const GHShaderParamListDX11::Param* param = paramList.getParam(paramString);
+		const GHShaderParamList& paramList = mShaders[shaderType]->mShader->get()->getParamList();
+		const GHShaderParamList::Param* param = paramList.getParam(paramString);
 		if (param)
 		{
 			if (!ret) ret = new GHMaterialParamHandleDX11;

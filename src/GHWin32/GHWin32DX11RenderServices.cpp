@@ -7,6 +7,8 @@
 #include "GHUtils/GHRedirectResourceLoader.h"
 #include "GHTextureLoaderDX11.h"
 #include "GHTextureLoaderDDS.h"
+#include "Render/GHShaderParamListLoader.h"
+#include "GHPlatform/GHDeletionHandle.h"
 
 GHWin32DX11RenderServices::GHWin32DX11RenderServices(GHSystemServices& systemServices,
 													 GHRenderDeviceFactoryDX11* deviceFactory,
@@ -26,9 +28,11 @@ void GHWin32DX11RenderServices::initAppShard(GHAppShard& appShard)
 {
 	GHRenderServicesDX11::initAppShard(appShard);
 
+	GHShaderParamListLoader* splLoader = new GHShaderParamListLoader(mSystemServices.getXMLSerializer(), mSystemServices.getPlatformServices().getEnumStore());
+	appShard.addOwnedItem(new GHTypedDeletionHandle<GHShaderParamListLoader>(splLoader));
+
 	GHShaderLoaderDX11* shaderLoader = new GHShaderLoaderDX11(mSystemServices.getPlatformServices().getFileOpener(),
-		*((GHRenderDeviceDX11*)mRenderDevice), mActiveVS, mSystemServices.getXMLSerializer(),
-		mSystemServices.getPlatformServices().getEnumStore(), mGraphicsQuality, "", mSystemServices.getEventMgr());
+		*((GHRenderDeviceDX11*)mRenderDevice), mActiveVS, *splLoader, mGraphicsQuality, "", mSystemServices.getEventMgr());
 	appShard.mResourceFactory.addLoader(shaderLoader, 1, ".cso");
 
 	GHTextureLoaderDDS* ddsLoader = new GHTextureLoaderDDS(*((GHRenderDeviceDX11*)mRenderDevice),

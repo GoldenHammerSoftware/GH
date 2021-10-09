@@ -280,6 +280,8 @@
     <ClCompile Include="..\..\..\Render\GHSceneRenderer.cpp" />
     <ClCompile Include="..\..\..\Render\GHScreenPosUnprojector.cpp" />
     <ClCompile Include="..\..\..\Render\GHScreenshotCapturer.cpp" />
+    <ClCompile Include="..\..\..\Render\GHShaderParamList.cpp" />
+    <ClCompile Include="..\..\..\Render\GHShaderParamListLoader.cpp" />
     <ClCompile Include="..\..\..\Render\GHShaderPreprocessor.cpp" />
     <ClCompile Include="..\..\..\Render\GHShadowCameraPositioner.cpp" />
     <ClCompile Include="..\..\..\Render\GHSkeletonDebugDrawer.cpp" />
@@ -380,6 +382,8 @@
     <ClInclude Include="..\..\..\Render\GHScreenInfo.h" />
     <ClInclude Include="..\..\..\Render\GHScreenPosUnprojector.h" />
     <ClInclude Include="..\..\..\Render\GHScreenshotCapturer.h" />
+    <ClInclude Include="..\..\..\Render\GHShaderParamList.h" />
+    <ClInclude Include="..\..\..\Render\GHShaderParamListLoader.h" />
     <ClInclude Include="..\..\..\Render\GHShaderPreprocessor.h" />
     <ClInclude Include="..\..\..\Render\GHShaderType.h" />
     <ClInclude Include="..\..\..\Render\GHShadowCameraPositioner.h" />
