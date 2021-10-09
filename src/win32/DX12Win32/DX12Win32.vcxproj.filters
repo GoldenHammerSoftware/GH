@@ -26,10 +26,16 @@
     <ClInclude Include="..\..\GHDX12\GHDX12Fence.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="GHMaterialDX12.h">
+    <ClInclude Include="..\..\GHDX12\GHMaterialDX12.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="GHMaterialLoaderDX12.h">
+    <ClInclude Include="..\..\GHDX12\GHMaterialLoaderDX12.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX12\GHShaderDX12.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX12\GHShaderLoaderDX12.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -43,10 +49,16 @@
     <ClCompile Include="..\..\GHDX12\GHDX12Fence.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GHMaterialDX12.cpp">
+    <ClCompile Include="..\..\GHDX12\GHMaterialDX12.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GHMaterialLoaderDX12.cpp">
+    <ClCompile Include="..\..\GHDX12\GHMaterialLoaderDX12.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX12\GHShaderDX12.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX12\GHShaderLoaderDX12.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
