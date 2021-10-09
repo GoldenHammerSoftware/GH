@@ -11,6 +11,7 @@
 #include "GHMaterialLoaderDX12.h"
 #include "GHShaderLoaderDX12.h"
 #include "Base/GHSystemServices.h"
+#include "Render/GHShaderParamListLoader.h"
 
 GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHWin32Window& window)
 : GHRenderServices(systemServices)
@@ -29,7 +30,10 @@ void GHRenderServicesDX12::initAppShard(GHAppShard& appShard)
 {
     GHRenderServices::initAppShard(appShard);
 
-    GHShaderLoaderDX12* shaderLoader = new GHShaderLoaderDX12(mSystemServices.getPlatformServices().getFileOpener());
+    GHShaderParamListLoader* splLoader = new GHShaderParamListLoader(mSystemServices.getXMLSerializer(), mSystemServices.getPlatformServices().getEnumStore());
+    appShard.addOwnedItem(new GHTypedDeletionHandle<GHShaderParamListLoader>(splLoader));
+
+    GHShaderLoaderDX12* shaderLoader = new GHShaderLoaderDX12(mSystemServices.getPlatformServices().getFileOpener(), *splLoader);
     appShard.mResourceFactory.addLoader(shaderLoader, 1, ".cso");
 
     GHXMLObjLoaderGHM* ghmDescLoader = (GHXMLObjLoaderGHM*)appShard.mXMLObjFactory.getLoader("ghmDesc");
