@@ -28,6 +28,18 @@ GHMaterialLoaderDX11::GHMaterialLoaderDX11(GHResourceFactory& resourceCache,
 {
 }
 
+static void createShaderName(const char* srcName, char* destName)
+{
+	const char* extStart = ::strrchr(srcName, '.');
+	if (!extStart) {
+		::snprintf(destName, 1024, "%s.cso", srcName);
+		return;
+	}
+	::snprintf(destName, extStart - srcName + 1, "%s", srcName);
+	destName[extStart - srcName] = '\0';
+	::snprintf(destName, 1024, "%s.cso", destName);
+}
+
 void* GHMaterialLoaderDX11::create(const GHXMLNode& node, GHPropertyContainer& extraData) const
 {
     GHMDesc* desc = (GHMDesc*)mDescLoader.create(node, extraData);
@@ -62,14 +74,3 @@ void* GHMaterialLoaderDX11::create(const GHXMLNode& node, GHPropertyContainer& e
     return ret;
 }
 
-void GHMaterialLoaderDX11::createShaderName(const char* srcName, char* destName) const
-{
-	const char* extStart = ::strrchr(srcName, '.');
-	if (!extStart) {
-		::snprintf(destName, 1024, "%s.cso", srcName);
-		return;
-	}
-	::snprintf(destName, extStart-srcName+1, "%s", srcName);
-	destName[extStart-srcName] = '\0';
-	::snprintf(destName, 1024, "%s.cso", destName);
-}

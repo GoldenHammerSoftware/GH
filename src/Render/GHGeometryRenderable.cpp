@@ -5,7 +5,7 @@
 #include "GHPlatform/GHRunnable.h"
 #include "GHPlatform/GHStlUtil.h"
 #include "GHMath/GHSphere.h"
-#include "GHSphereBounds.h"
+#include "Sim/GHSphereBounds.h"
 #include <algorithm>
 #include "GHCamera.h"
 #include "GHMaterial.h"

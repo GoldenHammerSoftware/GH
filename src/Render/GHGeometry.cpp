@@ -1,9 +1,9 @@
 // Copyright Golden Hammer Software
 #include "GHGeometry.h"
 #include "GHMaterial.h"
-#include "GHTransformNode.h"
+#include "Sim/GHTransformNode.h"
 #include "GHRenderList.h"
-#include "GHSphereBounds.h"
+#include "Sim/GHSphereBounds.h"
 
 GHGeometry::GHGeometry(void)
 : mVB(0)

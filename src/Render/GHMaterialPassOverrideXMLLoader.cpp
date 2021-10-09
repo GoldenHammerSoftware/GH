@@ -1,9 +1,9 @@
 // Copyright Golden Hammer Software
 #include "GHMaterialPassOverrideXMLLoader.h"
-#include "GHXMLObjFactory.h"
+#include "Base/GHXMLObjFactory.h"
+#include "Base/GHXMLNode.h"
 #include "GHString/GHStringIdFactory.h"
 #include "GHMDesc.h"
-#include "GHXMLNode.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHMaterial.h"
 #include "GHUtils/GHPropertyStacker.h"

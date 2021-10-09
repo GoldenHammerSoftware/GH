@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHXMLObjLoader.h"
+#include "Base/GHXMLObjLoader.h"
 #include "GHRenderPassMembershipXMLLoader.h"
 #include "GHMDesc.h"
 

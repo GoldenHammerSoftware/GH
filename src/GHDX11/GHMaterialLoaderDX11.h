@@ -28,10 +28,6 @@ public:
     GH_NO_POPULATE
 
 private:
-	// strip off .glsl or whatever and add .cso to the end.
-	void createShaderName(const char* srcName, char* destName) const;
-
-private:
 	const GHXMLObjLoaderGHM& mDescLoader;
     const GHMaterialCallbackMgr& mCallbackMgr;
 	GHRenderDeviceDX11& mDevice;

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GHUtils/GHController.h"
-#include "GHKeyDef.h"
+#include "Base/GHKeyDef.h"
 #include "GHMath/GHPoint.h"
 #include <vector>
 #include "GHCamera.h"

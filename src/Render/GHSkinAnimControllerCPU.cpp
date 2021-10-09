@@ -1,7 +1,7 @@
 #include "GHSkinAnimControllerCPU.h"
 #include "GHVertexBuffer.h"
 #include "GHPlatform/GHDebugMessage.h"
-#include "GHTransformNode.h"
+#include "Sim/GHTransformNode.h"
 #include "GHUtils/GHProfiler.h"
 #include <string.h>
 

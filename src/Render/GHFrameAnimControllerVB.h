@@ -1,8 +1,8 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHFrameAnimController.h"
-#include "GHNewFrameChecker.h"
+#include "Sim/GHFrameAnimController.h"
+#include "Sim/GHNewFrameChecker.h"
 
 class GHVBAnimData;
 class GHGeometry;

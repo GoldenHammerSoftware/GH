@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHAnimController.h"
+#include "Sim/GHAnimController.h"
 
 class GHVertexBuffer;
 class GHTransformNode;

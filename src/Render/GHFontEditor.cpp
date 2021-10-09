@@ -1,13 +1,13 @@
 // Copyright Golden Hammer Software
 #include "GHFontEditor.h"
-#include "GHInputState.h"
+#include "Base/GHInputState.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHFont.h"
-#include "GHKeyDef.h"
+#include "Base/GHKeyDef.h"
 #include "GHUtils/GHMessage.h"
-#include "GHMessageTypes.h"
+#include "Base/GHMessageTypes.h"
 #include "GHUtils/GHMessageHandler.h"
-#include "GHCharUtil.h"
+#include "Base/GHCharUtil.h"
 
 GHFontEditor::GHFontEditor(const GHInputState& inputState, GHFont& font, GHMessageHandler& messageHandler)
 : mInputState(inputState)

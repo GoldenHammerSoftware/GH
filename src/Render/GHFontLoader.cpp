@@ -1,8 +1,8 @@
 // Copyright Golden Hammer Software
 #include "GHFontLoader.h"
 #include "GHFont.h"
-#include "GHXMLNode.h"
-#include "GHXMLObjFactory.h"
+#include "Base/GHXMLNode.h"
+#include "Base/GHXMLObjFactory.h"
 #include "GHPlatform/GHDebugMessage.h"
 
 GHFontLoader::GHFontLoader(const GHXMLObjFactory& objFactory)

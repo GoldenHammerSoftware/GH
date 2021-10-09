@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GHUtils/GHTransition.h"
-#include "GHKeyDef.h"
+#include "Base/GHKeyDef.h"
 #include "GHString/GHIdentifier.h"
 #include "GHString/GHString.h"
 

@@ -24,11 +24,15 @@
     <ClInclude Include="..\..\GHDX12\GHDX12Include.h" />
     <ClInclude Include="..\..\GHDX12\GHRenderDeviceDX12.h" />
     <ClInclude Include="..\..\GHDX12\GHRenderServicesDX12.h" />
+    <ClInclude Include="GHMaterialDX12.h" />
+    <ClInclude Include="GHMaterialLoaderDX12.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GHDX12\GHDX12Fence.cpp" />
     <ClCompile Include="..\..\GHDX12\GHRenderDeviceDX12.cpp" />
     <ClCompile Include="..\..\GHDX12\GHRenderServicesDX12.cpp" />
+    <ClCompile Include="GHMaterialDX12.cpp" />
+    <ClCompile Include="GHMaterialLoaderDX12.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -26,6 +26,12 @@
     <ClInclude Include="..\..\GHDX12\GHDX12Fence.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="GHMaterialDX12.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GHMaterialLoaderDX12.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GHDX12\GHRenderDeviceDX12.cpp">
@@ -35,6 +41,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GHDX12\GHDX12Fence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GHMaterialDX12.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GHMaterialLoaderDX12.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

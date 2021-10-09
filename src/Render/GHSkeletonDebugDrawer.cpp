@@ -1,6 +1,6 @@
 // Copyright Golden Hammer Software
 #include "GHSkeletonDebugDrawer.h"
-#include "GHTransformNode.h"
+#include "Sim/GHTransformNode.h"
 #include "GHDebugDraw.h"
 
 GHSkeletonDebugDrawer::GHSkeletonDebugDrawer(GHTransformNode* skeleton, float lineLength, GHPoint3 color)

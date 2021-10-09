@@ -2,7 +2,7 @@
 #include "GHRenderPassMembershipXMLLoader.h"
 #include "GHRenderPassMembership.h"
 #include "GHString/GHHashListParser.h"
-#include "GHXMLNode.h"
+#include "Base/GHXMLNode.h"
 
 GHRenderPassMembershipXMLLoader::GHRenderPassMembershipXMLLoader(GHStringIdFactory& hashTable)
 : mIdFactory(hashTable)

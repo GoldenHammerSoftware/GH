@@ -1,5 +1,5 @@
 #include "GHEnvironmentCapturer.h"
-#include "GHInputState.h"
+#include "Base/GHInputState.h"
 #include "GHSceneRenderer.h"
 #include "GHMath/GHTransform.h"
 #include "GHRenderTarget.h"

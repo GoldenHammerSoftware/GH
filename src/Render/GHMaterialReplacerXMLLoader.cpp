@@ -1,9 +1,9 @@
 // Copyright Golden Hammer Software
 #include "GHMaterialReplacerXMLLoader.h"
-#include "GHXMLNode.h"
+#include "Base/GHXMLNode.h"
 #include "GHMaterialReplacer.h"
 #include "GHString/GHStringIdFactory.h"
-#include "GHXMLObjFactory.h"
+#include "Base/GHXMLObjFactory.h"
 #include "GHString/GHHashListParser.h"
 #include <string.h>
 

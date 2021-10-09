@@ -7,7 +7,7 @@
 #include "GHVBBlitter.h"
 #include "GHIndexBufferUtil.h"
 #include "GHMath/GHColor.h"
-#include "GHSphereBounds.h"
+#include "Sim/GHSphereBounds.h"
 
 GHVertexBuffer* GHGeoCreationUtil::createBoxBuffer(const GHVBFactory& vbFactory, unsigned int numBoxes,
                                                    GHVBBlitterPtr* blitter,

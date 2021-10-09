@@ -1,14 +1,14 @@
 // Copyright Golden Hammer Software
 #include "GHXMLObjLoaderGHM.h"
 #include "GHMDesc.h"
-#include "GHXMLNode.h"
+#include "Base/GHXMLObjFactory.h"
+#include "Base/GHXMLNode.h"
 #include "GHUtils/GHResourceFactory.h"
 #include "GHTexture.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHUtils/GHPropertyContainer.h"
 #include "GHRenderProperties.h"
 #include "GHMaterialPassOverrideXMLLoader.h"
-#include "GHXMLObjFactory.h"
 #include "GHMaterial.h"
 
 static void loadVertexMode(const char* str, GHMDesc::VertexMode& mode)

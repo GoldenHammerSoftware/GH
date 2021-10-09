@@ -1,9 +1,9 @@
 // Copyright Golden Hammer Software
 #include "GHParticleSystemDescXMLLoader.h"
 #include "GHParticleSystemDesc.h"
-#include "GHXMLNode.h"
+#include "Base/GHXMLObjFactory.h"
+#include "Base/GHXMLNode.h"
 #include "GHPlatform/GHDebugMessage.h"
-#include "GHXMLObjFactory.h"
 
 GHParticleSystemDescXMLLoader::GHParticleSystemDescXMLLoader(GHXMLObjFactory& resourceFactory)
 : mResourceFactory(resourceFactory)
