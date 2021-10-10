@@ -12,7 +12,7 @@ public:
 	~GHShaderDX12(void);
 
 	const D3D12_SHADER_BYTECODE& getBytecode(void) const { return mBytecode; }
-	const GHShaderParamList* getParams(void) const;
+	const GHShaderParamList* getParamList(void) const;
 
 private:
 	D3D12_SHADER_BYTECODE mBytecode;

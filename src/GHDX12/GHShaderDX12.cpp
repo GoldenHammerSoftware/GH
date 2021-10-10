@@ -15,7 +15,7 @@ GHShaderDX12::~GHShaderDX12(void)
 	if (mParams) mParams->release();
 }
 
-const GHShaderParamList* GHShaderDX12::getParams(void) const
+const GHShaderParamList* GHShaderDX12::getParamList(void) const
 {
 	return mParams->get();
 }

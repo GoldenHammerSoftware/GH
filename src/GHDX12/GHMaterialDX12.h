@@ -5,6 +5,7 @@
 #include "GHShaderDX12.h"
 
 class GHMDesc;
+class GHMaterialShaderInfoDX12;
 
 class GHMaterialDX12 : public GHMaterial
 {
@@ -21,6 +22,6 @@ public:
 
 private:
     GHMDesc* mDesc;
-    GHShaderResource* mShaders[GHShaderType::ST_MAX];
+    GHMaterialShaderInfoDX12* mShaders[GHShaderType::ST_MAX];
 };
 
