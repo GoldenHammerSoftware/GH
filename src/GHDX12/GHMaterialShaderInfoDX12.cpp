@@ -14,7 +14,10 @@ GHMaterialShaderInfoDX12::~GHMaterialShaderInfoDX12(void)
 	mShader->release();
 	for (int i = 0; i < (int)GHMaterialCallbackType::CT_MAX; ++i)
 	{
-		delete[] mCBuffers[i].mData;
+		delete mCBuffers[i];
+		for (unsigned int j = 0; j < mTextures[i].size(); ++j) {
+			delete mTextures[i][j];
+		}
 	}
 }
 
@@ -25,8 +28,7 @@ void GHMaterialShaderInfoDX12::createConstantBuffers(void)
 		unsigned int vsBufSize = mShader->get()->getParamList()->getBufferSize((GHMaterialCallbackType::Enum)i);
 		if (vsBufSize) 
 		{
-			mCBuffers[i].mDataSize = vsBufSize;
-			mCBuffers[i].mData = new byte[vsBufSize];
+			mCBuffers[i] = new ConstantBufferInfo(vsBufSize);
 			// todo: dx buffers.
 		}
 	}
@@ -35,6 +37,32 @@ void GHMaterialShaderInfoDX12::createConstantBuffers(void)
 	for (unsigned int i = 0; i < vsparams.size(); ++i)
 	{
 		if (vsparams[i].mHandleType != GHMaterialParamHandle::HT_TEXTURE) continue;
-		// todo:  handle textures.
+		TextureSlot* tex = new TextureSlot(vsparams[i].mRegister);
+		mTextures[(int)vsparams[i].mCBType].push_back(tex);
 	}
+}
+
+GHMaterialShaderInfoDX12::TextureSlot::TextureSlot(unsigned int registerId)
+	: mRegister(registerId)
+{
+}
+
+GHMaterialShaderInfoDX12::TextureSlot::~TextureSlot(void)
+{
+}
+
+void GHMaterialShaderInfoDX12::TextureSlot::setTexture(GHTexture* tex, GHMDesc::WrapMode wrapMode)
+{
+}
+
+GHMaterialShaderInfoDX12::ConstantBufferInfo::ConstantBufferInfo(size_t size)
+	: mDataSize(size)
+{
+	mData = new byte[mDataSize];
+	// todo: dx buffers
+}
+
+GHMaterialShaderInfoDX12::ConstantBufferInfo::~ConstantBufferInfo(void)
+{
+	delete[] mData;
 }
