@@ -21,6 +21,9 @@ public:
     virtual GHMaterialParamHandle* getParamHandle(const char* paramName) override;
 
 private:
+    void applyDXArgs(GHMaterialCallbackType::Enum type);
+
+private:
     GHMDesc* mDesc;
     GHMaterialShaderInfoDX12* mShaders[GHShaderType::ST_MAX];
 };
