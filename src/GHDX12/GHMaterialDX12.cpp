@@ -1,7 +1,7 @@
 #include "GHMaterialDX12.h"
 #include "Render/GHMDesc.h"
 
-GHMaterialDX12::GHMaterialDX12(GHMDesc* desc)
+GHMaterialDX12::GHMaterialDX12(GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps)
 	: mDesc(desc)
 {
 }
@@ -29,3 +29,9 @@ void GHMaterialDX12::beginTransform(const GHTransform& modelToWorld, const GHVie
 void GHMaterialDX12::endMaterial(void)
 {
 }
+
+GHMaterialParamHandle* GHMaterialDX12::getParamHandle(const char* paramName)
+{
+	return 0;
+}
+

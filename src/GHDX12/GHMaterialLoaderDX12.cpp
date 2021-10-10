@@ -9,6 +9,7 @@
 #include "Render/GHXMLObjLoaderGHM.h"
 #include <stdlib.h>
 #include "Render/GHRenderProperties.h"
+#include "GHShaderDX12.h"
 
 GHMaterialLoaderDX12::GHMaterialLoaderDX12(GHResourceFactory& resourceCache,
 	const GHMaterialCallbackMgr& callbackMgr,
@@ -34,6 +35,35 @@ static void createShaderName(const char* srcName, char* destName)
 
 void* GHMaterialLoaderDX12::create(const GHXMLNode& node, GHPropertyContainer& extraData) const
 {
-	return 0;
+	GHMDesc* desc = (GHMDesc*)mDescLoader.create(node, extraData);
+	if (!desc) return 0;
+
+	char nameBuffer[1024];
+	if (desc->mVertexFile) createShaderName(desc->mVertexFile, nameBuffer);
+	else ::sprintf(nameBuffer, "DefaultVertex.cso");
+	GHShaderResource* vs = (GHShaderResource*)mResourceCache.getCacheResource(nameBuffer, &extraData);
+	if (!vs) {
+		GHDebugMessage::outputString("Failed to load vs %s", nameBuffer);
+		delete desc;
+		return 0;
+	}
+
+	if (desc->mPixelFile) createShaderName(desc->mPixelFile, nameBuffer);
+	else ::sprintf(nameBuffer, "DefaultPixel.cso");
+	GHShaderResource* ps = (GHShaderResource*)mResourceCache.getCacheResource(nameBuffer, &extraData);
+	if (!ps) {
+		GHDebugMessage::outputString("Failed to load ps %s", nameBuffer);
+		delete desc;
+		vs->acquire();
+		vs->release();
+		return 0;
+	}
+
+	// dx11 checked overridemat here to squelch some errors.
+	//bool isOverrideMat = extraData.getProperty(GHRenderProperties::GP_LOADINGMATERIALOVERRIDE);
+
+	GHMaterialDX12* ret = new GHMaterialDX12(desc, vs, ps);
+	mCallbackMgr.createCallbacks(*ret);
+	return ret;
 }
 
