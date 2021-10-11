@@ -1,7 +1,7 @@
 #include "GHRenderServicesDX12.h"
 
 #include "GHRenderDeviceDX12.h"
-#include "NullPlatform/GHNullVBFactory.h"
+#include "GHVBFactoryDX12.h"
 #include "Render/GHFontRenderer.h"
 #include "NullPlatform/GHNullRenderTargetFactory.h"
 #include "GHPlatform/GHDeletionHandle.h"
@@ -19,7 +19,7 @@ GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHW
 {
     GHRenderDevice* renderDevice = new GHRenderDeviceDX12(mWindow);
     setDevice(renderDevice);
-    setVBFactory(new GHNullVBFactory());
+    setVBFactory(new GHVBFactoryDX12());
     mFontRenderer = new GHFontRenderer(*mVBFactory);
     addOwnedItem(new GHTypedDeletionHandle<GHFontRenderer>(mFontRenderer));
     mRenderTargetFactory = new GHNullRenderTargetFactory();

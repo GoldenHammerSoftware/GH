@@ -3,6 +3,7 @@
 #include "GHDX12Helpers.h"
 #include "GHWin32/GHWin32Window.h"
 #include "GHDX12Fence.h"
+#include "Render/GHCamera.h"
 
 #define DEBUG_DX12 1
 
@@ -142,14 +143,37 @@ void GHRenderDeviceDX12::endRenderPass(void)
 
 void GHRenderDeviceDX12::applyViewInfo(const GHViewInfo& viewInfo)
 {
-	// todo
+	mViewInfo = viewInfo;
+	// todo: viewport.
 }
 
 void GHRenderDeviceDX12::createDeviceViewTransforms(const GHViewInfo::ViewTransforms& engineTransforms,
 	GHViewInfo::ViewTransforms& deviceTransforms,
 	const GHCamera& camera, bool isRenderToTexture) const
 {
-	// todo
+	deviceTransforms = engineTransforms;
+
+	deviceTransforms.mPlatformGUITrans = GHTransform(
+		2.0, 0.0, 0.0, 0.0,
+		0.0, -2.0, 0.0, 0.0,
+		0.0, 0.0, 1.0, 0.0,
+		-1.0, 1.0, 0.0, 1.0
+	);
+
+	if (camera.getIsOrtho())
+	{
+		//D3DXMatrixOrthoRH 
+		deviceTransforms.mProjectionTransform.becomeIdentity();
+		deviceTransforms.mProjectionTransform.getMatrix()[0] = 2.0f / camera.getOrthoWidth();
+		deviceTransforms.mProjectionTransform.getMatrix()[5] = 2.0f / camera.getOrthoHeight();
+		deviceTransforms.mProjectionTransform.getMatrix()[10] = 1.0f / (camera.getNearClip() - camera.getFarClip());
+		deviceTransforms.mProjectionTransform.getMatrix()[14] = camera.getNearClip() / (camera.getNearClip() - camera.getFarClip());
+
+		deviceTransforms.mViewTransform.mult(deviceTransforms.mProjectionTransform,
+			deviceTransforms.mViewProjTransform);
+	}
+
+	// d3d is our primary projection platform, so render to texture is the same as render to screen.
 }
 
 const GHViewInfo& GHRenderDeviceDX12::getViewInfo(void) const
