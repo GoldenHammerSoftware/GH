@@ -17,9 +17,9 @@ GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHW
 : GHRenderServices(systemServices)
 , mWindow(window)
 {
-    GHRenderDevice* renderDevice = new GHRenderDeviceDX12(mWindow);
+    GHRenderDeviceDX12 * renderDevice = new GHRenderDeviceDX12(mWindow);
     setDevice(renderDevice);
-    setVBFactory(new GHVBFactoryDX12());
+    setVBFactory(new GHVBFactoryDX12(*renderDevice));
     mFontRenderer = new GHFontRenderer(*mVBFactory);
     addOwnedItem(new GHTypedDeletionHandle<GHFontRenderer>(mFontRenderer));
     mRenderTargetFactory = new GHNullRenderTargetFactory();

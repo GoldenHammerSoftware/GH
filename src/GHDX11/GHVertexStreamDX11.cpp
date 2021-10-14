@@ -97,7 +97,6 @@ GHVertexStream* GHVertexStreamDX11::clone(void) const
 	memcpy(retBuffer, mMemoryBuffer, mFormat->get()->getVertexSize()*mNumVerts*sizeof(float));
 	ret->unlockWriteBuffer();
 	return ret;
-
 }
 
 void GHVertexStreamDX11::createHardwareBuffer(void)
