@@ -14,5 +14,5 @@ GHVertexStream* GHVBFactoryDX12::createVBStream(GHVertexStreamFormatPtr* format,
 
 GHVBBlitterIndex* GHVBFactoryDX12::createIBStream(unsigned int numIndex, GHVBUsage::Enum usage) const
 {
-	return new GHVBBlitterIndexDX12(numIndex);
+	return new GHVBBlitterIndexDX12(mDevice, numIndex);
 }
