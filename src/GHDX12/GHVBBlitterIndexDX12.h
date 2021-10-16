@@ -17,4 +17,7 @@ public:
 
     virtual const unsigned short* lockReadBuffer(void) const override;
     virtual void unlockReadBuffer(void) const override;
+
+private:
+    void* mMemoryBuffer{ 0 };
 };

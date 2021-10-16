@@ -1,5 +1,6 @@
 #pragma once
 
+#include "GHDX12Include.h"
 #include "Render/GHVertexStream.h"
 
 class GHRenderDeviceDX12;
@@ -26,4 +27,9 @@ private:
     GHVBUsage::Enum mUsage;
     // we keep a memory copy of the verts for lock read and for partial writes.
     void* mMemoryBuffer;
+
+    ID3D12Resource* mDXBuffer;
+    D3D12_VERTEX_BUFFER_VIEW mDXView;
+    // probably don't need to keep the upload buffer around.
+    ID3D12Resource* mDXUploadBuffer;
 };

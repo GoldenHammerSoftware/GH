@@ -30,6 +30,10 @@ public:
 
 	virtual GHTexture* resolveBackbuffer(void) override;
 
+	Microsoft::WRL::ComPtr<ID3D12Device2>& getDXDevice(void) { return mDXDevice; }
+	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& beginUploadCommandList(void);
+	void endUploadCommandList(void);
+
 protected:
 	GHViewInfo mViewInfo;
 	GHWin32Window& mWindow;
@@ -37,6 +41,9 @@ protected:
 	Microsoft::WRL::ComPtr<IDXGISwapChain1> mDXSwapChain;
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDXDescriptorHeap;
 	Microsoft::WRL::ComPtr<ID3D12CommandQueue> mDXCommandQueue;
+
+	Microsoft::WRL::ComPtr<ID3D12CommandAllocator> mDXUploadCommandAllocator;
+	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mDXUploadCommandList;
 
 	// The info needed for one frame in our swap buffer.
 	struct FrameBackend

@@ -7,6 +7,22 @@
 
 #define DEBUG_DX12 1
 
+static void createCommandListAndAllocator(Microsoft::WRL::ComPtr<ID3D12Device2>& device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& commandList, Microsoft::WRL::ComPtr<ID3D12CommandAllocator>& allocator)
+{
+	HRESULT allocRes = device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, __uuidof(ID3D12CommandAllocator), (void**)&allocator);
+	if (allocRes != S_OK)
+	{
+		GHDebugMessage::outputString("Failed to create d3d12 command allocator");
+	}
+
+	HRESULT listRes = device->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, allocator.Get(), nullptr, IID_PPV_ARGS(&commandList));
+	if (allocRes != S_OK)
+	{
+		GHDebugMessage::outputString("Failed to create d3d12 command list");
+	}
+	commandList->Close();
+}
+
 GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 	: mWindow(window)
 {
@@ -16,38 +32,27 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 	debugInterface->EnableDebugLayer();
 #endif
 
-	Microsoft::WRL::ComPtr<IDXGIAdapter4> adapter = findDX12Adapter();
+	Microsoft::WRL::ComPtr<IDXGIAdapter4> adapter = GHDX12Helpers::findDX12Adapter();
 	HRESULT deviceRes = D3D12CreateDevice(adapter.Get(), D3D_FEATURE_LEVEL_12_1, IID_PPV_ARGS(&mDXDevice));
 	if (deviceRes != S_OK)
 	{
 		GHDebugMessage::outputString("Failed to create d3d12 device");
 	}
-	mDXCommandQueue = createCommandQueue(mDXDevice, D3D12_COMMAND_LIST_TYPE_DIRECT);
+	mDXCommandQueue = GHDX12Helpers::createCommandQueue(mDXDevice, D3D12_COMMAND_LIST_TYPE_DIRECT);
 	const GHPoint2i& size = mWindow.getClientAreaSize();
-	mDXSwapChain = createSwapChain(mWindow.getHWND(), mDXCommandQueue, size[0], size[1], NUM_SWAP_BUFFERS);
+	mDXSwapChain = GHDX12Helpers::createSwapChain(mWindow.getHWND(), mDXCommandQueue, size[0], size[1], NUM_SWAP_BUFFERS);
 	const int numDescriptors = 256;
-	mDXDescriptorHeap = createDescriptorHeap(mDXDevice, D3D12_DESCRIPTOR_HEAP_TYPE_RTV, numDescriptors);
+	mDXDescriptorHeap = GHDX12Helpers::createDescriptorHeap(mDXDevice, D3D12_DESCRIPTOR_HEAP_TYPE_RTV, numDescriptors);
 
 	for (uint32_t frameId = 0; frameId < NUM_SWAP_BUFFERS; ++frameId)
 	{
-		createBackBuffer(mDXDevice, mDXSwapChain, mDXDescriptorHeap, mFrameBackends[frameId].mBackBuffer, frameId);
+		GHDX12Helpers::createBackBuffer(mDXDevice, mDXSwapChain, mDXDescriptorHeap, mFrameBackends[frameId].mBackBuffer, frameId);
 
-		HRESULT allocRes = mDXDevice->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, __uuidof(ID3D12CommandAllocator), (void**)&mFrameBackends[frameId].mDXCommandAllocator);
-		if (allocRes != S_OK)
-		{
-			GHDebugMessage::outputString("Failed to create d3d12 command allocator");
-		}
-
-		HRESULT listRes = mDXDevice->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, mFrameBackends[frameId].mDXCommandAllocator.Get(), nullptr, IID_PPV_ARGS(&mFrameBackends[frameId].mDXCommandList));
-		if (allocRes != S_OK)
-		{
-			GHDebugMessage::outputString("Failed to create d3d12 command list");
-		}
-		mFrameBackends[frameId].mDXCommandList->Close();
+		createCommandListAndAllocator(mDXDevice, mFrameBackends[frameId].mDXCommandList, mFrameBackends[frameId].mDXCommandAllocator);
 
 		mFrameBackends[frameId].mFence = new GHDX12Fence(mDXDevice);
 	}
-
+	createCommandListAndAllocator(mDXDevice, mDXUploadCommandList, mDXUploadCommandAllocator);
 }
 
 GHRenderDeviceDX12::~GHRenderDeviceDX12(void)
@@ -190,4 +195,18 @@ GHTexture* GHRenderDeviceDX12::resolveBackbuffer(void)
 {
 	// todo
 	return 0;
+}
+
+Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& GHRenderDeviceDX12::beginUploadCommandList(void)
+{
+	mDXUploadCommandList->Reset(mDXUploadCommandAllocator.Get(), nullptr);
+	return mDXUploadCommandList;
+}
+
+void GHRenderDeviceDX12::endUploadCommandList(void)
+{
+	mDXUploadCommandList->Close();
+	ID3D12CommandList* ppCommandLists[] = { mDXUploadCommandList.Get() };
+	mDXCommandQueue->ExecuteCommandLists(_countof(ppCommandLists), ppCommandLists);
+	// todo: add a fence to check during begin frame or maybe in beginUploadCommandList.
 }
