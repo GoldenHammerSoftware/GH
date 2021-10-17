@@ -6,11 +6,12 @@
 
 class GHMDesc;
 class GHMaterialShaderInfoDX12;
+class GHRenderDeviceDX12;
 
 class GHMaterialDX12 : public GHMaterial
 {
 public:
-    GHMaterialDX12(GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps);
+    GHMaterialDX12(GHRenderDeviceDX12& device, GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps);
     ~GHMaterialDX12(void);
 
     virtual void beginMaterial(const GHViewInfo& viewInfo) override;
@@ -22,9 +23,12 @@ public:
 
 private:
     void applyDXArgs(GHMaterialCallbackType::Enum type);
+    void createRootSignature(void);
 
 private:
+    GHRenderDeviceDX12& mDevice;
     GHMDesc* mDesc;
     GHMaterialShaderInfoDX12* mShaders[GHShaderType::ST_MAX];
+    ID3D12RootSignature* mRootSignature;
 };
 

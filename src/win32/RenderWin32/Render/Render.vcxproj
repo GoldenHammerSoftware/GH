@@ -385,6 +385,7 @@
     <ClInclude Include="..\..\..\Render\GHShaderParamList.h" />
     <ClInclude Include="..\..\..\Render\GHShaderParamListLoader.h" />
     <ClInclude Include="..\..\..\Render\GHShaderPreprocessor.h" />
+    <ClInclude Include="..\..\..\Render\GHShaderSemantic.h" />
     <ClInclude Include="..\..\..\Render\GHShaderType.h" />
     <ClInclude Include="..\..\..\Render\GHShadowCameraPositioner.h" />
     <ClInclude Include="..\..\..\Render\GHSkeletonDebugDrawer.h" />

@@ -106,3 +106,4 @@ GHVertexStream* GHVertexStreamDX12::clone(void) const
 	ret->unlockWriteBuffer();
 	return ret;
 }
+

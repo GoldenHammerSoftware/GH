@@ -4,6 +4,7 @@
 #include "Render/GHVertexStream.h"
 
 class GHRenderDeviceDX12;
+class GHVertexBuffer;
 
 class GHVertexStreamDX12 : public GHVertexStream
 {

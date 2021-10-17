@@ -5,9 +5,12 @@
 #include "Render/GHMaterialCallback.h"
 #include "Render/GHBillboardTransformAdjuster.h"
 #include "GHMath/GHTransform.h"
+#include "GHPlatform/GHDebugMessage.h"
+#include "GHRenderDeviceDX12.h"
 
-GHMaterialDX12::GHMaterialDX12(GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps)
-	: mDesc(desc)
+GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps)
+	: mDevice(device)
+	, mDesc(desc)
 {
 	mShaders[GHShaderType::ST_VERTEX] = new GHMaterialShaderInfoDX12(vs);
 	mShaders[GHShaderType::ST_PIXEL] = new GHMaterialShaderInfoDX12(ps);
@@ -16,6 +19,8 @@ GHMaterialDX12::GHMaterialDX12(GHMDesc* desc, GHShaderResource* vs, GHShaderReso
 	desc->applyDefaultArgs(*this, *descParamHandles);
 	desc->applyTextures(*this, *descParamHandles);
 	delete descParamHandles;
+
+	createRootSignature();
 
 	// todo: GHRenderProperties::DEVICEREINIT
 }
@@ -83,4 +88,31 @@ GHMaterialParamHandle* GHMaterialDX12::getParamHandle(const char* paramName)
 void GHMaterialDX12::applyDXArgs(GHMaterialCallbackType::Enum type)
 {
 	// todo.
+}
+
+void GHMaterialDX12::createRootSignature(void)
+{
+	// todo: populate with real data.
+	D3D12_ROOT_SIGNATURE_DESC desc;
+	desc.NumParameters = 0;
+	desc.pParameters = nullptr;
+	desc.NumStaticSamplers = 0;
+	desc.pStaticSamplers = nullptr;
+	desc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
+
+	// leaking signatureBlob?
+	ID3DBlob* signatureBlob;
+	HRESULT hr = D3D12SerializeRootSignature(&desc, D3D_ROOT_SIGNATURE_VERSION_1, &signatureBlob, nullptr);
+	if (FAILED(hr))
+	{
+		GHDebugMessage::outputString("Failed to create root signature blob");
+		return;
+	}
+
+	hr = mDevice.getDXDevice()->CreateRootSignature(0, signatureBlob->GetBufferPointer(), signatureBlob->GetBufferSize(), IID_PPV_ARGS(&mRootSignature));
+	if (FAILED(hr))
+	{
+		GHDebugMessage::outputString("Failed to create root signature");
+		return;
+	}
 }

@@ -8,6 +8,7 @@
 #include "GHShaderDX11.h"
 #include "GHUtils/GHEventMgr.h"
 #include "GHRenderProperties.h"
+#include "Render/GHShaderSemantic.h"
 
 GHVBBlitterIndexDX11::GHVBBlitterIndexDX11(unsigned int numIndices, GHRenderDeviceDX11& device, 
 										   GHShaderDX11*& activeVS, GHVBUsage::Enum usage,
@@ -159,7 +160,7 @@ int GHVBBlitterIndexDX11::applyStreamComponentsToIED(const std::vector<GHVertexS
 	{
 		mD3DIED[localCompIdx].InputSlot = streamIdx;
 		int semanticIdx = 0;
-		mD3DIED[localCompIdx].SemanticName = getSemanticName(comps[compIdx].mComponent, semanticIdx);
+		mD3DIED[localCompIdx].SemanticName = GHShaderSemantic::getSemanticName(comps[compIdx].mComponent, semanticIdx);
 		mD3DIED[localCompIdx].SemanticIndex = semanticIdx;
 		mD3DIED[localCompIdx].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 		mD3DIED[localCompIdx].InstanceDataStepRate = 0;
@@ -310,32 +311,6 @@ void GHVBBlitterIndexDX11::createIED(GHVertexBuffer& vb)
 		localCompIdx = applyStreamComponentsToIED(comps, streamIdx, localCompIdx);
 	}
 	localCompIdx = applyStreamComponentsToIED(additionalComps, 0, localCompIdx);
-}
-
-const char* GHVBBlitterIndexDX11::getSemanticName(GHVertexComponentShaderID::Enum shaderId, int& semanticIdx)
-{
-	semanticIdx = 0;
-	if (shaderId == GHVertexComponentShaderID::SI_POS) return "POSITION";
-	if (shaderId == GHVertexComponentShaderID::SI_NORMAL) return "NORMAL";
-	if (shaderId == GHVertexComponentShaderID::SI_TANGENT) return "TANGENT";
-	if (shaderId == GHVertexComponentShaderID::SI_DIFFUSE) return "DIFFUSE";
-	if (shaderId == GHVertexComponentShaderID::SI_SPECULAR) return "SPECULAR";
-	if (shaderId == GHVertexComponentShaderID::SI_UV1) return "UV";
-	if (shaderId == GHVertexComponentShaderID::SI_BONEIDX) {
-		return "BONEIDX";
-	}
-	if (shaderId == GHVertexComponentShaderID::SI_BONEWEIGHT) {
-		return "BONEWEIGHT";
-	}
-
-	// uv2 still has semantic uv, but it goes in slot 2. (outdated comment, changing to UVTWO)
-	if (shaderId == GHVertexComponentShaderID::SI_UV2) {
-		semanticIdx = 0; // was 1 with "UV"
-		return "UVTWO";
-	}
-
-	assert(false);
-	return "UNKNOWN";
 }
 
 Microsoft::WRL::ComPtr<ID3D11InputLayout> GHVBBlitterIndexDX11::getInputLayout(GHShaderDX11* activeVS)

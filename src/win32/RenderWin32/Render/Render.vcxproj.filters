@@ -474,5 +474,8 @@
     <ClInclude Include="..\..\..\Render\GHShaderParamListLoader.h">
       <Filter>Shader</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHShaderSemantic.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

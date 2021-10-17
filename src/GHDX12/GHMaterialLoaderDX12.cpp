@@ -11,10 +11,12 @@
 #include "Render/GHRenderProperties.h"
 #include "GHShaderDX12.h"
 
-GHMaterialLoaderDX12::GHMaterialLoaderDX12(GHResourceFactory& resourceCache,
+GHMaterialLoaderDX12::GHMaterialLoaderDX12(GHRenderDeviceDX12& device, 
+	GHResourceFactory& resourceCache,
 	const GHMaterialCallbackMgr& callbackMgr,
 	const GHXMLObjLoaderGHM& ghmDescLoader)
-	: mResourceCache(resourceCache)
+	: mDevice(device)
+	, mResourceCache(resourceCache)
 	, mCallbackMgr(callbackMgr)
 	, mDescLoader(ghmDescLoader)
 {
@@ -62,7 +64,7 @@ void* GHMaterialLoaderDX12::create(const GHXMLNode& node, GHPropertyContainer& e
 	// dx11 checked overridemat here to squelch some errors.
 	//bool isOverrideMat = extraData.getProperty(GHRenderProperties::GP_LOADINGMATERIALOVERRIDE);
 
-	GHMaterialDX12* ret = new GHMaterialDX12(desc, vs, ps);
+	GHMaterialDX12* ret = new GHMaterialDX12(mDevice, desc, vs, ps);
 	mCallbackMgr.createCallbacks(*ret);
 	return ret;
 }

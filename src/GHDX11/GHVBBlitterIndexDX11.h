@@ -36,7 +36,6 @@ private:
 	void createHardwareBuffer(void);
 	void createIED(GHVertexBuffer& vb);
 	int applyStreamComponentsToIED(const std::vector<GHVertexStreamFormat::ComponentEntry>& comps, int streamIdx, int localCompIdx);
-	const char* getSemanticName(GHVertexComponentShaderID::Enum shaderId, int& semanticIdx);
 	Microsoft::WRL::ComPtr<ID3D11InputLayout> getInputLayout(GHShaderDX11* activeVS);
 
 private:
