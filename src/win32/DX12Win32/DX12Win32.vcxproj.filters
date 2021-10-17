@@ -56,6 +56,9 @@
     <ClInclude Include="..\..\GHDX12\GHVBFactoryDX12.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\GHDX12\GHDX12Buffer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GHDX12\GHRenderDeviceDX12.cpp">
@@ -95,6 +98,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GHDX12\GHVBFactoryDX12.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX12\GHDX12Buffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

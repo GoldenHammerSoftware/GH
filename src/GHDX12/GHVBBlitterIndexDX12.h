@@ -4,6 +4,7 @@
 #include "GHDX12Include.h"
 #include <vector>
 #include "Render/GHVertexStreamFormat.h"
+#include "GHDX12Buffer.h"
 
 class GHRenderDeviceDX12;
 
@@ -29,12 +30,8 @@ private:
 
 private:
     GHRenderDeviceDX12& mDevice;
-    void* mMemoryBuffer{ 0 };
-
-    ID3D12Resource* mDXBuffer;
+    GHDX12Buffer mBuffer;
     D3D12_INDEX_BUFFER_VIEW mDXView;
-    // probably don't need to keep the upload buffer around.
-    ID3D12Resource* mDXUploadBuffer;
 
     // triangle list, triangle strip, etc.
     // in our case, always triangle list.
