@@ -6,7 +6,7 @@ GHVertexStreamDX12::GHVertexStreamDX12(GHRenderDeviceDX12& device, GHVertexStrea
 	: GHVertexStream(format)
 	, mDevice(device)
 	// all dynamic until we can test static in isolation.
-	, mBuffer(device, format->get()->getVertexSize() * numVerts, GHVBUsage::DYNAMIC /*usage*/) 
+	, mBuffer(device, format->get()->getVertexSize() * numVerts * sizeof(float), GHVBUsage::DYNAMIC /*usage*/)
 {
 	mNumVerts = numVerts;
 

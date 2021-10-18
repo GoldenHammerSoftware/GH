@@ -100,19 +100,21 @@ void GHMaterialDX12::createRootSignature(void)
 	desc.pStaticSamplers = nullptr;
 	desc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
 
-	// leaking signatureBlob?
-	ID3DBlob* signatureBlob;
-	HRESULT hr = D3D12SerializeRootSignature(&desc, D3D_ROOT_SIGNATURE_VERSION_1, &signatureBlob, nullptr);
+	Microsoft::WRL::ComPtr<ID3DBlob> signatureBlob;
+	Microsoft::WRL::ComPtr<ID3DBlob> blobError;
+	HRESULT hr = D3D12SerializeRootSignature(&desc, D3D_ROOT_SIGNATURE_VERSION_1, signatureBlob.GetAddressOf(), blobError.GetAddressOf());
 	if (FAILED(hr))
 	{
 		GHDebugMessage::outputString("Failed to create root signature blob");
 		return;
 	}
 
+	/* is crashing
 	hr = mDevice.getDXDevice()->CreateRootSignature(0, signatureBlob->GetBufferPointer(), signatureBlob->GetBufferSize(), IID_PPV_ARGS(&mRootSignature));
 	if (FAILED(hr))
 	{
 		GHDebugMessage::outputString("Failed to create root signature");
 		return;
 	}
+	*/
 }

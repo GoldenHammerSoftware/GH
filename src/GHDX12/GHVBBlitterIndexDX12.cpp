@@ -207,7 +207,7 @@ void GHVBBlitterIndexDX12::createIED(GHVertexBuffer& vb)
 				newComp.mCount = 2;
 				break;
 			default:
-				GHDebugMessage::outputString("Unhandled component type in GHVBBlitterIndexDX11");
+				GHDebugMessage::outputString("Unhandled component type in GHVBBlitterIndexDX12");
 			};
 
 			additionalComps.push_back(newComp);

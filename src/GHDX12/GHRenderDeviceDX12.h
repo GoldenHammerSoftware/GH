@@ -55,7 +55,6 @@ protected:
 		uint64_t mFenceWaitVal;
 	};
 
-	#define NUM_SWAP_BUFFERS 2
 	FrameBackend mFrameBackends[NUM_SWAP_BUFFERS];
 	int32_t mCurrBackend{ -1 };
 };

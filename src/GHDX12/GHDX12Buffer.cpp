@@ -83,7 +83,7 @@ void GHDX12Buffer::initStatic(void)
 	GHDX12Helpers::createHeapProperties(heapProperties, D3D12_HEAP_TYPE_DEFAULT);
 
 	D3D12_RESOURCE_DESC bufferDesc;
-	GHDX12Helpers::createBufferDesc(bufferDesc, mBufferSize);
+	GHDX12Helpers::createBufferDesc(bufferDesc, (uint32_t)mBufferSize);
 
 	mDevice.getDXDevice()->CreateCommittedResource(
 		&heapProperties,
@@ -113,14 +113,18 @@ void GHDX12Buffer::initDynamic(void)
 	GHDX12Helpers::createHeapProperties(heapProperties, D3D12_HEAP_TYPE_UPLOAD);
 
 	D3D12_RESOURCE_DESC bufferDesc;
-	GHDX12Helpers::createBufferDesc(bufferDesc, mBufferSize);
+	GHDX12Helpers::createBufferDesc(bufferDesc, (uint32_t)mBufferSize);
 
-	mDevice.getDXDevice()->CreateCommittedResource(
+	HRESULT bufRes = mDevice.getDXDevice()->CreateCommittedResource(
 		&heapProperties,
 		D3D12_HEAP_FLAG_NONE,
 		&bufferDesc,
 		D3D12_RESOURCE_STATE_GENERIC_READ,
 		nullptr,
 		IID_PPV_ARGS(&mDXBuffer));
-	mDXUploadBuffer->SetName(L"upload buffer");
+	if (FAILED(bufRes))
+	{
+		GHDebugMessage::outputString("Failed to create dx buffer");
+	}
+	mDXBuffer->SetName(L"upload buffer");
 }

@@ -27,8 +27,8 @@ private:
 
 private:
     GHRenderDeviceDX12& mDevice;
-    GHMDesc* mDesc;
+    GHMDesc* mDesc{ nullptr };
     GHMaterialShaderInfoDX12* mShaders[GHShaderType::ST_MAX];
-    ID3D12RootSignature* mRootSignature;
+    ID3D12RootSignature* mRootSignature{ nullptr };
 };
 

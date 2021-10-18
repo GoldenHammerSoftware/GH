@@ -7,4 +7,6 @@
 #include <dxgi1_6.h>
 #include <DirectXMath.h>
 
+#define NUM_SWAP_BUFFERS 2
+
 #endif
