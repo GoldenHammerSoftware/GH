@@ -40,7 +40,8 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 	}
 	mDXCommandQueue = GHDX12Helpers::createCommandQueue(mDXDevice, D3D12_COMMAND_LIST_TYPE_DIRECT);
 	const GHPoint2i& size = mWindow.getClientAreaSize();
-	mDXSwapChain = GHDX12Helpers::createSwapChain(mWindow.getHWND(), mDXCommandQueue, size[0], size[1], NUM_SWAP_BUFFERS);
+	mDXSwapChainSampleDesc = { 1, 0 };
+	mDXSwapChain = GHDX12Helpers::createSwapChain(mWindow.getHWND(), mDXCommandQueue, size[0], size[1], NUM_SWAP_BUFFERS, SWAP_BUFFER_FORMAT, mDXSwapChainSampleDesc);
 	const int numDescriptors = 256;
 	mDXDescriptorHeap = GHDX12Helpers::createDescriptorHeap(mDXDevice, D3D12_DESCRIPTOR_HEAP_TYPE_RTV, numDescriptors);
 
@@ -209,4 +210,9 @@ void GHRenderDeviceDX12::endUploadCommandList(void)
 	ID3D12CommandList* ppCommandLists[] = { mDXUploadCommandList.Get() };
 	mDXCommandQueue->ExecuteCommandLists(_countof(ppCommandLists), ppCommandLists);
 	// todo: add a fence to check during begin frame or maybe in beginUploadCommandList.
+}
+
+Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& GHRenderDeviceDX12::getRenderCommandList(void)
+{
+	return mFrameBackends[mCurrBackend].mDXCommandList;
 }

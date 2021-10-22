@@ -15,6 +15,7 @@ public:
     ~GHMaterialDX12(void);
 
     virtual void beginMaterial(const GHViewInfo& viewInfo) override;
+    virtual void beginVB(const GHVertexBuffer& vb) override;
     virtual void beginGeometry(const GHPropertyContainer* geoData, const GHViewInfo& viewInfo) override;
     virtual void beginEntity(const GHPropertyContainer* entData, const GHViewInfo& viewInfo) override;
     virtual void beginTransform(const GHTransform& modelToWorld, const GHViewInfo& viewInfo) override;
@@ -24,11 +25,21 @@ public:
 private:
     void applyDXArgs(GHMaterialCallbackType::Enum type);
     void createRootSignature(void);
+    void createPSO(const GHVertexBuffer& vb);
+    void createRasterizerDesc(void);
+    void createBlendDesc(void);
 
 private:
     GHRenderDeviceDX12& mDevice;
     GHMDesc* mDesc{ nullptr };
     GHMaterialShaderInfoDX12* mShaders[GHShaderType::ST_MAX];
     ID3D12RootSignature* mRootSignature{ nullptr };
+    D3D12_RASTERIZER_DESC mRasterizerDesc;
+    D3D12_BLEND_DESC mBlendDesc;
+
+    // todo: support sharing pso
+    // todo: support psos for different vertex definitions
+    // todo: support psos for different render targets
+    ID3D12PipelineState* mPSO{ nullptr };
 };
 

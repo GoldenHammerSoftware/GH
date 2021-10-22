@@ -30,6 +30,9 @@ void GHVBBlitterIndexDX12::prepareVB(GHVertexBuffer& vb)
 	}
 
 	if (!mD3DIED) createIED(vb);
+
+	mDevice.getRenderCommandList()->IASetIndexBuffer(&mDXView);
+	mDevice.getRenderCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 }
 
 void GHVBBlitterIndexDX12::endVB(GHVertexBuffer& vb)
@@ -43,6 +46,10 @@ void GHVBBlitterIndexDX12::endVB(GHVertexBuffer& vb)
 
 void GHVBBlitterIndexDX12::blit(void)
 {
+	if (mActiveIndices)
+	{
+		mDevice.getRenderCommandList()->DrawIndexedInstanced(mActiveIndices, 1, 0, 0, 0);
+	}
 }
 
 unsigned short* GHVBBlitterIndexDX12::lockWriteBuffer(void)

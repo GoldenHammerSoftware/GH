@@ -31,6 +31,8 @@ public:
 	virtual GHTexture* resolveBackbuffer(void) override;
 
 	Microsoft::WRL::ComPtr<ID3D12Device2>& getDXDevice(void) { return mDXDevice; }
+	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& getRenderCommandList(void);
+	DXGI_SAMPLE_DESC getSampleDesc(void) const { return mDXSwapChainSampleDesc; }
 	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& beginUploadCommandList(void);
 	void endUploadCommandList(void);
 
@@ -39,6 +41,7 @@ protected:
 	GHWin32Window& mWindow;
 	Microsoft::WRL::ComPtr<ID3D12Device2> mDXDevice;
 	Microsoft::WRL::ComPtr<IDXGISwapChain1> mDXSwapChain;
+	DXGI_SAMPLE_DESC mDXSwapChainSampleDesc;
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDXDescriptorHeap;
 	Microsoft::WRL::ComPtr<ID3D12CommandQueue> mDXCommandQueue;
 

@@ -24,6 +24,9 @@ public:
     virtual const unsigned short* lockReadBuffer(void) const override;
     virtual void unlockReadBuffer(void) const override;
 
+    D3D12_INPUT_ELEMENT_DESC* getInputElementDescriptor(void) const { return mD3DIED; }
+    unsigned int getInputElementCount(void) const { return mInputElementCount; }
+
 private:
     void createIED(GHVertexBuffer& vb);
     int applyStreamComponentsToIED(const std::vector<GHVertexStreamFormat::ComponentEntry>& comps, int streamIdx, int localCompIdx);

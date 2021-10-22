@@ -83,14 +83,15 @@ namespace GHDX12Helpers
 
 	static Microsoft::WRL::ComPtr<IDXGISwapChain4> createSwapChain(HWND hWnd,
 		Microsoft::WRL::ComPtr<ID3D12CommandQueue> commandQueue,
-		uint32_t width, uint32_t height, uint32_t bufferCount)
+		uint32_t width, uint32_t height, uint32_t bufferCount, 
+		DXGI_FORMAT colorFormat, DXGI_SAMPLE_DESC sampleDesc)
 
 	{
 		Microsoft::WRL::ComPtr<IDXGISwapChain4> dxgiSwapChain4;
 		Microsoft::WRL::ComPtr<IDXGIFactory4> dxgiFactory4;
 
 		UINT createFactoryFlags = 0;
-		//createFactoryFlags = DXGI_CREATE_FACTORY_DEBUG;
+		createFactoryFlags = DXGI_CREATE_FACTORY_DEBUG;
 
 		HRESULT factoryRes = CreateDXGIFactory2(createFactoryFlags, IID_PPV_ARGS(&dxgiFactory4));
 		if (factoryRes != S_OK)
@@ -102,9 +103,9 @@ namespace GHDX12Helpers
 		DXGI_SWAP_CHAIN_DESC1 swapChainDesc = {};
 		swapChainDesc.Width = width;
 		swapChainDesc.Height = height;
-		swapChainDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+		swapChainDesc.Format = colorFormat;
 		swapChainDesc.Stereo = FALSE;
-		swapChainDesc.SampleDesc = { 1, 0 };
+		swapChainDesc.SampleDesc = sampleDesc;
 		swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 		swapChainDesc.BufferCount = bufferCount;
 		swapChainDesc.Scaling = DXGI_SCALING_STRETCH;

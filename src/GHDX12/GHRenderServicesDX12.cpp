@@ -41,7 +41,7 @@ void GHRenderServicesDX12::initAppShard(GHAppShard& appShard)
         GHDebugMessage::outputString("Could not find ghmDesc for GHMaterialLoaderDX12");
     }
     else {
-        GHMaterialLoaderDX12* ghmLoader = new GHMaterialLoaderDX12((GHRenderDeviceDX12&)mRenderDevice, appShard.mResourceFactory,
+        GHMaterialLoaderDX12* ghmLoader = new GHMaterialLoaderDX12((GHRenderDeviceDX12&)*mRenderDevice, appShard.mResourceFactory,
             *mMaterialCallbackMgr,
             *ghmDescLoader);
         appShard.mXMLObjFactory.addLoader(ghmLoader, 1, "ghm");

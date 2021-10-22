@@ -8,5 +8,6 @@
 #include <DirectXMath.h>
 
 #define NUM_SWAP_BUFFERS 2
+#define SWAP_BUFFER_FORMAT DXGI_FORMAT_R8G8B8A8_UNORM
 
 #endif

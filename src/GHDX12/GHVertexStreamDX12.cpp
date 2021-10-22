@@ -21,6 +21,7 @@ GHVertexStreamDX12::~GHVertexStreamDX12(void)
 
 void GHVertexStreamDX12::prepareVB(int streamIdx, GHVertexStreamFormat* formatOverride)
 {
+	mDevice.getRenderCommandList()->IASetVertexBuffers(streamIdx, 1, &mDXView);
 }
 
 void GHVertexStreamDX12::endVB(int streamIdx)

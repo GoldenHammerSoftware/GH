@@ -7,6 +7,8 @@
 #include "GHMath/GHTransform.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHRenderDeviceDX12.h"
+#include "Render/GHVertexBuffer.h"
+#include "GHVBBlitterIndexDX12.h"
 
 GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps)
 	: mDevice(device)
@@ -21,6 +23,8 @@ GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHMDesc* desc, GHShad
 	delete descParamHandles;
 
 	createRootSignature();
+	createRasterizerDesc();
+	createBlendDesc();
 
 	// todo: GHRenderProperties::DEVICEREINIT
 }
@@ -36,6 +40,12 @@ void GHMaterialDX12::beginMaterial(const GHViewInfo& viewInfo)
 {
 	applyCallbacks(GHMaterialCallbackType::CT_PERFRAME, 0);
 	applyDXArgs(GHMaterialCallbackType::CT_PERFRAME);
+}
+
+void GHMaterialDX12::beginVB(const GHVertexBuffer& vb)
+{
+	createPSO(vb);
+	mDevice.getRenderCommandList()->SetPipelineState(mPSO);
 }
 
 void GHMaterialDX12::beginGeometry(const GHPropertyContainer* geoData, const GHViewInfo& viewInfo)
@@ -109,12 +119,121 @@ void GHMaterialDX12::createRootSignature(void)
 		return;
 	}
 
-	/* is crashing
-	hr = mDevice.getDXDevice()->CreateRootSignature(0, signatureBlob->GetBufferPointer(), signatureBlob->GetBufferSize(), IID_PPV_ARGS(&mRootSignature));
+	auto blobBuffer = signatureBlob->GetBufferPointer();
+	auto blobBufferSize = signatureBlob->GetBufferSize();
+	hr = mDevice.getDXDevice()->CreateRootSignature(0, blobBuffer, blobBufferSize, IID_PPV_ARGS(&mRootSignature));
 	if (FAILED(hr))
 	{
 		GHDebugMessage::outputString("Failed to create root signature");
 		return;
 	}
-	*/
+}
+
+void GHMaterialDX12::createPSO(const GHVertexBuffer& vb)
+{
+	// todo: support multiple PSOs
+	if (mPSO)
+	{
+		return;
+	}
+
+	const GHVBBlitterPtr* vbBlitterPtr = vb.getBlitter();
+	GHVBBlitterIndexDX12* ibBlitter = (GHVBBlitterIndexDX12*)(vbBlitterPtr->get());
+	D3D12_INPUT_ELEMENT_DESC* ied = ibBlitter->getInputElementDescriptor();
+	unsigned int iedCount = ibBlitter->getInputElementCount();
+	D3D12_INPUT_LAYOUT_DESC layoutDesc = {};
+	layoutDesc.NumElements = iedCount;
+	layoutDesc.pInputElementDescs = ied;
+
+	D3D12_GRAPHICS_PIPELINE_STATE_DESC psoDesc = {};
+	psoDesc.InputLayout = layoutDesc;
+	psoDesc.pRootSignature = mRootSignature;
+	psoDesc.VS = mShaders[GHShaderType::ST_VERTEX]->mShader->get()->getBytecode();
+	psoDesc.PS = mShaders[GHShaderType::ST_PIXEL]->mShader->get()->getBytecode();
+	psoDesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
+	// todo: support render targets of different formats.
+	psoDesc.RTVFormats[0] = SWAP_BUFFER_FORMAT;
+	psoDesc.SampleDesc = mDevice.getSampleDesc();
+	psoDesc.SampleMask = 0xffffffff; // sample mask has to do with multi-sampling. 0xffffffff means point sampling is done
+	psoDesc.RasterizerState = mRasterizerDesc;
+	psoDesc.BlendState = mBlendDesc;
+	psoDesc.NumRenderTargets = 1;
+
+	mDevice.getDXDevice()->CreateGraphicsPipelineState(&psoDesc, IID_PPV_ARGS(&mPSO));
+}
+
+void GHMaterialDX12::createRasterizerDesc(void)
+{
+	if (mDesc->mWireframe)
+	{
+		mRasterizerDesc.FillMode = D3D12_FILL_MODE_WIREFRAME;
+	}
+	else
+	{
+		mRasterizerDesc.FillMode = D3D12_FILL_MODE_SOLID;
+	}
+
+	if (mDesc->mCullMode == GHMDesc::CM_NOCULL)
+	{
+		mRasterizerDesc.CullMode = D3D12_CULL_MODE_NONE;
+	}
+	else if (mDesc->mCullMode == GHMDesc::CM_CCW)
+	{
+		mRasterizerDesc.CullMode = D3D12_CULL_MODE_FRONT;
+	}
+	else
+	{
+		mRasterizerDesc.CullMode = D3D12_CULL_MODE_BACK;
+	}
+	
+	mRasterizerDesc.FrontCounterClockwise = TRUE;
+	mRasterizerDesc.DepthBias = mDesc->mZOffset;
+	mRasterizerDesc.DepthBiasClamp = D3D12_DEFAULT_DEPTH_BIAS_CLAMP;
+	mRasterizerDesc.SlopeScaledDepthBias = D3D12_DEFAULT_SLOPE_SCALED_DEPTH_BIAS;
+	mRasterizerDesc.DepthClipEnable = mDesc->mZRead;
+	mRasterizerDesc.MultisampleEnable = false; // todo
+	mRasterizerDesc.AntialiasedLineEnable = false; // todo
+	mRasterizerDesc.ForcedSampleCount = 0;
+	mRasterizerDesc.ConservativeRaster = D3D12_CONSERVATIVE_RASTERIZATION_MODE_OFF;
+}
+
+static D3D12_BLEND convertGHMBlendToD3D(GHMDesc::BlendMode mode)
+{
+	if (mode == GHMDesc::BM_ALPHA) return D3D12_BLEND_SRC_ALPHA;
+	if (mode == GHMDesc::BM_INVALPHA) return D3D12_BLEND_INV_SRC_ALPHA;
+	return D3D12_BLEND_ONE;
+}
+
+void GHMaterialDX12::createBlendDesc(void)
+{
+	mIsAlpha = mDesc->mAlphaBlend;
+
+	mBlendDesc.AlphaToCoverageEnable = false;
+	mBlendDesc.IndependentBlendEnable = false;
+
+	D3D12_RENDER_TARGET_BLEND_DESC targetBlendDesc = {};
+	targetBlendDesc.BlendEnable = mIsAlpha;
+	targetBlendDesc.LogicOpEnable = false;
+
+	if (mDesc->mAlphaBlend)
+	{
+		targetBlendDesc.SrcBlend = convertGHMBlendToD3D(mDesc->mSrcBlend);
+		targetBlendDesc.DestBlend = convertGHMBlendToD3D(mDesc->mDstBlend);
+		targetBlendDesc.BlendOp = D3D12_BLEND_OP_ADD;
+	}
+	else
+	{
+		targetBlendDesc.SrcBlend = D3D12_BLEND_ONE;
+		targetBlendDesc.DestBlend = D3D12_BLEND_ZERO;
+		targetBlendDesc.BlendOp = D3D12_BLEND_OP_ADD;
+	}
+	targetBlendDesc.SrcBlendAlpha = D3D12_BLEND_ONE;
+	targetBlendDesc.DestBlendAlpha = D3D12_BLEND_ZERO;
+	targetBlendDesc.BlendOpAlpha = D3D12_BLEND_OP_ADD;
+	targetBlendDesc.RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
+
+	for (unsigned int i = 0; i < D3D12_SIMULTANEOUS_RENDER_TARGET_COUNT; ++i)
+	{
+		mBlendDesc.RenderTarget[i] = targetBlendDesc;
+	}
 }
