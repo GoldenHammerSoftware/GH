@@ -38,6 +38,8 @@ GHMaterialDX12::~GHMaterialDX12(void)
 
 void GHMaterialDX12::beginMaterial(const GHViewInfo& viewInfo)
 {
+	mDevice.getRenderCommandList()->SetGraphicsRootSignature(mRootSignature);
+
 	applyCallbacks(GHMaterialCallbackType::CT_PERFRAME, 0);
 	applyDXArgs(GHMaterialCallbackType::CT_PERFRAME);
 }
@@ -108,14 +110,17 @@ void GHMaterialDX12::createRootSignature(void)
 	desc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
 
 	// Create two descriptor tables for the cbuffers.  one visible by vertex and one visible by pixel.
-	D3D12_ROOT_PARAMETER params[2];
-	desc.NumParameters = 2;
+	// also one for the pixel srv (add one for vertex?)
+	D3D12_ROOT_PARAMETER params[3];
+	desc.NumParameters = 3;
 	desc.pParameters = &params[0];
 
 	params[0].ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;
 	params[0].ShaderVisibility = D3D12_SHADER_VISIBILITY_VERTEX;
 	params[1].ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;
 	params[1].ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;
+	params[2].ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;
+	params[2].ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;
 
 	D3D12_DESCRIPTOR_RANGE descRange;
 	descRange.RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_CBV;
@@ -129,6 +134,16 @@ void GHMaterialDX12::createRootSignature(void)
 	params[1].DescriptorTable.pDescriptorRanges = &descRange;
 
 	const size_t maxTextures = 16;
+
+	D3D12_DESCRIPTOR_RANGE srvDescRange;
+	srvDescRange.RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_SRV;
+	srvDescRange.NumDescriptors = maxTextures;
+	srvDescRange.BaseShaderRegister = 0;
+	srvDescRange.RegisterSpace = 0;
+	srvDescRange.OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;
+	params[2].DescriptorTable.NumDescriptorRanges = 1;
+	params[2].DescriptorTable.pDescriptorRanges = &srvDescRange;
+
 	desc.NumStaticSamplers = maxTextures;
 	// todo: support different wrap modes etc.
 	// we should probably canonize the types of samplers that are supported and use those in the shaders
