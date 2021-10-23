@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\GHDX12\GHDX12Buffer.h" />
+    <ClInclude Include="..\..\GHDX12\GHDX12CBuffer.h" />
+    <ClInclude Include="..\..\GHDX12\GHDX12CommandList.h" />
     <ClInclude Include="..\..\GHDX12\GHDX12Fence.h" />
     <ClInclude Include="..\..\GHDX12\GHDX12Helpers.h" />
     <ClInclude Include="..\..\GHDX12\GHDX12Include.h" />
@@ -38,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GHDX12\GHDX12Buffer.cpp" />
+    <ClCompile Include="..\..\GHDX12\GHDX12CBuffer.cpp" />
+    <ClCompile Include="..\..\GHDX12\GHDX12CommandList.cpp" />
     <ClCompile Include="..\..\GHDX12\GHDX12Fence.cpp" />
     <ClCompile Include="..\..\GHDX12\GHMaterialParamHandleDX12.cpp" />
     <ClCompile Include="..\..\GHDX12\GHMaterialShaderInfoDX12.cpp" />

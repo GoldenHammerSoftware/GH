@@ -7,22 +7,6 @@
 
 #define DEBUG_DX12 1
 
-static void createCommandListAndAllocator(Microsoft::WRL::ComPtr<ID3D12Device2>& device, Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& commandList, Microsoft::WRL::ComPtr<ID3D12CommandAllocator>& allocator)
-{
-	HRESULT allocRes = device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, __uuidof(ID3D12CommandAllocator), (void**)&allocator);
-	if (allocRes != S_OK)
-	{
-		GHDebugMessage::outputString("Failed to create d3d12 command allocator");
-	}
-
-	HRESULT listRes = device->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, allocator.Get(), nullptr, IID_PPV_ARGS(&commandList));
-	if (allocRes != S_OK)
-	{
-		GHDebugMessage::outputString("Failed to create d3d12 command list");
-	}
-	commandList->Close();
-}
-
 GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 	: mWindow(window)
 {
@@ -48,12 +32,9 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 	for (uint32_t frameId = 0; frameId < NUM_SWAP_BUFFERS; ++frameId)
 	{
 		GHDX12Helpers::createBackBuffer(mDXDevice, mDXSwapChain, mDXDescriptorHeap, mFrameBackends[frameId].mBackBuffer, frameId);
-
-		createCommandListAndAllocator(mDXDevice, mFrameBackends[frameId].mDXCommandList, mFrameBackends[frameId].mDXCommandAllocator);
-
-		mFrameBackends[frameId].mFence = new GHDX12Fence(mDXDevice);
+		mFrameBackends[frameId].mCommandList = new GHDX12CommandList(mDXDevice, mDXCommandQueue);
 	}
-	createCommandListAndAllocator(mDXDevice, mDXUploadCommandList, mDXUploadCommandAllocator);
+	mUploadCommandList = new GHDX12CommandList(mDXDevice, mDXCommandQueue);
 
 	createGraphicsRootSignature();
 }
@@ -61,16 +42,12 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 GHRenderDeviceDX12::~GHRenderDeviceDX12(void)
 {
 	if (mDXSwapChain) mDXSwapChain->SetFullscreenState(false, NULL);
+	// should we wait for command buffer completion here?
 	for (size_t frameId = 0; frameId < NUM_SWAP_BUFFERS; ++frameId)
 	{
-		if (mFrameBackends[frameId].mDXCommandList) mFrameBackends[frameId].mDXCommandList->Release();
-		if (mFrameBackends[frameId].mBackBuffer) mFrameBackends[frameId].mBackBuffer->Release();
-		if (mFrameBackends[frameId].mDXCommandAllocator) mFrameBackends[frameId].mDXCommandAllocator->Release();
+		if (mFrameBackends[frameId].mCommandList) delete mFrameBackends[frameId].mCommandList;
 	}
-	if (mDXDescriptorHeap) mDXDescriptorHeap->Release();
-	if (mDXSwapChain) mDXSwapChain->Release();
-	if (mDXCommandQueue) mDXCommandQueue->Release();
-	if (mDXDevice) mDXDevice->Release();
+	delete mUploadCommandList;
 }
 
 void GHRenderDeviceDX12::reinit(void)
@@ -92,10 +69,8 @@ bool GHRenderDeviceDX12::beginFrame(void)
 {
 	// wait for the next frame to become available.
 	mCurrBackend = getNextBackendId(mCurrBackend);
-	mFrameBackends[mCurrBackend].mFence->waitForFence(mFrameBackends[mCurrBackend].mFenceWaitVal);
-
-	mFrameBackends[mCurrBackend].mDXCommandAllocator->Reset();
-	mFrameBackends[mCurrBackend].mDXCommandList->Reset(mFrameBackends[mCurrBackend].mDXCommandAllocator.Get(), nullptr);
+	mFrameBackends[mCurrBackend].mCommandList->waitForCompletion();
+	mFrameBackends[mCurrBackend].mCommandList->begin();
 
 	D3D12_RESOURCE_BARRIER barrier;
 	barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
@@ -104,17 +79,17 @@ bool GHRenderDeviceDX12::beginFrame(void)
 	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
 	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
-	mFrameBackends[mCurrBackend].mDXCommandList->ResourceBarrier(1, &barrier);
+	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ResourceBarrier(1, &barrier);
 
 	auto rtvDescriptorSize = mDXDevice->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = mDXDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
 	rtvHandle.ptr += rtvDescriptorSize * mCurrBackend;
-	mFrameBackends[mCurrBackend].mDXCommandList->OMSetRenderTargets(1, &rtvHandle, FALSE, NULL);
+	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->OMSetRenderTargets(1, &rtvHandle, FALSE, NULL);
 
 	FLOAT clearColor[] = { 0.1f, 0.6f, 0.1f, 1.0f };
-	mFrameBackends[mCurrBackend].mDXCommandList->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
+	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
 
-	getRenderCommandList()->SetGraphicsRootSignature(mGraphicsRootSignature);
+	getRenderCommandList()->SetGraphicsRootSignature(mGraphicsRootSignature.Get());
 
 	return true;
 }
@@ -128,17 +103,12 @@ void GHRenderDeviceDX12::endFrame(void)
 	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PRESENT;
 	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
-	mFrameBackends[mCurrBackend].mDXCommandList->ResourceBarrier(1, &barrier);
+	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ResourceBarrier(1, &barrier);
 
-	mFrameBackends[mCurrBackend].mDXCommandList->Close();
-	ID3D12CommandList* ppCommandLists[1];
-	ppCommandLists[0] = mFrameBackends[mCurrBackend].mDXCommandList.Get();
-	mDXCommandQueue->ExecuteCommandLists(1, ppCommandLists);
+	mFrameBackends[mCurrBackend].mCommandList->endAndSubmit();
 
 	// possible todo: apply DXGI_PRESENT_ALLOW_TEARING or !vsync
 	mDXSwapChain->Present(1, 0);
-
-	mFrameBackends[mCurrBackend].mFenceWaitVal = mFrameBackends[mCurrBackend].mFence->addToCommandQueue(mDXCommandQueue);
 }
 
 void GHRenderDeviceDX12::beginRenderPass(GHRenderTarget* optionalTarget, const GHPoint4& clearColor, bool clearBuffers)
@@ -202,23 +172,23 @@ GHTexture* GHRenderDeviceDX12::resolveBackbuffer(void)
 	return 0;
 }
 
-Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& GHRenderDeviceDX12::beginUploadCommandList(void)
+Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> GHRenderDeviceDX12::beginUploadCommandList(void)
 {
-	mDXUploadCommandList->Reset(mDXUploadCommandAllocator.Get(), nullptr);
-	return mDXUploadCommandList;
+	mUploadCommandList->begin();
+	return mUploadCommandList->getDXCommandList();
 }
 
 void GHRenderDeviceDX12::endUploadCommandList(void)
 {
-	mDXUploadCommandList->Close();
-	ID3D12CommandList* ppCommandLists[] = { mDXUploadCommandList.Get() };
-	mDXCommandQueue->ExecuteCommandLists(_countof(ppCommandLists), ppCommandLists);
-	// todo: add a fence to check during begin frame or maybe in beginUploadCommandList.
+	mUploadCommandList->endAndSubmit();
+	// wait for it to finish here to make sure everything is available.
+	// if this is a bottleneck we can figure out something else.
+	mUploadCommandList->waitForCompletion();
 }
 
-Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& GHRenderDeviceDX12::getRenderCommandList(void)
+Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> GHRenderDeviceDX12::getRenderCommandList(void)
 {
-	return mFrameBackends[mCurrBackend].mDXCommandList;
+	return mFrameBackends[mCurrBackend].mCommandList->getDXCommandList();
 }
 
 

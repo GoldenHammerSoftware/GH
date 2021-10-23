@@ -22,7 +22,6 @@ GHDX12Buffer::GHDX12Buffer(GHRenderDeviceDX12& device, size_t bufferSize, GHVBUs
 GHDX12Buffer::~GHDX12Buffer(void)
 {
 	delete[] mMemoryBuffer;
-	// todo: delete dx buffers (crashing)
 }
 
 void* GHDX12Buffer::lockWriteBuffer(void)
@@ -39,12 +38,12 @@ void GHDX12Buffer::unlockWriteBuffer(void)
 		vertexData.RowPitch = mBufferSize;
 		vertexData.SlicePitch = mBufferSize;
 
-		Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& commandList = mDevice.beginUploadCommandList();
-		GHDX12Helpers::UpdateSubresources(commandList.Get(), mDXBuffer, mDXUploadBuffer, 0, 0, 1, &vertexData);
+		Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> commandList = mDevice.beginUploadCommandList();
+		GHDX12Helpers::UpdateSubresources(commandList.Get(), mDXBuffer.Get(), mDXUploadBuffer.Get(), 0, 0, 1, &vertexData);
 
 		D3D12_RESOURCE_BARRIER barrier;
 		barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
-		barrier.Transition.pResource = mDXBuffer;
+		barrier.Transition.pResource = mDXBuffer.Get();
 		barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_COPY_DEST;
 		barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER;
 		barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;

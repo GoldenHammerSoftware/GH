@@ -2,6 +2,7 @@
 
 #include "Render/GHRenderDevice.h"
 #include "GHDX12Include.h"
+#include "GHDX12CommandList.h"
 
 class GHWin32Window;
 class GHDX12Fence;
@@ -30,11 +31,11 @@ public:
 
 	virtual GHTexture* resolveBackbuffer(void) override;
 
-	Microsoft::WRL::ComPtr<ID3D12Device2>& getDXDevice(void) { return mDXDevice; }
-	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& getRenderCommandList(void);
-	ID3D12RootSignature* getGraphicsRootSignature(void) { return mGraphicsRootSignature; }
+	Microsoft::WRL::ComPtr<ID3D12Device2> getDXDevice(void) { return mDXDevice; }
+	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> getRenderCommandList(void);
+	Microsoft::WRL::ComPtr<ID3D12RootSignature> getGraphicsRootSignature(void) { return mGraphicsRootSignature; }
 	DXGI_SAMPLE_DESC getSampleDesc(void) const { return mDXSwapChainSampleDesc; }
-	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& beginUploadCommandList(void);
+	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> beginUploadCommandList(void);
 	void endUploadCommandList(void);
 
 private:
@@ -43,25 +44,20 @@ private:
 protected:
 	GHViewInfo mViewInfo;
 	GHWin32Window& mWindow;
-	Microsoft::WRL::ComPtr<ID3D12Device2> mDXDevice;
-	Microsoft::WRL::ComPtr<IDXGISwapChain1> mDXSwapChain;
+	Microsoft::WRL::ComPtr<ID3D12Device2> mDXDevice{ nullptr };
+	Microsoft::WRL::ComPtr<IDXGISwapChain1> mDXSwapChain{ nullptr };
 	DXGI_SAMPLE_DESC mDXSwapChainSampleDesc;
-	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDXDescriptorHeap;
-	Microsoft::WRL::ComPtr<ID3D12CommandQueue> mDXCommandQueue;
+	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDXDescriptorHeap{ nullptr };
+	Microsoft::WRL::ComPtr<ID3D12CommandQueue> mDXCommandQueue{ nullptr };
+	Microsoft::WRL::ComPtr<ID3D12RootSignature> mGraphicsRootSignature{ nullptr };
 
-	Microsoft::WRL::ComPtr<ID3D12CommandAllocator> mDXUploadCommandAllocator;
-	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mDXUploadCommandList;
-
-	ID3D12RootSignature* mGraphicsRootSignature{ nullptr };
+	GHDX12CommandList* mUploadCommandList;
 
 	// The info needed for one frame in our swap buffer.
 	struct FrameBackend
 	{
 		Microsoft::WRL::ComPtr<ID3D12Resource> mBackBuffer;
-		Microsoft::WRL::ComPtr<ID3D12CommandAllocator> mDXCommandAllocator;
-		Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mDXCommandList;
-		GHDX12Fence* mFence;
-		uint64_t mFenceWaitVal;
+		GHDX12CommandList* mCommandList;
 	};
 
 	FrameBackend mFrameBackends[NUM_SWAP_BUFFERS];

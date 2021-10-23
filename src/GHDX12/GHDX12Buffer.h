@@ -17,7 +17,7 @@ public:
     const void* lockReadBuffer(void) const;
     void unlockReadBuffer(void) const;
 
-    ID3D12Resource* getDXBuffer(void) const { return mDXBuffer; }
+    Microsoft::WRL::ComPtr<ID3D12Resource> getDXBuffer(void) const { return mDXBuffer; }
     GHVBUsage::Enum getUsage(void) const { return mUsage; }
     size_t getBufferSize(void) const { return mBufferSize; }
 
@@ -30,10 +30,10 @@ private:
     size_t mBufferSize;
     GHVBUsage::Enum mUsage;
 
-    ID3D12Resource* mDXBuffer{ nullptr };
+    Microsoft::WRL::ComPtr<ID3D12Resource> mDXBuffer{ nullptr };
     // cpu only memory copy
     void* mMemoryBuffer{ nullptr };
     // optional upload buffer for static buffers.
     // probably don't need to keep this around.
-    ID3D12Resource* mDXUploadBuffer{ nullptr };
+    Microsoft::WRL::ComPtr<ID3D12Resource> mDXUploadBuffer{ nullptr };
 };

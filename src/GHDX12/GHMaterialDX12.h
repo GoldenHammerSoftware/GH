@@ -38,6 +38,6 @@ private:
     // todo: support sharing pso
     // todo: support psos for different vertex definitions
     // todo: support psos for different render targets
-    ID3D12PipelineState* mPSO{ nullptr };
+    Microsoft::WRL::ComPtr<ID3D12PipelineState> mPSO{ nullptr };
 };
 

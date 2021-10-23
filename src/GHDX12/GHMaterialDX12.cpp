@@ -44,7 +44,7 @@ void GHMaterialDX12::beginMaterial(const GHViewInfo& viewInfo)
 void GHMaterialDX12::beginVB(const GHVertexBuffer& vb)
 {
 	createPSO(vb);
-	mDevice.getRenderCommandList()->SetPipelineState(mPSO);
+	mDevice.getRenderCommandList()->SetPipelineState(mPSO.Get());
 }
 
 void GHMaterialDX12::beginGeometry(const GHPropertyContainer* geoData, const GHViewInfo& viewInfo)
@@ -117,7 +117,7 @@ void GHMaterialDX12::createPSO(const GHVertexBuffer& vb)
 
 	D3D12_GRAPHICS_PIPELINE_STATE_DESC psoDesc = {};
 	psoDesc.InputLayout = layoutDesc;
-	psoDesc.pRootSignature = mDevice.getGraphicsRootSignature();
+	psoDesc.pRootSignature = mDevice.getGraphicsRootSignature().Get();
 	psoDesc.VS = mShaders[GHShaderType::ST_VERTEX]->mShader->get()->getBytecode();
 	psoDesc.PS = mShaders[GHShaderType::ST_PIXEL]->mShader->get()->getBytecode();
 	psoDesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
