@@ -22,7 +22,6 @@ GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHMDesc* desc, GHShad
 	desc->applyTextures(*this, *descParamHandles);
 	delete descParamHandles;
 
-	createRootSignature();
 	createRasterizerDesc();
 	createBlendDesc();
 
@@ -38,8 +37,6 @@ GHMaterialDX12::~GHMaterialDX12(void)
 
 void GHMaterialDX12::beginMaterial(const GHViewInfo& viewInfo)
 {
-	mDevice.getRenderCommandList()->SetGraphicsRootSignature(mRootSignature);
-
 	applyCallbacks(GHMaterialCallbackType::CT_PERFRAME, 0);
 	applyDXArgs(GHMaterialCallbackType::CT_PERFRAME);
 }
@@ -102,95 +99,6 @@ void GHMaterialDX12::applyDXArgs(GHMaterialCallbackType::Enum type)
 	// todo.
 }
 
-void GHMaterialDX12::createRootSignature(void)
-{
-	D3D12_ROOT_SIGNATURE_DESC desc;
-	desc.NumStaticSamplers = 0;
-	desc.pStaticSamplers = nullptr;
-	desc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
-
-	// Create two descriptor tables for the cbuffers.  one visible by vertex and one visible by pixel.
-	// also one for the pixel srv (add one for vertex?)
-	D3D12_ROOT_PARAMETER params[3];
-	desc.NumParameters = 3;
-	desc.pParameters = &params[0];
-
-	params[0].ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;
-	params[0].ShaderVisibility = D3D12_SHADER_VISIBILITY_VERTEX;
-	params[1].ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;
-	params[1].ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;
-	params[2].ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;
-	params[2].ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;
-
-	D3D12_DESCRIPTOR_RANGE descRange;
-	descRange.RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_CBV;
-	descRange.NumDescriptors = 4;
-	descRange.BaseShaderRegister = 0;
-	descRange.RegisterSpace = 0;
-	descRange.OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;
-	params[0].DescriptorTable.NumDescriptorRanges = 1;
-	params[0].DescriptorTable.pDescriptorRanges = &descRange;
-	params[1].DescriptorTable.NumDescriptorRanges = 1;
-	params[1].DescriptorTable.pDescriptorRanges = &descRange;
-
-	const size_t maxTextures = 16;
-
-	D3D12_DESCRIPTOR_RANGE srvDescRange;
-	srvDescRange.RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_SRV;
-	srvDescRange.NumDescriptors = maxTextures;
-	srvDescRange.BaseShaderRegister = 0;
-	srvDescRange.RegisterSpace = 0;
-	srvDescRange.OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;
-	params[2].DescriptorTable.NumDescriptorRanges = 1;
-	params[2].DescriptorTable.pDescriptorRanges = &srvDescRange;
-
-	desc.NumStaticSamplers = maxTextures;
-	// todo: support different wrap modes etc.
-	// we should probably canonize the types of samplers that are supported and use those in the shaders
-	//  and remove the option of having the texture specify these things.
-	D3D12_STATIC_SAMPLER_DESC samplers[maxTextures];
-	for (int i = 0; i < maxTextures; ++i)
-	{
-		samplers[i].Filter = D3D12_FILTER_MIN_MAG_MIP_POINT;
-		samplers[i].AddressU = D3D12_TEXTURE_ADDRESS_MODE_BORDER;
-		samplers[i].AddressV = D3D12_TEXTURE_ADDRESS_MODE_BORDER;
-		samplers[i].AddressW = D3D12_TEXTURE_ADDRESS_MODE_BORDER;
-		samplers[i].MipLODBias = 0;
-		samplers[i].MaxAnisotropy = 0;
-		samplers[i].ComparisonFunc = D3D12_COMPARISON_FUNC_NEVER;
-		samplers[i].BorderColor = D3D12_STATIC_BORDER_COLOR_TRANSPARENT_BLACK;
-		samplers[i].MinLOD = 0.0f;
-		samplers[i].MaxLOD = D3D12_FLOAT32_MAX;
-		samplers[i].ShaderRegister = i;
-		samplers[i].RegisterSpace = 0;
-		samplers[i].ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;
-	}
-	desc.pStaticSamplers = &samplers[0];
-
-	Microsoft::WRL::ComPtr<ID3DBlob> signatureBlob = 0;
-	Microsoft::WRL::ComPtr<ID3DBlob> blobError = 0;
-	HRESULT hr = D3D12SerializeRootSignature(&desc, D3D_ROOT_SIGNATURE_VERSION_1, signatureBlob.GetAddressOf(), blobError.GetAddressOf());
-	if (FAILED(hr))
-	{
-		const char* errorBuffer = "";
-		if (blobError)
-		{
-			errorBuffer = (const char*)blobError->GetBufferPointer();
-		}
-		GHDebugMessage::outputString("Failed to create root signature blob: %s", errorBuffer);
-		return;
-	}
-
-	auto blobBuffer = signatureBlob->GetBufferPointer();
-	auto blobBufferSize = signatureBlob->GetBufferSize();
-	hr = mDevice.getDXDevice()->CreateRootSignature(0, blobBuffer, blobBufferSize, IID_PPV_ARGS(&mRootSignature));
-	if (FAILED(hr))
-	{
-		GHDebugMessage::outputString("Failed to create root signature");
-		return;
-	}
-}
-
 void GHMaterialDX12::createPSO(const GHVertexBuffer& vb)
 {
 	// todo: support multiple PSOs
@@ -209,7 +117,7 @@ void GHMaterialDX12::createPSO(const GHVertexBuffer& vb)
 
 	D3D12_GRAPHICS_PIPELINE_STATE_DESC psoDesc = {};
 	psoDesc.InputLayout = layoutDesc;
-	psoDesc.pRootSignature = mRootSignature;
+	psoDesc.pRootSignature = mDevice.getGraphicsRootSignature();
 	psoDesc.VS = mShaders[GHShaderType::ST_VERTEX]->mShader->get()->getBytecode();
 	psoDesc.PS = mShaders[GHShaderType::ST_PIXEL]->mShader->get()->getBytecode();
 	psoDesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;

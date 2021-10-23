@@ -24,7 +24,6 @@ public:
 
 private:
     void applyDXArgs(GHMaterialCallbackType::Enum type);
-    void createRootSignature(void);
     void createPSO(const GHVertexBuffer& vb);
     void createRasterizerDesc(void);
     void createBlendDesc(void);
@@ -33,7 +32,6 @@ private:
     GHRenderDeviceDX12& mDevice;
     GHMDesc* mDesc{ nullptr };
     GHMaterialShaderInfoDX12* mShaders[GHShaderType::ST_MAX];
-    ID3D12RootSignature* mRootSignature{ nullptr };
     D3D12_RASTERIZER_DESC mRasterizerDesc;
     D3D12_BLEND_DESC mBlendDesc;
 

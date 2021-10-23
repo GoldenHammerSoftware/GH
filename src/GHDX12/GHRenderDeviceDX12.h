@@ -32,9 +32,13 @@ public:
 
 	Microsoft::WRL::ComPtr<ID3D12Device2>& getDXDevice(void) { return mDXDevice; }
 	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& getRenderCommandList(void);
+	ID3D12RootSignature* getGraphicsRootSignature(void) { return mGraphicsRootSignature; }
 	DXGI_SAMPLE_DESC getSampleDesc(void) const { return mDXSwapChainSampleDesc; }
 	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>& beginUploadCommandList(void);
 	void endUploadCommandList(void);
+
+private:
+	void createGraphicsRootSignature(void);
 
 protected:
 	GHViewInfo mViewInfo;
@@ -47,6 +51,8 @@ protected:
 
 	Microsoft::WRL::ComPtr<ID3D12CommandAllocator> mDXUploadCommandAllocator;
 	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mDXUploadCommandList;
+
+	ID3D12RootSignature* mGraphicsRootSignature{ nullptr };
 
 	// The info needed for one frame in our swap buffer.
 	struct FrameBackend
