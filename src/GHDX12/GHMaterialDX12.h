@@ -3,6 +3,7 @@
 #include "Render/GHMaterial.h"
 #include "Render/GHShaderType.h"
 #include "GHShaderDX12.h"
+#include "GHDX12CBuffer.h"
 
 class GHMDesc;
 class GHMaterialShaderInfoDX12;

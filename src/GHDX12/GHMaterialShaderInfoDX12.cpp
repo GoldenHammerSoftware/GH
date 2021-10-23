@@ -1,12 +1,12 @@
 #include "GHMaterialShaderInfoDX12.h"
 #include "GHShaderDX12.h"
 
-GHMaterialShaderInfoDX12::GHMaterialShaderInfoDX12(GHShaderResource* shader)
+GHMaterialShaderInfoDX12::GHMaterialShaderInfoDX12(GHRenderDeviceDX12& device, GHShaderResource* shader)
 	: mShader(shader)
 {
 	assert(mShader);
 	mShader->acquire();
-	createConstantBuffers();
+	createConstantBuffers(device);
 }
 
 GHMaterialShaderInfoDX12::~GHMaterialShaderInfoDX12(void)
@@ -21,15 +21,14 @@ GHMaterialShaderInfoDX12::~GHMaterialShaderInfoDX12(void)
 	}
 }
 
-void GHMaterialShaderInfoDX12::createConstantBuffers(void)
+void GHMaterialShaderInfoDX12::createConstantBuffers(GHRenderDeviceDX12& device)
 {
 	for (int i = 0; i < (int)GHMaterialCallbackType::CT_MAX; ++i)
 	{
 		unsigned int vsBufSize = mShader->get()->getParamList()->getBufferSize((GHMaterialCallbackType::Enum)i);
 		if (vsBufSize) 
 		{
-			mCBuffers[i] = new ConstantBufferInfo(vsBufSize);
-			// todo: dx buffers.
+			mCBuffers[i] = new GHDX12CBuffer(device, vsBufSize);
 		}
 	}
 	// extract the texture info
@@ -55,14 +54,3 @@ void GHMaterialShaderInfoDX12::TextureSlot::setTexture(GHTexture* tex, GHMDesc::
 {
 }
 
-GHMaterialShaderInfoDX12::ConstantBufferInfo::ConstantBufferInfo(size_t size)
-	: mDataSize(size)
-{
-	mData = new byte[mDataSize];
-	// todo: dx buffers
-}
-
-GHMaterialShaderInfoDX12::ConstantBufferInfo::~ConstantBufferInfo(void)
-{
-	delete[] mData;
-}

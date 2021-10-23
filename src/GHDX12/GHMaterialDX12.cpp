@@ -14,8 +14,8 @@ GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHMDesc* desc, GHShad
 	: mDevice(device)
 	, mDesc(desc)
 {
-	mShaders[GHShaderType::ST_VERTEX] = new GHMaterialShaderInfoDX12(vs);
-	mShaders[GHShaderType::ST_PIXEL] = new GHMaterialShaderInfoDX12(ps);
+	mShaders[GHShaderType::ST_VERTEX] = new GHMaterialShaderInfoDX12(device, vs);
+	mShaders[GHShaderType::ST_PIXEL] = new GHMaterialShaderInfoDX12(device, ps);
 
 	GHMDesc::ParamHandles* descParamHandles = desc->initMaterial(*this);
 	desc->applyDefaultArgs(*this, *descParamHandles);
@@ -96,7 +96,12 @@ GHMaterialParamHandle* GHMaterialDX12::getParamHandle(const char* paramName)
 
 void GHMaterialDX12::applyDXArgs(GHMaterialCallbackType::Enum type)
 {
-	// todo.
+	for (unsigned int shaderType = 0; shaderType < GHShaderType::ST_MAX; ++shaderType)
+	{
+		if (!mShaders[shaderType]->mCBuffers[type]) continue;
+		mShaders[shaderType]->mCBuffers[type]->updateFrameData(mDevice.getFrameBackendId());
+	}
+	// todo: add to encoder.
 }
 
 void GHMaterialDX12::createPSO(const GHVertexBuffer& vb)

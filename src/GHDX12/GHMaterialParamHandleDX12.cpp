@@ -1,6 +1,7 @@
 #include "GHMaterialParamHandleDX12.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHMaterialShaderInfoDX12.h"
+#include "GHDX12CBuffer.h"
 
 void GHMaterialParamHandleDX12::addShaderHandle(GHMaterialShaderInfoDX12* shader,
 	const GHShaderParamList::Param* param)
@@ -30,8 +31,8 @@ void GHMaterialParamHandleDX12::setValue(HandleType type, const void* value)
 		}
 		else {
 			unsigned int byteSize = GHMaterialParamHandle::calcHandleSizeBytes(mHandles[i].second->mHandleType);
-			GHMaterialShaderInfoDX12::ConstantBufferInfo* cbuffer = mHandles[i].first->mCBuffers[mHandles[i].second->mCBType];
-			::memcpy(cbuffer->mData + mHandles[i].second->mOffsetBytes, value, byteSize);
+			GHDX12CBuffer* cbuffer = mHandles[i].first->mCBuffers[mHandles[i].second->mCBType];
+			::memcpy((char*)cbuffer->getMemoryBuffer() + mHandles[i].second->mOffsetBytes, value, byteSize);
 
 			//elements in arrays are always padded to 4 floats
 			const unsigned int arrayAlignment = 4 * sizeof(float);
@@ -44,7 +45,7 @@ void GHMaterialParamHandleDX12::setValue(HandleType type, const void* value)
 			byte* elementPtr = ((byte*)value) + byteSize;
 			for (int count = mHandles[i].second->mCount - 1; count > 0; --count, bufferOffset += byteSize + arrayPadding, elementPtr += byteSize)
 			{
-				::memcpy(cbuffer->mData + bufferOffset, elementPtr, byteSize);
+				::memcpy((char*)cbuffer->getMemoryBuffer() + bufferOffset, elementPtr, byteSize);
 			}
 		}
 	}

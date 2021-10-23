@@ -35,6 +35,7 @@ public:
 	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> getRenderCommandList(void);
 	Microsoft::WRL::ComPtr<ID3D12RootSignature> getGraphicsRootSignature(void) { return mGraphicsRootSignature; }
 	DXGI_SAMPLE_DESC getSampleDesc(void) const { return mDXSwapChainSampleDesc; }
+	int32_t getFrameBackendId(void) const { return mCurrBackend; }
 	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> beginUploadCommandList(void);
 	void endUploadCommandList(void);
 
