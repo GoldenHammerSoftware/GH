@@ -40,5 +40,7 @@ private:
     // todo: support psos for different vertex definitions
     // todo: support psos for different render targets
     Microsoft::WRL::ComPtr<ID3D12PipelineState> mPSO{ nullptr };
+
+    Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDescriptorHeaps[NUM_SWAP_BUFFERS];
 };
 

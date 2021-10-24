@@ -12,6 +12,8 @@
 #include "GHShaderLoaderDX12.h"
 #include "Base/GHSystemServices.h"
 #include "Render/GHShaderParamListLoader.h"
+#include "Render/GHMaterialCallbackFactoryViewInfo.h"
+#include "Render/GHMaterialCallbackMgr.h"
 
 GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHWin32Window& window)
 : GHRenderServices(systemServices)
@@ -24,6 +26,9 @@ GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHW
     addOwnedItem(new GHTypedDeletionHandle<GHFontRenderer>(mFontRenderer));
     mRenderTargetFactory = new GHNullRenderTargetFactory();
     mLightMgr = new GHLightMgr(*mMaterialCallbackMgr);
+
+    GHMaterialCallbackFactory* viewCB = new GHMaterialCallbackFactoryViewInfo(renderDevice->getViewInfo(), "");
+    mMaterialCallbackMgr->addFactory(viewCB);
 }
 
 void GHRenderServicesDX12::initAppShard(GHAppShard& appShard)

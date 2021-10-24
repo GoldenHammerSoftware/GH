@@ -14,8 +14,22 @@ GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHMDesc* desc, GHShad
 	: mDevice(device)
 	, mDesc(desc)
 {
-	mShaders[GHShaderType::ST_VERTEX] = new GHMaterialShaderInfoDX12(device, vs);
-	mShaders[GHShaderType::ST_PIXEL] = new GHMaterialShaderInfoDX12(device, ps);
+	for (int i = 0; i < NUM_SWAP_BUFFERS; ++i)
+	{
+		D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
+		heapDesc.NumDescriptors = 2 * GHMaterialCallbackType::CT_MAX;
+		heapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
+		heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
+		HRESULT hr = mDevice.getDXDevice()->CreateDescriptorHeap(&heapDesc, IID_PPV_ARGS(&mDescriptorHeaps[i]));
+		if (FAILED(hr))
+		{
+			GHDebugMessage::outputString("Failed to create cbuffer descriptor heap.");
+			return;
+		}
+	}
+
+	mShaders[GHShaderType::ST_VERTEX] = new GHMaterialShaderInfoDX12(device, mDescriptorHeaps, vs, GHShaderType::ST_VERTEX);
+	mShaders[GHShaderType::ST_PIXEL] = new GHMaterialShaderInfoDX12(device, mDescriptorHeaps, ps, GHShaderType::ST_PIXEL);
 
 	GHMDesc::ParamHandles* descParamHandles = desc->initMaterial(*this);
 	desc->applyDefaultArgs(*this, *descParamHandles);
@@ -45,6 +59,16 @@ void GHMaterialDX12::beginVB(const GHVertexBuffer& vb)
 {
 	createPSO(vb);
 	mDevice.getRenderCommandList()->SetPipelineState(mPSO.Get());
+
+	ID3D12DescriptorHeap* heaps = { mDescriptorHeaps[mDevice.getFrameBackendId()].Get() };
+	mDevice.getRenderCommandList()->SetDescriptorHeaps(1, &heaps);
+
+	const UINT cbvSrvDescriptorSize = mDevice.getDXDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
+	D3D12_GPU_DESCRIPTOR_HANDLE heapOffsetHandle = mDescriptorHeaps[mDevice.getFrameBackendId()]->GetGPUDescriptorHandleForHeapStart();
+
+	mDevice.getRenderCommandList()->SetGraphicsRootDescriptorTable(0, heapOffsetHandle);
+	heapOffsetHandle.ptr += (4 * cbvSrvDescriptorSize);
+	mDevice.getRenderCommandList()->SetGraphicsRootDescriptorTable(1, heapOffsetHandle);
 }
 
 void GHMaterialDX12::beginGeometry(const GHPropertyContainer* geoData, const GHViewInfo& viewInfo)
@@ -101,7 +125,6 @@ void GHMaterialDX12::applyDXArgs(GHMaterialCallbackType::Enum type)
 		if (!mShaders[shaderType]->mCBuffers[type]) continue;
 		mShaders[shaderType]->mCBuffers[type]->updateFrameData(mDevice.getFrameBackendId());
 	}
-	// todo: add to encoder.
 }
 
 void GHMaterialDX12::createPSO(const GHVertexBuffer& vb)
