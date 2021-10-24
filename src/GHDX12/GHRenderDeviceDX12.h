@@ -66,5 +66,8 @@ protected:
 
 	FrameBackend mFrameBackends[NUM_SWAP_BUFFERS];
 	int32_t mCurrBackend{ -1 };
+
+	D3D12_RECT mScissorRect;
+	D3D12_VIEWPORT mViewport;
 };
 

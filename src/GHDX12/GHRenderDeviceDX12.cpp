@@ -23,9 +23,9 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 		GHDebugMessage::outputString("Failed to create d3d12 device");
 	}
 	mDXCommandQueue = GHDX12Helpers::createCommandQueue(mDXDevice, D3D12_COMMAND_LIST_TYPE_DIRECT);
-	const GHPoint2i& size = mWindow.getClientAreaSize();
+	const GHPoint2i& screenSize = mWindow.getClientAreaSize();
 	mDXSwapChainSampleDesc = { 1, 0 };
-	mDXSwapChain = GHDX12Helpers::createSwapChain(mWindow.getHWND(), mDXCommandQueue, size[0], size[1], NUM_SWAP_BUFFERS, SWAP_BUFFER_FORMAT, mDXSwapChainSampleDesc);
+	mDXSwapChain = GHDX12Helpers::createSwapChain(mWindow.getHWND(), mDXCommandQueue, screenSize[0], screenSize[1], NUM_SWAP_BUFFERS, SWAP_BUFFER_FORMAT, mDXSwapChainSampleDesc);
 	const int numDescriptors = 256;
 	mDXDescriptorHeap = GHDX12Helpers::createDescriptorHeap(mDXDevice, D3D12_DESCRIPTOR_HEAP_TYPE_RTV, numDescriptors);
 
@@ -35,6 +35,18 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 		mFrameBackends[frameId].mCommandList = new GHDX12CommandList(mDXDevice, mDXCommandQueue);
 	}
 	mUploadCommandList = new GHDX12CommandList(mDXDevice, mDXCommandQueue);
+
+	mScissorRect.left = 0;
+	mScissorRect.right = screenSize[0];
+	mScissorRect.top = 0;
+	mScissorRect.bottom = screenSize[1];
+
+	mViewport.TopLeftX = 0;
+	mViewport.TopLeftY = 0;
+	mViewport.Width = screenSize[0];
+	mViewport.Height = screenSize[1];
+	mViewport.MinDepth = 0.0f;
+	mViewport.MaxDepth = 1.0f;
 
 	createGraphicsRootSignature();
 }
@@ -86,10 +98,14 @@ bool GHRenderDeviceDX12::beginFrame(void)
 	rtvHandle.ptr += rtvDescriptorSize * mCurrBackend;
 	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->OMSetRenderTargets(1, &rtvHandle, FALSE, NULL);
 
-	FLOAT clearColor[] = { 0.1f, 0.6f, 0.1f, 1.0f };
+	static FLOAT clearColor[] = { 0.1f, 0.0f, 0.1f, 1.0f };
+	clearColor[1] += 0.01;
+	if (clearColor[1] > 1) clearColor[1] = 0;
 	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
 
 	getRenderCommandList()->SetGraphicsRootSignature(mGraphicsRootSignature.Get());
+	getRenderCommandList()->RSSetViewports(1, &mViewport); 
+	getRenderCommandList()->RSSetScissorRects(1, &mScissorRect); 
 
 	return true;
 }

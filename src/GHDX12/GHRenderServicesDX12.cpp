@@ -14,11 +14,17 @@
 #include "Render/GHShaderParamListLoader.h"
 #include "Render/GHMaterialCallbackFactoryViewInfo.h"
 #include "Render/GHMaterialCallbackMgr.h"
+#include "GHWin32/GHWin32Window.h"
 
 GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHWin32Window& window)
 : GHRenderServices(systemServices)
 , mWindow(window)
 {
+    const GHPoint2i& screenSize = window.getClientAreaSize();
+    mScreenInfo.setSize(screenSize);
+    mScreenInfo.setPixelSizeFactor(1 / 800.0f, 0.0f);
+    mScreenInfo.setMinimumPixelHeight(600);
+
     GHRenderDeviceDX12 * renderDevice = new GHRenderDeviceDX12(mWindow);
     setDevice(renderDevice);
     setVBFactory(new GHVBFactoryDX12(*renderDevice));
