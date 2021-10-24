@@ -41,8 +41,8 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 
 GHRenderDeviceDX12::~GHRenderDeviceDX12(void)
 {
+	flushGPU();
 	if (mDXSwapChain) mDXSwapChain->SetFullscreenState(false, NULL);
-	// should we wait for command buffer completion here?
 	for (size_t frameId = 0; frameId < NUM_SWAP_BUFFERS; ++frameId)
 	{
 		if (mFrameBackends[frameId].mCommandList) delete mFrameBackends[frameId].mCommandList;
@@ -191,7 +191,6 @@ Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> GHRenderDeviceDX12::getRenderC
 	return mFrameBackends[mCurrBackend].mCommandList->getDXCommandList();
 }
 
-
 void GHRenderDeviceDX12::createGraphicsRootSignature(void)
 {
 	D3D12_ROOT_SIGNATURE_DESC desc;
@@ -278,5 +277,14 @@ void GHRenderDeviceDX12::createGraphicsRootSignature(void)
 	{
 		GHDebugMessage::outputString("Failed to create root signature");
 		return;
+	}
+}
+
+void GHRenderDeviceDX12::flushGPU(void)
+{
+	mUploadCommandList->waitForCompletion();
+	for (int i = 0; i < NUM_SWAP_BUFFERS; ++i)
+	{
+		mFrameBackends[i].mCommandList->waitForCompletion();
 	}
 }

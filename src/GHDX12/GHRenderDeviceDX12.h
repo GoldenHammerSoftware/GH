@@ -39,6 +39,9 @@ public:
 	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> beginUploadCommandList(void);
 	void endUploadCommandList(void);
 
+	// wait for all command buffers to finish so we can delete resources etc.
+	void flushGPU(void);
+
 private:
 	void createGraphicsRootSignature(void);
 

@@ -49,6 +49,7 @@ GHDX12CBuffer::GHDX12CBuffer(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<
 
 GHDX12CBuffer::~GHDX12CBuffer(void)
 {
+    mDevice.flushGPU();
 	delete[] mMemoryBuffer;
 }
 

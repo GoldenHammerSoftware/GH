@@ -21,6 +21,7 @@ GHDX12Buffer::GHDX12Buffer(GHRenderDeviceDX12& device, size_t bufferSize, GHVBUs
 
 GHDX12Buffer::~GHDX12Buffer(void)
 {
+	mDevice.flushGPU();
 	delete[] mMemoryBuffer;
 }
 
