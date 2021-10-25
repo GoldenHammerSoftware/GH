@@ -11,8 +11,8 @@ GHVertexStreamDX12::GHVertexStreamDX12(GHRenderDeviceDX12& device, GHVertexStrea
 	mNumVerts = numVerts;
 
 	mDXView.BufferLocation = mBuffer.getDXBuffer()->GetGPUVirtualAddress();
-	mDXView.StrideInBytes = mFormat->get()->getVertexSize();
-	mDXView.SizeInBytes = format->get()->getVertexSize() * numVerts;
+	mDXView.StrideInBytes = mFormat->get()->getVertexSize() * sizeof(float);
+	mDXView.SizeInBytes = format->get()->getVertexSize() * numVerts * sizeof(float);
 }
 
 GHVertexStreamDX12::~GHVertexStreamDX12(void)
