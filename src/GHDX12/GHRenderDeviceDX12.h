@@ -44,6 +44,7 @@ public:
 
 private:
 	void createGraphicsRootSignature(void);
+	void createDepthBuffer(void);
 
 protected:
 	GHViewInfo mViewInfo;
@@ -63,9 +64,12 @@ protected:
 		Microsoft::WRL::ComPtr<ID3D12Resource> mBackBuffer;
 		GHDX12CommandList* mCommandList;
 	};
-
 	FrameBackend mFrameBackends[NUM_SWAP_BUFFERS];
 	int32_t mCurrBackend{ -1 };
+
+	// only one depth buffer for the whole app?
+	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDepthDescriptorHeap;
+	Microsoft::WRL::ComPtr<ID3D12Resource> mDepthBuffer;
 
 	D3D12_RECT mScissorRect;
 	D3D12_VIEWPORT mViewport;

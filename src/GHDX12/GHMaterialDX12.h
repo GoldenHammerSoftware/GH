@@ -28,13 +28,16 @@ private:
     void createPSO(const GHVertexBuffer& vb);
     void createRasterizerDesc(void);
     void createBlendDesc(void);
+    void createDepthStencilDesc(void);
 
 private:
     GHRenderDeviceDX12& mDevice;
     GHMDesc* mDesc{ nullptr };
     GHMaterialShaderInfoDX12* mShaders[GHShaderType::ST_MAX];
+    
     D3D12_RASTERIZER_DESC mRasterizerDesc;
     D3D12_BLEND_DESC mBlendDesc;
+    D3D12_DEPTH_STENCIL_DESC mDepthStencilDesc;
 
     // todo: support sharing pso
     // todo: support psos for different vertex definitions

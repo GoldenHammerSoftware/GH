@@ -35,6 +35,7 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 		mFrameBackends[frameId].mCommandList = new GHDX12CommandList(mDXDevice, mDXCommandQueue);
 	}
 	mUploadCommandList = new GHDX12CommandList(mDXDevice, mDXCommandQueue);
+	createDepthBuffer();
 
 	mScissorRect.left = 0;
 	mScissorRect.right = screenSize[0];
@@ -96,12 +97,14 @@ bool GHRenderDeviceDX12::beginFrame(void)
 	auto rtvDescriptorSize = mDXDevice->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = mDXDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
 	rtvHandle.ptr += rtvDescriptorSize * mCurrBackend;
-	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->OMSetRenderTargets(1, &rtvHandle, FALSE, NULL);
+	D3D12_CPU_DESCRIPTOR_HANDLE dsvHandle = mDepthDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
+	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->OMSetRenderTargets(1, &rtvHandle, FALSE, &dsvHandle);
 
 	static FLOAT clearColor[] = { 0.1f, 0.0f, 0.1f, 1.0f };
 	clearColor[1] += 0.01;
 	if (clearColor[1] > 1) clearColor[1] = 0;
 	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
+	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearDepthStencilView(mDepthDescriptorHeap->GetCPUDescriptorHandleForHeapStart(), D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
 
 	getRenderCommandList()->SetGraphicsRootSignature(mGraphicsRootSignature.Get());
 	getRenderCommandList()->RSSetViewports(1, &mViewport); 
@@ -303,4 +306,60 @@ void GHRenderDeviceDX12::flushGPU(void)
 	{
 		mFrameBackends[i].mCommandList->waitForCompletion();
 	}
+}
+
+void GHRenderDeviceDX12::createDepthBuffer(void)
+{
+	D3D12_DESCRIPTOR_HEAP_DESC dsvHeapDesc = {};
+	dsvHeapDesc.NumDescriptors = 1;
+	dsvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_DSV;
+	dsvHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
+	HRESULT hr = mDXDevice->CreateDescriptorHeap(&dsvHeapDesc, IID_PPV_ARGS(&mDepthDescriptorHeap));
+	if (FAILED(hr))
+	{
+		GHDebugMessage::outputString("Failed to create depth descriptor heap");
+		return;
+	}
+
+	D3D12_DEPTH_STENCIL_VIEW_DESC depthStencilDesc = {};
+	depthStencilDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	depthStencilDesc.ViewDimension = D3D12_DSV_DIMENSION_TEXTURE2D;
+	depthStencilDesc.Flags = D3D12_DSV_FLAG_NONE;
+
+	D3D12_CLEAR_VALUE depthOptimizedClearValue = {};
+	depthOptimizedClearValue.Format = DXGI_FORMAT_D32_FLOAT;
+	depthOptimizedClearValue.DepthStencil.Depth = 1.0f;
+	depthOptimizedClearValue.DepthStencil.Stencil = 0;
+
+	const GHPoint2i& screenSize = mWindow.getClientAreaSize();
+
+	D3D12_HEAP_PROPERTIES heapProperties;
+	GHDX12Helpers::createHeapProperties(heapProperties, D3D12_HEAP_TYPE_DEFAULT);
+	D3D12_RESOURCE_DESC texDesc;
+	GHDX12Helpers::createTexture2dDesc(texDesc, screenSize[0], screenSize[1]);
+	texDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	texDesc.Flags = D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL;
+
+	hr = mDXDevice->CreateCommittedResource(
+		&heapProperties,
+		D3D12_HEAP_FLAG_NONE,
+		&texDesc,
+		D3D12_RESOURCE_STATE_DEPTH_WRITE,
+		&depthOptimizedClearValue,
+		IID_PPV_ARGS(&mDepthBuffer)
+	);
+	if (FAILED(hr))
+	{
+		GHDebugMessage::outputString("Failed to create depth buffer");
+		return;
+	}
+	hr = mDXDevice->CreateDescriptorHeap(&dsvHeapDesc, IID_PPV_ARGS(&mDepthDescriptorHeap));
+	if (FAILED(hr))
+	{
+		GHDebugMessage::outputString("Failed to create mDepthDescriptorHeap");
+		return;
+	}
+	mDepthDescriptorHeap->SetName(L"Depth/Stencil Resource Heap");
+
+	mDXDevice->CreateDepthStencilView(mDepthBuffer.Get(), &depthStencilDesc, mDepthDescriptorHeap->GetCPUDescriptorHandleForHeapStart());
 }

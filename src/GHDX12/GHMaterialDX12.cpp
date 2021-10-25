@@ -38,6 +38,7 @@ GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHMDesc* desc, GHShad
 
 	createRasterizerDesc();
 	createBlendDesc();
+	createDepthStencilDesc();
 
 	// todo: GHRenderProperties::DEVICEREINIT
 }
@@ -151,11 +152,13 @@ void GHMaterialDX12::createPSO(const GHVertexBuffer& vb)
 	psoDesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
 	// todo: support render targets of different formats.
 	psoDesc.RTVFormats[0] = SWAP_BUFFER_FORMAT;
+	psoDesc.DSVFormat = DXGI_FORMAT_D32_FLOAT;
 	psoDesc.SampleDesc = mDevice.getSampleDesc();
 	psoDesc.SampleMask = 0xffffffff; // sample mask has to do with multi-sampling. 0xffffffff means point sampling is done
 	psoDesc.RasterizerState = mRasterizerDesc;
 	psoDesc.BlendState = mBlendDesc;
 	psoDesc.NumRenderTargets = 1;
+	psoDesc.DepthStencilState = mDepthStencilDesc;
 
 	mDevice.getDXDevice()->CreateGraphicsPipelineState(&psoDesc, IID_PPV_ARGS(&mPSO));
 }
@@ -234,4 +237,45 @@ void GHMaterialDX12::createBlendDesc(void)
 	{
 		mBlendDesc.RenderTarget[i] = targetBlendDesc;
 	}
+}
+
+void GHMaterialDX12::createDepthStencilDesc(void)
+{
+	if (!mDesc->mZRead && !mDesc->mZWrite) {
+		mDepthStencilDesc.DepthEnable = false;
+	}
+	else {
+		mDepthStencilDesc.DepthEnable = true;
+	}
+
+	if (!mDesc->mZWrite) {
+		mDepthStencilDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO;
+	}
+	else {
+		mDepthStencilDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ALL;
+	}
+
+	if (!mDesc->mZRead) {
+		mDepthStencilDesc.DepthFunc = D3D12_COMPARISON_FUNC_ALWAYS;
+	}
+	else {
+		mDepthStencilDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS_EQUAL;
+	}
+
+	// Stencil test parameters
+	mDepthStencilDesc.StencilEnable = false;
+	mDepthStencilDesc.StencilReadMask = 0xFF;
+	mDepthStencilDesc.StencilWriteMask = 0xFF;
+
+	// Stencil operations if pixel is front-facing
+	mDepthStencilDesc.FrontFace.StencilFailOp = D3D12_STENCIL_OP_KEEP;
+	mDepthStencilDesc.FrontFace.StencilDepthFailOp = D3D12_STENCIL_OP_INCR;
+	mDepthStencilDesc.FrontFace.StencilPassOp = D3D12_STENCIL_OP_KEEP;
+	mDepthStencilDesc.FrontFace.StencilFunc = D3D12_COMPARISON_FUNC_ALWAYS;
+
+	// Stencil operations if pixel is back-facing
+	mDepthStencilDesc.BackFace.StencilFailOp = D3D12_STENCIL_OP_KEEP;
+	mDepthStencilDesc.BackFace.StencilDepthFailOp = D3D12_STENCIL_OP_DECR;
+	mDepthStencilDesc.BackFace.StencilPassOp = D3D12_STENCIL_OP_KEEP;
+	mDepthStencilDesc.BackFace.StencilFunc = D3D12_COMPARISON_FUNC_ALWAYS;
 }

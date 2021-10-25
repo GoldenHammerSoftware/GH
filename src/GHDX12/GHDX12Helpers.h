@@ -192,6 +192,22 @@ namespace GHDX12Helpers
 		bufferDesc.Flags = D3D12_RESOURCE_FLAG_NONE;
 	}
 
+	// CD3DX12_RESOURCE_DESC::Tex2D
+	static void createTexture2dDesc(D3D12_RESOURCE_DESC& desc, uint32_t width, uint32_t height)
+	{
+		desc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
+		desc.Alignment = 0;
+		desc.Width = width;
+		desc.Height = height;
+		desc.DepthOrArraySize = 1;
+		desc.MipLevels = 0;
+		desc.SampleDesc.Count = 1;
+		desc.SampleDesc.Quality = 0;
+		desc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
+		desc.Flags = D3D12_RESOURCE_FLAG_NONE;
+		desc.Format = DXGI_FORMAT_UNKNOWN;
+	}
+
 	// d3dx12.h
 	// Row-by-row memcpy
 	inline void MemcpySubresource(
