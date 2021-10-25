@@ -5,7 +5,6 @@
 #include "Render/GHFontRenderer.h"
 #include "GHNullRenderTargetFactory.h"
 #include "GHPlatform/GHDeletionHandle.h"
-#include "Render/GHLightMgr.h"
 
 GHNullRenderServices::GHNullRenderServices(GHSystemServices& systemServices)
 : GHRenderServices(systemServices)
@@ -16,5 +15,4 @@ GHNullRenderServices::GHNullRenderServices(GHSystemServices& systemServices)
     mFontRenderer = new GHFontRenderer(*mVBFactory);
     addOwnedItem(new GHTypedDeletionHandle<GHFontRenderer>(mFontRenderer));
     mRenderTargetFactory = new GHNullRenderTargetFactory();
-    mLightMgr = new GHLightMgr(*mMaterialCallbackMgr);
 }

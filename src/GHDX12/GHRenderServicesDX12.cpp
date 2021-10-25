@@ -5,7 +5,6 @@
 #include "Render/GHFontRenderer.h"
 #include "NullPlatform/GHNullRenderTargetFactory.h"
 #include "GHPlatform/GHDeletionHandle.h"
-#include "Render/GHLightMgr.h"
 #include "Render/GHXMLObjLoaderGHM.h"
 #include "Base/GHAppShard.h"
 #include "GHMaterialLoaderDX12.h"
@@ -31,7 +30,6 @@ GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHW
     mFontRenderer = new GHFontRenderer(*mVBFactory);
     addOwnedItem(new GHTypedDeletionHandle<GHFontRenderer>(mFontRenderer));
     mRenderTargetFactory = new GHNullRenderTargetFactory();
-    mLightMgr = new GHLightMgr(*mMaterialCallbackMgr);
 
     GHMaterialCallbackFactory* viewCB = new GHMaterialCallbackFactoryViewInfo(renderDevice->getViewInfo(), "");
     mMaterialCallbackMgr->addFactory(viewCB);

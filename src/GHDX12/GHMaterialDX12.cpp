@@ -45,6 +45,7 @@ GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHMDesc* desc, GHShad
 
 GHMaterialDX12::~GHMaterialDX12(void)
 {
+	delete mDesc;
 	for (unsigned int shaderType = 0; shaderType < GHShaderType::ST_MAX; ++shaderType) {
 		delete mShaders[shaderType];
 	}
