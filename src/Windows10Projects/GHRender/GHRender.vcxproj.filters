@@ -241,6 +241,9 @@
     <ClCompile Include="..\..\Render\GHMaterialCallbackFactoryShadowInfo.cpp" />
     <ClCompile Include="..\..\Render\GHMaterialCallbackShadowInfo.cpp" />
     <ClCompile Include="..\..\Render\GHScreenshotCapturer.cpp" />
+    <ClCompile Include="..\..\Render\GHGhcmXmlParser.cpp" />
+    <ClCompile Include="..\..\Render\GHShaderParamList.cpp" />
+    <ClCompile Include="..\..\Render\GHShaderParamListLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Render\GHBillboardTransformAdjuster.h" />
@@ -520,5 +523,10 @@
     <ClInclude Include="..\..\Render\GHMaterialCallbackFactoryShadowInfo.h" />
     <ClInclude Include="..\..\Render\GHMaterialCallbackShadowInfo.h" />
     <ClInclude Include="..\..\Render\GHScreenshotCapturer.h" />
+    <ClInclude Include="..\..\Render\GHGhcmXmlParser.h" />
+    <ClInclude Include="..\..\Render\GHShaderParamList.h" />
+    <ClInclude Include="..\..\Render\GHShaderParamListLoader.h" />
+    <ClInclude Include="..\..\Render\GHShaderSemantic.h" />
+    <ClInclude Include="..\..\Render\GHShaderType.h" />
   </ItemGroup>
 </Project>

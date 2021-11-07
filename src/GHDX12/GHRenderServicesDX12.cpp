@@ -14,6 +14,7 @@
 #include "Render/GHMaterialCallbackFactoryViewInfo.h"
 #include "Render/GHMaterialCallbackMgr.h"
 #include "GHWin32/GHWin32Window.h"
+#include "GHTextureLoaderDX12.h"
 
 GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHWin32Window& window)
 : GHRenderServices(systemServices)
@@ -55,4 +56,8 @@ void GHRenderServicesDX12::initAppShard(GHAppShard& appShard)
             *ghmDescLoader);
         appShard.mXMLObjFactory.addLoader(ghmLoader, 1, "ghm");
     }
+
+    GHTextureLoaderDX12* texLoader = new GHTextureLoaderDX12();
+    appShard.mResourceFactory.addLoader(texLoader, 4, ".jpg", ".png", ".pvr4", ".ovrtex");
+    // todo: ghcm, dds
 }

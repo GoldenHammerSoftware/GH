@@ -66,6 +66,7 @@
     <ClCompile Include="..\..\Render\GHGeometry.cpp" />
     <ClCompile Include="..\..\Render\GHGeometryComparison.cpp" />
     <ClCompile Include="..\..\Render\GHGeometryRenderable.cpp" />
+    <ClCompile Include="..\..\Render\GHGhcmXmlParser.cpp" />
     <ClCompile Include="..\..\Render\GHGPUVertexAnimController.cpp" />
     <ClCompile Include="..\..\Render\GHHMDRenderDeviceNull.cpp" />
     <ClCompile Include="..\..\Render\GHIndexBufferSorter.cpp" />
@@ -112,6 +113,8 @@
     <ClCompile Include="..\..\Render\GHSceneRenderer.cpp" />
     <ClCompile Include="..\..\Render\GHScreenPosUnprojector.cpp" />
     <ClCompile Include="..\..\Render\GHScreenshotCapturer.cpp" />
+    <ClCompile Include="..\..\Render\GHShaderParamList.cpp" />
+    <ClCompile Include="..\..\Render\GHShaderParamListLoader.cpp" />
     <ClCompile Include="..\..\Render\GHShaderPreprocessor.cpp" />
     <ClCompile Include="..\..\Render\GHShadowCameraPositioner.cpp" />
     <ClCompile Include="..\..\Render\GHSkeletonDebugDrawer.cpp" />
@@ -151,6 +154,7 @@
     <ClInclude Include="..\..\Render\GHGeometry.h" />
     <ClInclude Include="..\..\Render\GHGeometryComparison.h" />
     <ClInclude Include="..\..\Render\GHGeometryRenderable.h" />
+    <ClInclude Include="..\..\Render\GHGhcmXmlParser.h" />
     <ClInclude Include="..\..\Render\GHGLTypes.h" />
     <ClInclude Include="..\..\Render\GHGPUVertexAnimController.h" />
     <ClInclude Include="..\..\Render\GHHMDIdentifiers.h" />
@@ -214,7 +218,11 @@
     <ClInclude Include="..\..\Render\GHScreenInfo.h" />
     <ClInclude Include="..\..\Render\GHScreenPosUnprojector.h" />
     <ClInclude Include="..\..\Render\GHScreenshotCapturer.h" />
+    <ClInclude Include="..\..\Render\GHShaderParamList.h" />
+    <ClInclude Include="..\..\Render\GHShaderParamListLoader.h" />
     <ClInclude Include="..\..\Render\GHShaderPreprocessor.h" />
+    <ClInclude Include="..\..\Render\GHShaderSemantic.h" />
+    <ClInclude Include="..\..\Render\GHShaderType.h" />
     <ClInclude Include="..\..\Render\GHShadowCameraPositioner.h" />
     <ClInclude Include="..\..\Render\GHSkeletonDebugDrawer.h" />
     <ClInclude Include="..\..\Render\GHSkinAnimController.h" />

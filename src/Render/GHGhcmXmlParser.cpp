@@ -1,6 +1,6 @@
 #include "GHGhcmXmlParser.h"
 #include "GHXMLNode.h"
-#include "GHResourceFactory.h"
+#include "GHUtils/GHResourceFactory.h"
 #include "GHPlatform/GHDebugMessage.h"
 
 bool GHGhcmXmlParser::parseGHCM(GHResourceFactory& resourceFactory, const GHXMLNode& node, GHPropertyContainer& extraData, GHTexture* (&ret)[6])
