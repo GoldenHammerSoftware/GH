@@ -6,7 +6,7 @@
 
 class GHRenderDeviceDX11;
 class GHResourceFactory;
-class GHTextureFinderDX11;
+class GHWindowsFileFinder;
 class GHEventMgr;
 class GHTextureDX11;
 
@@ -15,7 +15,7 @@ class GHTextureLoaderDX11 : public GHResourceLoader
 {
 public:
 	GHTextureLoaderDX11(GHRenderDeviceDX11& device, GHResourceFactory& resourceCache,
-		const GHTextureFinderDX11& fileOpener, GHEventMgr& eventMgr);
+		const GHWindowsFileFinder& fileOpener, GHEventMgr& eventMgr);
 
 	virtual GHResource* loadFile(const char* filename, GHPropertyContainer* extraData);
 

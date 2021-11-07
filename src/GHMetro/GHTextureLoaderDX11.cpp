@@ -2,7 +2,7 @@
 #include "GHTextureLoaderDX11.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHTextureDX11.h"
-#include "GHTextureFinderDX11.h"
+#include "GHWin32/GHWindowsFileFinder.h"
 #include "GHDX11Include.h"
 #include "GHRenderDeviceDX11.h"
 #include "GHUtils/GHResourceFactory.h"
@@ -12,7 +12,7 @@
 #include "GHTextureFormat.h"
 
 GHTextureLoaderDX11::GHTextureLoaderDX11(GHRenderDeviceDX11& device, GHResourceFactory& resourceCache, 
-	const GHTextureFinderDX11& fileOpener, GHEventMgr& eventMgr)
+	const GHWindowsFileFinder& fileOpener, GHEventMgr& eventMgr)
 : mDevice(device)
 , mResourceCache(resourceCache)
 , mEventMgr(eventMgr)

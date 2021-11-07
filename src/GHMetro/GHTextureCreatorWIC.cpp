@@ -1,11 +1,11 @@
 // Copyright Golden Hammer Software
 #include "GHTextureCreatorWIC.h"
 #include "GHPlatform/GHDebugMessage.h"
-#include "GHTextureFinderDX11.h"
+#include "GHWin32/GHWindowsFileFinder.h"
 #include "GHRenderDeviceDX11.h"
 #include "DDSTextureLoader.h"
 
-GHTextureCreatorWIC::GHTextureCreatorWIC(GHRenderDeviceDX11& device, const GHTextureFinderDX11& fileOpener)
+GHTextureCreatorWIC::GHTextureCreatorWIC(GHRenderDeviceDX11& device, const GHWindowsFileFinder& fileOpener)
 : mFileOpener(fileOpener)
 , mDevice(device)
 {

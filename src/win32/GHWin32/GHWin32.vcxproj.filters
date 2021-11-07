@@ -43,7 +43,7 @@
     <ClCompile Include="..\..\GHWin32\GHWin32SwapChainCreator.cpp">
       <Filter>DX</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\GHWin32\GHWin32TextureFinder.cpp">
+    <ClCompile Include="..\..\GHWin32\GHWin32FileFinder.cpp">
       <Filter>DX</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GHWin32\GHDirectSoundHandle.cpp">
@@ -101,9 +101,6 @@
     <ClInclude Include="..\..\GHMetro\GHTextureCreatorWIC.h">
       <Filter>Metro</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GHMetro\GHTextureFinderDX11.h">
-      <Filter>Metro</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\GHMetro\GHTextureLoaderDDS.h">
       <Filter>Metro</Filter>
     </ClInclude>
@@ -116,7 +113,7 @@
     <ClInclude Include="..\..\GHWin32\GHWin32SwapChainCreator.h">
       <Filter>DX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GHWin32\GHWin32TextureFinder.h">
+    <ClInclude Include="..\..\GHWin32\GHWin32FileFinder.h">
       <Filter>DX</Filter>
     </ClInclude>
     <ClInclude Include="..\..\GHWin32\GHDirectSoundHandle.h">
@@ -165,5 +162,6 @@
       <Filter>Metro</Filter>
     </ClInclude>
     <ClInclude Include="..\..\GHWin32\GHWin32Window.h" />
+    <ClInclude Include="..\..\GHWin32\GHWindowsFileFinder.h" />
   </ItemGroup>
 </Project>

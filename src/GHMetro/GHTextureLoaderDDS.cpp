@@ -9,7 +9,7 @@
 #include "GHUtils/GHPropertyContainer.h"
 #include "GHRenderProperties.h"
 
-GHTextureLoaderDDS::GHTextureLoaderDDS(GHRenderDeviceDX11& device, const GHTextureFinderDX11& fileOpener,
+GHTextureLoaderDDS::GHTextureLoaderDDS(GHRenderDeviceDX11& device, const GHWindowsFileFinder& fileOpener,
 									   GHEventMgr& eventMgr)
 : mDevice(device)
 , mEventMgr(eventMgr)

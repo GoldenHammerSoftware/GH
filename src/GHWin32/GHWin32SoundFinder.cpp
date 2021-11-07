@@ -8,51 +8,8 @@
 
 GHWin32SoundFinder::GHWin32SoundFinder(const GHFileOpener& fileOpener)
 : mFileOpener(fileOpener)
+, mFileFinder(fileOpener)
 {
-}
-
-static bool fileExists(const char* filename)
-{
-	FILE* file = ::fopen(filename, "rb");
-	if (file) {
-		fclose(file);
-		return true;
-	}
-	return false;
-}
-
-bool GHWin32SoundFinder::createFilePath(const char* filename, wchar_t* ret, size_t retSize) const
-{
-	// go through the resource directories and figure out where the file lives.
-	char testPath[_MAX_PATH];
-	bool foundFile = false;
-	const std::vector<GHString>& rpaths = mFileOpener.getResourcePaths();
-	for (auto i = rpaths.rbegin(); i != rpaths.rend(); ++i) 
-	{
-		const GHString& path = *i;
-		sprintf(testPath, "%s/%s", path.getChars(), filename);
-		if (fileExists(testPath))
-		{
-			foundFile = true;
-			break;
-		}
-	}
-	if (!foundFile)
-	{
-		if (fileExists(filename))
-		{
-			sprintf(testPath, "%s", filename);
-			foundFile = true;
-		}
-	}
-	if (!foundFile)
-	{
-		//GHDebugMessage::outputString("Could not find sound file %s", filename);
-		return false;
-	}
-
-	GHLChar::convertToWide(testPath, ret, retSize);
-	return true;
 }
 
 bool GHWin32SoundFinder::createSoundReader(const char* filename, const GHPropertyContainer* extraData, 
@@ -70,7 +27,7 @@ bool GHWin32SoundFinder::createSoundReader(const char* filename, const GHPropert
 	size_t filenameSize = 0;
 	const int BUF_SZ = 512;
 	wchar_t filenameBuffer[BUF_SZ];
-	if (!createFilePath(path, filenameBuffer, BUF_SZ))
+	if (!mFileFinder.createFilePath(path, filenameBuffer, BUF_SZ, false))
 	{
 		GHDebugMessage::outputString("Couldn't find sound file %s", filename);
 		return false;
@@ -178,7 +135,7 @@ static void parseID3Text(const char* text, int size, int maxTextSize, char* dest
 	}
 }
 
-static void parseAttachedPicture(const char* data, int size, char*& dest, const char* filename)
+static void parseAttachedPicture(const char* data, int size, char*& dest, const char* filename, const GHWin32FileFinder& fileFinder)
 {
 	// create a filename where we will cache the attached picture.
 	size_t oldLen = strlen(filename);
@@ -193,7 +150,7 @@ static void parseAttachedPicture(const char* data, int size, char*& dest, const 
 		}
 	}
 	// if the file exists just return the filename in dest.
-	if (fileExists(newName))
+	if (fileFinder.fileExists(newName))
 	{
 		dest = newName;
 		return;
@@ -337,7 +294,7 @@ void GHWin32SoundFinder::readID3v2(const char* buffer, size_t bufferSize, GHSoun
 		else if (!strcmp(framename, "APIC"))
 		{
 			char* art = 0;
-			parseAttachedPicture(&tag[pos + ID3FrameSize], framesize, art, filename);
+			parseAttachedPicture(&tag[pos + ID3FrameSize], framesize, art, filename, mFileFinder);
 			if (art) {
 				soundID.setPictureName(art);
 				delete[] art;

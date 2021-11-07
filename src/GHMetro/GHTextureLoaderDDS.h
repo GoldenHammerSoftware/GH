@@ -5,13 +5,13 @@
 #include "GHTextureCreatorDDS.h"
 
 class GHRenderDeviceDX11;
-class GHTextureFinderDX11;
+class GHWindowsFileFinder;
 class GHEventMgr;
 
 class GHTextureLoaderDDS : public GHResourceLoader
 {
 public:
-	GHTextureLoaderDDS(GHRenderDeviceDX11& device, const GHTextureFinderDX11& fileOpener,
+	GHTextureLoaderDDS(GHRenderDeviceDX11& device, const GHWindowsFileFinder& fileOpener,
 		GHEventMgr& eventMgr);
 
 	virtual GHResource* loadFile(const char* filename, GHPropertyContainer* extraData);

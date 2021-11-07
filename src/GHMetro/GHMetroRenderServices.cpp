@@ -4,7 +4,7 @@
 #include "GHSystemServices.h"
 #include "GHAppShard.h"
 #include "GHPlatform/uwp/GHMetroFileOpener.h"
-#include "GHMetroTextureFinder.h"
+#include "GHMetroFileFinder.h"
 #include "GHTextureLoaderDDS.h"
 #include "GHShaderLoaderDX11.h"
 #include "Render/GHShaderParamListLoader.h"
@@ -17,7 +17,7 @@ GHMetroRenderServices::GHMetroRenderServices(GHSystemServices& systemServices,
 : GHRenderServicesDX11(systemServices, deviceFactory, swapChainCreator, screenSize, 2)
 , mTextureFinder(0)
 {
-	mTextureFinder = new GHMetroTextureFinder((GHMetroFileOpener&)(systemServices.getPlatformServices().getFileOpener()));
+	mTextureFinder = new GHMetroFileFinder((GHMetroFileOpener&)(systemServices.getPlatformServices().getFileOpener()));
 }
 
 GHMetroRenderServices::~GHMetroRenderServices(void)

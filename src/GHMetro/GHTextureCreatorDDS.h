@@ -4,12 +4,12 @@
 #include "GHTextureCreatorDX11.h"
 
 class GHRenderDeviceDX11;
-class GHTextureFinderDX11;
+class GHWindowsFileFinder;
 
 class GHTextureCreatorDDS : public GHTextureCreatorDX11
 {
 public:
-	GHTextureCreatorDDS(GHRenderDeviceDX11& device, const GHTextureFinderDX11& fileOpener);
+	GHTextureCreatorDDS(GHRenderDeviceDX11& device, const GHWindowsFileFinder& fileOpener);
 
 	virtual bool createTexture(const char* filename,
 		Microsoft::WRL::ComPtr<ID3D11Texture2D>& d3dTex,
@@ -26,5 +26,5 @@ public:
 
 private:
 	GHRenderDeviceDX11& mDevice;
-	const GHTextureFinderDX11& mFileOpener;
+	const GHWindowsFileFinder& mFileOpener;
 };

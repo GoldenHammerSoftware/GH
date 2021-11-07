@@ -1,15 +1,15 @@
 // Copyright Golden Hammer Software
-#include "GHWin32TextureFinder.h"
+#include "GHWin32FileFinder.h"
 #include "GHPlatform/GHFileOpener.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHPlatform/win32/GHLChar.h"
 
-GHWin32TextureFinder::GHWin32TextureFinder(const GHFileOpener& fileOpener)
+GHWin32FileFinder::GHWin32FileFinder(const GHFileOpener& fileOpener)
 : mFileOpener(fileOpener)
 {
 }
 
-static bool fileExists(const char* filename)
+bool GHWin32FileFinder::fileExists(const char* filename) const
 {
 	FILE* file = ::fopen(filename, "rb");
 	if (file) {
@@ -19,11 +19,11 @@ static bool fileExists(const char* filename)
 	return false;
 }
 
-bool GHWin32TextureFinder::createFilePath(const char* filename, wchar_t* ret, size_t retSize, bool lookInReadOnlyDir) const
+bool GHWin32FileFinder::createFilePath(const char* filename, wchar_t* ret, size_t retSize, bool lookInReadOnlyDir) const
 {
 	if (!filename)
 	{
-		GHDebugMessage::outputString("null filename passed to GHWin32TextureFinder::createFilePath");
+		GHDebugMessage::outputString("null filename passed to GHWin32FileFinder::createFilePath");
 		return false;
 	}
 	// go through the resource directories and figure out where the file lives.

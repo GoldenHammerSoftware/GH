@@ -3,7 +3,7 @@
 
 #include "GHRenderServicesDX11.h"
 
-class GHMetroTextureFinder;
+class GHMetroFileFinder;
 class GHDX11SwapChainCreator;
 
 class GHMetroRenderServices : public GHRenderServicesDX11
@@ -18,5 +18,5 @@ public:
 	virtual void initAppShard(GHAppShard& appShard);
 
 private:
-	GHMetroTextureFinder* mTextureFinder;
+	GHMetroFileFinder* mTextureFinder;
 };

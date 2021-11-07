@@ -2,6 +2,7 @@
 #pragma once
 
 #include "GHXAudio2SoundFinder.h"
+#include "GHWin32FileFinder.h"
 
 class GHFileOpener;
 
@@ -15,8 +16,6 @@ public:
 		Microsoft::WRL::ComPtr<IMFSourceReader>& ret, GHSoundIDInfo& soundID) const;
 
 private:
-	virtual bool createFilePath(const char* filename, wchar_t* ret, size_t retSize) const;
-
 	void readSoundID(const char* filename, GHSoundIDInfo& soundID) const;
 	void readID3v1(const char* buffer, size_t bufferSize, GHSoundIDInfo& soundID) const;
 	void readID3v2(const char* buffer, size_t bufferSize, GHSoundIDInfo& soundID, const char* filename) const;
@@ -24,4 +23,5 @@ private:
 
 private:
 	const GHFileOpener& mFileOpener;
+	GHWin32FileFinder mFileFinder;
 };

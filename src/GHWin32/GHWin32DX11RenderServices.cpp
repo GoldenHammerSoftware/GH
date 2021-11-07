@@ -3,7 +3,7 @@
 #include "GHSystemServices.h"
 #include "GHAppShard.h"
 #include "GHShaderLoaderDX11.h"
-#include "GHWin32TextureFinder.h"
+#include "GHWin32FileFinder.h"
 #include "GHUtils/GHRedirectResourceLoader.h"
 #include "GHTextureLoaderDX11.h"
 #include "GHTextureLoaderDDS.h"
@@ -15,7 +15,7 @@ GHWin32DX11RenderServices::GHWin32DX11RenderServices(GHSystemServices& systemSer
 													 GHDX11SwapChainCreator* swapChainCreator,
 													 const GHPoint2i& screenSize)
 : GHRenderServicesDX11(systemServices, deviceFactory, swapChainCreator, screenSize, 2)
-, mTextureFinder(new GHWin32TextureFinder(systemServices.getPlatformServices().getFileOpener()))
+, mTextureFinder(new GHWin32FileFinder(systemServices.getPlatformServices().getFileOpener()))
 {
 }
 

@@ -2,7 +2,7 @@
 #pragma once
 
 #include "GHRenderServicesDX11.h"
-#include "GHTextureFinderDX11.h"
+#include "GHWindowsFileFinder.h"
 
 class GHWin32DX11RenderServices : public GHRenderServicesDX11
 {
@@ -16,5 +16,5 @@ public:
 	virtual void initAppShard(GHAppShard& appShard);
 
 private:
-	GHTextureFinderDX11* mTextureFinder;
+	GHWindowsFileFinder* mTextureFinder;
 };

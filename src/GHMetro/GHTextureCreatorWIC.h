@@ -6,13 +6,13 @@
 #include "wincodec.h"
 #include <wrl/client.h>
 
-class GHTextureFinderDX11;
+class GHWindowsFileFinder;
 class GHRenderDeviceDX11;
 
 class GHTextureCreatorWIC : public GHTextureCreatorDX11
 {
 public:
-	GHTextureCreatorWIC(GHRenderDeviceDX11& device, const GHTextureFinderDX11& fileOpener);
+	GHTextureCreatorWIC(GHRenderDeviceDX11& device, const GHWindowsFileFinder& fileOpener);
 	~GHTextureCreatorWIC(void);
 
 	virtual bool createTexture(const char* filename,
@@ -29,7 +29,7 @@ public:
 		DXGI_FORMAT dxFormat, bool okToDeleteImageBuf) override;
 
 private:
-	const GHTextureFinderDX11& mFileOpener;
+	const GHWindowsFileFinder& mFileOpener;
 	GHRenderDeviceDX11& mDevice;
 	IWICImagingFactory* mImagingFactory;
 };
