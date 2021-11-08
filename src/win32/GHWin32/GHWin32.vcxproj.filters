@@ -28,7 +28,7 @@
     <ClCompile Include="..\..\GHMetro\GHTextureCreatorDDS.cpp">
       <Filter>Metro</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\GHMetro\GHTextureCreatorWIC.cpp">
+    <ClCompile Include="..\..\GHMetro\GHTextureCreatorWICDX11.cpp">
       <Filter>Metro</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GHMetro\GHTextureLoaderDDS.cpp">
@@ -86,6 +86,9 @@
       <Filter>Metro</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GHWin32\GHWin32Window.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32WICUtil.cpp">
+      <Filter>DX</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\GHWin32\GHWin32SystemServices.h" />
@@ -98,7 +101,7 @@
     <ClInclude Include="..\..\GHMetro\GHTextureCreatorDDS.h">
       <Filter>Metro</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GHMetro\GHTextureCreatorWIC.h">
+    <ClInclude Include="..\..\GHMetro\GHTextureCreatorWICDX11.h">
       <Filter>Metro</Filter>
     </ClInclude>
     <ClInclude Include="..\..\GHMetro\GHTextureLoaderDDS.h">
@@ -163,5 +166,8 @@
     </ClInclude>
     <ClInclude Include="..\..\GHWin32\GHWin32Window.h" />
     <ClInclude Include="..\..\GHWin32\GHWindowsFileFinder.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32WICUtil.h">
+      <Filter>DX</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 #pragma once
 
 #include "GHUtils/GHResourceLoader.h"
-#include "GHTextureCreatorWIC.h"
+#include "GHTextureCreatorWICDX11.h"
 
 class GHRenderDeviceDX11;
 class GHResourceFactory;
@@ -33,5 +33,5 @@ private:
 	GHRenderDeviceDX11& mDevice;
 	GHResourceFactory& mResourceCache;
 	GHEventMgr& mEventMgr;
-	GHTextureCreatorWIC mTextureCreator;
+	GHTextureCreatorWICDX11 mTextureCreator;
 };

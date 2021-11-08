@@ -237,7 +237,7 @@
     <ClCompile Include="..\..\GHMetro\GHMetroSoundHandle.cpp" />
     <ClCompile Include="..\..\GHMetro\GHMetroSoundLoader.cpp" />
     <ClCompile Include="..\..\GHMetro\GHTextureCreatorDDS.cpp" />
-    <ClCompile Include="..\..\GHMetro\GHTextureCreatorWIC.cpp" />
+    <ClCompile Include="..\..\GHMetro\GHTextureCreatorWICDX11.cpp" />
     <ClCompile Include="..\..\GHMetro\GHTextureLoaderDDS.cpp" />
     <ClCompile Include="..\..\GHMetro\GHTextureLoaderDX11.cpp" />
     <ClCompile Include="..\..\GHMetro\GHWin32DeviceFinder.cpp" />
@@ -258,6 +258,7 @@
     <ClCompile Include="..\..\GHWin32\GHWin32FileFinder.cpp" />
     <ClCompile Include="..\..\GHWin32\GHWin32URLOpenerTransition.cpp" />
     <ClCompile Include="..\..\GHWin32\GHWin32URLOpenerTransitionXMLLoader.cpp" />
+    <ClCompile Include="..\..\GHWin32\GHWin32WICUtil.cpp" />
     <ClCompile Include="..\..\GHWin32\GHWin32Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -268,7 +269,7 @@
     <ClInclude Include="..\..\GHMetro\GHMetroSoundHandle.h" />
     <ClInclude Include="..\..\GHMetro\GHMetroSoundLoader.h" />
     <ClInclude Include="..\..\GHMetro\GHTextureCreatorDDS.h" />
-    <ClInclude Include="..\..\GHMetro\GHTextureCreatorWIC.h" />
+    <ClInclude Include="..\..\GHMetro\GHTextureCreatorWICDX11.h" />
     <ClInclude Include="..\..\GHMetro\GHTextureLoaderDDS.h" />
     <ClInclude Include="..\..\GHMetro\GHTextureLoaderDX11.h" />
     <ClInclude Include="..\..\GHMetro\GHWin32DeviceFinder.h" />
@@ -292,6 +293,7 @@
     <ClInclude Include="..\..\GHWin32\GHWin32FileFinder.h" />
     <ClInclude Include="..\..\GHWin32\GHWin32URLOpenerTransition.h" />
     <ClInclude Include="..\..\GHWin32\GHWin32URLOpenerTransitionXMLLoader.h" />
+    <ClInclude Include="..\..\GHWin32\GHWin32WICUtil.h" />
     <ClInclude Include="..\..\GHWin32\GHWin32Window.h" />
     <ClInclude Include="..\..\GHWin32\GHWindowsFileFinder.h" />
   </ItemGroup>
