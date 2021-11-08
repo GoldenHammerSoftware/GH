@@ -36,7 +36,7 @@ bool GHTextureCreatorWICDX11::createTexture(const char* filename, Microsoft::WRL
 	}
 
 	bool createdD3DTexture = createTextureFromMemory(d3dtex, textureView,
-		pixels, width, height, depth, useMipmaps, DXGI_FORMAT_R8G8B8A8_UNORM, true);
+		*pixels, width, height, depth, useMipmaps, DXGI_FORMAT_R8G8B8A8_UNORM, true);
 	dxFormat = DXGI_FORMAT_R8G8B8A8_UNORM;
 
 	if (!createdD3DTexture) {
