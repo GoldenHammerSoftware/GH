@@ -169,5 +169,8 @@
     <ClInclude Include="..\..\GHWin32\GHWin32WICUtil.h">
       <Filter>DX</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\GHWin32\GHDXGIUtil.h">
+      <Filter>DX</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

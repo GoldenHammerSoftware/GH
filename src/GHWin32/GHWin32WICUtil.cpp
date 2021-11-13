@@ -20,7 +20,6 @@ GHWin32WICUtil::~GHWin32WICUtil(void)
 
 bool GHWin32WICUtil::createTexture(const char* filename,
 	void** pixels, unsigned int& width, unsigned int& height, unsigned int& depth,
-	bool useMipmaps,
 	DXGI_FORMAT& dxFormat)
 {
 	// convert filename to wchar so we can interact with windows.
@@ -99,6 +98,7 @@ bool GHWin32WICUtil::createTexture(const char* filename,
 	if (FAILED(copyRes)) {
 		GHDebugMessage::outputString("Failed to copy pixels to mem buf");
 		delete[] *pixels;
+		*pixels = 0;
 		return false;
 	}
 

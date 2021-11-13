@@ -281,6 +281,7 @@
     <ClInclude Include="..\..\GHWin32\GHDirectSoundEmitter.h" />
     <ClInclude Include="..\..\GHWin32\GHDirectSoundHandle.h" />
     <ClInclude Include="..\..\GHWin32\GHDirectSoundLoader.h" />
+    <ClInclude Include="..\..\GHWin32\GHDXGIUtil.h" />
     <ClInclude Include="..\..\GHWin32\GHWin32AppLauncher.h" />
     <ClInclude Include="..\..\GHWin32\GHWin32DX11RenderServices.h" />
     <ClInclude Include="..\..\GHWin32\GHWin32ExitAppTransition.h" />

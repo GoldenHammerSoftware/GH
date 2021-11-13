@@ -19,6 +19,7 @@
 GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHWin32Window& window)
 : GHRenderServices(systemServices)
 , mWindow(window)
+, mFileFinder(systemServices.getPlatformServices().getFileOpener())
 {
     const GHPoint2i& screenSize = window.getClientAreaSize();
     mScreenInfo.setSize(screenSize);
@@ -57,7 +58,7 @@ void GHRenderServicesDX12::initAppShard(GHAppShard& appShard)
         appShard.mXMLObjFactory.addLoader(ghmLoader, 1, "ghm");
     }
 
-    GHTextureLoaderDX12* texLoader = new GHTextureLoaderDX12();
+    GHTextureLoaderDX12* texLoader = new GHTextureLoaderDX12(mFileFinder);
     appShard.mResourceFactory.addLoader(texLoader, 4, ".jpg", ".png", ".pvr4", ".ovrtex");
     // todo: ghcm, dds
 }

@@ -44,8 +44,6 @@ public:
 
 	void reinit(void);
 
-	static DXGI_FORMAT convertGHFormatToDXGI(GHTextureFormat::Enum ghFormat);
-
 private:
 	class MessageListener : public GHMessageHandler
 	{

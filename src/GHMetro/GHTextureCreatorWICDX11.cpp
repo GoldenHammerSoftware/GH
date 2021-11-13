@@ -29,7 +29,7 @@ bool GHTextureCreatorWICDX11::createTexture(const char* filename, Microsoft::WRL
     d3dtex = nullptr;
 	textureView = nullptr;
 
-	bool wicWorked = mWICUtil.createTexture(filename, pixels, width, height, depth, useMipmaps, dxFormat);
+	bool wicWorked = mWICUtil.createTexture(filename, pixels, width, height, depth, dxFormat);
 	if (!wicWorked)
 	{
 		return false;

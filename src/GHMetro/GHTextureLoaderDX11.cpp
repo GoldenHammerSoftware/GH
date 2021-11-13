@@ -10,6 +10,7 @@
 #include "GHUtils/GHPropertyContainer.h"
 #include "GHRenderProperties.h"
 #include "GHTextureFormat.h"
+#include "GHWin32/GHDXGIUtil.h"
 
 GHTextureLoaderDX11::GHTextureLoaderDX11(GHRenderDeviceDX11& device, GHResourceFactory& resourceCache, 
 	const GHWindowsFileFinder& fileOpener, GHEventMgr& eventMgr)
@@ -138,7 +139,7 @@ GHResource* GHTextureLoaderDX11::loadMemory(void* mem, size_t memSize, GHPropert
 	Microsoft::WRL::ComPtr<ID3D11Texture2D> d3dtex = nullptr;
 	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> textureView = nullptr;
 	
-	DXGI_FORMAT dxFormat = GHTextureDX11::convertGHFormatToDXGI(textureFormat);
+	DXGI_FORMAT dxFormat = GHDXGIUtil::convertGHFormatToDXGI(textureFormat);
 	// depth hack.  we say the depth is 4 for rgba8.  the dxt formats ignore this value, and no other formats exist.
 	unsigned int depth = 4;
 

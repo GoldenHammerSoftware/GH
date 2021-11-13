@@ -14,7 +14,6 @@ public:
 
 	bool createTexture(const char* filename,
 		void** pixels, unsigned int& width, unsigned int& height, unsigned int& depth,
-		bool useMipmaps,
 		DXGI_FORMAT& dxFormat);
 
 private:
