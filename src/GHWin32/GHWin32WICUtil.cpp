@@ -89,6 +89,7 @@ bool GHWin32WICUtil::createTexture(const char* filename,
 		GHDebugMessage::outputString("Failed to convert texture to RGBA");
 		return false;
 	}
+	dxFormat = DXGI_FORMAT_R8G8B8A8_UNORM;
 
 	// copy the texture to a memory buffer.
 	UINT stride = width * 4;

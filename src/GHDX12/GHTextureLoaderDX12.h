@@ -4,11 +4,12 @@
 #include "GHWin32/GHWin32WICUtil.h"
 
 class GHWindowsFileFinder;
+class GHRenderDeviceDX12;
 
 class GHTextureLoaderDX12 : public GHResourceLoader
 {
 public:
-	GHTextureLoaderDX12(const GHWindowsFileFinder& fileFinder);
+	GHTextureLoaderDX12(const GHWindowsFileFinder& fileFinder, GHRenderDeviceDX12& device);
 	~GHTextureLoaderDX12(void);
 
 	virtual GHResource* loadFile(const char* filename, GHPropertyContainer* extraData = 0) override;
@@ -22,5 +23,6 @@ private:
 	GHResource* createGHTexture(void* mem, unsigned int width, unsigned int height, unsigned int depth, unsigned int numMips, bool allowMipmaps, DXGI_FORMAT dxFormat, bool keepTextureData);
 
 private:
+	GHRenderDeviceDX12& mDevice;
 	GHWin32WICUtil mWICUtil;
 };

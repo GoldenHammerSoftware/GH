@@ -7,9 +7,13 @@
 #include "Render/GHTextureFormat.h"
 #include "GHWin32/GHDXGIUtil.h"
 #include "GHTextureDX12.h"
+#include "GHDX12Include.h"
+#include "GHRenderDeviceDX12.h"
+#include "GHDX12Helpers.h"
 
-GHTextureLoaderDX12::GHTextureLoaderDX12(const GHWindowsFileFinder& fileFinder)
+GHTextureLoaderDX12::GHTextureLoaderDX12(const GHWindowsFileFinder& fileFinder, GHRenderDeviceDX12& device)
 	: mWICUtil(fileFinder)
+	, mDevice(device)
 {
 }
 
@@ -111,6 +115,65 @@ GHResource* GHTextureLoaderDX12::createRGBAFromRGB(void* mem, size_t memSize, GH
 
 GHResource* GHTextureLoaderDX12::createGHTexture(void* mem, unsigned int width, unsigned int height, unsigned int depth, unsigned int numMips, bool allowMipmaps, DXGI_FORMAT dxFormat, bool keepTextureData)
 {
+	// initialize the destination buffer.
+	D3D12_RESOURCE_DESC resourceDesc;
+	resourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
+	resourceDesc.Alignment = 0;
+	resourceDesc.Width = width;
+	resourceDesc.Height = height;
+	resourceDesc.DepthOrArraySize = 1;
+	resourceDesc.MipLevels = 1;
+	resourceDesc.Format = dxFormat;
+	resourceDesc.SampleDesc.Count = 1;
+	resourceDesc.SampleDesc.Quality = 0;
+	resourceDesc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
+	resourceDesc.Flags = D3D12_RESOURCE_FLAG_NONE;
+
+	D3D12_HEAP_PROPERTIES destHeapProps;
+	GHDX12Helpers::createHeapProperties(destHeapProps, D3D12_HEAP_TYPE_DEFAULT);
+	Microsoft::WRL::ComPtr<ID3D12Resource> destDXBuffer;
+	HRESULT destRes = mDevice.getDXDevice()->CreateCommittedResource(&destHeapProps, D3D12_HEAP_FLAG_NONE, &resourceDesc, D3D12_RESOURCE_STATE_COPY_DEST, nullptr, IID_PPV_ARGS(destDXBuffer.GetAddressOf()));
+	if (FAILED(destRes))
+	{
+		GHDebugMessage::outputString("Failed to create texture dest heap");
+		return 0;
+	}
+	destDXBuffer->SetName(L"Texture resource heap");
+
+	// Initialize the upload buffer.
+	UINT64 uploadBufferSize;
+	mDevice.getDXDevice()->GetCopyableFootprints(&resourceDesc, 0, 1, 0, nullptr, nullptr, nullptr, &uploadBufferSize);
+	D3D12_HEAP_PROPERTIES uploadHeapProps;
+	GHDX12Helpers::createHeapProperties(uploadHeapProps, D3D12_HEAP_TYPE_UPLOAD);
+	D3D12_RESOURCE_DESC uploadBufferDesc;
+	GHDX12Helpers::createBufferDesc(uploadBufferDesc, uploadBufferSize);
+	Microsoft::WRL::ComPtr<ID3D12Resource> uploadDXBuffer;
+	HRESULT copyRes = mDevice.getDXDevice()->CreateCommittedResource(&uploadHeapProps, D3D12_HEAP_FLAG_NONE, &uploadBufferDesc, D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(uploadDXBuffer.GetAddressOf()));
+	if (FAILED(copyRes))
+	{
+		GHDebugMessage::outputString("Failed to create dx upload texture heap");
+	}
+	uploadDXBuffer->SetName(L"Upload texture heap");
+
+	int imageBytesPerRow = width * depth;
+	D3D12_SUBRESOURCE_DATA subData = {};
+	subData.pData = mem;
+	subData.RowPitch = imageBytesPerRow;
+	subData.SlicePitch = imageBytesPerRow * height;
+
+	// Copy into the destination buffer.
+	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> commandList = mDevice.beginUploadCommandList();
+	GHDX12Helpers::UpdateSubresources(commandList.Get(), destDXBuffer.Get(), uploadDXBuffer.Get(), 0, 0, 1, &subData);
+	D3D12_RESOURCE_BARRIER barrier;
+	barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+	barrier.Transition.pResource = destDXBuffer.Get();
+	barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_COPY_DEST;
+	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	commandList->ResourceBarrier(1, &barrier);
+	mDevice.endUploadCommandList();
+
 	// todo: load into dx
 	GHResource* ret = new GHTextureDX12();
 	if (!keepTextureData)

@@ -58,7 +58,7 @@ void GHRenderServicesDX12::initAppShard(GHAppShard& appShard)
         appShard.mXMLObjFactory.addLoader(ghmLoader, 1, "ghm");
     }
 
-    GHTextureLoaderDX12* texLoader = new GHTextureLoaderDX12(mFileFinder);
+    GHTextureLoaderDX12* texLoader = new GHTextureLoaderDX12(mFileFinder, *((GHRenderDeviceDX12*)mRenderDevice));
     appShard.mResourceFactory.addLoader(texLoader, 4, ".jpg", ".png", ".pvr4", ".ovrtex");
     // todo: ghcm, dds
 }
