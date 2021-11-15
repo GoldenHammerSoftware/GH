@@ -174,11 +174,11 @@ GHResource* GHTextureLoaderDX12::createGHTexture(void* mem, unsigned int width, 
 	commandList->ResourceBarrier(1, &barrier);
 	mDevice.endUploadCommandList();
 
-	// todo: load into dx
-	GHResource* ret = new GHTextureDX12();
 	if (!keepTextureData)
 	{
 		delete[] mem;
+		mem = 0;
 	}
+	GHResource* ret = new GHTextureDX12(mDevice, destDXBuffer, mem, dxFormat);
 	return ret;
 }

@@ -241,28 +241,26 @@ void GHRenderDeviceDX12::createGraphicsRootSignature(void)
 	params[1].DescriptorTable.NumDescriptorRanges = 1;
 	params[1].DescriptorTable.pDescriptorRanges = &descRange;
 
-	const size_t maxTextures = 16;
-
 	D3D12_DESCRIPTOR_RANGE srvDescRange;
 	srvDescRange.RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_SRV;
-	srvDescRange.NumDescriptors = maxTextures;
+	srvDescRange.NumDescriptors = MAX_TEXTURES;
 	srvDescRange.BaseShaderRegister = 0;
 	srvDescRange.RegisterSpace = 0;
 	srvDescRange.OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;
 	params[2].DescriptorTable.NumDescriptorRanges = 1;
 	params[2].DescriptorTable.pDescriptorRanges = &srvDescRange;
 
-	desc.NumStaticSamplers = maxTextures;
+	desc.NumStaticSamplers = MAX_TEXTURES;
 	// todo: support different wrap modes etc.
 	// we should probably canonize the types of samplers that are supported and use those in the shaders
 	//  and remove the option of having the texture specify these things.
-	D3D12_STATIC_SAMPLER_DESC samplers[maxTextures];
-	for (int i = 0; i < maxTextures; ++i)
+	D3D12_STATIC_SAMPLER_DESC samplers[MAX_TEXTURES];
+	for (int i = 0; i < MAX_TEXTURES; ++i)
 	{
 		samplers[i].Filter = D3D12_FILTER_MIN_MAG_MIP_POINT;
-		samplers[i].AddressU = D3D12_TEXTURE_ADDRESS_MODE_BORDER;
-		samplers[i].AddressV = D3D12_TEXTURE_ADDRESS_MODE_BORDER;
-		samplers[i].AddressW = D3D12_TEXTURE_ADDRESS_MODE_BORDER;
+		samplers[i].AddressU = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
+		samplers[i].AddressV = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
+		samplers[i].AddressW = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
 		samplers[i].MipLODBias = 0;
 		samplers[i].MaxAnisotropy = 0;
 		samplers[i].ComparisonFunc = D3D12_COMPARISON_FUNC_NEVER;

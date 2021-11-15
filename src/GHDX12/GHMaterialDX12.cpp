@@ -9,6 +9,7 @@
 #include "GHRenderDeviceDX12.h"
 #include "Render/GHVertexBuffer.h"
 #include "GHVBBlitterIndexDX12.h"
+#include "GHTextureDX12.h"
 
 GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps)
 	: mDevice(device)
@@ -17,7 +18,7 @@ GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHMDesc* desc, GHShad
 	for (int i = 0; i < NUM_SWAP_BUFFERS; ++i)
 	{
 		D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
-		heapDesc.NumDescriptors = 2 * GHMaterialCallbackType::CT_MAX;
+		heapDesc.NumDescriptors = 2 * GHMaterialCallbackType::CT_MAX + MAX_TEXTURES;
 		heapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
 		heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
 		HRESULT hr = mDevice.getDXDevice()->CreateDescriptorHeap(&heapDesc, IID_PPV_ARGS(&mDescriptorHeaps[i]));
@@ -62,6 +63,9 @@ void GHMaterialDX12::beginVB(const GHVertexBuffer& vb)
 	createPSO(vb);
 	mDevice.getRenderCommandList()->SetPipelineState(mPSO.Get());
 
+	// The heap will ultimately end up needing to be unique for each time one of our values change.  
+	// This will make everything draw with only the final draw call's settings.
+
 	ID3D12DescriptorHeap* heaps = { mDescriptorHeaps[mDevice.getFrameBackendId()].Get() };
 	mDevice.getRenderCommandList()->SetDescriptorHeaps(1, &heaps);
 
@@ -71,6 +75,8 @@ void GHMaterialDX12::beginVB(const GHVertexBuffer& vb)
 	mDevice.getRenderCommandList()->SetGraphicsRootDescriptorTable(0, heapOffsetHandle);
 	heapOffsetHandle.ptr += (4 * cbvSrvDescriptorSize);
 	mDevice.getRenderCommandList()->SetGraphicsRootDescriptorTable(1, heapOffsetHandle);
+	heapOffsetHandle.ptr += (4 * cbvSrvDescriptorSize);
+	mDevice.getRenderCommandList()->SetGraphicsRootDescriptorTable(2, heapOffsetHandle);
 }
 
 void GHMaterialDX12::beginGeometry(const GHPropertyContainer* geoData, const GHViewInfo& viewInfo)
@@ -126,6 +132,15 @@ void GHMaterialDX12::applyDXArgs(GHMaterialCallbackType::Enum type)
 	{
 		if (!mShaders[shaderType]->mCBuffers[type]) continue;
 		mShaders[shaderType]->mCBuffers[type]->updateFrameData(mDevice.getFrameBackendId());
+	}
+
+	for (unsigned int i = 0; i < mShaders[GHShaderType::ST_PIXEL]->mTextures[type].size(); ++i)
+	{
+		GHMaterialShaderInfoDX12::TextureSlot* currTex = mShaders[GHShaderType::ST_PIXEL]->mTextures[type][i];
+		if (!currTex->getTexture()) continue;
+
+		GHTextureDX12* currTexDX = (GHTextureDX12*)currTex->getTexture();
+		currTexDX->bind(mDescriptorHeaps[mDevice.getFrameBackendId()], 8, currTex->getRegister());
 	}
 }
 

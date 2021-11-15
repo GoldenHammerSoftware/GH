@@ -1,6 +1,7 @@
 #include "GHMaterialShaderInfoDX12.h"
 #include "GHShaderDX12.h"
 #include "GHRenderDeviceDX12.h"
+#include "Render/GHTexture.h"
 
 GHMaterialShaderInfoDX12::GHMaterialShaderInfoDX12(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<ID3D12DescriptorHeap>* descriptorHeaps, GHShaderResource* shader, GHShaderType::Enum shaderType)
 	: mShader(shader)
@@ -48,9 +49,13 @@ GHMaterialShaderInfoDX12::TextureSlot::TextureSlot(unsigned int registerId)
 
 GHMaterialShaderInfoDX12::TextureSlot::~TextureSlot(void)
 {
+	GHResource::changePointer((GHRefCounted*&)mTexture, 0);
 }
 
 void GHMaterialShaderInfoDX12::TextureSlot::setTexture(GHTexture* tex, GHMDesc::WrapMode wrapMode)
 {
+	GHResource::changePointer((GHRefCounted*&)mTexture, tex);
+	mWrapMode = wrapMode;
+	// dx11 would create a sampler here.
 }
 

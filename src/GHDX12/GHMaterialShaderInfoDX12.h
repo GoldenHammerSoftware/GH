@@ -32,13 +32,10 @@ public:
 		GHTexture* getTexture(void) { return mTexture; }
 		unsigned int getRegister(void) const { return mRegister; }
 
-		// todo: sampler.
-		// todo: reinit.
-
 	private:
-		unsigned int mRegister;
-		GHTexture* mTexture;
-		GHMDesc::WrapMode mWrapMode;
+		unsigned int mRegister{ 0 };
+		GHTexture* mTexture{ nullptr };
+		GHMDesc::WrapMode mWrapMode{ GHMDesc::WrapMode::WM_WRAP };
 	};
 	typedef std::vector<TextureSlot*> TextureList;
 	TextureList mTextures[GHMaterialCallbackType::CT_MAX];

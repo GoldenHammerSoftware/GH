@@ -114,14 +114,9 @@ struct PixelShaderInput
 
 float4 main(PixelShaderInput input) : SV_TARGET
 {
-	float4 hackRet;
-	hackRet.r = input.uvdetail.x;
-	hackRet.g = input.uvdetail.y;
-	hackRet.b = 0;
-	hackRet.a = 1;
-	return hackRet;
-
 	float4 texelColor = DiffuseTexture.Sample(DiffuseTextureSampler, input.uv);
+	return texelColor;
+
 	float4 detailColor = DetailTexture.Sample(DetailTextureSampler, input.uvdetail);
 	float4 metalColor = MetalTexture.Sample(MetalTextureSampler, input.uvpbr);
 
