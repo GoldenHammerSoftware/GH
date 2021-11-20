@@ -20,6 +20,7 @@ public:
     virtual void beginGeometry(const GHPropertyContainer* geoData, const GHViewInfo& viewInfo) override;
     virtual void beginEntity(const GHPropertyContainer* entData, const GHViewInfo& viewInfo) override;
     virtual void beginTransform(const GHTransform& modelToWorld, const GHViewInfo& viewInfo) override;
+    virtual void preBlit(void) override;
     virtual void endMaterial(void) override;
     virtual GHMaterialParamHandle* getParamHandle(const char* paramName) override;
 
@@ -45,5 +46,7 @@ private:
     Microsoft::WRL::ComPtr<ID3D12PipelineState> mPSO{ nullptr };
 
     Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDescriptorHeaps[NUM_SWAP_BUFFERS];
+
+    bool mDescriptorsDirty{ true };
 };
 

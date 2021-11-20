@@ -24,6 +24,8 @@ public:
     virtual void beginTransform(const GHTransform& modelToWorld, const GHViewInfo& viewInfo) = 0;
     virtual void endMaterial(void) = 0;
 
+    virtual void preBlit(void) {} // todo: make pure virtual.
+
     // Get a handle for modifying a parameter if this material supports it.
     //  otherwise return null.
     virtual GHMaterialParamHandle* getParamHandle(const char* paramName) = 0;

@@ -3,21 +3,20 @@
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHDX12Helpers.h"
 
-GHDX12CBuffer::GHDX12CBuffer(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<ID3D12DescriptorHeap>* descriptorHeaps, size_t indexInHeap, size_t bufferSize)
+GHDX12CBuffer::GHDX12CBuffer(GHRenderDeviceDX12& device, size_t bufferSize)
 	: mBufferSize(bufferSize)
-    , mDescriptorHeaps(descriptorHeaps)
 	, mDevice(device)
 {
 	mMemoryBuffer = (void*)(new char[bufferSize]);
 
     // CB size is required to be 256-byte aligned.
-    size_t paddedBufferSize = (sizeof(mBufferSize) + 255) & ~255;
+    mPaddedBufferSize = (sizeof(mBufferSize) + 255) & ~255;
 
     D3D12_HEAP_PROPERTIES heapProperties;
     GHDX12Helpers::createHeapProperties(heapProperties, D3D12_HEAP_TYPE_UPLOAD);
 
     D3D12_RESOURCE_DESC bufferDesc;
-    GHDX12Helpers::createBufferDesc(bufferDesc, (uint32_t)paddedBufferSize);
+    GHDX12Helpers::createBufferDesc(bufferDesc, (uint32_t)mPaddedBufferSize);
 
     for (int i = 0; i < NUM_SWAP_BUFFERS; ++i)
     {
@@ -29,16 +28,6 @@ GHDX12CBuffer::GHDX12CBuffer(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<
             nullptr, 
             IID_PPV_ARGS(mUploadHeaps[i].GetAddressOf()));
         mUploadHeaps[i]->SetName(L"Constant Buffer Upload Resource Heap");
-
-        const UINT cbvSrvDescriptorSize = mDevice.getDXDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
-        Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> dHeap = mDescriptorHeaps[i];
-        D3D12_CPU_DESCRIPTOR_HANDLE heapOffsetHandle = dHeap->GetCPUDescriptorHandleForHeapStart();
-        heapOffsetHandle.ptr += (indexInHeap * cbvSrvDescriptorSize);
-
-        D3D12_CONSTANT_BUFFER_VIEW_DESC cbvDesc = {};
-        cbvDesc.BufferLocation = mUploadHeaps[i]->GetGPUVirtualAddress();
-        cbvDesc.SizeInBytes = paddedBufferSize;
-        mDevice.getDXDevice()->CreateConstantBufferView(&cbvDesc, heapOffsetHandle);
 
         D3D12_RANGE readRange;
         readRange.Begin = 0;
@@ -56,6 +45,19 @@ GHDX12CBuffer::~GHDX12CBuffer(void)
 void GHDX12CBuffer::updateFrameData(size_t frameId)
 {
     assert(frameId < NUM_SWAP_BUFFERS);
+    if (!mBufferSize) return;
 
     memcpy(mGPUAddresses[frameId], mMemoryBuffer, mBufferSize);
+}
+
+void GHDX12CBuffer::createSRV(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> descriptorHeap, size_t indexInHeap, size_t frameId)
+{
+    const UINT cbvSrvDescriptorSize = mDevice.getDXDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
+    D3D12_CPU_DESCRIPTOR_HANDLE heapOffsetHandle = descriptorHeap->GetCPUDescriptorHandleForHeapStart();
+    heapOffsetHandle.ptr += (indexInHeap * cbvSrvDescriptorSize);
+
+    D3D12_CONSTANT_BUFFER_VIEW_DESC cbvDesc = {};
+    cbvDesc.BufferLocation = mUploadHeaps[frameId]->GetGPUVirtualAddress();
+    cbvDesc.SizeInBytes = mPaddedBufferSize;
+    mDevice.getDXDevice()->CreateConstantBufferView(&cbvDesc, heapOffsetHandle);
 }

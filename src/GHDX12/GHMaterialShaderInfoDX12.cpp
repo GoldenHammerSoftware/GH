@@ -3,13 +3,12 @@
 #include "GHRenderDeviceDX12.h"
 #include "Render/GHTexture.h"
 
-GHMaterialShaderInfoDX12::GHMaterialShaderInfoDX12(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<ID3D12DescriptorHeap>* descriptorHeaps, GHShaderResource* shader, GHShaderType::Enum shaderType)
+GHMaterialShaderInfoDX12::GHMaterialShaderInfoDX12(GHRenderDeviceDX12& device, GHShaderResource* shader)
 	: mShader(shader)
-	, mShaderType(shaderType)
 {
 	assert(mShader);
 	mShader->acquire();
-	createConstantBuffers(device, descriptorHeaps);
+	createConstantBuffers(device);
 }
 
 GHMaterialShaderInfoDX12::~GHMaterialShaderInfoDX12(void)
@@ -24,13 +23,13 @@ GHMaterialShaderInfoDX12::~GHMaterialShaderInfoDX12(void)
 	}
 }
 
-void GHMaterialShaderInfoDX12::createConstantBuffers(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<ID3D12DescriptorHeap>* descriptorHeaps)
+void GHMaterialShaderInfoDX12::createConstantBuffers(GHRenderDeviceDX12& device)
 {
 	for (int i = 0; i < (int)GHMaterialCallbackType::CT_MAX; ++i)
 	{
 		unsigned int bufSize = mShader->get()->getParamList()->getBufferSize((GHMaterialCallbackType::Enum)i);
 		// create a cbuffer even if size 0 in order to make sure the root descriptor matches.
-		mCBuffers[i] = new GHDX12CBuffer(device, descriptorHeaps, mShaderType * GHShaderType::ST_MAX + i, bufSize);
+		mCBuffers[i] = new GHDX12CBuffer(device, bufSize);
 	}
 	// extract the texture info
 	const std::vector<GHShaderParamList::Param>& vsparams = mShader->get()->getParamList()->getParams();

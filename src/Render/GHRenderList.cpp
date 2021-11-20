@@ -169,6 +169,8 @@ void GHRenderList::blit(GHViewInfo::EyeIndex eyeIndex)
 			lastGeoApplied = true;
 		}
 		{
+			// todo: probably let the material handle the blit call.
+			currMat->preBlit();
 			//GHPROFILESCOPE("GHRenderList::blit vbBlit", GHString::CHT_REFERENCE);
 			currEntry->mVertexBuffer->blit();
 		}

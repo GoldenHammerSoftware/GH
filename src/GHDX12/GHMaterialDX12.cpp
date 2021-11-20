@@ -29,8 +29,8 @@ GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHMDesc* desc, GHShad
 		}
 	}
 
-	mShaders[GHShaderType::ST_VERTEX] = new GHMaterialShaderInfoDX12(device, mDescriptorHeaps, vs, GHShaderType::ST_VERTEX);
-	mShaders[GHShaderType::ST_PIXEL] = new GHMaterialShaderInfoDX12(device, mDescriptorHeaps, ps, GHShaderType::ST_PIXEL);
+	mShaders[GHShaderType::ST_VERTEX] = new GHMaterialShaderInfoDX12(device, vs);
+	mShaders[GHShaderType::ST_PIXEL] = new GHMaterialShaderInfoDX12(device, ps);
 
 	GHMDesc::ParamHandles* descParamHandles = desc->initMaterial(*this);
 	desc->applyDefaultArgs(*this, *descParamHandles);
@@ -54,6 +54,9 @@ GHMaterialDX12::~GHMaterialDX12(void)
 
 void GHMaterialDX12::beginMaterial(const GHViewInfo& viewInfo)
 {
+	// might not end up being necessary.
+	mDescriptorsDirty = true;
+
 	applyCallbacks(GHMaterialCallbackType::CT_PERFRAME, 0);
 	applyDXArgs(GHMaterialCallbackType::CT_PERFRAME);
 }
@@ -62,6 +65,26 @@ void GHMaterialDX12::beginVB(const GHVertexBuffer& vb)
 {
 	createPSO(vb);
 	mDevice.getRenderCommandList()->SetPipelineState(mPSO.Get());
+}
+
+void GHMaterialDX12::preBlit(void)
+{
+	if (mDescriptorsDirty)
+	{
+		// this will temporarily do more work than necessary.
+		// once each change in heap data creates a new heap it will be good.
+		Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> heap = mDescriptorHeaps[mDevice.getFrameBackendId()];
+		for (unsigned int shaderType = 0; shaderType < GHShaderType::ST_MAX; ++shaderType)
+		{
+			for (int cbType = 0; cbType < (int)GHMaterialCallbackType::CT_MAX; ++cbType)
+			{
+				if (!mShaders[shaderType]->mCBuffers[cbType]) continue;
+				if (!mShaders[shaderType]->mCBuffers[cbType]->getSize()) continue;
+				size_t indexInHeap = ((int)GHMaterialCallbackType::CT_MAX * shaderType) + cbType;
+				mShaders[shaderType]->mCBuffers[cbType]->createSRV(heap, indexInHeap, mDevice.getFrameBackendId());
+			}
+		}
+	}
 
 	// The heap will ultimately end up needing to be unique for each time one of our values change.  
 	// This will make everything draw with only the final draw call's settings.
@@ -131,7 +154,9 @@ void GHMaterialDX12::applyDXArgs(GHMaterialCallbackType::Enum type)
 	for (unsigned int shaderType = 0; shaderType < GHShaderType::ST_MAX; ++shaderType)
 	{
 		if (!mShaders[shaderType]->mCBuffers[type]) continue;
+		if (!mShaders[shaderType]->mCBuffers[type]->getSize()) continue;
 		mShaders[shaderType]->mCBuffers[type]->updateFrameData(mDevice.getFrameBackendId());
+		mDescriptorsDirty = true;
 	}
 
 	for (unsigned int i = 0; i < mShaders[GHShaderType::ST_PIXEL]->mTextures[type].size(); ++i)
