@@ -84,6 +84,19 @@ void GHMaterialDX12::preBlit(void)
 				mShaders[shaderType]->mCBuffers[cbType]->createSRV(heap, indexInHeap, mDevice.getFrameBackendId());
 			}
 		}
+
+		for (int cbType = 0; cbType < (int)GHMaterialCallbackType::CT_MAX; ++cbType)
+		{
+			for (unsigned int i = 0; i < mShaders[GHShaderType::ST_PIXEL]->mTextures[cbType].size(); ++i)
+			{
+				GHMaterialShaderInfoDX12::TextureSlot* currTex = mShaders[GHShaderType::ST_PIXEL]->mTextures[cbType][i];
+				if (!currTex->getTexture()) continue;
+
+				GHTextureDX12* currTexDX = (GHTextureDX12*)currTex->getTexture();
+				currTexDX->bind(mDescriptorHeaps[mDevice.getFrameBackendId()], 8, currTex->getRegister());
+			}
+		}
+		mDescriptorsDirty = false;
 	}
 
 	// The heap will ultimately end up needing to be unique for each time one of our values change.  
@@ -157,15 +170,6 @@ void GHMaterialDX12::applyDXArgs(GHMaterialCallbackType::Enum type)
 		if (!mShaders[shaderType]->mCBuffers[type]->getSize()) continue;
 		mShaders[shaderType]->mCBuffers[type]->updateFrameData(mDevice.getFrameBackendId());
 		mDescriptorsDirty = true;
-	}
-
-	for (unsigned int i = 0; i < mShaders[GHShaderType::ST_PIXEL]->mTextures[type].size(); ++i)
-	{
-		GHMaterialShaderInfoDX12::TextureSlot* currTex = mShaders[GHShaderType::ST_PIXEL]->mTextures[type][i];
-		if (!currTex->getTexture()) continue;
-
-		GHTextureDX12* currTexDX = (GHTextureDX12*)currTex->getTexture();
-		currTexDX->bind(mDescriptorHeaps[mDevice.getFrameBackendId()], 8, currTex->getRegister());
 	}
 }
 
