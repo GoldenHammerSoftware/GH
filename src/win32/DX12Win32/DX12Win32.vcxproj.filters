@@ -68,6 +68,9 @@
     <ClInclude Include="..\..\GHDX12\GHTextureLoaderDX12.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\GHDX12\GHDX12MaterialDescriptorHeapPool.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GHDX12\GHRenderDeviceDX12.cpp">
@@ -119,6 +122,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GHDX12\GHTextureLoaderDX12.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX12\GHDX12MaterialDescriptorHeapPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
