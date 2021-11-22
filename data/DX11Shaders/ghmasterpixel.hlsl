@@ -115,8 +115,6 @@ struct PixelShaderInput
 float4 main(PixelShaderInput input) : SV_TARGET
 {
 	float4 texelColor = DiffuseTexture.Sample(DiffuseTextureSampler, input.uv);
-	return texelColor;
-
 	float4 detailColor = DetailTexture.Sample(DetailTextureSampler, input.uvdetail);
 	float4 metalColor = MetalTexture.Sample(MetalTextureSampler, input.uvpbr);
 
