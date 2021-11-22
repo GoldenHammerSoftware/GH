@@ -10,15 +10,15 @@
 #include "Render/GHVertexBuffer.h"
 #include "GHVBBlitterIndexDX12.h"
 #include "GHTextureDX12.h"
-#include "GHDX12MaterialDescriptorHeapPool.h"
+#include "GHDX12MaterialHeapPool.h"
 
-GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHDX12MaterialDescriptorHeapPool& heapPool, GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps)
+GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHDX12MaterialHeapPool& heapPool, GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps)
 	: mDevice(device)
 	, mDesc(desc)
-	, mDescriptorHeapPool(heapPool)
+	, mHeapPool(heapPool)
 {
-	mShaders[GHShaderType::ST_VERTEX] = new GHMaterialShaderInfoDX12(device, vs);
-	mShaders[GHShaderType::ST_PIXEL] = new GHMaterialShaderInfoDX12(device, ps);
+	mShaders[GHShaderType::ST_VERTEX] = new GHMaterialShaderInfoDX12(device, mHeapPool, vs);
+	mShaders[GHShaderType::ST_PIXEL] = new GHMaterialShaderInfoDX12(device, mHeapPool, ps);
 
 	GHMDesc::ParamHandles* descParamHandles = desc->initMaterial(*this);
 	desc->applyDefaultArgs(*this, *descParamHandles);
@@ -59,7 +59,7 @@ void GHMaterialDX12::preBlit(void)
 {
 	if (mDescriptorsDirty)
 	{
-		mDescriptorHeap = mDescriptorHeapPool.getDescriptorHeap();
+		mDescriptorHeap = mHeapPool.getDescriptorHeap();
 		for (unsigned int shaderType = 0; shaderType < GHShaderType::ST_MAX; ++shaderType)
 		{
 			for (int cbType = 0; cbType < (int)GHMaterialCallbackType::CT_MAX; ++cbType)

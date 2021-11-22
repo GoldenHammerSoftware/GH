@@ -65,7 +65,7 @@ void* GHMaterialLoaderDX12::create(const GHXMLNode& node, GHPropertyContainer& e
 	// dx11 checked overridemat here to squelch some errors.
 	//bool isOverrideMat = extraData.getProperty(GHRenderProperties::GP_LOADINGMATERIALOVERRIDE);
 
-	GHMaterialDX12* ret = new GHMaterialDX12(mDevice, (GHDX12MaterialDescriptorHeapPool&)mDescriptorHeapPool, desc, vs, ps);
+	GHMaterialDX12* ret = new GHMaterialDX12(mDevice, (GHDX12MaterialHeapPool&)mDescriptorHeapPool, desc, vs, ps);
 	mCallbackMgr.createCallbacks(*ret);
 	return ret;
 }

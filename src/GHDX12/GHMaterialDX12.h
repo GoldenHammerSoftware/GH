@@ -8,12 +8,12 @@
 class GHMDesc;
 class GHMaterialShaderInfoDX12;
 class GHRenderDeviceDX12;
-class GHDX12MaterialDescriptorHeapPool;
+class GHDX12MaterialHeapPool;
 
 class GHMaterialDX12 : public GHMaterial
 {
 public:
-    GHMaterialDX12(GHRenderDeviceDX12& device, GHDX12MaterialDescriptorHeapPool& heapPool, GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps);
+    GHMaterialDX12(GHRenderDeviceDX12& device, GHDX12MaterialHeapPool& heapPool, GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps);
     ~GHMaterialDX12(void);
 
     virtual void beginMaterial(const GHViewInfo& viewInfo) override;
@@ -34,7 +34,7 @@ private:
 
 private:
     GHRenderDeviceDX12& mDevice;
-    GHDX12MaterialDescriptorHeapPool& mDescriptorHeapPool;
+    GHDX12MaterialHeapPool& mHeapPool;
     GHMDesc* mDesc{ nullptr };
     GHMaterialShaderInfoDX12* mShaders[GHShaderType::ST_MAX];
     

@@ -8,11 +8,11 @@ class GHRenderDeviceDX12;
 class GHMaterialShaderInfoDX12
 {
 public:
-    GHMaterialShaderInfoDX12(GHRenderDeviceDX12& device, GHShaderResource* shader);
+    GHMaterialShaderInfoDX12(GHRenderDeviceDX12& device, GHDX12MaterialHeapPool& heapPool, GHShaderResource* shader);
     ~GHMaterialShaderInfoDX12(void);
 
 private:
-    void createConstantBuffers(GHRenderDeviceDX12& device);
+    void createConstantBuffers(GHRenderDeviceDX12& device, GHDX12MaterialHeapPool& heapPool);
 
 public:
 	GHShaderResource* mShader{ 0 };
