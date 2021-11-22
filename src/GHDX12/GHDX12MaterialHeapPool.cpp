@@ -12,6 +12,7 @@ GHDX12MaterialHeapPool::GHDX12MaterialHeapPool(GHRenderDeviceDX12& device)
 		mDescriptorHeapPools[i].reserve(1024);
 		mCBufferUploadHeapPools[i].reserve(1024);
 		mCBufferGPUAddresses[i].reserve(1024);
+		mSamplerHeapPools[i].reserve(1024);
 	}
 }
 
@@ -19,11 +20,12 @@ GHDX12MaterialHeapPool::~GHDX12MaterialHeapPool(void)
 {
 }
 
-static Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> createNewHeap(GHRenderDeviceDX12& device)
+static Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> createNewCBVHeap(GHRenderDeviceDX12& device)
 {
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> ret = 0;
 
 	D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
+	// CT_MAX cbuffers for vertex and pixel, MAX_TEXTURES textures.
 	heapDesc.NumDescriptors = 2 * GHMaterialCallbackType::CT_MAX + MAX_TEXTURES;
 	heapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
 	heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
@@ -40,10 +42,38 @@ Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> GHDX12MaterialHeapPool::getDescript
 	checkNewFrame();
 	while (mDescriptorHeapPools[mCurrFrameIndex].size() < mCurrDescriptorHeapIndex + 1)
 	{
-		mDescriptorHeapPools[mCurrFrameIndex].push_back(createNewHeap(mDevice));
+		mDescriptorHeapPools[mCurrFrameIndex].push_back(createNewCBVHeap(mDevice));
 	}
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> ret = mDescriptorHeapPools[mCurrFrameIndex][mCurrDescriptorHeapIndex];
 	mCurrDescriptorHeapIndex++;
+	return ret;
+}
+
+static Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> createNewSamplerHeap(GHRenderDeviceDX12& device)
+{
+	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> ret = 0;
+
+	D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
+	heapDesc.NumDescriptors = MAX_TEXTURES;
+	heapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
+	heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER;
+	HRESULT hr = device.getDXDevice()->CreateDescriptorHeap(&heapDesc, IID_PPV_ARGS(ret.GetAddressOf()));
+	if (FAILED(hr))
+	{
+		GHDebugMessage::outputString("Failed to create cbuffer descriptor heap.");
+	}
+	return ret;
+}
+
+Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> GHDX12MaterialHeapPool::getSamplerHeap(void)
+{
+	checkNewFrame();
+	while (mSamplerHeapPools[mCurrFrameIndex].size() < mCurrSamplerHeapIndex + 1)
+	{
+		mSamplerHeapPools[mCurrFrameIndex].push_back(createNewSamplerHeap(mDevice));
+	}
+	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> ret = mSamplerHeapPools[mCurrFrameIndex][mCurrSamplerHeapIndex];
+	mCurrSamplerHeapIndex++;
 	return ret;
 }
 
@@ -100,6 +130,7 @@ void GHDX12MaterialHeapPool::checkNewFrame(void)
 		mCurrFrameIndex = currFrameId;
 		mCurrDescriptorHeapIndex = 0;
 		mCurrCBufferHeapIndex = 0;
+		mCurrSamplerHeapIndex = 0;
 	}
 }
 

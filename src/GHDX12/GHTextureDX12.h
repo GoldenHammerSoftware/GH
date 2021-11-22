@@ -2,6 +2,7 @@
 
 #include "Render/GHTexture.h"
 #include "GHDX12Include.h"
+#include "Render/GHMDesc.h"
 
 class GHRenderDeviceDX12;
 
@@ -14,6 +15,7 @@ public:
 	// todo: remove the no argument bind from the interface.
 	virtual void bind(void) override { assert(false); }
 	void bind(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> heap, unsigned int heapTextureStart, unsigned int index);
+	void createSampler(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> heap, unsigned int index, GHMDesc::WrapMode wrapMode);
 
 	virtual bool lockSurface(void** ret, unsigned int& pitch) override { return false; }
 	virtual bool unlockSurface(void) override { return false; }

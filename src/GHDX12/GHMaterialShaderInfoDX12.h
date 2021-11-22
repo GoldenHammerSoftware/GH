@@ -29,7 +29,8 @@ public:
 		void setTexture(GHTexture* tex, GHMDesc::WrapMode wrapMode);
 		GHTexture* getTexture(void) { return mTexture; }
 		unsigned int getRegister(void) const { return mRegister; }
-
+		GHMDesc::WrapMode getWrapMode(void) const { return mWrapMode; 
+		}
 	private:
 		unsigned int mRegister{ 0 };
 		GHTexture* mTexture{ nullptr };

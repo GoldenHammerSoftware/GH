@@ -31,6 +31,7 @@ private:
     void createRasterizerDesc(void);
     void createBlendDesc(void);
     void createDepthStencilDesc(void);
+    void updateDescriptorHeap(void);
 
 private:
     GHRenderDeviceDX12& mDevice;
@@ -48,6 +49,7 @@ private:
     Microsoft::WRL::ComPtr<ID3D12PipelineState> mPSO{ nullptr };
 
     Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDescriptorHeap{ nullptr };
+    Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mSamplerHeap{ nullptr };
 
     bool mDescriptorsDirty{ true };
 };
