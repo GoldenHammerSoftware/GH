@@ -71,6 +71,12 @@
     <ClInclude Include="..\..\GHDX12\GHDX12MaterialHeapPool.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\GHDX12\GHRenderTargetDX12.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHDX12\GHRenderTargetFactoryDX12.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GHDX12\GHRenderDeviceDX12.cpp">
@@ -125,6 +131,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GHDX12\GHDX12MaterialHeapPool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX12\GHRenderTargetDX12.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX12\GHRenderTargetFactoryDX12.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

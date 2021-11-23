@@ -28,6 +28,8 @@
     <ClInclude Include="..\..\GHDX12\GHDX12Include.h" />
     <ClInclude Include="..\..\GHDX12\GHMaterialParamHandleDX12.h" />
     <ClInclude Include="..\..\GHDX12\GHMaterialShaderInfoDX12.h" />
+    <ClInclude Include="..\..\GHDX12\GHRenderTargetDX12.h" />
+    <ClInclude Include="..\..\GHDX12\GHRenderTargetFactoryDX12.h" />
     <ClInclude Include="..\..\GHDX12\GHShaderDX12.h" />
     <ClInclude Include="..\..\GHDX12\GHMaterialDX12.h" />
     <ClInclude Include="..\..\GHDX12\GHMaterialLoaderDX12.h" />
@@ -48,6 +50,8 @@
     <ClCompile Include="..\..\GHDX12\GHDX12MaterialHeapPool.cpp" />
     <ClCompile Include="..\..\GHDX12\GHMaterialParamHandleDX12.cpp" />
     <ClCompile Include="..\..\GHDX12\GHMaterialShaderInfoDX12.cpp" />
+    <ClCompile Include="..\..\GHDX12\GHRenderTargetDX12.cpp" />
+    <ClCompile Include="..\..\GHDX12\GHRenderTargetFactoryDX12.cpp" />
     <ClCompile Include="..\..\GHDX12\GHShaderDX12.cpp" />
     <ClCompile Include="..\..\GHDX12\GHMaterialDX12.cpp" />
     <ClCompile Include="..\..\GHDX12\GHMaterialLoaderDX12.cpp" />

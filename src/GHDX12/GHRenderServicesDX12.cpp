@@ -3,7 +3,7 @@
 #include "GHRenderDeviceDX12.h"
 #include "GHVBFactoryDX12.h"
 #include "Render/GHFontRenderer.h"
-#include "NullPlatform/GHNullRenderTargetFactory.h"
+#include "GHRenderTargetFactoryDX12.h"
 #include "GHPlatform/GHDeletionHandle.h"
 #include "Render/GHXMLObjLoaderGHM.h"
 #include "Base/GHAppShard.h"
@@ -31,7 +31,7 @@ GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHW
     setVBFactory(new GHVBFactoryDX12(*renderDevice));
     mFontRenderer = new GHFontRenderer(*mVBFactory);
     addOwnedItem(new GHTypedDeletionHandle<GHFontRenderer>(mFontRenderer));
-    mRenderTargetFactory = new GHNullRenderTargetFactory();
+    mRenderTargetFactory = new GHRenderTargetFactoryDX12(*renderDevice);
 
     GHMaterialCallbackFactory* viewCB = new GHMaterialCallbackFactoryViewInfo(renderDevice->getViewInfo(), "");
     mMaterialCallbackMgr->addFactory(viewCB);
