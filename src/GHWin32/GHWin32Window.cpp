@@ -8,7 +8,7 @@
 #include "GHUtils/GHMessageHandler.h"
 #include "GHUtils/GHMessage.h"
 #include "GHUtils/GHUtilsIdentifiers.h"
-#include "GHBaseIdentifiers.h" 
+#include "Base/GHBaseIdentifiers.h" 
 
 GHWin32Window::GHWin32Window(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	int nCmdShow, WNDPROC handleWMFunc,

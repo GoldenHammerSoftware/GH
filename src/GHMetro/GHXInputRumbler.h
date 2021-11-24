@@ -1,5 +1,5 @@
 // Copyright Golden Hammer Software
-#include "GHRumbler.h"
+#include "Base/GHRumbler.h"
 
 class GHPropertyContainer;
 

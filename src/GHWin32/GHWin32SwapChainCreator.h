@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHDX11SwapChainCreator.h"
+#include "GHDX11/GHDX11SwapChainCreator.h"
 
 class GHWin32Window;
 

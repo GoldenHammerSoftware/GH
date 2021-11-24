@@ -2,7 +2,7 @@
 #include "GHMetroSoundDevice.h"
 #include "GHUtils/GHControllerMgr.h"
 #include "GHUtils/GHMessage.h"
-#include "GHBaseIdentifiers.h"
+#include "Base/GHBaseIdentifiers.h"
 
 GHMetroSoundErrorHandler::GHMetroSoundErrorHandler(GHMetroSoundDevice& device,
 											   GHControllerMgr& controllerManager,

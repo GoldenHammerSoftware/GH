@@ -5,9 +5,9 @@
 #include "GHMetroSoundEmitter.h"
 #include "GHUtils/GHControllerMgr.h"
 #include "GHUtils/GHEventMgr.h"
-#include "GHMessageTypes.h"
+#include "Base/GHMessageTypes.h"
 #include "GHUtils/GHMessage.h"
-#include "GHBaseIdentifiers.h"
+#include "Base/GHBaseIdentifiers.h"
 #include "GHWin32DeviceFinder.h"
 
 GHMetroSoundDevice::GHMetroSoundDevice(GHEventMgr& eventMgr, GHControllerMgr& controllerManager, 

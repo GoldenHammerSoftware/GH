@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHXAudio2SoundFinder.h"
+#include "GHMetro/GHXAudio2SoundFinder.h"
 #include "GHWin32FileFinder.h"
 
 class GHFileOpener;

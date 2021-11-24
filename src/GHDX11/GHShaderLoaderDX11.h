@@ -2,7 +2,7 @@
 #pragma once
 
 #include "GHUtils/GHResourceLoader.h"
-#include "GHShaderParamList.h"
+#include "Render/GHShaderParamList.h"
 #include "GHUtils/GHResource.h"
 #include "GHString/GHString.h"
 #include "Render/GHShaderParamListLoader.h"

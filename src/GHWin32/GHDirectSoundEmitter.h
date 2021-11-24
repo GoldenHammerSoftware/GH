@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHSoundEmitter.h"
+#include "Base/GHSoundEmitter.h"
 
 class GHDirectSoundHandle;
 

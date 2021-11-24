@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHRenderServices.h"
+#include "Render/GHRenderServices.h"
 
 class GHShaderDX11;
 class GHRenderStateMgrDX11;

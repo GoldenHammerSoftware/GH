@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHMouseCapturer.h"
+#include "Base/GHMouseCapturer.h"
 
 class GHWin32Window;
 

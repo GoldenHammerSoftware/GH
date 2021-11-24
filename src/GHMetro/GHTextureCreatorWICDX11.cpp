@@ -2,8 +2,8 @@
 #include "GHTextureCreatorWICDX11.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHWin32/GHWindowsFileFinder.h"
-#include "GHRenderDeviceDX11.h"
-#include "DDSTextureLoader.h"
+#include "GHDX11/GHRenderDeviceDX11.h"
+#include "GHDX11/DDSTextureLoader.h"
 
 GHTextureCreatorWICDX11::GHTextureCreatorWICDX11(GHRenderDeviceDX11& device, const GHWindowsFileFinder& fileFinder)
 : mDevice(device)

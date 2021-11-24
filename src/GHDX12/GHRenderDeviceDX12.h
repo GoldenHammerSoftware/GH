@@ -73,5 +73,6 @@ protected:
 
 	D3D12_RECT mScissorRect;
 	D3D12_VIEWPORT mViewport;
+	bool mVSyncEnabled{ false };
 };
 

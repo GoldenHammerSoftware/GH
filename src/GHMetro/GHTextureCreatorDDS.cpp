@@ -1,8 +1,8 @@
 // Copyright Golden Hammer Software
 #include "GHTextureCreatorDDS.h"
 #include "GHWin32/GHWindowsFileFinder.h"
-#include "DDSTextureLoader.h"
-#include "GHRenderDeviceDX11.h"
+#include "GHDX11/DDSTextureLoader.h"
+#include "GHDX11/GHRenderDeviceDX11.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include <assert.h>
 

@@ -1,13 +1,13 @@
 // Copyright Golden Hammer Software
 #include "GHTextureLoaderDDS.h"
 #include "GHPlatform/GHDebugMessage.h"
-#include "GHTextureDX11.h"
-#include "GHDX11Include.h"
-#include "GHRenderDeviceDX11.h"
-#include "DDSTextureLoader.h"
+#include "GHDX11/GHTextureDX11.h"
+#include "GHDX11/GHDX11Include.h"
+#include "GHDX11/GHRenderDeviceDX11.h"
+#include "GHDX11/DDSTextureLoader.h"
 #include "GHUtils/GHProfiler.h"
 #include "GHUtils/GHPropertyContainer.h"
-#include "GHRenderProperties.h"
+#include "Render/GHRenderProperties.h"
 
 GHTextureLoaderDDS::GHTextureLoaderDDS(GHRenderDeviceDX11& device, const GHWindowsFileFinder& fileOpener,
 									   GHEventMgr& eventMgr)

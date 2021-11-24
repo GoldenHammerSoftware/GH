@@ -124,8 +124,9 @@ void GHRenderDeviceDX12::endFrame(void)
 
 	mFrameBackends[mCurrBackend].mCommandList->endAndSubmit();
 
-	// possible todo: apply DXGI_PRESENT_ALLOW_TEARING or !vsync
-	mDXSwapChain->Present(1, 0);
+	// possible todo: apply DXGI_PRESENT_ALLOW_TEARING
+	int vsync = mVSyncEnabled ? 1 : 0;
+	mDXSwapChain->Present(vsync, 0);
 }
 
 void GHRenderDeviceDX12::beginRenderPass(GHRenderTarget* optionalTarget, const GHPoint4& clearColor, bool clearBuffers)

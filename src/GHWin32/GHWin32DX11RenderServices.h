@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHRenderServicesDX11.h"
+#include "GHDX11/GHRenderServicesDX11.h"
 #include "GHWindowsFileFinder.h"
 
 class GHWin32DX11RenderServices : public GHRenderServicesDX11

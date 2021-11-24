@@ -4,7 +4,7 @@
 #include "GHXAudio2Include.h"
 #include <wrl.h>
 #include <wrl/client.h>
-#include "GHSoundIDInfo.h"
+#include "Base/GHSoundIDInfo.h"
 
 class GHPropertyContainer;
 

@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHXMLObjLoader.h"
+#include "Base/GHXMLObjLoader.h"
 
 // <openURL url="http://www.goldenhammersoftware.com"/>
 class GHWin32URLOpenerTransitionXMLLoader : public GHXMLObjLoader

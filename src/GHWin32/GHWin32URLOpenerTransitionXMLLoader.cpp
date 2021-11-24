@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #include "GHWin32URLOpenerTransitionXMLLoader.h"
 #include "GHWin32URLOpenerTransition.h"
-#include "GHXMLNode.h"
+#include "Base/GHXMLNode.h"
 #include "GHPlatform/GHDebugMessage.h"
 
 GHWin32URLOpenerTransitionXMLLoader::GHWin32URLOpenerTransitionXMLLoader(void)

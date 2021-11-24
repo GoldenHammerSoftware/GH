@@ -1,12 +1,12 @@
 // Copyright Golden Hammer Software
 #include "GHWin32DX11RenderServices.h"
-#include "GHSystemServices.h"
-#include "GHAppShard.h"
-#include "GHShaderLoaderDX11.h"
+#include "Base/GHSystemServices.h"
+#include "Base/GHAppShard.h"
+#include "GHDX11/GHShaderLoaderDX11.h"
 #include "GHWin32FileFinder.h"
 #include "GHUtils/GHRedirectResourceLoader.h"
-#include "GHTextureLoaderDX11.h"
-#include "GHTextureLoaderDDS.h"
+#include "GHMetro/GHTextureLoaderDX11.h"
+#include "GHMetro/GHTextureLoaderDDS.h"
 #include "Render/GHShaderParamListLoader.h"
 #include "GHPlatform/GHDeletionHandle.h"
 

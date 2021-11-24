@@ -3,7 +3,7 @@
 
 #include "GHPlatform/win32/GHWin32Include.h"
 #include <dsound.h>
-#include "GHSoundDevice.h"
+#include "Base/GHSoundDevice.h"
 
 class GHWin32Window;
 

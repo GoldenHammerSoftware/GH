@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHSoundHandle.h"
+#include "Base/GHSoundHandle.h"
 #include "GHPlatform/win32/GHWin32Include.h"
 #include <dsound.h>
 

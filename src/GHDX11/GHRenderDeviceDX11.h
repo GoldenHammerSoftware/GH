@@ -1,8 +1,8 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHRenderDevice.h"
-#include "GHViewInfo.h"
+#include "Render/GHRenderDevice.h"
+#include "Render/GHViewInfo.h"
 #include "GHDX11Include.h"
 
 class GHMessageHandler;

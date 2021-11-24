@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once 
 
-#include "GHTextureCreatorDX11.h"
+#include "GHDX11/GHTextureCreatorDX11.h"
 #include "GHPlatform/win32/GHWin32Include.h"
 #include <wrl/client.h>
 #include "GHWin32/GHWin32WICUtil.h"

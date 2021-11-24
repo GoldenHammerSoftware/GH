@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHSoundDevice.h"
+#include "Base/GHSoundDevice.h"
 #include "GHXAudio2Include.h"
 #include "GHUtils/GHMessageHandler.h"
 #include "GHUtils/GHController.h"

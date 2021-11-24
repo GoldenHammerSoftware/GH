@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHTextureCreatorDX11.h"
+#include "GHDX11/GHTextureCreatorDX11.h"
 
 class GHRenderDeviceDX11;
 class GHWindowsFileFinder;

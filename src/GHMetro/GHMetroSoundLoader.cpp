@@ -6,7 +6,7 @@
 #include "GHMetroSoundDevice.h"
 #include "GHXAudio2SoundFinder.h"
 #include "GHXAudio2Include.h"
-#include "GHSoundIDInfo.h"
+#include "Base/GHSoundIDInfo.h"
 #include "GHPlatform/GHThreadFactory.h"
 #include "GHPlatform/GHMutex.h"
 

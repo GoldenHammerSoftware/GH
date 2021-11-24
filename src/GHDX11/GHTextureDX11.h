@@ -1,11 +1,11 @@
 // Copyright Golden Hammer Software
 #pragma once
 
-#include "GHTexture.h"
+#include "Render/GHTexture.h"
 #include "GHDX11Include.h"
 #include "GHUtils/GHMessageHandler.h"
 #include "GHString/GHString.h"
-#include "GHTextureFormat.h"
+#include "Render/GHTextureFormat.h"
 #include "GHTextureBindArgsDX11.h"
 
 class GHRenderDeviceDX11;

@@ -5,8 +5,8 @@
 #include "XInput.h"
 
 #include "GHXInputHandler.h"
-#include "GHInputState.h"
-#include "GHKeyDef.h"
+#include "Base/GHInputState.h"
+#include "Base/GHKeyDef.h"
 #include "GHPlatform/GHDebugMessage.h"
 
 static void createNormalizedJoystickValue(int inputX, int inputY, float& outputX, float& outputY)

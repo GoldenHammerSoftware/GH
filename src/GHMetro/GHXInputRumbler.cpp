@@ -1,7 +1,7 @@
 // Copyright Golden Hammer Software
 #include "GHXInputRumbler.h"
 #include "GHMath/GHMath.h"
-#include "GHBaseIdentifiers.h"
+#include "Base/GHBaseIdentifiers.h"
 #include "GHUtils/GHPropertyContainer.h"
 
 #include "GHPlatform/win32/GHWin32Include.h"
