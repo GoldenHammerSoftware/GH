@@ -42,6 +42,8 @@ public:
 	// wait for all command buffers to finish so we can delete resources etc.
 	void flushGPU(void);
 
+	void applyDefaultTarget(bool clear);
+
 private:
 	void createGraphicsRootSignature(void);
 	void createDepthBuffer(void);
@@ -62,6 +64,7 @@ protected:
 	struct FrameBackend
 	{
 		Microsoft::WRL::ComPtr<ID3D12Resource> mBackBuffer;
+		D3D12_CPU_DESCRIPTOR_HANDLE mBackBufferRTV;
 		GHDX12CommandList* mCommandList;
 	};
 	FrameBackend mFrameBackends[NUM_SWAP_BUFFERS];

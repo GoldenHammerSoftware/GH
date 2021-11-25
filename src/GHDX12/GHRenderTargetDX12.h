@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Render/GHRenderTarget.h"
+#include "GHDX12Include.h"
 
 class GHRenderDeviceDX12;
 
@@ -15,4 +16,13 @@ public:
 	virtual GHTexture* getTexture(void) override;
 
 	void resize(const GHRenderTarget::Config& args);
+
+private:
+	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mColorDescriptorHeap;
+	Microsoft::WRL::ComPtr<ID3D12Resource> mColorBuffer;
+	D3D12_CPU_DESCRIPTOR_HANDLE mColorBufferRTV;
+
+	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDepthDescriptorHeap;
+	Microsoft::WRL::ComPtr<ID3D12Resource> mDepthBuffer;
+	D3D12_CPU_DESCRIPTOR_HANDLE mDepthBufferRTV;
 };

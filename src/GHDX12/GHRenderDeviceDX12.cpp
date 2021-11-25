@@ -33,6 +33,11 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 	{
 		GHDX12Helpers::createBackBuffer(mDXDevice, mDXSwapChain, mDXDescriptorHeap, mFrameBackends[frameId].mBackBuffer, frameId);
 		mFrameBackends[frameId].mCommandList = new GHDX12CommandList(mDXDevice, mDXCommandQueue);
+
+		auto rtvDescriptorSize = mDXDevice->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
+		D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = mDXDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
+		rtvHandle.ptr += rtvDescriptorSize * frameId;
+		mFrameBackends[frameId].mBackBufferRTV = rtvHandle;
 	}
 	mUploadCommandList = new GHDX12CommandList(mDXDevice, mDXCommandQueue);
 	createDepthBuffer();
@@ -44,8 +49,8 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 
 	mViewport.TopLeftX = 0;
 	mViewport.TopLeftY = 0;
-	mViewport.Width = screenSize[0];
-	mViewport.Height = screenSize[1];
+	mViewport.Width = (FLOAT)screenSize[0];
+	mViewport.Height = (FLOAT)screenSize[1];
 	mViewport.MinDepth = 0.0f;
 	mViewport.MaxDepth = 1.0f;
 
@@ -78,6 +83,20 @@ static uint32_t getNextBackendId(uint32_t currId)
 	return ret;
 }
 
+void GHRenderDeviceDX12::applyDefaultTarget(bool clear)
+{
+	D3D12_CPU_DESCRIPTOR_HANDLE dsvHandle = mDepthDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
+	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->OMSetRenderTargets(1, &mFrameBackends[mCurrBackend].mBackBufferRTV, FALSE, &dsvHandle);
+	getRenderCommandList()->RSSetViewports(1, &mViewport);
+
+	if (clear)
+	{
+		FLOAT clearColor[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+		mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearRenderTargetView(mFrameBackends[mCurrBackend].mBackBufferRTV, clearColor, 0, nullptr);
+		mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearDepthStencilView(mDepthDescriptorHeap->GetCPUDescriptorHandleForHeapStart(), D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
+	}
+}
+
 bool GHRenderDeviceDX12::beginFrame(void)
 {
 	// wait for the next frame to become available.
@@ -94,19 +113,10 @@ bool GHRenderDeviceDX12::beginFrame(void)
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
 	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ResourceBarrier(1, &barrier);
 
-	auto rtvDescriptorSize = mDXDevice->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
-	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = mDXDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
-	rtvHandle.ptr += rtvDescriptorSize * mCurrBackend;
-	D3D12_CPU_DESCRIPTOR_HANDLE dsvHandle = mDepthDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
-	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->OMSetRenderTargets(1, &rtvHandle, FALSE, &dsvHandle);
-
-	FLOAT clearColor[] = { 0.0f, 0.0f, 0.0f, 1.0f };
-	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
-	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearDepthStencilView(mDepthDescriptorHeap->GetCPUDescriptorHandleForHeapStart(), D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
-
 	getRenderCommandList()->SetGraphicsRootSignature(mGraphicsRootSignature.Get());
-	getRenderCommandList()->RSSetViewports(1, &mViewport); 
 	getRenderCommandList()->RSSetScissorRects(1, &mScissorRect); 
+
+	applyDefaultTarget(true);
 
 	return true;
 }
