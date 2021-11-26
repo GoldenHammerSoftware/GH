@@ -6,6 +6,7 @@
 
 class GHWin32Window;
 class GHDX12Fence;
+class GHRenderTarget;
 
 class GHRenderDeviceDX12 : public GHRenderDevice
 {
@@ -42,11 +43,14 @@ public:
 	// wait for all command buffers to finish so we can delete resources etc.
 	void flushGPU(void);
 
-	void applyDefaultTarget(bool clear);
+	void applyDefaultTarget(void);
+	void applyRenderTarget(D3D12_CPU_DESCRIPTOR_HANDLE color, D3D12_CPU_DESCRIPTOR_HANDLE depth);
 
 private:
 	void createGraphicsRootSignature(void);
 	void createDepthBuffer(void);
+	void setClearColor(const GHPoint4& color);
+	void clearBuffers(void);
 
 protected:
 	GHViewInfo mViewInfo;
@@ -73,9 +77,14 @@ protected:
 	// only one depth buffer for the whole app?
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDepthDescriptorHeap;
 	Microsoft::WRL::ComPtr<ID3D12Resource> mDepthBuffer;
+	
+	D3D12_CPU_DESCRIPTOR_HANDLE mActiveColorRTV;
+	D3D12_CPU_DESCRIPTOR_HANDLE mActiveDepthRTV;
 
 	D3D12_RECT mScissorRect;
 	D3D12_VIEWPORT mViewport;
 	bool mVSyncEnabled{ false };
+	GHPoint4 mClearColor;
+	GHRenderTarget* mRenderTarget{ 0 };
 };
 

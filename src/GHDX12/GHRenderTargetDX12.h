@@ -18,11 +18,25 @@ public:
 	void resize(const GHRenderTarget::Config& args);
 
 private:
-	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mColorDescriptorHeap;
-	Microsoft::WRL::ComPtr<ID3D12Resource> mColorBuffer;
-	D3D12_CPU_DESCRIPTOR_HANDLE mColorBufferRTV;
+	void createDXBuffers(void);
+	void createDepthBuffers(void);
+	void createColorBuffers(void);
 
+private:
+	GHRenderTarget::Config mConfig;
+	GHRenderDeviceDX12& mDevice;
+
+	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mColorDescriptorHeap;
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDepthDescriptorHeap;
-	Microsoft::WRL::ComPtr<ID3D12Resource> mDepthBuffer;
-	D3D12_CPU_DESCRIPTOR_HANDLE mDepthBufferRTV;
+	D3D12_VIEWPORT mViewport;
+
+	struct FrameInfo
+	{
+		Microsoft::WRL::ComPtr<ID3D12Resource> mColorBuffer;
+		D3D12_CPU_DESCRIPTOR_HANDLE mColorBufferRTV;
+
+		Microsoft::WRL::ComPtr<ID3D12Resource> mDepthBuffer;
+		D3D12_CPU_DESCRIPTOR_HANDLE mDepthBufferRTV;
+	};
+	FrameInfo mFrames[NUM_SWAP_BUFFERS];
 };
