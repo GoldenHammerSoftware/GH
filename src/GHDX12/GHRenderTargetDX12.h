@@ -4,6 +4,7 @@
 #include "GHDX12Include.h"
 
 class GHRenderDeviceDX12;
+class GHTextureDX12;
 
 class GHRenderTargetDX12 : public GHRenderTarget
 {
@@ -37,6 +38,8 @@ private:
 
 		Microsoft::WRL::ComPtr<ID3D12Resource> mDepthBuffer;
 		D3D12_CPU_DESCRIPTOR_HANDLE mDepthBufferRTV;
+
+		GHTextureDX12* mTexture{ 0 };
 	};
 	FrameInfo mFrames[NUM_SWAP_BUFFERS];
 };

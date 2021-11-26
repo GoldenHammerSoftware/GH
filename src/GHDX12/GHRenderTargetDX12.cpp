@@ -2,6 +2,7 @@
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHRenderDeviceDX12.h"
 #include "GHDX12Helpers.h"
+#include "GHTextureDX12.h"
 
 GHRenderTargetDX12::GHRenderTargetDX12(GHRenderDeviceDX12& device, const GHRenderTarget::Config& args)
 	: mConfig(args)
@@ -12,6 +13,10 @@ GHRenderTargetDX12::GHRenderTargetDX12(GHRenderDeviceDX12& device, const GHRende
 
 GHRenderTargetDX12::~GHRenderTargetDX12(void)
 {
+	for (int frame = 0; frame < NUM_SWAP_BUFFERS; ++frame)
+	{
+		if (mFrames[frame].mTexture) mFrames[frame].mTexture->release();
+	}
 }
 
 void GHRenderTargetDX12::apply(void)
@@ -47,7 +52,7 @@ void GHRenderTargetDX12::remove(void)
 
 GHTexture* GHRenderTargetDX12::getTexture(void)
 {
-	return 0;
+	return mFrames[mDevice.getFrameBackendId()].mTexture;
 }
 
 void GHRenderTargetDX12::resize(const GHRenderTarget::Config& args)
@@ -68,6 +73,13 @@ void GHRenderTargetDX12::createDXBuffers(void)
 	mViewport.Height = (FLOAT)mConfig.mHeight;
 	mViewport.MinDepth = 0.0f;
 	mViewport.MaxDepth = 1.0f;
+
+	for (int frame = 0; frame < NUM_SWAP_BUFFERS; ++frame)
+	{
+		if (mFrames[frame].mTexture) mFrames[frame].mTexture->release();
+		mFrames[frame].mTexture = new GHTextureDX12(mDevice, mFrames[frame].mColorBuffer, nullptr, SWAP_BUFFER_FORMAT);
+		mFrames[frame].mTexture->acquire();
+	}
 }
 
 void GHRenderTargetDX12::createDepthBuffers(void)
