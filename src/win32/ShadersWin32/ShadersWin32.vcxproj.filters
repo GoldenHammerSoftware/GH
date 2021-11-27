@@ -114,6 +114,9 @@
     <FxCompile Include="..\..\..\data\DX11Shaders\ghmastervertex.hlsl">
       <Filter>DX11Shaders</Filter>
     </FxCompile>
+    <FxCompile Include="..\..\..\data\DX11Shaders\generatemipscomputeshader.hlsl">
+      <Filter>DX11Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\..\..\data\DX11Shaders\AvatarFragmentShaderparams.xml">
