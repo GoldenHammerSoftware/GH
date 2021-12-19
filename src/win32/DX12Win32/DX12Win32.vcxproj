@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -28,6 +28,7 @@
     <ClInclude Include="..\..\GHDX12\GHDX12Include.h" />
     <ClInclude Include="..\..\GHDX12\GHMaterialParamHandleDX12.h" />
     <ClInclude Include="..\..\GHDX12\GHMaterialShaderInfoDX12.h" />
+    <ClInclude Include="..\..\GHDX12\GHMipmapGeneratorDX12.h" />
     <ClInclude Include="..\..\GHDX12\GHRenderTargetDX12.h" />
     <ClInclude Include="..\..\GHDX12\GHRenderTargetFactoryDX12.h" />
     <ClInclude Include="..\..\GHDX12\GHShaderDX12.h" />
@@ -50,6 +51,7 @@
     <ClCompile Include="..\..\GHDX12\GHDX12MaterialHeapPool.cpp" />
     <ClCompile Include="..\..\GHDX12\GHMaterialParamHandleDX12.cpp" />
     <ClCompile Include="..\..\GHDX12\GHMaterialShaderInfoDX12.cpp" />
+    <ClCompile Include="..\..\GHDX12\GHMipmapGeneratorDX12.cpp" />
     <ClCompile Include="..\..\GHDX12\GHRenderTargetDX12.cpp" />
     <ClCompile Include="..\..\GHDX12\GHRenderTargetFactoryDX12.cpp" />
     <ClCompile Include="..\..\GHDX12\GHShaderDX12.cpp" />

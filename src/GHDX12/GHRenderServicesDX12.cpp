@@ -15,6 +15,8 @@
 #include "Render/GHMaterialCallbackMgr.h"
 #include "GHWin32/GHWin32Window.h"
 #include "GHTextureLoaderDX12.h"
+#include "GHMipmapGeneratorDX12.h"
+#include "GHUtils/GHRedirectResourceLoader.h"
 
 GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHWin32Window& window)
 : GHRenderServices(systemServices)
@@ -47,6 +49,9 @@ void GHRenderServicesDX12::initAppShard(GHAppShard& appShard)
     GHShaderLoaderDX12* shaderLoader = new GHShaderLoaderDX12(mSystemServices.getPlatformServices().getFileOpener(), *splLoader);
     appShard.mResourceFactory.addLoader(shaderLoader, 1, ".cso");
 
+    GHRedirectResourceLoader* shaderRedirect = new GHRedirectResourceLoader(appShard.mResourceFactory, ".cso");
+    appShard.mResourceFactory.addLoader(shaderRedirect, 2, ".hlsl", ".glsl");
+
     GHXMLObjLoaderGHM* ghmDescLoader = (GHXMLObjLoaderGHM*)appShard.mXMLObjFactory.getLoader("ghmDesc");
     if (!ghmDescLoader) {
         GHDebugMessage::outputString("Could not find ghmDesc for GHMaterialLoaderDX12");
@@ -58,7 +63,10 @@ void GHRenderServicesDX12::initAppShard(GHAppShard& appShard)
         appShard.mXMLObjFactory.addLoader(ghmLoader, 1, "ghm");
     }
 
-    GHTextureLoaderDX12* texLoader = new GHTextureLoaderDX12(mFileFinder, *((GHRenderDeviceDX12*)mRenderDevice));
+    GHMipmapGeneratorDX12* mipGen = new GHMipmapGeneratorDX12(appShard.mResourceFactory, (GHRenderDeviceDX12&)*mRenderDevice);
+    appShard.addOwnedItem(new GHTypedDeletionHandle<GHMipmapGeneratorDX12>(mipGen));
+
+    GHTextureLoaderDX12* texLoader = new GHTextureLoaderDX12(mFileFinder, *((GHRenderDeviceDX12*)mRenderDevice), *mipGen);
     appShard.mResourceFactory.addLoader(texLoader, 4, ".jpg", ".png", ".pvr4", ".ovrtex");
     // todo: ghcm, dds
 }

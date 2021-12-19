@@ -10,9 +10,11 @@
 #include "GHDX12Include.h"
 #include "GHRenderDeviceDX12.h"
 #include "GHDX12Helpers.h"
+#include "GHMipmapGeneratorDX12.h"
 
-GHTextureLoaderDX12::GHTextureLoaderDX12(const GHWindowsFileFinder& fileFinder, GHRenderDeviceDX12& device)
+GHTextureLoaderDX12::GHTextureLoaderDX12(const GHWindowsFileFinder& fileFinder, GHRenderDeviceDX12& device, GHMipmapGeneratorDX12& mipGen)
 	: mWICUtil(fileFinder)
+	, mMipGen(mipGen)
 	, mDevice(device)
 {
 }
@@ -122,7 +124,7 @@ GHResource* GHTextureLoaderDX12::createGHTexture(void* mem, unsigned int width, 
 	resourceDesc.Width = width;
 	resourceDesc.Height = height;
 	resourceDesc.DepthOrArraySize = 1;
-	resourceDesc.MipLevels = 1;
+	resourceDesc.MipLevels = allowMipmaps ? 0 : 1;
 	resourceDesc.Format = dxFormat;
 	resourceDesc.SampleDesc.Count = 1;
 	resourceDesc.SampleDesc.Quality = 0;
@@ -179,6 +181,12 @@ GHResource* GHTextureLoaderDX12::createGHTexture(void* mem, unsigned int width, 
 		delete[] mem;
 		mem = 0;
 	}
+
+	if (allowMipmaps)
+	{
+		mMipGen.generateMipmaps(destDXBuffer, width, height);
+	}
+
 	GHResource* ret = new GHTextureDX12(mDevice, destDXBuffer, mem, dxFormat);
 	return ret;
 }

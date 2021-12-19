@@ -5,11 +5,12 @@
 
 class GHWindowsFileFinder;
 class GHRenderDeviceDX12;
+class GHMipmapGeneratorDX12;
 
 class GHTextureLoaderDX12 : public GHResourceLoader
 {
 public:
-	GHTextureLoaderDX12(const GHWindowsFileFinder& fileFinder, GHRenderDeviceDX12& device);
+	GHTextureLoaderDX12(const GHWindowsFileFinder& fileFinder, GHRenderDeviceDX12& device, GHMipmapGeneratorDX12& mipGen);
 	~GHTextureLoaderDX12(void);
 
 	virtual GHResource* loadFile(const char* filename, GHPropertyContainer* extraData = 0) override;
@@ -24,5 +25,6 @@ private:
 
 private:
 	GHRenderDeviceDX12& mDevice;
+	GHMipmapGeneratorDX12& mMipGen;
 	GHWin32WICUtil mWICUtil;
 };
