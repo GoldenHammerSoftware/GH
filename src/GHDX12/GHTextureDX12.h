@@ -9,7 +9,7 @@ class GHRenderDeviceDX12;
 class GHTextureDX12 : public GHTexture
 {
 public:
-	GHTextureDX12(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<ID3D12Resource> dxBuffer, void* mem, DXGI_FORMAT dxFormat);
+	GHTextureDX12(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<ID3D12Resource> dxBuffer, void* mem, DXGI_FORMAT dxFormat, bool mipmap);
 	~GHTextureDX12(void);
 
 	// todo: remove the no argument bind from the interface.
@@ -28,4 +28,5 @@ private:
 	Microsoft::WRL::ComPtr<ID3D12Resource> mDXBuffer;
 	void* mMem;
 	DXGI_FORMAT mDXFormat;
+	bool mMipmap;
 };

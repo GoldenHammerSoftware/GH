@@ -68,7 +68,7 @@ void GHMaterialDX12::updateDescriptorHeap(void)
 			if (!mShaders[shaderType]->mCBuffers[cbType]) continue;
 			if (!mShaders[shaderType]->mCBuffers[cbType]->getSize()) continue;
 			size_t indexInHeap = ((int)GHMaterialCallbackType::CT_MAX * shaderType) + cbType;
-			mShaders[shaderType]->mCBuffers[cbType]->createSRV(mDescriptorHeap, indexInHeap, mDevice.getFrameBackendId());
+			mShaders[shaderType]->mCBuffers[cbType]->createSRV(mDescriptorHeap, indexInHeap);
 		}
 	}
 

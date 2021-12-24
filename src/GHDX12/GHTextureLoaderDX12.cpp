@@ -117,6 +117,10 @@ GHResource* GHTextureLoaderDX12::createRGBAFromRGB(void* mem, size_t memSize, GH
 
 GHResource* GHTextureLoaderDX12::createGHTexture(void* mem, unsigned int width, unsigned int height, unsigned int depth, unsigned int numMips, bool allowMipmaps, DXGI_FORMAT dxFormat, bool keepTextureData)
 {
+	// hack to disable mipmaps until they work.
+	allowMipmaps = false;
+	numMips = 0;
+
 	// initialize the destination buffer.
 	D3D12_RESOURCE_DESC resourceDesc;
 	resourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
@@ -129,7 +133,7 @@ GHResource* GHTextureLoaderDX12::createGHTexture(void* mem, unsigned int width, 
 	resourceDesc.SampleDesc.Count = 1;
 	resourceDesc.SampleDesc.Quality = 0;
 	resourceDesc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
-	resourceDesc.Flags = D3D12_RESOURCE_FLAG_NONE;
+	resourceDesc.Flags = D3D12_RESOURCE_FLAG_NONE | D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
 
 	D3D12_HEAP_PROPERTIES destHeapProps;
 	GHDX12Helpers::createHeapProperties(destHeapProps, D3D12_HEAP_TYPE_DEFAULT);
@@ -184,9 +188,9 @@ GHResource* GHTextureLoaderDX12::createGHTexture(void* mem, unsigned int width, 
 
 	if (allowMipmaps)
 	{
-		mMipGen.generateMipmaps(destDXBuffer, width, height);
+		mMipGen.generateMipmaps(destDXBuffer, dxFormat, width, height);
 	}
 
-	GHResource* ret = new GHTextureDX12(mDevice, destDXBuffer, mem, dxFormat);
+	GHResource* ret = new GHTextureDX12(mDevice, destDXBuffer, mem, dxFormat, allowMipmaps);
 	return ret;
 }

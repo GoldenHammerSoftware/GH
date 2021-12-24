@@ -125,6 +125,10 @@ void GHDX12MaterialHeapPool::getCBufferUploadHeap(Microsoft::WRL::ComPtr<ID3D12R
 void GHDX12MaterialHeapPool::checkNewFrame(void)
 {
 	int32_t currFrameId = mDevice.getFrameBackendId();
+	// if currFrameId < 0 then that means we have not drawn yet.
+	// use the frames from the future.
+	if (currFrameId < 0) currFrameId = 1;
+
 	if (currFrameId != mCurrFrameIndex)
 	{
 		mCurrFrameIndex = currFrameId;

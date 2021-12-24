@@ -8,13 +8,15 @@ class GHResourceFactory;
 class GHRenderDeviceDX12;
 class GHDX12MaterialHeapPool;
 
+// This is the first compute shader in the engine.
+// It is expected that we'll create more shared code the next time we add one.
 class GHMipmapGeneratorDX12
 {
 public:
 	GHMipmapGeneratorDX12(GHResourceFactory& resourceFactory, GHRenderDeviceDX12& device, GHDX12MaterialHeapPool& cbufferPool);
 	~GHMipmapGeneratorDX12(void);
 
-	void generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resource> dxBuffer, uint32_t width, uint32_t height);
+	void generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resource> dxBuffer, DXGI_FORMAT dxFormat, uint32_t width, uint32_t height);
 
 private:
 	void createGraphicsRootSignature(void);
@@ -22,7 +24,7 @@ private:
 private:
 	GHRenderDeviceDX12& mDevice;
 	GHShaderResource* mShader{ nullptr };
-	Microsoft::WRL::ComPtr<ID3D12RootSignature> mGraphicsRootSignature{ nullptr };
+	Microsoft::WRL::ComPtr<ID3D12RootSignature> mRootSignature{ nullptr };
 	Microsoft::WRL::ComPtr<ID3D12PipelineState> mPipelineState{ nullptr };
 
 	struct CBufferArgs

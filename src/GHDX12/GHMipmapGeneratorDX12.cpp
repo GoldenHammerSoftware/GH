@@ -1,5 +1,4 @@
 #include "GHMipmapGeneratorDX12.h"
-
 #include "GHUtils/GHResourceFactory.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHRenderDeviceDX12.h"
@@ -15,7 +14,7 @@ GHMipmapGeneratorDX12::GHMipmapGeneratorDX12(GHResourceFactory& resourceFactory,
 	createGraphicsRootSignature();
 
 	D3D12_COMPUTE_PIPELINE_STATE_DESC psoDesc = {};
-	psoDesc.pRootSignature = mGraphicsRootSignature.Get();
+	psoDesc.pRootSignature = mRootSignature.Get();
 	psoDesc.CS = mShader->get()->getBytecode();
 	mDevice.getDXDevice()->CreateComputePipelineState(&psoDesc, IID_PPV_ARGS(mPipelineState.GetAddressOf()));
 }
@@ -33,7 +32,7 @@ static void incrementMipSize(uint32_t& width, uint32_t& height)
 	if (height < 1) height = 1;
 }
 
-void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resource> dxBuffer, uint32_t width, uint32_t height)
+void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resource> dxBuffer, DXGI_FORMAT dxFormat, uint32_t width, uint32_t height)
 {
 	if (!mShader) return;
 	if (!mPipelineState) return;
@@ -53,10 +52,46 @@ void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resourc
 	}
 	if (numMips == 1) return;
 
+	// create the srv/uav descriptor heap.
+	D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
+	int numDrawPasses = max(1, ceil((float)numMips / 4.0f));
+	heapDesc.NumDescriptors = 2 * numDrawPasses + 4 * numDrawPasses;
+	heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
+	heapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
+	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> descriptorHeap;
+	mDevice.getDXDevice()->CreateDescriptorHeap(&heapDesc, IID_PPV_ARGS(descriptorHeap.GetAddressOf()));
+	UINT descriptorSize = mDevice.getDXDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
+	D3D12_GPU_DESCRIPTOR_HANDLE heapGPUOffsetHandle = descriptorHeap->GetGPUDescriptorHandleForHeapStart();
+	D3D12_CPU_DESCRIPTOR_HANDLE heapCPUOffsetHandle = descriptorHeap->GetCPUDescriptorHandleForHeapStart();
+
+	D3D12_SHADER_RESOURCE_VIEW_DESC srcTextureSRVDesc = {};
+	srcTextureSRVDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
+	srcTextureSRVDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
+	srcTextureSRVDesc.Format = dxFormat;
+
+	D3D12_UNORDERED_ACCESS_VIEW_DESC destTextureUAVDesc = {};
+	destTextureUAVDesc.ViewDimension = D3D12_UAV_DIMENSION_TEXTURE2D;
+	destTextureUAVDesc.Format = dxFormat;
+
+	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> cl = mDevice.beginComputeCommandList();
+	cl->SetComputeRootSignature(mRootSignature.Get());
+	cl->SetPipelineState(mPipelineState.Get());
+	cl->SetDescriptorHeaps(1, descriptorHeap.GetAddressOf());
+
+	D3D12_RESOURCE_BARRIER toUAVBarrier;
+	toUAVBarrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+	toUAVBarrier.Transition.pResource = dxBuffer.Get();
+	toUAVBarrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+	toUAVBarrier.Transition.StateAfter = D3D12_RESOURCE_STATE_UNORDERED_ACCESS;
+	toUAVBarrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+	toUAVBarrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	cl->ResourceBarrier(1, &toUAVBarrier);
+
 	int currDestMip = 1; // mip 0 is always intitial source.
 	uint32_t destWidth = width/2;
 	uint32_t destHeight = height/2;
 	CBufferArgs* cbufferArgs = (CBufferArgs*)mCBuffer.getMemoryBuffer();
+	uint32_t heapIndex = 0;
 	while (currDestMip < numMips)
 	{
 		cbufferArgs->mSrcMipLevel = currDestMip - 1;
@@ -66,7 +101,7 @@ void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resourc
 
 		for (int i = 0; i < 3; ++i)
 		{
-			if (testWidth == 1 && testHeight == 1)
+			if (destWidth == 1 && destHeight == 1)
 			{
 				break;
 			}
@@ -74,11 +109,53 @@ void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resourc
 			cbufferArgs->mNumMipLevels++;
 		}
 		mCBuffer.updateFrameData();
+		mCBuffer.createSRV(descriptorHeap, heapIndex);
+		cl->SetComputeRootDescriptorTable(0, heapGPUOffsetHandle);
+		heapGPUOffsetHandle.ptr += descriptorSize;
+		heapCPUOffsetHandle.ptr += descriptorSize;
 
-		// and draw.
+		srcTextureSRVDesc.Texture2D.MipLevels = 1;
+		srcTextureSRVDesc.Texture2D.MostDetailedMip = cbufferArgs->mSrcMipLevel;
+		mDevice.getDXDevice()->CreateShaderResourceView(dxBuffer.Get(), &srcTextureSRVDesc, heapCPUOffsetHandle);
+		cl->SetComputeRootDescriptorTable(1, heapGPUOffsetHandle);
+		heapGPUOffsetHandle.ptr += descriptorSize;
+		heapCPUOffsetHandle.ptr += descriptorSize;
 
+		D3D12_GPU_DESCRIPTOR_HANDLE uavGPUStart = heapGPUOffsetHandle;
+		for (int i = 1; i < 5; ++i)
+		{
+			if (cbufferArgs->mSrcMipLevel + i < numMips)
+			{
+				destTextureUAVDesc.Texture2D.MipSlice = cbufferArgs->mSrcMipLevel + i;
+				mDevice.getDXDevice()->CreateUnorderedAccessView(dxBuffer.Get(), nullptr, &destTextureUAVDesc, heapCPUOffsetHandle);
+				heapGPUOffsetHandle.ptr += descriptorSize;
+				heapCPUOffsetHandle.ptr += descriptorSize;
+			}
+		}
+		cl->SetComputeRootDescriptorTable(2, uavGPUStart);
+		currDestMip += 4;
 
+		//Dispatch the compute shader with one thread per 8x8 pixels
+		cl->Dispatch(max(destWidth / 8, 1u), max(destHeight / 8, 1u), 1);
+
+		// wait for the result before passing the next mip as source.
+		D3D12_RESOURCE_BARRIER waitBarrier;
+		waitBarrier.Type = D3D12_RESOURCE_BARRIER_TYPE_UAV;
+		waitBarrier.UAV.pResource = dxBuffer.Get();
+		waitBarrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+		cl->ResourceBarrier(1, &waitBarrier);
 	}
+
+	D3D12_RESOURCE_BARRIER fromUAVBarrier;
+	fromUAVBarrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+	fromUAVBarrier.Transition.pResource = dxBuffer.Get();
+	fromUAVBarrier.Transition.StateBefore = D3D12_RESOURCE_STATE_UNORDERED_ACCESS;
+	fromUAVBarrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+	fromUAVBarrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+	fromUAVBarrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	cl->ResourceBarrier(1, &fromUAVBarrier);
+
+	mDevice.endComputeCommandList();
 }
 
 void GHMipmapGeneratorDX12::createGraphicsRootSignature(void)
@@ -166,7 +243,7 @@ void GHMipmapGeneratorDX12::createGraphicsRootSignature(void)
 
 	auto blobBuffer = signatureBlob->GetBufferPointer();
 	auto blobBufferSize = signatureBlob->GetBufferSize();
-	hr = mDevice.getDXDevice()->CreateRootSignature(0, blobBuffer, blobBufferSize, IID_PPV_ARGS(&mGraphicsRootSignature));
+	hr = mDevice.getDXDevice()->CreateRootSignature(0, blobBuffer, blobBufferSize, IID_PPV_ARGS(&mRootSignature));
 	if (FAILED(hr))
 	{
 		GHDebugMessage::outputString("Failed to create root signature");

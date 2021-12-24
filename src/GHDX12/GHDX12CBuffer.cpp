@@ -29,7 +29,7 @@ void GHDX12CBuffer::updateFrameData(void)
     memcpy(mGPUAddress, mMemoryBuffer, mBufferSize);
 }
 
-void GHDX12CBuffer::createSRV(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> descriptorHeap, size_t indexInHeap, size_t frameId)
+void GHDX12CBuffer::createSRV(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> descriptorHeap, size_t indexInHeap)
 {
     const UINT cbvSrvDescriptorSize = mDevice.getDXDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
     D3D12_CPU_DESCRIPTOR_HANDLE heapOffsetHandle = descriptorHeap->GetCPUDescriptorHandleForHeapStart();

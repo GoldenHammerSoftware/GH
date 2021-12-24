@@ -42,6 +42,7 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 		mFrameBackends[frameId].mBackBufferRTV = rtvHandle;
 	}
 	mUploadCommandList = new GHDX12CommandList(mDXDevice, mDXCommandQueue);
+	mComputeCommandList = new GHDX12CommandList(mDXDevice, mDXCommandQueue);
 	createDepthBuffer();
 
 	mScissorRect.left = 0;
@@ -67,7 +68,7 @@ GHRenderDeviceDX12::~GHRenderDeviceDX12(void)
 	{
 		if (mFrameBackends[frameId].mCommandList) delete mFrameBackends[frameId].mCommandList;
 	}
-	delete mUploadCommandList;
+	delete mComputeCommandList;
 }
 
 void GHRenderDeviceDX12::reinit(void)
@@ -91,6 +92,7 @@ bool GHRenderDeviceDX12::beginFrame(void)
 	mCurrBackend = getNextBackendId(mCurrBackend);
 	mFrameBackends[mCurrBackend].mCommandList->waitForCompletion();
 	mFrameBackends[mCurrBackend].mCommandList->begin();
+	mUploadCommandList->getDXCommandList()->SetName(L"Render CL");
 
 	D3D12_RESOURCE_BARRIER barrier;
 	barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
@@ -220,6 +222,7 @@ GHTexture* GHRenderDeviceDX12::resolveBackbuffer(void)
 Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> GHRenderDeviceDX12::beginUploadCommandList(void)
 {
 	mUploadCommandList->begin();
+	mUploadCommandList->getDXCommandList()->SetName(L"Upload CL");
 	return mUploadCommandList->getDXCommandList();
 }
 
@@ -229,6 +232,21 @@ void GHRenderDeviceDX12::endUploadCommandList(void)
 	// wait for it to finish here to make sure everything is available.
 	// if this is a bottleneck we can figure out something else.
 	mUploadCommandList->waitForCompletion();
+}
+
+Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> GHRenderDeviceDX12::beginComputeCommandList(void)
+{
+	mComputeCommandList->begin();
+	mUploadCommandList->getDXCommandList()->SetName(L"Compute CL");
+	return mComputeCommandList->getDXCommandList();
+}
+
+void GHRenderDeviceDX12::endComputeCommandList(void)
+{
+	mComputeCommandList->endAndSubmit();
+	// chances are we really don't want to wait for completion here.
+	// will have to refactor this stuff when we want to generate mipmaps for render targets.
+	mComputeCommandList->waitForCompletion();
 }
 
 Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> GHRenderDeviceDX12::getRenderCommandList(void)
@@ -320,6 +338,7 @@ void GHRenderDeviceDX12::createGraphicsRootSignature(void)
 void GHRenderDeviceDX12::flushGPU(void)
 {
 	mUploadCommandList->waitForCompletion();
+	mComputeCommandList->waitForCompletion();
 	for (int i = 0; i < NUM_SWAP_BUFFERS; ++i)
 	{
 		mFrameBackends[i].mCommandList->waitForCompletion();

@@ -77,7 +77,7 @@ void GHRenderTargetDX12::createDXBuffers(void)
 	for (int frame = 0; frame < NUM_SWAP_BUFFERS; ++frame)
 	{
 		if (mFrames[frame].mTexture) mFrames[frame].mTexture->release();
-		mFrames[frame].mTexture = new GHTextureDX12(mDevice, mFrames[frame].mColorBuffer, nullptr, SWAP_BUFFER_FORMAT);
+		mFrames[frame].mTexture = new GHTextureDX12(mDevice, mFrames[frame].mColorBuffer, nullptr, SWAP_BUFFER_FORMAT, false);
 		mFrames[frame].mTexture->acquire();
 	}
 }

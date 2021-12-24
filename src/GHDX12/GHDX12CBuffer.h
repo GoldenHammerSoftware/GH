@@ -17,7 +17,7 @@ public:
 	size_t getSize(void) const { return mBufferSize; }
 	
 	void updateFrameData(void);
-	void createSRV(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> descriptorHeap, size_t indexInHeap, size_t frameId);
+	void createSRV(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> descriptorHeap, size_t indexInHeap);
 
 private:
 	GHDX12MaterialHeapPool& mHeapPool;

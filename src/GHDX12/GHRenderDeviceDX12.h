@@ -37,14 +37,18 @@ public:
 	Microsoft::WRL::ComPtr<ID3D12RootSignature> getGraphicsRootSignature(void) { return mGraphicsRootSignature; }
 	DXGI_SAMPLE_DESC getSampleDesc(void) const { return mDXSwapChainSampleDesc; }
 	int32_t getFrameBackendId(void) const { return mCurrBackend; }
+
 	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> beginUploadCommandList(void);
 	void endUploadCommandList(void);
+	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> beginComputeCommandList(void);
+	void endComputeCommandList(void);
 
 	// wait for all command buffers to finish so we can delete resources etc.
 	void flushGPU(void);
 
 	void applyDefaultTarget(void);
 	void applyRenderTarget(D3D12_CPU_DESCRIPTOR_HANDLE color, D3D12_CPU_DESCRIPTOR_HANDLE depth);
+	void applyRenderRootSignature(void);
 
 private:
 	void createGraphicsRootSignature(void);
@@ -63,6 +67,7 @@ protected:
 	Microsoft::WRL::ComPtr<ID3D12RootSignature> mGraphicsRootSignature{ nullptr };
 
 	GHDX12CommandList* mUploadCommandList;
+	GHDX12CommandList* mComputeCommandList;
 
 	// The info needed for one frame in our swap buffer.
 	struct FrameBackend
