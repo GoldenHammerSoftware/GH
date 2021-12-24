@@ -98,6 +98,8 @@ void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resourc
 		cbufferArgs->mNumMipLevels = 1;
 		cbufferArgs->mTexelSize[0] = 1.0f / (float)(destWidth);
 		cbufferArgs->mTexelSize[1] = 1.0f / (float)(destHeight);
+		uint32_t firstMipWidth = destWidth;
+		uint32_t firstMipHeight = destHeight;
 
 		for (int i = 0; i < 3; ++i)
 		{
@@ -113,6 +115,7 @@ void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resourc
 		cl->SetComputeRootDescriptorTable(0, heapGPUOffsetHandle);
 		heapGPUOffsetHandle.ptr += descriptorSize;
 		heapCPUOffsetHandle.ptr += descriptorSize;
+		heapIndex++;
 
 		srcTextureSRVDesc.Texture2D.MipLevels = 1;
 		srcTextureSRVDesc.Texture2D.MostDetailedMip = cbufferArgs->mSrcMipLevel;
@@ -120,6 +123,7 @@ void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resourc
 		cl->SetComputeRootDescriptorTable(1, heapGPUOffsetHandle);
 		heapGPUOffsetHandle.ptr += descriptorSize;
 		heapCPUOffsetHandle.ptr += descriptorSize;
+		heapIndex++;
 
 		D3D12_GPU_DESCRIPTOR_HANDLE uavGPUStart = heapGPUOffsetHandle;
 		for (int i = 1; i < 5; ++i)
@@ -130,13 +134,14 @@ void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resourc
 				mDevice.getDXDevice()->CreateUnorderedAccessView(dxBuffer.Get(), nullptr, &destTextureUAVDesc, heapCPUOffsetHandle);
 				heapGPUOffsetHandle.ptr += descriptorSize;
 				heapCPUOffsetHandle.ptr += descriptorSize;
+				heapIndex++;
 			}
 		}
 		cl->SetComputeRootDescriptorTable(2, uavGPUStart);
 		currDestMip += 4;
 
 		//Dispatch the compute shader with one thread per 8x8 pixels
-		cl->Dispatch(max(destWidth / 8, 1u), max(destHeight / 8, 1u), 1);
+		cl->Dispatch(max(firstMipWidth / 8, 1u), max(firstMipHeight / 8, 1u), 1);
 
 		// wait for the result before passing the next mip as source.
 		D3D12_RESOURCE_BARRIER waitBarrier;

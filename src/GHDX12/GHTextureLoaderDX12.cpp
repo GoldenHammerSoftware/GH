@@ -118,8 +118,8 @@ GHResource* GHTextureLoaderDX12::createRGBAFromRGB(void* mem, size_t memSize, GH
 GHResource* GHTextureLoaderDX12::createGHTexture(void* mem, unsigned int width, unsigned int height, unsigned int depth, unsigned int numMips, bool allowMipmaps, DXGI_FORMAT dxFormat, bool keepTextureData)
 {
 	// hack to disable mipmaps until they work.
-	allowMipmaps = false;
-	numMips = 0;
+	//allowMipmaps = false;
+	//numMips = 0;
 
 	// initialize the destination buffer.
 	D3D12_RESOURCE_DESC resourceDesc;
