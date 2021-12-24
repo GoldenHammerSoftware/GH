@@ -162,7 +162,7 @@ void GHMaterialDX12::applyDXArgs(GHMaterialCallbackType::Enum type)
 	{
 		if (!mShaders[shaderType]->mCBuffers[type]) continue;
 		if (!mShaders[shaderType]->mCBuffers[type]->getSize()) continue;
-		mShaders[shaderType]->mCBuffers[type]->updateFrameData(mDevice.getFrameBackendId());
+		mShaders[shaderType]->mCBuffers[type]->updateFrameData();
 		mDescriptorsDirty = true;
 	}
 }

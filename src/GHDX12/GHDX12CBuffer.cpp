@@ -21,9 +21,8 @@ GHDX12CBuffer::~GHDX12CBuffer(void)
 	delete[] mMemoryBuffer;
 }
 
-void GHDX12CBuffer::updateFrameData(size_t frameId)
+void GHDX12CBuffer::updateFrameData(void)
 {
-    assert(frameId < NUM_SWAP_BUFFERS);
     if (!mBufferSize) return;
 
     mHeapPool.getCBufferUploadHeap(mUploadHeap, mGPUAddress, mPaddedBufferSize);

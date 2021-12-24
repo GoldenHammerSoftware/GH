@@ -16,7 +16,7 @@ public:
 	void* getMemoryBuffer(void) { return mMemoryBuffer; }
 	size_t getSize(void) const { return mBufferSize; }
 	
-	void updateFrameData(size_t frameId);
+	void updateFrameData(void);
 	void createSRV(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> descriptorHeap, size_t indexInHeap, size_t frameId);
 
 private:

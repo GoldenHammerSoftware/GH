@@ -10,16 +10,18 @@
 #include <stdlib.h>
 #include "Render/GHRenderProperties.h"
 #include "GHShaderDX12.h"
+#include "GHDX12MaterialHeapPool.h"
 
 GHMaterialLoaderDX12::GHMaterialLoaderDX12(GHRenderDeviceDX12& device, 
 	GHResourceFactory& resourceCache,
 	const GHMaterialCallbackMgr& callbackMgr,
-	const GHXMLObjLoaderGHM& ghmDescLoader)
+	const GHXMLObjLoaderGHM& ghmDescLoader,
+	GHDX12MaterialHeapPool& descriptorHeapPool)
 	: mDevice(device)
 	, mResourceCache(resourceCache)
 	, mCallbackMgr(callbackMgr)
 	, mDescLoader(ghmDescLoader)
-	, mDescriptorHeapPool(device)
+	, mDescriptorHeapPool(descriptorHeapPool)
 {
 }
 

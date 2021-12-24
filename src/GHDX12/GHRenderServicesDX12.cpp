@@ -17,6 +17,7 @@
 #include "GHTextureLoaderDX12.h"
 #include "GHMipmapGeneratorDX12.h"
 #include "GHUtils/GHRedirectResourceLoader.h"
+#include "GHDX12MaterialHeapPool.h"
 
 GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHWin32Window& window)
 : GHRenderServices(systemServices)
@@ -52,6 +53,9 @@ void GHRenderServicesDX12::initAppShard(GHAppShard& appShard)
     GHRedirectResourceLoader* shaderRedirect = new GHRedirectResourceLoader(appShard.mResourceFactory, ".cso");
     appShard.mResourceFactory.addLoader(shaderRedirect, 2, ".hlsl", ".glsl");
 
+    GHDX12MaterialHeapPool* matHeapPool = new GHDX12MaterialHeapPool((GHRenderDeviceDX12&)*mRenderDevice);
+    appShard.addOwnedItem(new GHTypedDeletionHandle<GHDX12MaterialHeapPool>(matHeapPool));
+
     GHXMLObjLoaderGHM* ghmDescLoader = (GHXMLObjLoaderGHM*)appShard.mXMLObjFactory.getLoader("ghmDesc");
     if (!ghmDescLoader) {
         GHDebugMessage::outputString("Could not find ghmDesc for GHMaterialLoaderDX12");
@@ -59,11 +63,12 @@ void GHRenderServicesDX12::initAppShard(GHAppShard& appShard)
     else {
         GHMaterialLoaderDX12* ghmLoader = new GHMaterialLoaderDX12((GHRenderDeviceDX12&)*mRenderDevice, appShard.mResourceFactory,
             *mMaterialCallbackMgr,
-            *ghmDescLoader);
+            *ghmDescLoader,
+            *matHeapPool);
         appShard.mXMLObjFactory.addLoader(ghmLoader, 1, "ghm");
     }
 
-    GHMipmapGeneratorDX12* mipGen = new GHMipmapGeneratorDX12(appShard.mResourceFactory, (GHRenderDeviceDX12&)*mRenderDevice);
+    GHMipmapGeneratorDX12* mipGen = new GHMipmapGeneratorDX12(appShard.mResourceFactory, (GHRenderDeviceDX12&)*mRenderDevice, *matHeapPool);
     appShard.addOwnedItem(new GHTypedDeletionHandle<GHMipmapGeneratorDX12>(mipGen));
 
     GHTextureLoaderDX12* texLoader = new GHTextureLoaderDX12(mFileFinder, *((GHRenderDeviceDX12*)mRenderDevice), *mipGen);
