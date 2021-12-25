@@ -5,11 +5,12 @@
 
 class GHRenderDeviceDX12;
 class GHTextureDX12;
+class GHMipmapGeneratorDX12;
 
 class GHRenderTargetDX12 : public GHRenderTarget
 {
 public:
-	GHRenderTargetDX12(GHRenderDeviceDX12& device, const GHRenderTarget::Config& args);
+	GHRenderTargetDX12(GHRenderDeviceDX12& device, const GHRenderTarget::Config& args, GHMipmapGeneratorDX12& mipGen);
 	~GHRenderTargetDX12(void);
 
 	virtual void apply(void) override;
@@ -26,6 +27,7 @@ private:
 private:
 	GHRenderTarget::Config mConfig;
 	GHRenderDeviceDX12& mDevice;
+	GHMipmapGeneratorDX12& mMipGen;
 
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mColorDescriptorHeap;
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDepthDescriptorHeap;

@@ -23,6 +23,9 @@ public:
 
 	virtual void deleteSourceData(void) override;
 
+	Microsoft::WRL::ComPtr<ID3D12Resource> getDXBuffer(void) const { return mDXBuffer; }
+	DXGI_FORMAT getDXFormat(void) const { return mDXFormat; }
+
 private:
 	GHRenderDeviceDX12& mDevice;
 	Microsoft::WRL::ComPtr<ID3D12Resource> mDXBuffer;

@@ -34,7 +34,6 @@ GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHW
     setVBFactory(new GHVBFactoryDX12(*renderDevice));
     mFontRenderer = new GHFontRenderer(*mVBFactory);
     addOwnedItem(new GHTypedDeletionHandle<GHFontRenderer>(mFontRenderer));
-    mRenderTargetFactory = new GHRenderTargetFactoryDX12(*renderDevice);
 
     GHMaterialCallbackFactory* viewCB = new GHMaterialCallbackFactoryViewInfo(renderDevice->getViewInfo(), "");
     mMaterialCallbackMgr->addFactory(viewCB);
@@ -70,6 +69,8 @@ void GHRenderServicesDX12::initAppShard(GHAppShard& appShard)
 
     GHMipmapGeneratorDX12* mipGen = new GHMipmapGeneratorDX12(appShard.mResourceFactory, (GHRenderDeviceDX12&)*mRenderDevice, *matHeapPool);
     appShard.addOwnedItem(new GHTypedDeletionHandle<GHMipmapGeneratorDX12>(mipGen));
+
+    mRenderTargetFactory = new GHRenderTargetFactoryDX12((GHRenderDeviceDX12&)*mRenderDevice, *mipGen);
 
     GHTextureLoaderDX12* texLoader = new GHTextureLoaderDX12(mFileFinder, *((GHRenderDeviceDX12*)mRenderDevice), *mipGen);
     appShard.mResourceFactory.addLoader(texLoader, 4, ".jpg", ".png", ".pvr4", ".ovrtex");

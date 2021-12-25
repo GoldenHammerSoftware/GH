@@ -51,7 +51,7 @@ void GHTextureDX12::createSampler(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> h
 	if (mMipmap)
 	{
 		samplerDesc.Filter = D3D12_FILTER_ANISOTROPIC;
-		samplerDesc.MaxAnisotropy = 4;
+		samplerDesc.MaxAnisotropy = 8;
 	}
 	else
 	{
