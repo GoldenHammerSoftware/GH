@@ -172,7 +172,7 @@ void GHMaterialDX12::applyDXArgs(GHMaterialCallbackType::Enum type)
 
 Microsoft::WRL::ComPtr<ID3D12PipelineState> GHMaterialDX12::createPSO(const GHVertexBuffer& vb)
 {
-	return mPSOPool.getPSO(mMaterialPsoHash, *mDesc, *mShaders[GHShaderType::ST_VERTEX]->mShader->get(), *mShaders[GHShaderType::ST_PIXEL]->mShader->get(), vb, SWAP_BUFFER_FORMAT, DXGI_FORMAT_D32_FLOAT);
+	return mPSOPool.getPSO(mMaterialPsoHash, *mDesc, *mShaders[GHShaderType::ST_VERTEX]->mShader->get(), *mShaders[GHShaderType::ST_PIXEL]->mShader->get(), vb, mDevice.getRenderTargetFormat(), DXGI_FORMAT_D32_FLOAT);
 }
 
 void GHMaterialDX12::updateMaterialPsoHash(void)

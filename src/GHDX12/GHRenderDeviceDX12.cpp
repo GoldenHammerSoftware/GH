@@ -407,3 +407,9 @@ void GHRenderDeviceDX12::clearBuffers(void)
 	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearRenderTargetView(mActiveColorRTV, clearColor, 0, nullptr);
 	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearDepthStencilView(mActiveDepthRTV, D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
 }
+
+DXGI_FORMAT GHRenderDeviceDX12::getRenderTargetFormat(void) const
+{
+	// todo: make this reflect mActiveColorRTV
+	return SWAP_BUFFER_FORMAT;
+}
