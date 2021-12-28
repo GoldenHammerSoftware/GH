@@ -9,11 +9,12 @@ class GHMDesc;
 class GHMaterialShaderInfoDX12;
 class GHRenderDeviceDX12;
 class GHDX12MaterialHeapPool;
+class GHDX12PSOPool;
 
 class GHMaterialDX12 : public GHMaterial
 {
 public:
-    GHMaterialDX12(GHRenderDeviceDX12& device, GHDX12MaterialHeapPool& heapPool, GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps);
+    GHMaterialDX12(GHRenderDeviceDX12& device, GHDX12MaterialHeapPool& heapPool, GHDX12PSOPool& psoPool, GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps);
     ~GHMaterialDX12(void);
 
     virtual void beginMaterial(const GHViewInfo& viewInfo) override;
@@ -27,26 +28,18 @@ public:
 
 private:
     void applyDXArgs(GHMaterialCallbackType::Enum type);
-    void createPSO(const GHVertexBuffer& vb);
-    void createRasterizerDesc(void);
-    void createBlendDesc(void);
-    void createDepthStencilDesc(void);
+    Microsoft::WRL::ComPtr<ID3D12PipelineState> createPSO(const GHVertexBuffer& vb);
     void updateDescriptorHeap(void);
+    void updateMaterialPsoHash(void);
 
 private:
     GHRenderDeviceDX12& mDevice;
     GHDX12MaterialHeapPool& mHeapPool;
+    GHDX12PSOPool& mPSOPool;
     GHMDesc* mDesc{ nullptr };
     GHMaterialShaderInfoDX12* mShaders[GHShaderType::ST_MAX];
-    
-    D3D12_RASTERIZER_DESC mRasterizerDesc;
-    D3D12_BLEND_DESC mBlendDesc;
-    D3D12_DEPTH_STENCIL_DESC mDepthStencilDesc;
-
-    // todo: support sharing pso
-    // todo: support psos for different vertex definitions
-    // todo: support psos for different render targets
-    Microsoft::WRL::ComPtr<ID3D12PipelineState> mPSO{ nullptr };
+    // hash of things on this material that don't change between draw calls.
+    size_t mMaterialPsoHash;
 
     Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDescriptorHeap{ nullptr };
     Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mSamplerHeap{ nullptr };

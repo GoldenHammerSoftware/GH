@@ -22,6 +22,7 @@
     <ClInclude Include="..\..\GHMath\GHColor.h" />
     <ClInclude Include="..\..\GHMath\GHEpsilon.h" />
     <ClInclude Include="..\..\GHMath\GHFloat.h" />
+    <ClInclude Include="..\..\GHMath\GHHash.h" />
     <ClInclude Include="..\..\GHMath\GHIntersect.h" />
     <ClInclude Include="..\..\GHMath\GHMath.h" />
     <ClInclude Include="..\..\GHMath\GHMathDebugPrint.h" />

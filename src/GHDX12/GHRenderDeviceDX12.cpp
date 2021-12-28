@@ -246,6 +246,7 @@ void GHRenderDeviceDX12::endComputeCommandList(void)
 	mComputeCommandList->endAndSubmit();
 	// chances are we really don't want to wait for completion here.
 	// will have to refactor this stuff when we want to generate mipmaps for render targets.
+	// need to keep the descriptor heap around for the right period of time in order to not wait here.
 	mComputeCommandList->waitForCompletion();
 }
 

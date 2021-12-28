@@ -26,6 +26,7 @@ public:
 
     D3D12_INPUT_ELEMENT_DESC* getInputElementDescriptor(void) const { return mD3DIED; }
     unsigned int getInputElementCount(void) const { return mInputElementCount; }
+    size_t getInputElementHash(void) const { return mIEDHash; }
 
 private:
     void createIED(GHVertexBuffer& vb);
@@ -43,4 +44,5 @@ private:
     D3D12_INPUT_ELEMENT_DESC* mD3DIED;
     // the number of entries in mD3DIED
     unsigned int mInputElementCount;
+    size_t mIEDHash;
 };

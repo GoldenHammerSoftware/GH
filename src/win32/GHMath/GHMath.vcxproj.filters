@@ -17,6 +17,7 @@
     <ClInclude Include="..\..\GHMath\GHTransform.h" />
     <ClInclude Include="..\..\GHMath\GHMathInclude.h" />
     <ClInclude Include="..\..\GHMath\GHMathDebugPrint.h" />
+    <ClInclude Include="..\..\GHMath\GHHash.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GHMath\GHIntersect.cpp" />

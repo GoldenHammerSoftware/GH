@@ -11,11 +11,14 @@
 #include "GHVBBlitterIndexDX12.h"
 #include "GHTextureDX12.h"
 #include "GHDX12MaterialHeapPool.h"
+#include "GHDX12PSOPool.h"
+#include "GHMath/GHHash.h"
 
-GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHDX12MaterialHeapPool& heapPool, GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps)
+GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHDX12MaterialHeapPool& heapPool, GHDX12PSOPool& psoPool, GHMDesc* desc, GHShaderResource* vs, GHShaderResource* ps)
 	: mDevice(device)
 	, mDesc(desc)
 	, mHeapPool(heapPool)
+	, mPSOPool(psoPool)
 {
 	mShaders[GHShaderType::ST_VERTEX] = new GHMaterialShaderInfoDX12(device, mHeapPool, vs);
 	mShaders[GHShaderType::ST_PIXEL] = new GHMaterialShaderInfoDX12(device, mHeapPool, ps);
@@ -25,9 +28,9 @@ GHMaterialDX12::GHMaterialDX12(GHRenderDeviceDX12& device, GHDX12MaterialHeapPoo
 	desc->applyTextures(*this, *descParamHandles);
 	delete descParamHandles;
 
-	createRasterizerDesc();
-	createBlendDesc();
-	createDepthStencilDesc();
+	mIsAlpha = mDesc->mAlphaBlend;
+
+	updateMaterialPsoHash();
 
 	// todo: GHRenderProperties::DEVICEREINIT
 }
@@ -51,8 +54,8 @@ void GHMaterialDX12::beginMaterial(const GHViewInfo& viewInfo)
 
 void GHMaterialDX12::beginVB(const GHVertexBuffer& vb)
 {
-	createPSO(vb);
-	mDevice.getRenderCommandList()->SetPipelineState(mPSO.Get());
+	Microsoft::WRL::ComPtr<ID3D12PipelineState> pso = createPSO(vb);
+	mDevice.getRenderCommandList()->SetPipelineState(pso.Get());
 }
 
 void GHMaterialDX12::updateDescriptorHeap(void)
@@ -167,154 +170,30 @@ void GHMaterialDX12::applyDXArgs(GHMaterialCallbackType::Enum type)
 	}
 }
 
-void GHMaterialDX12::createPSO(const GHVertexBuffer& vb)
+Microsoft::WRL::ComPtr<ID3D12PipelineState> GHMaterialDX12::createPSO(const GHVertexBuffer& vb)
 {
-	// todo: support multiple PSOs
-	if (mPSO)
-	{
-		return;
-	}
-
-	const GHVBBlitterPtr* vbBlitterPtr = vb.getBlitter();
-	GHVBBlitterIndexDX12* ibBlitter = (GHVBBlitterIndexDX12*)(vbBlitterPtr->get());
-	D3D12_INPUT_ELEMENT_DESC* ied = ibBlitter->getInputElementDescriptor();
-	unsigned int iedCount = ibBlitter->getInputElementCount();
-	D3D12_INPUT_LAYOUT_DESC layoutDesc = {};
-	layoutDesc.NumElements = iedCount;
-	layoutDesc.pInputElementDescs = ied;
-
-	D3D12_GRAPHICS_PIPELINE_STATE_DESC psoDesc = {};
-	psoDesc.InputLayout = layoutDesc;
-	psoDesc.pRootSignature = mDevice.getGraphicsRootSignature().Get();
-	psoDesc.VS = mShaders[GHShaderType::ST_VERTEX]->mShader->get()->getBytecode();
-	psoDesc.PS = mShaders[GHShaderType::ST_PIXEL]->mShader->get()->getBytecode();
-	psoDesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
-	// todo: support render targets of different formats.
-	psoDesc.RTVFormats[0] = SWAP_BUFFER_FORMAT;
-	psoDesc.DSVFormat = DXGI_FORMAT_D32_FLOAT;
-	psoDesc.SampleDesc = mDevice.getSampleDesc();
-	psoDesc.SampleMask = 0xffffffff; // sample mask has to do with multi-sampling. 0xffffffff means point sampling is done
-	psoDesc.RasterizerState = mRasterizerDesc;
-	psoDesc.BlendState = mBlendDesc;
-	psoDesc.NumRenderTargets = 1;
-	psoDesc.DepthStencilState = mDepthStencilDesc;
-
-	mDevice.getDXDevice()->CreateGraphicsPipelineState(&psoDesc, IID_PPV_ARGS(&mPSO));
+	return mPSOPool.getPSO(mMaterialPsoHash, *mDesc, *mShaders[GHShaderType::ST_VERTEX]->mShader->get(), *mShaders[GHShaderType::ST_PIXEL]->mShader->get(), vb, SWAP_BUFFER_FORMAT, DXGI_FORMAT_D32_FLOAT);
 }
 
-void GHMaterialDX12::createRasterizerDesc(void)
+void GHMaterialDX12::updateMaterialPsoHash(void)
 {
-	if (mDesc->mWireframe)
+	mMaterialPsoHash = 0;
+
+	for (unsigned int shaderType = 0; shaderType < GHShaderType::ST_MAX; ++shaderType)
 	{
-		mRasterizerDesc.FillMode = D3D12_FILL_MODE_WIREFRAME;
-	}
-	else
-	{
-		mRasterizerDesc.FillMode = D3D12_FILL_MODE_SOLID;
+		if (!mShaders[shaderType]->mShader->get()) continue;
+		GHHash::hash_combine(mMaterialPsoHash, mShaders[shaderType]->mShader->get());
 	}
 
-	if (mDesc->mCullMode == GHMDesc::CM_NOCULL)
-	{
-		mRasterizerDesc.CullMode = D3D12_CULL_MODE_NONE;
-	}
-	else if (mDesc->mCullMode == GHMDesc::CM_CCW)
-	{
-		mRasterizerDesc.CullMode = D3D12_CULL_MODE_FRONT;
-	}
-	else
-	{
-		mRasterizerDesc.CullMode = D3D12_CULL_MODE_BACK;
-	}
-	
-	mRasterizerDesc.FrontCounterClockwise = TRUE;
-	mRasterizerDesc.DepthBias = mDesc->mZOffset;
-	mRasterizerDesc.DepthBiasClamp = D3D12_DEFAULT_DEPTH_BIAS_CLAMP;
-	mRasterizerDesc.SlopeScaledDepthBias = D3D12_DEFAULT_SLOPE_SCALED_DEPTH_BIAS;
-	mRasterizerDesc.DepthClipEnable = mDesc->mZRead;
-	mRasterizerDesc.MultisampleEnable = false; // todo
-	mRasterizerDesc.AntialiasedLineEnable = false; // todo
-	mRasterizerDesc.ForcedSampleCount = 0;
-	mRasterizerDesc.ConservativeRaster = D3D12_CONSERVATIVE_RASTERIZATION_MODE_OFF;
-}
-
-static D3D12_BLEND convertGHMBlendToD3D(GHMDesc::BlendMode mode)
-{
-	if (mode == GHMDesc::BM_ALPHA) return D3D12_BLEND_SRC_ALPHA;
-	if (mode == GHMDesc::BM_INVALPHA) return D3D12_BLEND_INV_SRC_ALPHA;
-	return D3D12_BLEND_ONE;
-}
-
-void GHMaterialDX12::createBlendDesc(void)
-{
-	mIsAlpha = mDesc->mAlphaBlend;
-
-	mBlendDesc.AlphaToCoverageEnable = false;
-	mBlendDesc.IndependentBlendEnable = false;
-
-	D3D12_RENDER_TARGET_BLEND_DESC targetBlendDesc = {};
-	targetBlendDesc.BlendEnable = mIsAlpha;
-	targetBlendDesc.LogicOpEnable = false;
-
-	if (mDesc->mAlphaBlend)
-	{
-		targetBlendDesc.SrcBlend = convertGHMBlendToD3D(mDesc->mSrcBlend);
-		targetBlendDesc.DestBlend = convertGHMBlendToD3D(mDesc->mDstBlend);
-		targetBlendDesc.BlendOp = D3D12_BLEND_OP_ADD;
-	}
-	else
-	{
-		targetBlendDesc.SrcBlend = D3D12_BLEND_ONE;
-		targetBlendDesc.DestBlend = D3D12_BLEND_ZERO;
-		targetBlendDesc.BlendOp = D3D12_BLEND_OP_ADD;
-	}
-	targetBlendDesc.SrcBlendAlpha = D3D12_BLEND_ONE;
-	targetBlendDesc.DestBlendAlpha = D3D12_BLEND_ZERO;
-	targetBlendDesc.BlendOpAlpha = D3D12_BLEND_OP_ADD;
-	targetBlendDesc.RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
-
-	for (unsigned int i = 0; i < D3D12_SIMULTANEOUS_RENDER_TARGET_COUNT; ++i)
-	{
-		mBlendDesc.RenderTarget[i] = targetBlendDesc;
-	}
-}
-
-void GHMaterialDX12::createDepthStencilDesc(void)
-{
-	if (!mDesc->mZRead && !mDesc->mZWrite) {
-		mDepthStencilDesc.DepthEnable = false;
-	}
-	else {
-		mDepthStencilDesc.DepthEnable = true;
-	}
-
-	if (!mDesc->mZWrite) {
-		mDepthStencilDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO;
-	}
-	else {
-		mDepthStencilDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ALL;
-	}
-
-	if (!mDesc->mZRead) {
-		mDepthStencilDesc.DepthFunc = D3D12_COMPARISON_FUNC_ALWAYS;
-	}
-	else {
-		mDepthStencilDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS_EQUAL;
-	}
-
-	// Stencil test parameters
-	mDepthStencilDesc.StencilEnable = false;
-	mDepthStencilDesc.StencilReadMask = 0xFF;
-	mDepthStencilDesc.StencilWriteMask = 0xFF;
-
-	// Stencil operations if pixel is front-facing
-	mDepthStencilDesc.FrontFace.StencilFailOp = D3D12_STENCIL_OP_KEEP;
-	mDepthStencilDesc.FrontFace.StencilDepthFailOp = D3D12_STENCIL_OP_INCR;
-	mDepthStencilDesc.FrontFace.StencilPassOp = D3D12_STENCIL_OP_KEEP;
-	mDepthStencilDesc.FrontFace.StencilFunc = D3D12_COMPARISON_FUNC_ALWAYS;
-
-	// Stencil operations if pixel is back-facing
-	mDepthStencilDesc.BackFace.StencilFailOp = D3D12_STENCIL_OP_KEEP;
-	mDepthStencilDesc.BackFace.StencilDepthFailOp = D3D12_STENCIL_OP_DECR;
-	mDepthStencilDesc.BackFace.StencilPassOp = D3D12_STENCIL_OP_KEEP;
-	mDepthStencilDesc.BackFace.StencilFunc = D3D12_COMPARISON_FUNC_ALWAYS;
+	GHHash::hash_combine(mMaterialPsoHash, mDesc->mBillboard);
+	GHHash::hash_combine(mMaterialPsoHash, mDesc->mCullMode);
+	GHHash::hash_combine(mMaterialPsoHash, mDesc->mZRead);
+	GHHash::hash_combine(mMaterialPsoHash, mDesc->mZWrite);
+	GHHash::hash_combine(mMaterialPsoHash, mDesc->mAlphaBlend);
+	GHHash::hash_combine(mMaterialPsoHash, mDesc->mSrcBlend);
+	GHHash::hash_combine(mMaterialPsoHash, mDesc->mDstBlend);
+	GHHash::hash_combine(mMaterialPsoHash, mDesc->mAlphaTest);
+	GHHash::hash_combine(mMaterialPsoHash, mDesc->mAlphaTestLess);
+	GHHash::hash_combine(mMaterialPsoHash, mDesc->mAlphaTestVal);
+	GHHash::hash_combine(mMaterialPsoHash, mDesc->mWireframe);
 }

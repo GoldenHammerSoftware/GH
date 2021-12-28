@@ -5,6 +5,8 @@
 #include "Render/GHVertexBuffer.h"
 #include "Render/GHShaderSemantic.h"
 #include <assert.h>
+#include "GHMath/GHHash.h"
+#include "GHString/GHStringIdFactoryDJB2.h"
 
 GHVBBlitterIndexDX12::GHVBBlitterIndexDX12(GHRenderDeviceDX12& device, unsigned int numIndices)
 	: GHVBBlitterIndex(numIndices)
@@ -74,6 +76,7 @@ void GHVBBlitterIndexDX12::unlockReadBuffer(void) const
 
 int GHVBBlitterIndexDX12::applyStreamComponentsToIED(const std::vector<GHVertexStreamFormat::ComponentEntry>& comps, int streamIdx, int localCompIdx)
 {
+	GHStringIdFactoryDJB2 stringIdFactory;
 	for (unsigned int compIdx = 0; compIdx < comps.size(); ++compIdx)
 	{
 		mD3DIED[localCompIdx].InputSlot = streamIdx;
@@ -136,6 +139,12 @@ int GHVBBlitterIndexDX12::applyStreamComponentsToIED(const std::vector<GHVertexS
 			}
 			else assert(false);
 		}
+
+		GHHash::hash_combine(mIEDHash, mD3DIED[localCompIdx].Format);
+		GHHash::hash_combine(mIEDHash, mD3DIED[localCompIdx].AlignedByteOffset);
+		GHHash::hash_combine(mIEDHash, mD3DIED[localCompIdx].SemanticIndex);
+		GHIdentifier nameId = stringIdFactory.generateHash(mD3DIED[localCompIdx].SemanticName);
+		GHHash::hash_combine(mIEDHash, (GHIdentifier::IDType)nameId);
 
 		localCompIdx++;
 	}
@@ -221,6 +230,7 @@ void GHVBBlitterIndexDX12::createIED(GHVertexBuffer& vb)
 		}
 	}
 
+	mIEDHash = 0;
 	mD3DIED = new D3D12_INPUT_ELEMENT_DESC[mInputElementCount];
 	int localCompIdx = 0;
 	for (unsigned int streamIdx = 0; streamIdx < streams.size(); ++streamIdx)

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Base/GHXMLObjLoader.h"
+#include "GHDX12PSOPool.h"
 
 class GHResourceFactory;
 class GHMaterialCallbackMgr;
@@ -26,5 +27,6 @@ private:
 	const GHMaterialCallbackMgr& mCallbackMgr;
 	GHResourceFactory& mResourceCache;
 	GHDX12MaterialHeapPool& mDescriptorHeapPool;
+	GHDX12PSOPool mPSOPool;
 };
 
