@@ -36,10 +36,41 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 		GHDX12Helpers::createBackBuffer(mDXDevice, mDXSwapChain, mDXDescriptorHeap, mFrameBackends[frameId].mBackBuffer, frameId);
 		mFrameBackends[frameId].mCommandList = new GHDX12CommandList(mDXDevice, mDXCommandQueue);
 
+		// msaa target
+		{
+			D3D12_RESOURCE_DESC texDesc;
+			GHDX12Helpers::createTexture2dDesc(texDesc, screenSize[0], screenSize[1]);
+			texDesc.Format = SWAP_BUFFER_FORMAT;
+			texDesc.Flags = D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET;
+			texDesc.SampleDesc.Count = MSAA_SAMPLE_COUNT;
+			texDesc.SampleDesc.Quality = MSAA_SAMPLE_QUALITY;
+			texDesc.MipLevels = 1;
+
+			D3D12_HEAP_PROPERTIES heapProperties;
+			GHDX12Helpers::createHeapProperties(heapProperties, D3D12_HEAP_TYPE_DEFAULT);
+
+			HRESULT hr = getDXDevice()->CreateCommittedResource(
+				&heapProperties,
+				D3D12_HEAP_FLAG_NONE,
+				&texDesc,
+				D3D12_RESOURCE_STATE_RENDER_TARGET,
+				nullptr,
+				IID_PPV_ARGS(&mFrameBackends[frameId].mMsaaBuffer)
+			);
+			if (FAILED(hr))
+			{
+				GHDebugMessage::outputString("Failed to create swap msaa buffer");
+				return;
+			}
+			mFrameBackends[frameId].mMsaaBuffer->SetName(L"Swap MSAA Buffer");
+		}
+
 		auto rtvDescriptorSize = mDXDevice->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
 		D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = mDXDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
 		rtvHandle.ptr += rtvDescriptorSize * frameId;
 		mFrameBackends[frameId].mBackBufferRTV = rtvHandle;
+
+		getDXDevice()->CreateRenderTargetView(mFrameBackends[frameId].mMsaaBuffer.Get(), nullptr, rtvHandle);
 	}
 	mUploadCommandList = new GHDX12CommandList(mDXDevice, mDXCommandQueue);
 	mComputeCommandList = new GHDX12CommandList(mDXDevice, mDXCommandQueue);
@@ -103,6 +134,15 @@ bool GHRenderDeviceDX12::beginFrame(void)
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
 	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ResourceBarrier(1, &barrier);
 
+	D3D12_RESOURCE_BARRIER msaaBarrier;
+	msaaBarrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+	msaaBarrier.Transition.pResource = mFrameBackends[mCurrBackend].mMsaaBuffer.Get();
+	msaaBarrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RESOLVE_DEST;
+	msaaBarrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
+	msaaBarrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+	msaaBarrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ResourceBarrier(1, &msaaBarrier);
+
 	getRenderCommandList()->SetGraphicsRootSignature(mGraphicsRootSignature.Get());
 	getRenderCommandList()->RSSetScissorRects(1, &mScissorRect); 
 
@@ -114,10 +154,35 @@ bool GHRenderDeviceDX12::beginFrame(void)
 
 void GHRenderDeviceDX12::endFrame(void)
 {
+	// resolve msaa
+	{
+		// transition resources to the resolve ready state.
+		D3D12_RESOURCE_BARRIER srcInBarrier;
+		srcInBarrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+		srcInBarrier.Transition.pResource = mFrameBackends[mCurrBackend].mMsaaBuffer.Get();
+		srcInBarrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
+		srcInBarrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RESOLVE_SOURCE;
+		srcInBarrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+		srcInBarrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+		mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ResourceBarrier(1, &srcInBarrier);
+		D3D12_RESOURCE_BARRIER dstInBarrier;
+		dstInBarrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+		dstInBarrier.Transition.pResource = mFrameBackends[mCurrBackend].mBackBuffer.Get();
+		dstInBarrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
+		dstInBarrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RESOLVE_DEST;
+		dstInBarrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+		dstInBarrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+		mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ResourceBarrier(1, &dstInBarrier);
+
+		// resolve.
+		mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ResolveSubresource(mFrameBackends[mCurrBackend].mBackBuffer.Get(), 0, mFrameBackends[mCurrBackend].mMsaaBuffer.Get(), 0, SWAP_BUFFER_FORMAT);
+
+	}
+
 	D3D12_RESOURCE_BARRIER barrier;
 	barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
 	barrier.Transition.pResource = mFrameBackends[mCurrBackend].mBackBuffer.Get();
-	barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
+	barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RESOLVE_DEST;
 	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PRESENT;
 	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
@@ -160,6 +225,9 @@ void GHRenderDeviceDX12::applyDefaultTarget(void)
 	rtGroup.mRt0Format = SWAP_BUFFER_FORMAT;
 	rtGroup.mDepth = mDepthDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
 	rtGroup.mDepthFormat = DEPTH_BUFFER_FORMAT;
+	rtGroup.mSampleCount = MSAA_SAMPLE_COUNT;
+	rtGroup.mSampleQuality = MSAA_SAMPLE_QUALITY;
+
 	applyRenderTarget(rtGroup);
 	getRenderCommandList()->RSSetViewports(1, &mViewport);
 }
@@ -378,6 +446,11 @@ void GHRenderDeviceDX12::createDepthBuffer(void)
 	texDesc.Format = DEPTH_BUFFER_FORMAT;
 	texDesc.Flags = D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL;
 
+	// msaa
+	texDesc.SampleDesc.Count = MSAA_SAMPLE_COUNT;
+	texDesc.SampleDesc.Quality = MSAA_SAMPLE_QUALITY;
+	texDesc.MipLevels = 1;
+
 	hr = mDXDevice->CreateCommittedResource(
 		&heapProperties,
 		D3D12_HEAP_FLAG_NONE,
@@ -394,7 +467,7 @@ void GHRenderDeviceDX12::createDepthBuffer(void)
 
 	D3D12_DEPTH_STENCIL_VIEW_DESC depthStencilDesc = {};
 	depthStencilDesc.Format = DEPTH_BUFFER_FORMAT;
-	depthStencilDesc.ViewDimension = D3D12_DSV_DIMENSION_TEXTURE2D;
+	depthStencilDesc.ViewDimension = D3D12_DSV_DIMENSION_TEXTURE2DMS;
 	depthStencilDesc.Flags = D3D12_DSV_FLAG_NONE;
 
 	mDXDevice->CreateDepthStencilView(mDepthBuffer.Get(), &depthStencilDesc, mDepthDescriptorHeap->GetCPUDescriptorHandleForHeapStart());

@@ -74,6 +74,7 @@ protected:
 	struct FrameBackend
 	{
 		Microsoft::WRL::ComPtr<ID3D12Resource> mBackBuffer;
+		Microsoft::WRL::ComPtr<ID3D12Resource> mMsaaBuffer;
 		D3D12_CPU_DESCRIPTOR_HANDLE mBackBufferRTV;
 		GHDX12CommandList* mCommandList;
 	};

@@ -153,17 +153,11 @@ namespace GHDX12Helpers
 
 	static void createBackBuffer(Microsoft::WRL::ComPtr<ID3D12Device2> &device, Microsoft::WRL::ComPtr<IDXGISwapChain1> &swapChain, Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> &descriptorHeap,  Microsoft::WRL::ComPtr<ID3D12Resource>& backBuffer, uint32_t backbufferIndex)
 	{
-		auto rtvDescriptorSize = device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
-		D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = descriptorHeap->GetCPUDescriptorHandleForHeapStart();
-		rtvHandle.ptr += rtvDescriptorSize*backbufferIndex;
-
 		HRESULT swapRes = swapChain->GetBuffer(backbufferIndex, IID_PPV_ARGS(&backBuffer));
 		if (swapRes != S_OK)
 		{
 			GHDebugMessage::outputString("Failed to create swap buffer");
 		}
-
-		device->CreateRenderTargetView(backBuffer.Get(), nullptr, rtvHandle);
 	}
 
 	// CD3DX12_HEAP_PROPERTIES
