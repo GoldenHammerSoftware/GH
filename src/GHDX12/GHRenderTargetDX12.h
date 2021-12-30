@@ -23,6 +23,7 @@ private:
 	void createDXBuffers(void);
 	void createDepthBuffers(void);
 	void createColorBuffers(void);
+	void resolveMsaa(void);
 
 private:
 	GHRenderTarget::Config mConfig;
@@ -41,7 +42,7 @@ private:
 		Microsoft::WRL::ComPtr<ID3D12Resource> mDepthBuffer;
 		D3D12_CPU_DESCRIPTOR_HANDLE mDepthBufferRTV;
 
-		// optional target for resolve if msaa is true.
+		// optional msaa resolve.
 		Microsoft::WRL::ComPtr<ID3D12Resource> mResolveBuffer;
 
 		GHTextureDX12* mTexture{ 0 };

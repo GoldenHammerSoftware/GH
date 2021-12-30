@@ -3,6 +3,7 @@
 #include "GHRenderDeviceDX12.h"
 #include "Render/GHMDesc.h"
 #include "GHPlatform/GHDebugMessage.h"
+#include "GHDX12RTGroup.h"
 
 GHDX12PSOPool::GHDX12PSOPool(GHRenderDeviceDX12& device)
 	: mDevice(device)
@@ -139,7 +140,7 @@ static D3D12_DEPTH_STENCIL_DESC createDepthStencilDesc(const GHMDesc& desc)
 
 Microsoft::WRL::ComPtr<ID3D12PipelineState> GHDX12PSOPool::getPSO(size_t matHash, const GHMDesc& desc, 
 	const GHShaderDX12& vs, const GHShaderDX12& ps,
-	const GHVertexBuffer& vb, const DXGI_FORMAT rt0Format, const DXGI_FORMAT depthFormat)
+	const GHVertexBuffer& vb, const GHDX12RTGroup& rtGroup)
 {
 	const GHVBBlitterPtr* vbBlitterPtr = vb.getBlitter();
 	GHVBBlitterIndexDX12* ibBlitter = (GHVBBlitterIndexDX12*)(vbBlitterPtr->get());
@@ -148,9 +149,10 @@ Microsoft::WRL::ComPtr<ID3D12PipelineState> GHDX12PSOPool::getPSO(size_t matHash
 
 	PoolKey searchKey;
 	searchKey.mMatHash = matHash;
-	searchKey.mRt0Format = rt0Format;
-	searchKey.mDepthFormat = depthFormat;
+	searchKey.mRt0Format = rtGroup.mRt0Format;
+	searchKey.mDepthFormat = rtGroup.mDepthFormat;
 	searchKey.mIedHash = ibBlitter->getInputElementHash();
+	searchKey.mSampleCount = rtGroup.mSampleCount;
 
 	auto findIter = mCache.find(searchKey);
 	if (findIter != mCache.end())
@@ -169,9 +171,10 @@ Microsoft::WRL::ComPtr<ID3D12PipelineState> GHDX12PSOPool::getPSO(size_t matHash
 	psoDesc.PS = ps.getBytecode();
 	psoDesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
 	// todo: support render targets of different formats.
-	psoDesc.RTVFormats[0] = rt0Format;
-	psoDesc.DSVFormat = depthFormat;
-	psoDesc.SampleDesc = mDevice.getSampleDesc();
+	psoDesc.RTVFormats[0] = rtGroup.mRt0Format;
+	psoDesc.DSVFormat = rtGroup.mDepthFormat;
+	psoDesc.SampleDesc.Count = rtGroup.mSampleCount;
+	psoDesc.SampleDesc.Quality = rtGroup.mSampleQuality;
 	psoDesc.SampleMask = 0xffffffff; // sample mask has to do with multi-sampling. 0xffffffff means point sampling is done
 	psoDesc.RasterizerState = createRasterizerDesc(desc);
 	psoDesc.BlendState = createBlendDesc(desc);
@@ -193,5 +196,6 @@ bool GHDX12PSOPool::PoolKey::operator<(const PoolKey& other) const
 	if (mIedHash != other.mIedHash) return mIedHash < other.mIedHash;
 	if (mRt0Format != other.mRt0Format) return mRt0Format < other.mRt0Format;
 	if (mDepthFormat != other.mDepthFormat) return mDepthFormat < other.mDepthFormat;
+	if (mSampleCount != other.mSampleCount) return mSampleCount < other.mSampleCount;
 	return false;
 }

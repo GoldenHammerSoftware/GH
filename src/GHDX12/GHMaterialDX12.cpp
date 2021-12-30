@@ -174,7 +174,7 @@ Microsoft::WRL::ComPtr<ID3D12PipelineState> GHMaterialDX12::createPSO(const GHVe
 {
 	const GHDX12RTGroup& rtGroup = mDevice.getActiveRTGroup();
 
-	return mPSOPool.getPSO(mMaterialPsoHash, *mDesc, *mShaders[GHShaderType::ST_VERTEX]->mShader->get(), *mShaders[GHShaderType::ST_PIXEL]->mShader->get(), vb, rtGroup.mRt0Format, rtGroup.mDepthFormat);
+	return mPSOPool.getPSO(mMaterialPsoHash, *mDesc, *mShaders[GHShaderType::ST_VERTEX]->mShader->get(), *mShaders[GHShaderType::ST_PIXEL]->mShader->get(), vb, rtGroup);
 }
 
 void GHMaterialDX12::updateMaterialPsoHash(void)
