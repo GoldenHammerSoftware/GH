@@ -27,9 +27,9 @@
 #include "GHDX12/GHRenderServicesDX12.h"
 #include "GHDX12/GHRenderDeviceDX12.h"
 #else
-#include "GHRenderDeviceDX11.h"
-#include "GHRenderDeviceFactoryDX11Native.h"
-#include "GHRenderDeviceFactoryDX11Native.h"
+#include "GHDX11/GHRenderDeviceDX11.h"
+#include "GHDX11/GHRenderDeviceFactoryDX11Native.h"
+#include "GHDX11/GHRenderDeviceFactoryDX11Native.h"
 #include "GHWin32DX11RenderServices.h"
 #endif
 
