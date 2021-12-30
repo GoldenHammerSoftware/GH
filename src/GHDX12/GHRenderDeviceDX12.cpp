@@ -159,7 +159,7 @@ void GHRenderDeviceDX12::applyDefaultTarget(void)
 	rtGroup.mRt0 = mFrameBackends[mCurrBackend].mBackBufferRTV;
 	rtGroup.mRt0Format = SWAP_BUFFER_FORMAT;
 	rtGroup.mDepth = mDepthDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
-	rtGroup.mDepthFormat = DXGI_FORMAT_D32_FLOAT;
+	rtGroup.mDepthFormat = DEPTH_BUFFER_FORMAT;
 	applyRenderTarget(rtGroup);
 	getRenderCommandList()->RSSetViewports(1, &mViewport);
 }
@@ -365,7 +365,7 @@ void GHRenderDeviceDX12::createDepthBuffer(void)
 	mDepthDescriptorHeap->SetName(L"Depth/Stencil Resource Heap");
 
 	D3D12_CLEAR_VALUE depthOptimizedClearValue = {};
-	depthOptimizedClearValue.Format = DXGI_FORMAT_D32_FLOAT;
+	depthOptimizedClearValue.Format = DEPTH_BUFFER_FORMAT;
 	depthOptimizedClearValue.DepthStencil.Depth = 1.0f;
 	depthOptimizedClearValue.DepthStencil.Stencil = 0;
 
@@ -375,7 +375,7 @@ void GHRenderDeviceDX12::createDepthBuffer(void)
 	GHDX12Helpers::createHeapProperties(heapProperties, D3D12_HEAP_TYPE_DEFAULT);
 	D3D12_RESOURCE_DESC texDesc;
 	GHDX12Helpers::createTexture2dDesc(texDesc, screenSize[0], screenSize[1]);
-	texDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	texDesc.Format = DEPTH_BUFFER_FORMAT;
 	texDesc.Flags = D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL;
 
 	hr = mDXDevice->CreateCommittedResource(
@@ -393,7 +393,7 @@ void GHRenderDeviceDX12::createDepthBuffer(void)
 	}
 
 	D3D12_DEPTH_STENCIL_VIEW_DESC depthStencilDesc = {};
-	depthStencilDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	depthStencilDesc.Format = DEPTH_BUFFER_FORMAT;
 	depthStencilDesc.ViewDimension = D3D12_DSV_DIMENSION_TEXTURE2D;
 	depthStencilDesc.Flags = D3D12_DSV_FLAG_NONE;
 

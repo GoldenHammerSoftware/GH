@@ -10,6 +10,16 @@ GHRenderTargetDX12::GHRenderTargetDX12(GHRenderDeviceDX12& device, const GHRende
 	, mDevice(device)
 	, mMipGen(mipGen)
 {
+	// test hack disable msaa
+	mConfig.mMsaa = false;
+
+	// disable mipmap if using depth texture.
+	// todo: make GHMipmapGeneratorDX12 support this.
+	if (mConfig.mType == GHRenderTarget::RTType::RT_DEPTHONLY)
+	{
+		mConfig.mMipmap = false;
+	}
+
 	createDXBuffers();
 }
 
@@ -31,13 +41,21 @@ void GHRenderTargetDX12::apply(void)
 	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
 	mDevice.getRenderCommandList()->ResourceBarrier(1, &barrier);
-	// todo: also transition depth.
+
+	D3D12_RESOURCE_BARRIER depthBarrier;
+	depthBarrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+	depthBarrier.Transition.pResource = mFrames[mDevice.getFrameBackendId()].mDepthBuffer.Get();
+	depthBarrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+	depthBarrier.Transition.StateAfter = D3D12_RESOURCE_STATE_DEPTH_WRITE;
+	depthBarrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+	depthBarrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	mDevice.getRenderCommandList()->ResourceBarrier(1, &depthBarrier);
 
 	GHDX12RTGroup rtGroup;
 	rtGroup.mRt0 = mFrames[mDevice.getFrameBackendId()].mColorBufferRTV;
 	rtGroup.mRt0Format = SWAP_BUFFER_FORMAT;
 	rtGroup.mDepth = mFrames[mDevice.getFrameBackendId()].mDepthBufferRTV;
-	rtGroup.mDepthFormat = DXGI_FORMAT_D32_FLOAT;
+	rtGroup.mDepthFormat = DEPTH_BUFFER_FORMAT;
 
 	mDevice.applyRenderTarget(rtGroup);
 	mDevice.getRenderCommandList()->RSSetViewports(1, &mViewport);
@@ -53,7 +71,15 @@ void GHRenderTargetDX12::remove(void)
 	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
 	mDevice.getRenderCommandList()->ResourceBarrier(1, &barrier);
-	// todo: also transition depth.
+
+	D3D12_RESOURCE_BARRIER depthBarrier;
+	depthBarrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+	depthBarrier.Transition.pResource = mFrames[mDevice.getFrameBackendId()].mDepthBuffer.Get();
+	depthBarrier.Transition.StateBefore = D3D12_RESOURCE_STATE_DEPTH_WRITE;
+	depthBarrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+	depthBarrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+	depthBarrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	mDevice.getRenderCommandList()->ResourceBarrier(1, &depthBarrier);
 
 	mDevice.applyDefaultTarget();
 
@@ -90,7 +116,15 @@ void GHRenderTargetDX12::createDXBuffers(void)
 	for (int frame = 0; frame < NUM_SWAP_BUFFERS; ++frame)
 	{
 		if (mFrames[frame].mTexture) mFrames[frame].mTexture->release();
-		mFrames[frame].mTexture = new GHTextureDX12(mDevice, mFrames[frame].mColorBuffer, nullptr, SWAP_BUFFER_FORMAT, mConfig.mMipmap);
+
+		if (mConfig.mType == GHRenderTarget::RTType::RT_DEFAULT)
+		{
+			mFrames[frame].mTexture = new GHTextureDX12(mDevice, mFrames[frame].mColorBuffer, nullptr, SWAP_BUFFER_FORMAT, mConfig.mMipmap);
+		}
+		else
+		{
+			mFrames[frame].mTexture = new GHTextureDX12(mDevice, mFrames[frame].mDepthBuffer, nullptr, DEPTH_BUFFER_FORMAT_SRV, mConfig.mMipmap);
+		}
 		mFrames[frame].mTexture->acquire();
 	}
 }
@@ -111,7 +145,7 @@ void GHRenderTargetDX12::createDepthBuffers(void)
 	mDepthDescriptorHeap->SetName(L"RT Depth/Stencil Resource Heap");
 
 	D3D12_CLEAR_VALUE depthOptimizedClearValue = {};
-	depthOptimizedClearValue.Format = DXGI_FORMAT_D32_FLOAT;
+	depthOptimizedClearValue.Format = DEPTH_BUFFER_FORMAT;
 	depthOptimizedClearValue.DepthStencil.Depth = 1.0f;
 	depthOptimizedClearValue.DepthStencil.Stencil = 0;
 
@@ -119,11 +153,11 @@ void GHRenderTargetDX12::createDepthBuffers(void)
 	GHDX12Helpers::createHeapProperties(heapProperties, D3D12_HEAP_TYPE_DEFAULT);
 	D3D12_RESOURCE_DESC texDesc;
 	GHDX12Helpers::createTexture2dDesc(texDesc, mConfig.mWidth, mConfig.mHeight);
-	texDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	texDesc.Format = DEPTH_BUFFER_FORMAT;
 	texDesc.Flags = D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL;
 
 	D3D12_DEPTH_STENCIL_VIEW_DESC depthStencilDesc = {};
-	depthStencilDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	depthStencilDesc.Format = DEPTH_BUFFER_FORMAT;
 	depthStencilDesc.ViewDimension = D3D12_DSV_DIMENSION_TEXTURE2D;
 	depthStencilDesc.Flags = D3D12_DSV_FLAG_NONE;
 
@@ -156,7 +190,6 @@ void GHRenderTargetDX12::createColorBuffers(void)
 {
 	// todo: don't create these for depth only targets.
 	// might need a new root signature for that.
-	// same with format.
 
 	// can probably share some of this code with GHRenderDeviceDX12.
 	D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
