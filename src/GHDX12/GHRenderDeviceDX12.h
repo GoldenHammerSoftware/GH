@@ -3,6 +3,7 @@
 #include "Render/GHRenderDevice.h"
 #include "GHDX12Include.h"
 #include "GHDX12CommandList.h"
+#include "GHDX12RTGroup.h"
 
 class GHWin32Window;
 class GHDX12Fence;
@@ -37,7 +38,7 @@ public:
 	Microsoft::WRL::ComPtr<ID3D12RootSignature> getGraphicsRootSignature(void) { return mGraphicsRootSignature; }
 	DXGI_SAMPLE_DESC getSampleDesc(void) const { return mDXSwapChainSampleDesc; }
 	int32_t getFrameBackendId(void) const { return mCurrBackend; }
-	DXGI_FORMAT getRenderTargetFormat(void) const;
+	const GHDX12RTGroup& getActiveRTGroup(void) const { return mActiveRTGroup; }
 
 	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> beginUploadCommandList(void);
 	void endUploadCommandList(void);
@@ -48,7 +49,7 @@ public:
 	void flushGPU(void);
 
 	void applyDefaultTarget(void);
-	void applyRenderTarget(D3D12_CPU_DESCRIPTOR_HANDLE color, D3D12_CPU_DESCRIPTOR_HANDLE depth);
+	void applyRenderTarget(const GHDX12RTGroup& rtGroup);
 	void applyRenderRootSignature(void);
 
 private:
@@ -84,8 +85,7 @@ protected:
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDepthDescriptorHeap;
 	Microsoft::WRL::ComPtr<ID3D12Resource> mDepthBuffer;
 	
-	D3D12_CPU_DESCRIPTOR_HANDLE mActiveColorRTV;
-	D3D12_CPU_DESCRIPTOR_HANDLE mActiveDepthRTV;
+	GHDX12RTGroup mActiveRTGroup;
 
 	D3D12_RECT mScissorRect;
 	D3D12_VIEWPORT mViewport;

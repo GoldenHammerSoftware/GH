@@ -155,17 +155,21 @@ void GHRenderDeviceDX12::endRenderPass(void)
 
 void GHRenderDeviceDX12::applyDefaultTarget(void)
 {
-	applyRenderTarget(mFrameBackends[mCurrBackend].mBackBufferRTV, mDepthDescriptorHeap->GetCPUDescriptorHandleForHeapStart());
+	GHDX12RTGroup rtGroup;
+	rtGroup.mRt0 = mFrameBackends[mCurrBackend].mBackBufferRTV;
+	rtGroup.mRt0Format = SWAP_BUFFER_FORMAT;
+	rtGroup.mDepth = mDepthDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
+	rtGroup.mDepthFormat = DXGI_FORMAT_D32_FLOAT;
+	applyRenderTarget(rtGroup);
 	getRenderCommandList()->RSSetViewports(1, &mViewport);
 }
 
-void GHRenderDeviceDX12::applyRenderTarget(D3D12_CPU_DESCRIPTOR_HANDLE color, D3D12_CPU_DESCRIPTOR_HANDLE depth)
+void GHRenderDeviceDX12::applyRenderTarget(const GHDX12RTGroup& rtGroup)
 {
-	mActiveColorRTV = color;
-	mActiveDepthRTV = depth;
+	mActiveRTGroup = rtGroup;
 
 	D3D12_CPU_DESCRIPTOR_HANDLE dsvHandle = mDepthDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
-	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->OMSetRenderTargets(1, &mActiveColorRTV, FALSE, &mActiveDepthRTV);
+	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->OMSetRenderTargets(1, &mActiveRTGroup.mRt0, FALSE, &mActiveRTGroup.mDepth);
 }
 
 void GHRenderDeviceDX12::applyViewInfo(const GHViewInfo& viewInfo)
@@ -404,12 +408,6 @@ void GHRenderDeviceDX12::setClearColor(const GHPoint4& color)
 void GHRenderDeviceDX12::clearBuffers(void)
 {
 	FLOAT clearColor[] = { mClearColor[0], mClearColor[1], mClearColor[2], mClearColor[3] };
-	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearRenderTargetView(mActiveColorRTV, clearColor, 0, nullptr);
-	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearDepthStencilView(mActiveDepthRTV, D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
-}
-
-DXGI_FORMAT GHRenderDeviceDX12::getRenderTargetFormat(void) const
-{
-	// todo: make this reflect mActiveColorRTV
-	return SWAP_BUFFER_FORMAT;
+	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearRenderTargetView(mActiveRTGroup.mRt0, clearColor, 0, nullptr);
+	mFrameBackends[mCurrBackend].mCommandList->getDXCommandList()->ClearDepthStencilView(mActiveRTGroup.mDepth, D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
 }

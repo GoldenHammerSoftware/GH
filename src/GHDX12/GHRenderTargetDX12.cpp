@@ -33,7 +33,13 @@ void GHRenderTargetDX12::apply(void)
 	mDevice.getRenderCommandList()->ResourceBarrier(1, &barrier);
 	// todo: also transition depth.
 
-	mDevice.applyRenderTarget(mFrames[mDevice.getFrameBackendId()].mColorBufferRTV, mFrames[mDevice.getFrameBackendId()].mDepthBufferRTV);
+	GHDX12RTGroup rtGroup;
+	rtGroup.mRt0 = mFrames[mDevice.getFrameBackendId()].mColorBufferRTV;
+	rtGroup.mRt0Format = SWAP_BUFFER_FORMAT;
+	rtGroup.mDepth = mFrames[mDevice.getFrameBackendId()].mDepthBufferRTV;
+	rtGroup.mDepthFormat = DXGI_FORMAT_D32_FLOAT;
+
+	mDevice.applyRenderTarget(rtGroup);
 	mDevice.getRenderCommandList()->RSSetViewports(1, &mViewport);
 }
 
@@ -169,7 +175,6 @@ void GHRenderTargetDX12::createColorBuffers(void)
 	GHDX12Helpers::createHeapProperties(heapProperties, D3D12_HEAP_TYPE_DEFAULT);
 	D3D12_RESOURCE_DESC texDesc;
 	GHDX12Helpers::createTexture2dDesc(texDesc, mConfig.mWidth, mConfig.mHeight);
-	// todo: support different formats.
 	texDesc.Format = SWAP_BUFFER_FORMAT;
 	texDesc.Flags = D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET;
 	if (mConfig.mMipmap) texDesc.Flags |= D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
