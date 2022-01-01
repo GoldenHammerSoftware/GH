@@ -1,6 +1,6 @@
 // Copyright Golden Hammer Software
 
-#define DX12 1
+//#define DX12 1
 
 #include "GHWin32AppLauncher.h"
 #include "GHWin32SystemServices.h"

@@ -10,8 +10,9 @@ GHRenderTargetDX12::GHRenderTargetDX12(GHRenderDeviceDX12& device, const GHRende
 	, mDevice(device)
 	, mMipGen(mipGen)
 {
-	// test hack disable msaa
+	// test hack disable 
 	//mConfig.mMsaa = false;
+	//mConfig.mMipmap = false;
 
 	// disable mipmap if using depth texture.
 	// todo: make GHMipmapGeneratorDX12 support this.

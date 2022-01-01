@@ -5,25 +5,17 @@
 
 namespace GHDXGIUtil
 {
-	DXGI_FORMAT convertGHFormatToDXGI(GHTextureFormat::Enum ghFormat)
-	{
-		if (ghFormat == GHTextureFormat::TF_DXT1)
-		{
-			return DXGI_FORMAT_BC1_UNORM;
-		}
-		if (ghFormat == GHTextureFormat::TF_DXT5)
-		{
-			return DXGI_FORMAT_BC3_UNORM;
-		}
-		if (ghFormat == GHTextureFormat::TF_RGB8)
-		{
-			// there is no 24 bit d3d texture format.
-			return DXGI_FORMAT_R8G8B8A8_UNORM;
-		}
-		if (ghFormat == GHTextureFormat::TF_RGBA8)
-		{
-			return DXGI_FORMAT_R8G8B8A8_UNORM;
-		}
-		return DXGI_FORMAT_R8G8B8A8_UNORM;
-	}
+    DXGI_FORMAT convertGHFormatToDXGI(GHTextureFormat::Enum ghFormat);
+    size_t bitsPerPixel(DXGI_FORMAT fmt);
+
+	// from microsoft.
+	// http://go.microsoft.com/fwlink/?LinkId=248926
+	// http://go.microsoft.com/fwlink/?LinkId=248929
+	void getSurfaceInfo(_In_ size_t width,
+		_In_ size_t height,
+		_In_ DXGI_FORMAT fmt,
+		_Out_opt_ size_t* outNumBytes,
+		_Out_opt_ size_t* outRowBytes,
+		_Out_opt_ size_t* outNumRows);
+
 };
