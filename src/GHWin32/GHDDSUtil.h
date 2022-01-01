@@ -31,20 +31,6 @@ namespace GHDDSUtil
 //--------------------------------------------------------------------------------------
 #pragma pack(push,1)
 
-#define DDS_MAGIC 0x20534444 // "DDS "
-
-    struct DDS_PIXELFORMAT
-    {
-        uint32_t    size;
-        uint32_t    flags;
-        uint32_t    fourCC;
-        uint32_t    RGBBitCount;
-        uint32_t    RBitMask;
-        uint32_t    GBitMask;
-        uint32_t    BBitMask;
-        uint32_t    ABitMask;
-    };
-
 #define DDS_FOURCC      0x00000004  // DDPF_FOURCC
 #define DDS_RGB         0x00000040  // DDPF_RGB
 #define DDS_RGBA        0x00000041  // DDPF_RGB | DDPF_ALPHAPIXELS
@@ -80,6 +66,18 @@ namespace GHDDSUtil
 #define DDS_CUBEMAP 0x00000200 // DDSCAPS2_CUBEMAP
 
 #define DDS_FLAGS_VOLUME 0x00200000 // DDSCAPS2_VOLUME
+
+    struct DDS_PIXELFORMAT
+    {
+        uint32_t    size;
+        uint32_t    flags;
+        uint32_t    fourCC;
+        uint32_t    RGBBitCount;
+        uint32_t    RBitMask;
+        uint32_t    GBitMask;
+        uint32_t    BBitMask;
+        uint32_t    ABitMask;
+    };
 
     typedef struct
     {
@@ -118,5 +116,34 @@ namespace GHDDSUtil
     );
 
     DXGI_FORMAT GetDXGIFormat(const DDS_PIXELFORMAT& ddpf);
+
+    // matches D3D11_SUBRESOURCE_DATA to avoid dx11/12 include issues.
+    typedef struct SubresourceData
+    {
+        const void* pSysMem;
+        UINT SysMemPitch;
+        UINT SysMemSlicePitch;
+    } 	SubresourceData;
+
+    HRESULT FillInitData(_In_ size_t width,
+        _In_ size_t height,
+        _In_ size_t depth,
+        _In_ size_t mipCount,
+        _In_ size_t arraySize,
+        _In_ DXGI_FORMAT format,
+        _In_ size_t maxsize,
+        _In_ size_t bitSize,
+        _In_bytecount_(bitSize) const uint8_t* bitData,
+        _Out_ size_t& twidth,
+        _Out_ size_t& theight,
+        _Out_ size_t& tdepth,
+        _Out_ size_t& skipMip,
+        _Out_cap_(mipCount* arraySize) SubresourceData* initData);
+
+    HRESULT parseHeaderMemory(_In_bytecount_(ddsDataSize) const uint8_t* ddsData,
+        _In_ size_t ddsDataSize,
+        const DDS_HEADER*& outHeader,
+        ptrdiff_t& outDataOffset);
+
 
 };

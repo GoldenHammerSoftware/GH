@@ -22,6 +22,7 @@
 #include <assert.h>
 #include <algorithm>
 #include <memory>
+#include <assert.h>
 
 #include "DDSTextureLoader.h"
 #include "GHWin32/GHDXGIUtil.h"
@@ -29,98 +30,6 @@
 
 namespace GHDDSLoader
 {
-
-
-//--------------------------------------------------------------------------------------
-static HRESULT FillInitData( _In_ size_t width,
-                             _In_ size_t height,
-                             _In_ size_t depth,
-                             _In_ size_t mipCount,
-                             _In_ size_t arraySize,
-                             _In_ DXGI_FORMAT format,
-                             _In_ size_t maxsize,
-                             _In_ size_t bitSize,
-                             _In_bytecount_(bitSize) const uint8_t* bitData,
-                             _Out_ size_t& twidth,
-                             _Out_ size_t& theight,
-                             _Out_ size_t& tdepth,
-                             _Out_ size_t& skipMip,
-                             _Out_cap_(mipCount*arraySize) D3D11_SUBRESOURCE_DATA* initData )
-{
-    if ( !bitData || !initData )
-        return E_POINTER;
-
-    skipMip = 0;
-    twidth = 0;
-    theight = 0;
-    tdepth = 0;
-
-    size_t NumBytes = 0;
-    size_t RowBytes = 0;
-    size_t NumRows = 0;
-    const uint8_t* pSrcBits = bitData;
-    const uint8_t* pEndBits = bitData + bitSize;
-
-    size_t index = 0;
-    for( size_t j = 0; j < arraySize; j++ )
-    {
-        size_t w = width;
-        size_t h = height;
-        size_t d = depth;
-        for( size_t i = 0; i < mipCount; i++ )
-        {
-            GHDXGIUtil::getSurfaceInfo( w,
-                            h,
-                            format,
-                            &NumBytes,
-                            &RowBytes,
-                            &NumRows
-                          );
-
-            if ( (mipCount <= 1) || !maxsize || (w <= maxsize && h <= maxsize && d <= maxsize) )
-            {
-                if ( !twidth )
-                {
-                    twidth = w;
-                    theight = h;
-                    tdepth = d;
-                }
-
-                initData[index].pSysMem = ( const void* )pSrcBits;
-                initData[index].SysMemPitch = static_cast<UINT>( RowBytes );
-                initData[index].SysMemSlicePitch = static_cast<UINT>( NumBytes );
-                ++index;
-            }
-            else
-                ++skipMip;
-
-            if (pSrcBits + (NumBytes*d) > pEndBits)
-            {
-                return HRESULT_FROM_WIN32( ERROR_HANDLE_EOF );
-            }
-  
-            pSrcBits += NumBytes * d;
-
-            w = w >> 1;
-            h = h >> 1;
-            d = d >> 1;
-            if (w == 0)
-            {
-                w = 1;
-            }
-            if (h == 0)
-            {
-                h = 1;
-            }
-            if (d == 0)
-            {
-                d = 1;
-            }
-        }
-    }
-
-    return (index > 0) ? S_OK : E_FAIL;
-}
 
 
 //--------------------------------------------------------------------------------------
@@ -536,8 +445,9 @@ static HRESULT CreateTextureFromDDS( _In_ ID3D11Device* d3dDevice,
     size_t twidth = 0;
     size_t theight = 0;
     size_t tdepth = 0;
-    hr = FillInitData( width, height, depth, mipCount, arraySize, format, maxsize, bitSize, bitData,
-                       twidth, theight, tdepth, skipMip, initData.get() );
+    static_assert(sizeof(GHDDSUtil::SubresourceData) == sizeof(D3D11_SUBRESOURCE_DATA), "SubresourceData must match D3D11_SUBRESOURCE_DATA");
+    hr = GHDDSUtil::FillInitData( width, height, depth, mipCount, arraySize, format, maxsize, bitSize, bitData,
+                       twidth, theight, tdepth, skipMip, (GHDDSUtil::SubresourceData*)(initData.get()) );
 
     if ( SUCCEEDED(hr) )
     {
@@ -575,8 +485,9 @@ static HRESULT CreateTextureFromDDS( _In_ ID3D11Device* d3dDevice,
                 break;
             }
 
+            static_assert(sizeof(GHDDSUtil::SubresourceData) == sizeof(D3D11_SUBRESOURCE_DATA), "SubresourceData must match D3D11_SUBRESOURCE_DATA");
             hr = FillInitData( width, height, depth, mipCount, arraySize, format, maxsize, bitSize, bitData,
-                               twidth, theight, tdepth, skipMip, initData.get() );
+                               twidth, theight, tdepth, skipMip, (GHDDSUtil::SubresourceData*)(initData.get()) );
             if ( SUCCEEDED(hr) )
             {
                 hr = CreateD3DResources( d3dDevice, resDim, twidth, theight, tdepth, mipCount - skipMip, arraySize, format, isCubeMap, initData.get(), texture, textureView );
@@ -600,44 +511,13 @@ HRESULT CreateDDSTextureFromMemory( _In_ ID3D11Device* d3dDevice,
         return E_INVALIDARG;
     }
 
-    // Validate DDS file in memory
-    if (ddsDataSize < (sizeof(uint32_t) + sizeof(GHDDSUtil::DDS_HEADER)))
+    const GHDDSUtil::DDS_HEADER* header;
+    ptrdiff_t offset;
+    HRESULT headerParseResult = GHDDSUtil::parseHeaderMemory(ddsData, ddsDataSize, header, offset);
+    if (headerParseResult != S_OK)
     {
         return E_FAIL;
     }
-
-    uint32_t dwMagicNumber = *( const uint32_t* )( ddsData );
-    if (dwMagicNumber != DDS_MAGIC)
-    {
-        return E_FAIL;
-    }
-
-    const GHDDSUtil::DDS_HEADER* header = reinterpret_cast<const GHDDSUtil::DDS_HEADER*>( ddsData + sizeof( uint32_t ) );
-
-    // Verify header to validate DDS file
-    if (header->size != sizeof(GHDDSUtil::DDS_HEADER) ||
-        header->ddspf.size != sizeof(GHDDSUtil::DDS_PIXELFORMAT))
-    {
-        return E_FAIL;
-    }
-
-    // Check for DX10 extension
-    bool bDXT10Header = false;
-    if ((header->ddspf.flags & DDS_FOURCC) &&
-        (MAKEFOURCC( 'D', 'X', '1', '0' ) == header->ddspf.fourCC) )
-    {
-        // Must be long enough for both headers and magic value
-        if (ddsDataSize < (sizeof(GHDDSUtil::DDS_HEADER) + sizeof(uint32_t) + sizeof(GHDDSUtil::DDS_HEADER_DXT10)))
-        {
-            return E_FAIL;
-        }
-
-        bDXT10Header = true;
-    }
-
-    ptrdiff_t offset = sizeof( uint32_t )
-                       + sizeof( GHDDSUtil::DDS_HEADER )
-                       + (bDXT10Header ? sizeof( GHDDSUtil::DDS_HEADER_DXT10 ) : 0);
 
     HRESULT hr = CreateTextureFromDDS( d3dDevice,
                                        header,

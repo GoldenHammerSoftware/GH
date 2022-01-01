@@ -1,7 +1,19 @@
 #include "GHDDSUtil.h"
+#include "GHDXGIUtil.h"
 
 namespace GHDDSUtil
 {
+    //--------------------------------------------------------------------------------------
+    // DDS file structure definitions
+    //
+    // See DDS.h in the 'Texconv' sample and the 'DirectXTex' library
+    //--------------------------------------------------------------------------------------
+    #pragma pack(push,1)
+
+    #define DDS_MAGIC 0x20534444 // "DDS "
+
+    #pragma pack(pop)
+
     //---------------------------------------------------------------------------------
     struct handle_closer { void operator()(HANDLE h) { if (h) CloseHandle(h); } };
 
@@ -342,6 +354,146 @@ namespace GHDDSUtil
         }
 
         return DXGI_FORMAT_UNKNOWN;
+    }
+
+    //--------------------------------------------------------------------------------------
+    HRESULT FillInitData(_In_ size_t width,
+        _In_ size_t height,
+        _In_ size_t depth,
+        _In_ size_t mipCount,
+        _In_ size_t arraySize,
+        _In_ DXGI_FORMAT format,
+        _In_ size_t maxsize,
+        _In_ size_t bitSize,
+        _In_bytecount_(bitSize) const uint8_t* bitData,
+        _Out_ size_t& twidth,
+        _Out_ size_t& theight,
+        _Out_ size_t& tdepth,
+        _Out_ size_t& skipMip,
+        _Out_cap_(mipCount* arraySize) SubresourceData* initData)
+    {
+        if (!bitData || !initData)
+            return E_POINTER;
+
+        skipMip = 0;
+        twidth = 0;
+        theight = 0;
+        tdepth = 0;
+
+        size_t NumBytes = 0;
+        size_t RowBytes = 0;
+        size_t NumRows = 0;
+        const uint8_t* pSrcBits = bitData;
+        const uint8_t* pEndBits = bitData + bitSize;
+
+        size_t index = 0;
+        for (size_t j = 0; j < arraySize; j++)
+        {
+            size_t w = width;
+            size_t h = height;
+            size_t d = depth;
+            for (size_t i = 0; i < mipCount; i++)
+            {
+                GHDXGIUtil::getSurfaceInfo(w,
+                    h,
+                    format,
+                    &NumBytes,
+                    &RowBytes,
+                    &NumRows
+                );
+
+                if ((mipCount <= 1) || !maxsize || (w <= maxsize && h <= maxsize && d <= maxsize))
+                {
+                    if (!twidth)
+                    {
+                        twidth = w;
+                        theight = h;
+                        tdepth = d;
+                    }
+
+                    initData[index].pSysMem = (const void*)pSrcBits;
+                    initData[index].SysMemPitch = static_cast<UINT>(RowBytes);
+                    initData[index].SysMemSlicePitch = static_cast<UINT>(NumBytes);
+                    ++index;
+                }
+                else
+                    ++skipMip;
+
+                if (pSrcBits + (NumBytes * d) > pEndBits)
+                {
+                    return HRESULT_FROM_WIN32(ERROR_HANDLE_EOF);
+                }
+
+                pSrcBits += NumBytes * d;
+
+                w = w >> 1;
+                h = h >> 1;
+                d = d >> 1;
+                if (w == 0)
+                {
+                    w = 1;
+                }
+                if (h == 0)
+                {
+                    h = 1;
+                }
+                if (d == 0)
+                {
+                    d = 1;
+                }
+            }
+        }
+
+        return (index > 0) ? S_OK : E_FAIL;
+    }
+
+    HRESULT parseHeaderMemory(
+        _In_bytecount_(ddsDataSize) const uint8_t* ddsData,
+        _In_ size_t ddsDataSize,
+        const DDS_HEADER*& outHeader,
+        ptrdiff_t& outDataOffset
+    )
+    {
+        // Validate DDS file in memory
+        if (ddsDataSize < (sizeof(uint32_t) + sizeof(GHDDSUtil::DDS_HEADER)))
+        {
+            return E_FAIL;
+        }
+
+        uint32_t dwMagicNumber = *(const uint32_t*)(ddsData);
+        if (dwMagicNumber != DDS_MAGIC)
+        {
+            return E_FAIL;
+        }
+
+        outHeader = reinterpret_cast<const GHDDSUtil::DDS_HEADER*>(ddsData + sizeof(uint32_t));
+
+        // Verify header to validate DDS file
+        if (outHeader->size != sizeof(GHDDSUtil::DDS_HEADER) ||
+            outHeader->ddspf.size != sizeof(GHDDSUtil::DDS_PIXELFORMAT))
+        {
+            return E_FAIL;
+        }
+
+        // Check for DX10 extension
+        bool bDXT10Header = false;
+        if ((outHeader->ddspf.flags & DDS_FOURCC) &&
+            (MAKEFOURCC('D', 'X', '1', '0') == outHeader->ddspf.fourCC))
+        {
+            // Must be long enough for both headers and magic value
+            if (ddsDataSize < (sizeof(GHDDSUtil::DDS_HEADER) + sizeof(uint32_t) + sizeof(GHDDSUtil::DDS_HEADER_DXT10)))
+            {
+                return E_FAIL;
+            }
+
+            bDXT10Header = true;
+        }
+
+        outDataOffset = sizeof(uint32_t)
+            + sizeof(GHDDSUtil::DDS_HEADER)
+            + (bDXT10Header ? sizeof(GHDDSUtil::DDS_HEADER_DXT10) : 0);
+
+        return S_OK;
     }
 
 };
