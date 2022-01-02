@@ -1,8 +1,18 @@
 #include "GHDDSUtil.h"
 #include "GHDXGIUtil.h"
+#include <assert.h>
 
 namespace GHDDSUtil
 {
+    //--------------------------------------------------------------------------------------
+    // Macros
+    //--------------------------------------------------------------------------------------
+    #ifndef MAKEFOURCC
+    #define MAKEFOURCC(ch0, ch1, ch2, ch3)                              \
+                    ((uint32_t)(uint8_t)(ch0) | ((uint32_t)(uint8_t)(ch1) << 8) |       \
+                    ((uint32_t)(uint8_t)(ch2) << 16) | ((uint32_t)(uint8_t)(ch3) << 24 ))
+    #endif /* defined(MAKEFOURCC) */
+
     //--------------------------------------------------------------------------------------
     // DDS file structure definitions
     //
@@ -11,6 +21,50 @@ namespace GHDDSUtil
     #pragma pack(push,1)
 
     #define DDS_MAGIC 0x20534444 // "DDS "
+    #define	DDS_REQ_TEXTURE1D_ARRAY_AXIS_DIMENSION	( 2048 )
+    #define	DDS_REQ_TEXTURE1D_U_DIMENSION	( 16384 )
+    #define	DDS_REQ_TEXTURE2D_ARRAY_AXIS_DIMENSION	( 2048 )
+    #define	DDS_REQ_TEXTURE2D_U_OR_V_DIMENSION	( 16384 )
+    #define	DDS_REQ_TEXTURE3D_U_V_OR_W_DIMENSION	( 2048 )
+    #define	DDS_REQ_TEXTURECUBE_DIMENSION	( 16384 )
+    #define	DDS_REQ_MIP_LEVELS	( 15 )
+    #define DDS_RESOURCE_MISC_TEXTURECUBE 0x4L
+
+    #define DDS_FOURCC      0x00000004  // DDPF_FOURCC
+    #define DDS_RGB         0x00000040  // DDPF_RGB
+    #define DDS_RGBA        0x00000041  // DDPF_RGB | DDPF_ALPHAPIXELS
+    #define DDS_LUMINANCE   0x00020000  // DDPF_LUMINANCE
+    #define DDS_LUMINANCEA  0x00020001  // DDPF_LUMINANCE | DDPF_ALPHAPIXELS
+    #define DDS_ALPHA       0x00000002  // DDPF_ALPHA
+    #define DDS_PAL8        0x00000020  // DDPF_PALETTEINDEXED8
+
+    #define DDS_HEADER_FLAGS_TEXTURE        0x00001007  // DDSD_CAPS | DDSD_HEIGHT | DDSD_WIDTH | DDSD_PIXELFORMAT 
+    #define DDS_HEADER_FLAGS_MIPMAP         0x00020000  // DDSD_MIPMAPCOUNT
+    #define DDS_HEADER_FLAGS_VOLUME         0x00800000  // DDSD_DEPTH
+    #define DDS_HEADER_FLAGS_PITCH          0x00000008  // DDSD_PITCH
+    #define DDS_HEADER_FLAGS_LINEARSIZE     0x00080000  // DDSD_LINEARSIZE
+
+    #define DDS_HEIGHT 0x00000002 // DDSD_HEIGHT
+    #define DDS_WIDTH  0x00000004 // DDSD_WIDTH
+
+    #define DDS_SURFACE_FLAGS_TEXTURE 0x00001000 // DDSCAPS_TEXTURE
+    #define DDS_SURFACE_FLAGS_MIPMAP  0x00400008 // DDSCAPS_COMPLEX | DDSCAPS_MIPMAP
+    #define DDS_SURFACE_FLAGS_CUBEMAP 0x00000008 // DDSCAPS_COMPLEX
+
+    #define DDS_CUBEMAP_POSITIVEX 0x00000600 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_POSITIVEX
+    #define DDS_CUBEMAP_NEGATIVEX 0x00000a00 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_NEGATIVEX
+    #define DDS_CUBEMAP_POSITIVEY 0x00001200 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_POSITIVEY
+    #define DDS_CUBEMAP_NEGATIVEY 0x00002200 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_NEGATIVEY
+    #define DDS_CUBEMAP_POSITIVEZ 0x00004200 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_POSITIVEZ
+    #define DDS_CUBEMAP_NEGATIVEZ 0x00008200 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_NEGATIVEZ
+
+    #define DDS_CUBEMAP_ALLFACES ( DDS_CUBEMAP_POSITIVEX | DDS_CUBEMAP_NEGATIVEX |\
+                                   DDS_CUBEMAP_POSITIVEY | DDS_CUBEMAP_NEGATIVEY |\
+                                   DDS_CUBEMAP_POSITIVEZ | DDS_CUBEMAP_NEGATIVEZ )
+
+    #define DDS_CUBEMAP 0x00000200 // DDSCAPS2_CUBEMAP
+
+    #define DDS_FLAGS_VOLUME 0x00200000 // DDSCAPS2_VOLUME
 
     #pragma pack(pop)
 
@@ -149,7 +203,7 @@ namespace GHDDSUtil
     //--------------------------------------------------------------------------------------
 #define ISBITMASK( r,g,b,a ) ( ddpf.RBitMask == r && ddpf.GBitMask == g && ddpf.BBitMask == b && ddpf.ABitMask == a )
 
-    DXGI_FORMAT GetDXGIFormat(const DDS_PIXELFORMAT& ddpf)
+    static DXGI_FORMAT GetDXGIFormat(const DDS_PIXELFORMAT& ddpf)
     {
         if (ddpf.flags & DDS_RGB)
         {
@@ -357,28 +411,19 @@ namespace GHDDSUtil
     }
 
     //--------------------------------------------------------------------------------------
-    HRESULT FillInitData(_In_ size_t width,
-        _In_ size_t height,
-        _In_ size_t depth,
-        _In_ size_t mipCount,
-        _In_ size_t arraySize,
-        _In_ DXGI_FORMAT format,
+    HRESULT FillInitData(DDSDesc& desc,
         _In_ size_t maxsize,
         _In_ size_t bitSize,
         _In_bytecount_(bitSize) const uint8_t* bitData,
-        _Out_ size_t& twidth,
-        _Out_ size_t& theight,
-        _Out_ size_t& tdepth,
-        _Out_ size_t& skipMip,
         _Out_cap_(mipCount* arraySize) SubresourceData* initData)
     {
         if (!bitData || !initData)
             return E_POINTER;
 
-        skipMip = 0;
-        twidth = 0;
-        theight = 0;
-        tdepth = 0;
+        desc.skipMip = 0;
+        desc.twidth = 0;
+        desc.theight = 0;
+        desc.tdepth = 0;
 
         size_t NumBytes = 0;
         size_t RowBytes = 0;
@@ -387,28 +432,28 @@ namespace GHDDSUtil
         const uint8_t* pEndBits = bitData + bitSize;
 
         size_t index = 0;
-        for (size_t j = 0; j < arraySize; j++)
+        for (size_t j = 0; j < desc.arraySize; j++)
         {
-            size_t w = width;
-            size_t h = height;
-            size_t d = depth;
-            for (size_t i = 0; i < mipCount; i++)
+            size_t w = desc.width;
+            size_t h = desc.height;
+            size_t d = desc.depth;
+            for (size_t i = 0; i < desc.mipCount; i++)
             {
                 GHDXGIUtil::getSurfaceInfo(w,
                     h,
-                    format,
+                    desc.format,
                     &NumBytes,
                     &RowBytes,
                     &NumRows
                 );
 
-                if ((mipCount <= 1) || !maxsize || (w <= maxsize && h <= maxsize && d <= maxsize))
+                if ((desc.mipCount <= 1) || !maxsize || (w <= maxsize && h <= maxsize && d <= maxsize))
                 {
-                    if (!twidth)
+                    if (!desc.twidth)
                     {
-                        twidth = w;
-                        theight = h;
-                        tdepth = d;
+                        desc.twidth = w;
+                        desc.theight = h;
+                        desc.tdepth = d;
                     }
 
                     initData[index].pSysMem = (const void*)pSrcBits;
@@ -417,7 +462,7 @@ namespace GHDDSUtil
                     ++index;
                 }
                 else
-                    ++skipMip;
+                    ++desc.skipMip;
 
                 if (pSrcBits + (NumBytes * d) > pEndBits)
                 {
@@ -492,6 +537,164 @@ namespace GHDDSUtil
         outDataOffset = sizeof(uint32_t)
             + sizeof(GHDDSUtil::DDS_HEADER)
             + (bDXT10Header ? sizeof(GHDDSUtil::DDS_HEADER_DXT10) : 0);
+
+        return S_OK;
+    }
+
+    HRESULT validateAndParseHeader(const DDS_HEADER& header, DDSDesc& desc)
+    {
+        desc.width = header.width;
+        desc.height = header.height;
+        desc.depth = header.depth;
+
+        desc.resDim = DDS_RESOURCE_DIMENSION_UNKNOWN;
+        desc.arraySize = 1;
+        desc.format = DXGI_FORMAT_UNKNOWN;
+        desc.isCubeMap = false;
+
+        size_t mipCount = header.mipMapCount;
+        if (0 == mipCount)
+        {
+            mipCount = 1;
+        }
+
+        if ((header.ddspf.flags & DDS_FOURCC) &&
+            (MAKEFOURCC('D', 'X', '1', '0') == header.ddspf.fourCC))
+        {
+            const DDS_HEADER_DXT10* d3d10ext = reinterpret_cast<const DDS_HEADER_DXT10*>((const char*)&header + sizeof(DDS_HEADER));
+
+            desc.arraySize = d3d10ext->arraySize;
+            if (desc.arraySize == 0)
+            {
+                return HRESULT_FROM_WIN32(ERROR_INVALID_DATA);
+            }
+
+            if (GHDXGIUtil::bitsPerPixel(d3d10ext->dxgiFormat) == 0)
+            {
+                return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+            }
+
+            desc.format = d3d10ext->dxgiFormat;
+
+            switch (d3d10ext->resourceDimension)
+            {
+            case DDS_RESOURCE_DIMENSION_TEXTURE1D:
+                // D3DX writes 1D textures with a fixed Height of 1
+                if ((header.flags & DDS_HEIGHT) && desc.height != 1)
+                {
+                    return HRESULT_FROM_WIN32(ERROR_INVALID_DATA);
+                }
+                desc.height = desc.depth = 1;
+                break;
+
+            case DDS_RESOURCE_DIMENSION_TEXTURE2D:
+                if (d3d10ext->miscFlag & DDS_RESOURCE_MISC_TEXTURECUBE)
+                {
+                    desc.arraySize *= 6;
+                    desc.isCubeMap = true;
+                }
+                desc.depth = 1;
+                break;
+
+            case DDS_RESOURCE_DIMENSION_TEXTURE3D:
+                if (!(header.flags & DDS_HEADER_FLAGS_VOLUME))
+                {
+                    return HRESULT_FROM_WIN32(ERROR_INVALID_DATA);
+                }
+
+                if (desc.arraySize > 1)
+                {
+                    return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+                }
+                break;
+
+            default:
+                return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+            }
+
+            desc.resDim = d3d10ext->resourceDimension;
+        }
+        else
+        {
+            desc.format = GHDDSUtil::GetDXGIFormat(header.ddspf);
+
+            if (desc.format == DXGI_FORMAT_UNKNOWN)
+            {
+                return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+            }
+
+            if (header.flags & DDS_HEADER_FLAGS_VOLUME)
+            {
+                desc.resDim = DDS_RESOURCE_DIMENSION_TEXTURE3D;
+            }
+            else
+            {
+                if (header.caps2 & DDS_CUBEMAP)
+                {
+                    // We require all six faces to be defined
+                    if ((header.caps2 & DDS_CUBEMAP_ALLFACES) != DDS_CUBEMAP_ALLFACES)
+                    {
+                        return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+                    }
+
+                    desc.arraySize = 6;
+                    desc.isCubeMap = true;
+                }
+
+                desc.depth = 1;
+                desc.resDim = DDS_RESOURCE_DIMENSION_TEXTURE2D;
+
+                // Note there's no way for a legacy Direct3D 9 DDS to express a '1D' texture
+            }
+
+            assert(GHDXGIUtil::bitsPerPixel(desc.format) != 0);
+        }
+
+        // Bound sizes (for security purposes we don't trust DDS file metadata larger than the D3D 11.x hardware requirements)
+        if (desc.mipCount > DDS_REQ_MIP_LEVELS)
+        {
+            return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+        }
+
+        switch (desc.resDim)
+        {
+        case DDS_RESOURCE_DIMENSION_TEXTURE1D:
+            if ((desc.arraySize > DDS_REQ_TEXTURE1D_ARRAY_AXIS_DIMENSION) ||
+                (desc.width > DDS_REQ_TEXTURE1D_U_DIMENSION))
+            {
+                return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+            }
+            break;
+
+        case DDS_RESOURCE_DIMENSION_TEXTURE2D:
+            if (desc.isCubeMap)
+            {
+                // This is the right bound because we set arraySize to (NumCubes*6) above
+                if ((desc.arraySize > DDS_REQ_TEXTURE2D_ARRAY_AXIS_DIMENSION) ||
+                    (desc.width > DDS_REQ_TEXTURECUBE_DIMENSION) ||
+                    (desc.height > DDS_REQ_TEXTURECUBE_DIMENSION))
+                {
+                    return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+                }
+            }
+            else if ((desc.arraySize > DDS_REQ_TEXTURE2D_ARRAY_AXIS_DIMENSION) ||
+                (desc.width > DDS_REQ_TEXTURE2D_U_OR_V_DIMENSION) ||
+                (desc.height > DDS_REQ_TEXTURE2D_U_OR_V_DIMENSION))
+            {
+                return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+            }
+            break;
+
+        case DDS_RESOURCE_DIMENSION_TEXTURE3D:
+            if ((desc.arraySize > 1) ||
+                (desc.width > DDS_REQ_TEXTURE3D_U_V_OR_W_DIMENSION) ||
+                (desc.height > DDS_REQ_TEXTURE3D_U_V_OR_W_DIMENSION) ||
+                (desc.depth > DDS_REQ_TEXTURE3D_U_V_OR_W_DIMENSION))
+            {
+                return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+            }
+            break;
+        }
 
         return S_OK;
     }

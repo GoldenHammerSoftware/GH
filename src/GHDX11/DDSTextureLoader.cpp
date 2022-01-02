@@ -269,283 +269,23 @@ static HRESULT CreateD3DResources( _In_ ID3D11Device* d3dDevice,
     return hr;
 }
 
-
 //--------------------------------------------------------------------------------------
-static HRESULT CreateTextureFromDDS( _In_ ID3D11Device* d3dDevice,
-                                     _In_ const GHDDSUtil::DDS_HEADER* header,
-                                     _In_bytecount_(bitSize) const uint8_t* bitData,
-                                     _In_ size_t bitSize,
-                                     _Out_opt_ ID3D11Resource** texture,
-                                     _Out_opt_ ID3D11ShaderResourceView** textureView,
-                                     _In_ size_t maxsize )
+static HRESULT CreateTextureFromDDS(_In_ ID3D11Device* d3dDevice,
+    _In_ const GHDDSUtil::DDS_HEADER* header,
+    _In_bytecount_(bitSize) const uint8_t* bitData,
+    _In_ size_t bitSize,
+    const GHDDSUtil::DDSDesc& desc,
+    GHDDSUtil::SubresourceData* initData,
+    _Out_opt_ ID3D11Resource** texture,
+    _Out_opt_ ID3D11ShaderResourceView** textureView,
+    _In_ size_t maxsize)
 {
     HRESULT hr = S_OK;
 
-    size_t width = header->width;
-    size_t height = header->height;
-    size_t depth = header->depth;
-
-    uint32_t resDim = D3D11_RESOURCE_DIMENSION_UNKNOWN;
-    size_t arraySize = 1;
-    DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN;
-    bool isCubeMap = false;
-
-    size_t mipCount = header->mipMapCount;
-    if (0 == mipCount)
-    {
-        mipCount = 1;
-    }
-
-    if ((header->ddspf.flags & DDS_FOURCC) &&
-        (MAKEFOURCC( 'D', 'X', '1', '0' ) == header->ddspf.fourCC ))
-    {
-        const GHDDSUtil::DDS_HEADER_DXT10* d3d10ext = reinterpret_cast<const GHDDSUtil::DDS_HEADER_DXT10*>( (const char*)header + sizeof(GHDDSUtil::DDS_HEADER) );
-
-        arraySize = d3d10ext->arraySize;
-        if (arraySize == 0)
-        {
-           return HRESULT_FROM_WIN32( ERROR_INVALID_DATA );
-        }
-
-        if (GHDXGIUtil::bitsPerPixel( d3d10ext->dxgiFormat ) == 0)
-        {
-            return HRESULT_FROM_WIN32( ERROR_NOT_SUPPORTED );
-        }
-           
-        format = d3d10ext->dxgiFormat;
-
-        switch ( d3d10ext->resourceDimension )
-        {
-        case D3D11_RESOURCE_DIMENSION_TEXTURE1D:
-            // D3DX writes 1D textures with a fixed Height of 1
-            if ((header->flags & DDS_HEIGHT) && height != 1)
-            {
-                return HRESULT_FROM_WIN32( ERROR_INVALID_DATA );
-            }
-            height = depth = 1;
-            break;
-
-        case D3D11_RESOURCE_DIMENSION_TEXTURE2D:
-            if (d3d10ext->miscFlag & D3D11_RESOURCE_MISC_TEXTURECUBE)
-            {
-                arraySize *= 6;
-                isCubeMap = true;
-            }
-            depth = 1;
-            break;
-
-        case D3D11_RESOURCE_DIMENSION_TEXTURE3D:
-            if (!(header->flags & DDS_HEADER_FLAGS_VOLUME))
-            {
-                return HRESULT_FROM_WIN32( ERROR_INVALID_DATA );
-            }
-
-            if (arraySize > 1)
-            {
-                return HRESULT_FROM_WIN32( ERROR_NOT_SUPPORTED );
-            }
-            break;
-
-        default:
-            return HRESULT_FROM_WIN32( ERROR_NOT_SUPPORTED );
-        }
-
-        resDim = d3d10ext->resourceDimension;
-    }
-    else
-    {
-        format = GHDDSUtil::GetDXGIFormat( header->ddspf );
-
-        if (format == DXGI_FORMAT_UNKNOWN)
-        {
-           return HRESULT_FROM_WIN32( ERROR_NOT_SUPPORTED );
-        }
-
-        if (header->flags & DDS_HEADER_FLAGS_VOLUME)
-        {
-            resDim = D3D11_RESOURCE_DIMENSION_TEXTURE3D;
-        }
-        else 
-        {
-            if (header->caps2 & DDS_CUBEMAP)
-            {
-                // We require all six faces to be defined
-                if ((header->caps2 & DDS_CUBEMAP_ALLFACES ) != DDS_CUBEMAP_ALLFACES)
-                {
-                    return HRESULT_FROM_WIN32( ERROR_NOT_SUPPORTED );
-                }
-
-                arraySize = 6;
-                isCubeMap = true;
-            }
-
-            depth = 1;
-            resDim = D3D11_RESOURCE_DIMENSION_TEXTURE2D;
-
-            // Note there's no way for a legacy Direct3D 9 DDS to express a '1D' texture
-        }
-
-        assert( GHDXGIUtil::bitsPerPixel( format ) != 0 );
-    }
-
-    // Bound sizes (for security purposes we don't trust DDS file metadata larger than the D3D 11.x hardware requirements)
-    if (mipCount > D3D11_REQ_MIP_LEVELS)
-    {
-        return HRESULT_FROM_WIN32( ERROR_NOT_SUPPORTED );
-    }
-
-    switch ( resDim )
-    {
-        case D3D11_RESOURCE_DIMENSION_TEXTURE1D:
-            if ((arraySize > D3D11_REQ_TEXTURE1D_ARRAY_AXIS_DIMENSION) ||
-                (width > D3D11_REQ_TEXTURE1D_U_DIMENSION) )
-            {
-                return HRESULT_FROM_WIN32( ERROR_NOT_SUPPORTED );
-            }
-            break;
-
-        case D3D11_RESOURCE_DIMENSION_TEXTURE2D:
-            if (isCubeMap)
-            {
-                // This is the right bound because we set arraySize to (NumCubes*6) above
-                if ((arraySize > D3D11_REQ_TEXTURE2D_ARRAY_AXIS_DIMENSION) ||
-                    (width > D3D11_REQ_TEXTURECUBE_DIMENSION) ||
-                    (height > D3D11_REQ_TEXTURECUBE_DIMENSION))
-                {
-                    return HRESULT_FROM_WIN32( ERROR_NOT_SUPPORTED );
-                }
-            }
-            else if ((arraySize > D3D11_REQ_TEXTURE2D_ARRAY_AXIS_DIMENSION) ||
-                     (width > D3D11_REQ_TEXTURE2D_U_OR_V_DIMENSION) ||
-                     (height > D3D11_REQ_TEXTURE2D_U_OR_V_DIMENSION))
-            {
-                return HRESULT_FROM_WIN32( ERROR_NOT_SUPPORTED );
-            }
-            break;
-
-        case D3D11_RESOURCE_DIMENSION_TEXTURE3D:
-            if ((arraySize > 1) ||
-                (width > D3D11_REQ_TEXTURE3D_U_V_OR_W_DIMENSION) ||
-                (height > D3D11_REQ_TEXTURE3D_U_V_OR_W_DIMENSION) ||
-                (depth > D3D11_REQ_TEXTURE3D_U_V_OR_W_DIMENSION) )
-            {
-                return HRESULT_FROM_WIN32( ERROR_NOT_SUPPORTED );
-            }
-            break;
-    }
-
-    // Create the texture
-    std::unique_ptr<D3D11_SUBRESOURCE_DATA> initData( new D3D11_SUBRESOURCE_DATA[ mipCount * arraySize ] );
-    if ( !initData )
-    {
-        return E_OUTOFMEMORY;
-    }
-
-    size_t skipMip = 0;
-    size_t twidth = 0;
-    size_t theight = 0;
-    size_t tdepth = 0;
     static_assert(sizeof(GHDDSUtil::SubresourceData) == sizeof(D3D11_SUBRESOURCE_DATA), "SubresourceData must match D3D11_SUBRESOURCE_DATA");
-    hr = GHDDSUtil::FillInitData( width, height, depth, mipCount, arraySize, format, maxsize, bitSize, bitData,
-                       twidth, theight, tdepth, skipMip, (GHDDSUtil::SubresourceData*)(initData.get()) );
 
-    if ( SUCCEEDED(hr) )
-    {
-        hr = CreateD3DResources( d3dDevice, resDim, twidth, theight, tdepth, mipCount - skipMip, arraySize, format, isCubeMap, initData.get(), texture, textureView );
+    hr = CreateD3DResources( d3dDevice, desc.resDim, desc.twidth, desc.theight, desc.tdepth, desc.mipCount - desc.skipMip, desc.arraySize, desc.format, desc.isCubeMap, (D3D11_SUBRESOURCE_DATA*)initData, texture, textureView );
 
-        if ( FAILED(hr) && !maxsize && (mipCount > 1) )
-        {
-            // Retry with a maxsize determined by feature level
-            switch( d3dDevice->GetFeatureLevel() )
-            {
-            case D3D_FEATURE_LEVEL_9_1:
-            case D3D_FEATURE_LEVEL_9_2:
-                if (isCubeMap)
-                {
-                    maxsize = 512 /*D3D_FL9_1_REQ_TEXTURECUBE_DIMENSION*/;
-                }
-                else
-                {
-                    maxsize = (resDim == D3D11_RESOURCE_DIMENSION_TEXTURE3D)
-                              ? 256 /*D3D_FL9_1_REQ_TEXTURE3D_U_V_OR_W_DIMENSION*/
-                              : 2048 /*D3D_FL9_1_REQ_TEXTURE2D_U_OR_V_DIMENSION*/;
-                }
-                break;
-
-            case D3D_FEATURE_LEVEL_9_3:
-                maxsize = (resDim == D3D11_RESOURCE_DIMENSION_TEXTURE3D)
-                          ? 256 /*D3D_FL9_1_REQ_TEXTURE3D_U_V_OR_W_DIMENSION*/
-                          : 4096 /*D3D_FL9_3_REQ_TEXTURE2D_U_OR_V_DIMENSION*/;
-                break;
-
-            default: // D3D_FEATURE_LEVEL_10_0 & D3D_FEATURE_LEVEL_10_1
-                maxsize = (resDim == D3D11_RESOURCE_DIMENSION_TEXTURE3D)
-                          ? 2048 /*D3D10_REQ_TEXTURE3D_U_V_OR_W_DIMENSION*/
-                          : 8192 /*D3D10_REQ_TEXTURE2D_U_OR_V_DIMENSION*/;
-                break;
-            }
-
-            static_assert(sizeof(GHDDSUtil::SubresourceData) == sizeof(D3D11_SUBRESOURCE_DATA), "SubresourceData must match D3D11_SUBRESOURCE_DATA");
-            hr = FillInitData( width, height, depth, mipCount, arraySize, format, maxsize, bitSize, bitData,
-                               twidth, theight, tdepth, skipMip, (GHDDSUtil::SubresourceData*)(initData.get()) );
-            if ( SUCCEEDED(hr) )
-            {
-                hr = CreateD3DResources( d3dDevice, resDim, twidth, theight, tdepth, mipCount - skipMip, arraySize, format, isCubeMap, initData.get(), texture, textureView );
-            }
-        }
-    }
-
-    return hr;
-}
-
-//--------------------------------------------------------------------------------------
-HRESULT CreateDDSTextureFromMemory( _In_ ID3D11Device* d3dDevice,
-                                    _In_bytecount_(ddsDataSize) const uint8_t* ddsData,
-                                    _In_ size_t ddsDataSize,
-                                    _Out_opt_ ID3D11Resource** texture,
-                                    _Out_opt_ ID3D11ShaderResourceView** textureView,
-                                    _In_ size_t maxsize )
-{
-    if (!d3dDevice || !ddsData || (!texture && !textureView))
-    {
-        return E_INVALIDARG;
-    }
-
-    const GHDDSUtil::DDS_HEADER* header;
-    ptrdiff_t offset;
-    HRESULT headerParseResult = GHDDSUtil::parseHeaderMemory(ddsData, ddsDataSize, header, offset);
-    if (headerParseResult != S_OK)
-    {
-        return E_FAIL;
-    }
-
-    HRESULT hr = CreateTextureFromDDS( d3dDevice,
-                                       header,
-                                       ddsData + offset,
-                                       ddsDataSize - offset,
-                                       texture,
-                                       textureView,
-                                       maxsize
-                                     );
-/*
-#if defined(_DEBUG) || defined(PROFILE)
-    if (texture != 0 && *texture != 0)
-    {
-        (*texture)->SetPrivateData( WKPDID_D3DDebugObjectName,
-                                    sizeof("DDSTextureLoader")-1,
-                                    "DDSTextureLoader"
-                                  );
-    }
-
-    if (textureView != 0 && *textureView != 0)
-    {
-        (*textureView)->SetPrivateData( WKPDID_D3DDebugObjectName,
-                                        sizeof("DDSTextureLoader")-1,
-                                        "DDSTextureLoader"
-                                      );
-    }
-#endif
-*/
     return hr;
 }
 
@@ -577,15 +317,87 @@ HRESULT CreateDDSTextureFromFile( _In_ ID3D11Device* d3dDevice,
         return hr;
     }
 
-    hr = CreateTextureFromDDS( d3dDevice,
-                               header,
-                               bitData,
-                               bitSize,
-                               texture,
-                               textureView,
-                               maxsize
-                             );
-/*
+    GHDDSUtil::DDSDesc desc;
+    hr = GHDDSUtil::validateAndParseHeader(*header, desc);
+    if (FAILED(hr))
+    {
+        return hr;
+    }
+
+    // Create the texture data
+    std::unique_ptr<GHDDSUtil::SubresourceData> initData(new GHDDSUtil::SubresourceData[desc.mipCount * desc.arraySize]);
+    if (!initData)
+    {
+        return E_OUTOFMEMORY;
+    }
+
+    hr = GHDDSUtil::FillInitData(desc, maxsize, bitSize, bitData, initData.get());
+    if (FAILED(hr))
+    {
+        return hr;
+    }
+
+    hr = CreateTextureFromDDS(d3dDevice,
+        header,
+        bitData,
+        bitSize,
+        desc,
+        initData.get(),
+        texture,
+        textureView,
+        maxsize
+    );
+    
+    if (FAILED(hr) && !maxsize && (desc.mipCount > 1))
+    {
+        // Retry with a maxsize determined by feature level
+        switch (d3dDevice->GetFeatureLevel())
+        {
+        case D3D_FEATURE_LEVEL_9_1:
+        case D3D_FEATURE_LEVEL_9_2:
+            if (desc.isCubeMap)
+            {
+                maxsize = 512 /*D3D_FL9_1_REQ_TEXTURECUBE_DIMENSION*/;
+            }
+            else
+            {
+                maxsize = (desc.resDim == D3D11_RESOURCE_DIMENSION_TEXTURE3D)
+                    ? 256 /*D3D_FL9_1_REQ_TEXTURE3D_U_V_OR_W_DIMENSION*/
+                    : 2048 /*D3D_FL9_1_REQ_TEXTURE2D_U_OR_V_DIMENSION*/;
+            }
+            break;
+
+        case D3D_FEATURE_LEVEL_9_3:
+            maxsize = (desc.resDim == D3D11_RESOURCE_DIMENSION_TEXTURE3D)
+                ? 256 /*D3D_FL9_1_REQ_TEXTURE3D_U_V_OR_W_DIMENSION*/
+                : 4096 /*D3D_FL9_3_REQ_TEXTURE2D_U_OR_V_DIMENSION*/;
+            break;
+
+        default: // D3D_FEATURE_LEVEL_10_0 & D3D_FEATURE_LEVEL_10_1
+            maxsize = (desc.resDim == D3D11_RESOURCE_DIMENSION_TEXTURE3D)
+                ? 2048 /*D3D10_REQ_TEXTURE3D_U_V_OR_W_DIMENSION*/
+                : 8192 /*D3D10_REQ_TEXTURE2D_U_OR_V_DIMENSION*/;
+            break;
+        }
+
+        static_assert(sizeof(GHDDSUtil::SubresourceData) == sizeof(D3D11_SUBRESOURCE_DATA), "SubresourceData must match D3D11_SUBRESOURCE_DATA");
+        hr = FillInitData(desc, maxsize, bitSize, bitData, (GHDDSUtil::SubresourceData*)(initData.get()));
+        if (SUCCEEDED(hr))
+        {
+            hr = CreateTextureFromDDS(d3dDevice,
+                header,
+                bitData,
+                bitSize,
+                desc,
+                initData.get(),
+                texture,
+                textureView,
+                maxsize
+            );
+        }
+    }
+
+    /*
 #if defined(_DEBUG) || defined(PROFILE)
     if (texture != 0 || textureView != 0)
     {
