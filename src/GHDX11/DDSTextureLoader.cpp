@@ -25,7 +25,7 @@
 #include <assert.h>
 
 #include "DDSTextureLoader.h"
-#include "GHWin32/GHDXGIUtil.h"
+#include "Render/GHDXGIUtil.h"
 #include "GHWin32/GHDDSUtil.h"
 
 namespace GHDDSLoader

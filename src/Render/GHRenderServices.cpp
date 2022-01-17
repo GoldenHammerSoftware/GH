@@ -32,6 +32,8 @@
 #include "GHString/GHEnumInclude.h"
 #define ENUMHEADER "GHTextureChannelType.h"
 #include "GHString/GHEnumInclude.h"
+#define ENUMHEADER "GHTextureType.h"
+#include "GHString/GHEnumInclude.h"
 #define ENUMHEADER "GHHMDIdentifiers.h"
 #include "GHString/GHEnumInclude.h"
 
@@ -50,7 +52,8 @@ GHRenderServices::GHRenderServices(GHSystemServices& systemServices)
     GHVertexComponentType::generateEnum(mSystemServices.getPlatformServices().getEnumStore());
 	GHTextureFormat::generateEnum(mSystemServices.getPlatformServices().getEnumStore());
 	GHTextureChannelType::generateEnum(mSystemServices.getPlatformServices().getEnumStore());
-	GHHMDIdentifiers::generateIdentifiers(systemServices.getPlatformServices().getIdFactory());
+    GHTextureType::generateEnum(mSystemServices.getPlatformServices().getEnumStore());
+    GHHMDIdentifiers::generateIdentifiers(systemServices.getPlatformServices().getIdFactory());
 
     GHMaterialCallbackFactory* interpCallback = new GHMaterialCallbackFactoryProperty("InterpPct",
         GHMaterialCallbackType::CT_PERGEO, systemServices.getPlatformServices().getIdFactory().generateHash("interppct"), 

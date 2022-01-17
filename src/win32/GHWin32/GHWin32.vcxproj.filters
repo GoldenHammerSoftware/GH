@@ -89,9 +89,6 @@
     <ClCompile Include="..\..\GHWin32\GHWin32WICUtil.cpp">
       <Filter>DX</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\GHWin32\GHDXGIUtil.cpp">
-      <Filter>DX</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\GHWin32\GHDDSUtil.cpp">
       <Filter>DX</Filter>
     </ClCompile>
@@ -173,9 +170,6 @@
     <ClInclude Include="..\..\GHWin32\GHWin32Window.h" />
     <ClInclude Include="..\..\GHWin32\GHWindowsFileFinder.h" />
     <ClInclude Include="..\..\GHWin32\GHWin32WICUtil.h">
-      <Filter>DX</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\GHWin32\GHDXGIUtil.h">
       <Filter>DX</Filter>
     </ClInclude>
     <ClInclude Include="..\..\GHWin32\GHDDSUtil.h">

@@ -217,6 +217,9 @@
     <ClCompile Include="..\..\..\Render\GHShaderParamListLoader.cpp">
       <Filter>Shader</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHDXGIUtil.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Render\GHAlternatingRenderTarget.h" />
@@ -476,6 +479,15 @@
     </ClInclude>
     <ClInclude Include="..\..\..\Render\GHShaderSemantic.h">
       <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHTextureType.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHDXGIFormat.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHDXGIUtil.h">
+      <Filter>Texture</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -7,7 +7,7 @@
 #include "DXGI.h"
 #include "DDSTextureLoader.h"
 #include "GHTextureDX11.h"
-#include "GHWin32/GHDXGIUtil.h"
+#include "Render/GHDXGIUtil.h"
 
 GHRenderDeviceDX11Native::GHRenderDeviceDX11Native(const int& graphicsQuality,
 												   GHDX11SwapChainCreator& swapChainCreator,
@@ -297,7 +297,7 @@ GHTexture* GHRenderDeviceDX11Native::resolveBackbuffer(void)
 										   nullptr, nullptr, nullptr, nullptr, 
 										   backBufferDesc.Width,
 										   backBufferDesc.Height, 
-										   (unsigned int)GHDXGIUtil::bitsPerPixel(backBufferDesc.Format) / 8,
+										   (unsigned int)GHDXGIUtil::bitsPerPixel((GHDXGIFormat)backBufferDesc.Format) / 8,
 										   backBufferDesc.MipLevels > 1,
 										   backBufferDesc.Format);
 	return ret;

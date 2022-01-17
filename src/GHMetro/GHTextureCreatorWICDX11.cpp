@@ -4,7 +4,7 @@
 #include "GHWin32/GHWindowsFileFinder.h"
 #include "GHDX11/GHRenderDeviceDX11.h"
 #include "GHDX11/DDSTextureLoader.h"
-#include "GHWin32/GHDXGIUtil.h"
+#include "Render/GHDXGIUtil.h"
 
 GHTextureCreatorWICDX11::GHTextureCreatorWICDX11(GHRenderDeviceDX11& device, const GHWindowsFileFinder& fileFinder)
 : mDevice(device)
@@ -91,7 +91,7 @@ bool GHTextureCreatorWICDX11::createTextureFromMemory(Microsoft::WRL::ComPtr<ID3
 	D3D11_SUBRESOURCE_DATA initData;
 	initData.pSysMem = imageBuf;
 
-	size_t ddsSize = GHDXGIUtil::bitsPerPixel(dxFormat);
+	size_t ddsSize = GHDXGIUtil::bitsPerPixel((GHDXGIFormat)dxFormat);
 	if (ddsSize != 0)
 	{
 		// the dxt formats have lots of special rules.
@@ -99,7 +99,7 @@ bool GHTextureCreatorWICDX11::createTextureFromMemory(Microsoft::WRL::ComPtr<ID3
 		size_t numBytes = 0;
 		size_t rowBytes = 0;
 		size_t numRows = 0;
-		GHDXGIUtil::getSurfaceInfo(width, height, dxFormat,
+		GHDXGIUtil::getSurfaceInfo(width, height, (GHDXGIFormat)dxFormat,
 			&numBytes, &rowBytes, &numRows);
 
 		initData.SysMemPitch = static_cast<UINT>(rowBytes);

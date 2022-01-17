@@ -248,7 +248,6 @@
     <ClCompile Include="..\..\GHWin32\GHDirectSoundEmitter.cpp" />
     <ClCompile Include="..\..\GHWin32\GHDirectSoundHandle.cpp" />
     <ClCompile Include="..\..\GHWin32\GHDirectSoundLoader.cpp" />
-    <ClCompile Include="..\..\GHWin32\GHDXGIUtil.cpp" />
     <ClCompile Include="..\..\GHWin32\GHWin32AppLauncher.cpp" />
     <ClCompile Include="..\..\GHWin32\GHWin32DX11RenderServices.cpp" />
     <ClCompile Include="..\..\GHWin32\GHWin32ExitAppTransition.cpp" />
@@ -284,7 +283,6 @@
     <ClInclude Include="..\..\GHWin32\GHDirectSoundEmitter.h" />
     <ClInclude Include="..\..\GHWin32\GHDirectSoundHandle.h" />
     <ClInclude Include="..\..\GHWin32\GHDirectSoundLoader.h" />
-    <ClInclude Include="..\..\GHWin32\GHDXGIUtil.h" />
     <ClInclude Include="..\..\GHWin32\GHWin32AppLauncher.h" />
     <ClInclude Include="..\..\GHWin32\GHWin32DX11RenderServices.h" />
     <ClInclude Include="..\..\GHWin32\GHWin32ExitAppTransition.h" />

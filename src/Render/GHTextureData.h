@@ -2,6 +2,7 @@
 
 #include "GHTextureFormat.h"
 #include "GHTextureChannelType.h"
+#include "GHTextureType.h"
 #include <vector>
 
 // Platform and format independent texture data description.
@@ -23,8 +24,10 @@ struct GHTextureData
 
 	GHTextureFormat::Enum mTextureFormat{ GHTextureFormat::TF_UNKNOWN };
 	GHTextureChannelType::Enum mChannelType{ GHTextureChannelType::TC_UNKNOWN };
+	GHTextureType::Enum mTextureType{ GHTextureType::TT_2D };
 	bool mSrgb{ false };
 	size_t mDepth{ 4 };
+	uint8_t mNumSlices;
 	std::vector<MipData> mMipLevels;
 
 	// The source data block.

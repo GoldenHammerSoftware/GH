@@ -441,7 +441,7 @@ namespace GHDDSUtil
             {
                 GHDXGIUtil::getSurfaceInfo(w,
                     h,
-                    desc.format,
+                    (GHDXGIFormat)desc.format,
                     &NumBytes,
                     &RowBytes,
                     &NumRows
@@ -569,7 +569,7 @@ namespace GHDDSUtil
                 return HRESULT_FROM_WIN32(ERROR_INVALID_DATA);
             }
 
-            if (GHDXGIUtil::bitsPerPixel(d3d10ext->dxgiFormat) == 0)
+            if (GHDXGIUtil::bitsPerPixel((GHDXGIFormat)d3d10ext->dxgiFormat) == 0)
             {
                 return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
             }
@@ -647,7 +647,7 @@ namespace GHDDSUtil
                 // Note there's no way for a legacy Direct3D 9 DDS to express a '1D' texture
             }
 
-            assert(GHDXGIUtil::bitsPerPixel(desc.format) != 0);
+            assert(GHDXGIUtil::bitsPerPixel((GHDXGIFormat)desc.format) != 0);
         }
 
         // Bound sizes (for security purposes we don't trust DDS file metadata larger than the D3D 11.x hardware requirements)

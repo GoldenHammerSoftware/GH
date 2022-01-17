@@ -5,7 +5,7 @@
 #include "Render/GHRenderProperties.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "Render/GHTextureFormat.h"
-#include "GHWin32/GHDXGIUtil.h"
+#include "Render/GHDXGIUtil.h"
 #include "GHTextureDX12.h"
 #include "GHDX12Include.h"
 #include "GHRenderDeviceDX12.h"
@@ -81,7 +81,7 @@ GHResource* GHTextureLoaderDX12::loadMemory(void* mem, size_t memSize, GHPropert
 		return createRGBAFromRGB(mem, memSize, *extraData);
 	}
 
-	DXGI_FORMAT dxFormat = GHDXGIUtil::convertGHFormatToDXGI(textureFormat);
+	DXGI_FORMAT dxFormat = (DXGI_FORMAT)GHDXGIUtil::convertGHFormatToDXGI(textureFormat);
 	return createGHTexture(mem, width, height, 4, numMips, allowMipmaps, dxFormat, keepTextureData);
 }
 
