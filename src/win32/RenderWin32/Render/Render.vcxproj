@@ -291,6 +291,7 @@
     <ClCompile Include="..\..\..\Render\GHTexture.cpp" />
     <ClCompile Include="..\..\..\Render\GHTextureBMPSaver.cpp" />
     <ClCompile Include="..\..\..\Render\GHTextureDataFactoryASTC.cpp" />
+    <ClCompile Include="..\..\..\Render\GHTextureDataFactoryDDS.cpp" />
     <ClCompile Include="..\..\..\Render\GHTextureDataFactoryKTX.cpp" />
     <ClCompile Include="..\..\..\Render\GHTextureDataLoader.cpp" />
     <ClCompile Include="..\..\..\Render\GHTextureLoaderHFF.cpp" />
@@ -402,6 +403,7 @@
     <ClInclude Include="..\..\..\Render\GHTextureData.h" />
     <ClInclude Include="..\..\..\Render\GHTextureDataFactory.h" />
     <ClInclude Include="..\..\..\Render\GHTextureDataFactoryASTC.h" />
+    <ClInclude Include="..\..\..\Render\GHTextureDataFactoryDDS.h" />
     <ClInclude Include="..\..\..\Render\GHTextureDataFactoryKTX.h" />
     <ClInclude Include="..\..\..\Render\GHTextureDataLoader.h" />
     <ClInclude Include="..\..\..\Render\GHTextureLoaderHFF.h" />
