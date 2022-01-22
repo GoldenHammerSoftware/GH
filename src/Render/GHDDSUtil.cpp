@@ -69,111 +69,28 @@ namespace GHDDSUtil
     #pragma pack(pop)
 
     //---------------------------------------------------------------------------------
-    struct handle_closer { void operator()(HANDLE h) { if (h) CloseHandle(h); } };
 
-    typedef public std::unique_ptr<void, handle_closer> ScopedHandle;
-
-    inline HANDLE safe_handle(HANDLE h) { return (h == INVALID_HANDLE_VALUE) ? 0 : h; }
-
-    //--------------------------------------------------------------------------------------
-    HRESULT LoadTextureDataFromFile(_In_z_ const wchar_t* fileName,
-        std::unique_ptr<uint8_t[]>& ddsData,
+    bool LoadTextureDataFromMemory(
+        uint8_t* data, size_t dataSize,
         DDS_HEADER** header,
         uint8_t** bitData,
         size_t* bitSize
-    )
+        )
     {
-        if (!header || !bitData || !bitSize)
-        {
-            return E_POINTER;
-        }
-
-        // open the file
-#if (_WIN32_WINNT >= 0x0602 /*_WIN32_WINNT_WIN8*/)
-        ScopedHandle hFile(safe_handle(CreateFile2(fileName,
-            GENERIC_READ,
-            FILE_SHARE_READ,
-            OPEN_EXISTING,
-            nullptr)));
-#else
-        ScopedHandle hFile(safe_handle(CreateFileW(fileName,
-            GENERIC_READ,
-            FILE_SHARE_READ,
-            nullptr,
-            OPEN_EXISTING,
-            FILE_ATTRIBUTE_NORMAL,
-            nullptr)));
-#endif
-
-        if (!hFile)
-        {
-            return HRESULT_FROM_WIN32(GetLastError());
-        }
-
-        // Get the file size
-        LARGE_INTEGER FileSize = { 0 };
-
-#if (_WIN32_WINNT >= _WIN32_WINNT_VISTA)
-        FILE_STANDARD_INFO fileInfo;
-        if (!GetFileInformationByHandleEx(hFile.get(), FileStandardInfo, &fileInfo, sizeof(fileInfo)))
-        {
-            return HRESULT_FROM_WIN32(GetLastError());
-        }
-        FileSize = fileInfo.EndOfFile;
-#else
-        GetFileSizeEx(hFile.get(), &FileSize);
-#endif
-
-        // File is too big for 32-bit allocation, so reject read
-        if (FileSize.HighPart > 0)
-        {
-            return E_FAIL;
-        }
-
-        // Need at least enough data to fill the header and magic number to be a valid DDS
-        if (FileSize.LowPart < (sizeof(DDS_HEADER) + sizeof(uint32_t)))
-        {
-            return E_FAIL;
-        }
-
-        // create enough space for the file data
-        ddsData.reset(new uint8_t[FileSize.LowPart]);
-        if (!ddsData)
-        {
-            return E_OUTOFMEMORY;
-        }
-
-        // read the data in
-        DWORD BytesRead = 0;
-        if (!ReadFile(hFile.get(),
-            ddsData.get(),
-            FileSize.LowPart,
-            &BytesRead,
-            nullptr
-        ))
-        {
-            return HRESULT_FROM_WIN32(GetLastError());
-        }
-
-        if (BytesRead < FileSize.LowPart)
-        {
-            return E_FAIL;
-        }
-
         // DDS files always start with the same magic number ("DDS ")
-        uint32_t dwMagicNumber = *(const uint32_t*)(ddsData.get());
+        uint32_t dwMagicNumber = *(const uint32_t*)(data);
         if (dwMagicNumber != DDS_MAGIC)
         {
-            return E_FAIL;
+            return false;
         }
 
-        DDS_HEADER* hdr = reinterpret_cast<DDS_HEADER*>(ddsData.get() + sizeof(uint32_t));
+        DDS_HEADER* hdr = reinterpret_cast<DDS_HEADER*>(data + sizeof(uint32_t));
 
         // Verify header to validate DDS file
         if (hdr->size != sizeof(DDS_HEADER) ||
             hdr->ddspf.size != sizeof(DDS_PIXELFORMAT))
         {
-            return E_FAIL;
+            return false;
         }
 
         // Check for DX10 extension
@@ -182,9 +99,9 @@ namespace GHDDSUtil
             (MAKEFOURCC('D', 'X', '1', '0') == hdr->ddspf.fourCC))
         {
             // Must be long enough for both headers and magic value
-            if (FileSize.LowPart < (sizeof(DDS_HEADER) + sizeof(uint32_t) + sizeof(DDS_HEADER_DXT10)))
+            if (dataSize < (sizeof(DDS_HEADER) + sizeof(uint32_t) + sizeof(DDS_HEADER_DXT10)))
             {
-                return E_FAIL;
+                return false;
             }
 
             bDXT10Header = true;
@@ -194,16 +111,17 @@ namespace GHDDSUtil
         *header = hdr;
         ptrdiff_t offset = sizeof(uint32_t) + sizeof(DDS_HEADER)
             + (bDXT10Header ? sizeof(DDS_HEADER_DXT10) : 0);
-        *bitData = ddsData.get() + offset;
-        *bitSize = FileSize.LowPart - offset;
+        *bitData = data + offset;
+        *bitSize = dataSize - offset;
 
-        return S_OK;
+        return true;
     }
+
 
     //--------------------------------------------------------------------------------------
 #define ISBITMASK( r,g,b,a ) ( ddpf.RBitMask == r && ddpf.GBitMask == g && ddpf.BBitMask == b && ddpf.ABitMask == a )
 
-    static DXGI_FORMAT GetDXGIFormat(const DDS_PIXELFORMAT& ddpf)
+    static GHDXGIFormat GetDXGIFormat(const DDS_PIXELFORMAT& ddpf)
     {
         if (ddpf.flags & DDS_RGB)
         {
@@ -214,17 +132,17 @@ namespace GHDDSUtil
             case 32:
                 if (ISBITMASK(0x000000ff, 0x0000ff00, 0x00ff0000, 0xff000000))
                 {
-                    return DXGI_FORMAT_R8G8B8A8_UNORM;
+                    return DF_R8G8B8A8_UNORM;
                 }
 
                 if (ISBITMASK(0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000))
                 {
-                    return DXGI_FORMAT_B8G8R8A8_UNORM;
+                    return DF_B8G8R8A8_UNORM;
                 }
 
                 if (ISBITMASK(0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000))
                 {
-                    return DXGI_FORMAT_B8G8R8X8_UNORM;
+                    return DF_B8G8R8X8_UNORM;
                 }
 
                 // No DXGI format maps to ISBITMASK(0x000000ff,0x0000ff00,0x00ff0000,0x00000000) aka D3DFMT_X8B8G8R8
@@ -238,20 +156,20 @@ namespace GHDDSUtil
                 // For 'correct' writers, this should be 0x000003ff,0x000ffc00,0x3ff00000 for RGB data
                 if (ISBITMASK(0x3ff00000, 0x000ffc00, 0x000003ff, 0xc0000000))
                 {
-                    return DXGI_FORMAT_R10G10B10A2_UNORM;
+                    return DF_R10G10B10A2_UNORM;
                 }
 
                 // No DXGI format maps to ISBITMASK(0x000003ff,0x000ffc00,0x3ff00000,0xc0000000) aka D3DFMT_A2R10G10B10
 
                 if (ISBITMASK(0x0000ffff, 0xffff0000, 0x00000000, 0x00000000))
                 {
-                    return DXGI_FORMAT_R16G16_UNORM;
+                    return DF_R16G16_UNORM;
                 }
 
                 if (ISBITMASK(0xffffffff, 0x00000000, 0x00000000, 0x00000000))
                 {
                     // Only 32-bit color channel format in D3D9 was R32F
-                    return DXGI_FORMAT_R32_FLOAT; // D3DX writes this out as a FourCC of 114
+                    return DF_R32_FLOAT; // D3DX writes this out as a FourCC of 114
                 }
                 break;
 
@@ -262,11 +180,11 @@ namespace GHDDSUtil
             case 16:
                 if (ISBITMASK(0x7c00, 0x03e0, 0x001f, 0x8000))
                 {
-                    return DXGI_FORMAT_B5G5R5A1_UNORM;
+                    return DF_B5G5R5A1_UNORM;
                 }
                 if (ISBITMASK(0xf800, 0x07e0, 0x001f, 0x0000))
                 {
-                    return DXGI_FORMAT_B5G6R5_UNORM;
+                    return DF_B5G6R5_UNORM;
                 }
 
                 // No DXGI format maps to ISBITMASK(0x7c00,0x03e0,0x001f,0x0000) aka D3DFMT_X1R5G5B5
@@ -290,7 +208,7 @@ namespace GHDDSUtil
             {
                 if (ISBITMASK(0x000000ff, 0x00000000, 0x00000000, 0x00000000))
                 {
-                    return DXGI_FORMAT_R8_UNORM; // D3DX10/11 writes this out as DX10 extension
+                    return DF_R8_UNORM; // D3DX10/11 writes this out as DX10 extension
                 }
 
                 // No DXGI format maps to ISBITMASK(0x0f,0x00,0x00,0xf0) aka D3DFMT_A4L4
@@ -300,11 +218,11 @@ namespace GHDDSUtil
             {
                 if (ISBITMASK(0x0000ffff, 0x00000000, 0x00000000, 0x00000000))
                 {
-                    return DXGI_FORMAT_R16_UNORM; // D3DX10/11 writes this out as DX10 extension
+                    return DF_R16_UNORM; // D3DX10/11 writes this out as DX10 extension
                 }
                 if (ISBITMASK(0x000000ff, 0x00000000, 0x00000000, 0x0000ff00))
                 {
-                    return DXGI_FORMAT_R8G8_UNORM; // D3DX10/11 writes this out as DX10 extension
+                    return DF_R8G8_UNORM; // D3DX10/11 writes this out as DX10 extension
                 }
             }
         }
@@ -312,113 +230,113 @@ namespace GHDDSUtil
         {
             if (8 == ddpf.RGBBitCount)
             {
-                return DXGI_FORMAT_A8_UNORM;
+                return DF_A8_UNORM;
             }
         }
         else if (ddpf.flags & DDS_FOURCC)
         {
             if (MAKEFOURCC('D', 'X', 'T', '1') == ddpf.fourCC)
             {
-                return DXGI_FORMAT_BC1_UNORM;
+                return DF_BC1_UNORM;
             }
             if (MAKEFOURCC('D', 'X', 'T', '3') == ddpf.fourCC)
             {
-                return DXGI_FORMAT_BC2_UNORM;
+                return DF_BC2_UNORM;
             }
             if (MAKEFOURCC('D', 'X', 'T', '5') == ddpf.fourCC)
             {
-                return DXGI_FORMAT_BC3_UNORM;
+                return DF_BC3_UNORM;
             }
 
             // While pre-mulitplied alpha isn't directly supported by the DXGI formats,
             // they are basically the same as these BC formats so they can be mapped
             if (MAKEFOURCC('D', 'X', 'T', '2') == ddpf.fourCC)
             {
-                return DXGI_FORMAT_BC2_UNORM;
+                return DF_BC2_UNORM;
             }
             if (MAKEFOURCC('D', 'X', 'T', '4') == ddpf.fourCC)
             {
-                return DXGI_FORMAT_BC3_UNORM;
+                return DF_BC3_UNORM;
             }
 
             if (MAKEFOURCC('A', 'T', 'I', '1') == ddpf.fourCC)
             {
-                return DXGI_FORMAT_BC4_UNORM;
+                return DF_BC4_UNORM;
             }
             if (MAKEFOURCC('B', 'C', '4', 'U') == ddpf.fourCC)
             {
-                return DXGI_FORMAT_BC4_UNORM;
+                return DF_BC4_UNORM;
             }
             if (MAKEFOURCC('B', 'C', '4', 'S') == ddpf.fourCC)
             {
-                return DXGI_FORMAT_BC4_SNORM;
+                return DF_BC4_SNORM;
             }
 
             if (MAKEFOURCC('A', 'T', 'I', '2') == ddpf.fourCC)
             {
-                return DXGI_FORMAT_BC5_UNORM;
+                return DF_BC5_UNORM;
             }
             if (MAKEFOURCC('B', 'C', '5', 'U') == ddpf.fourCC)
             {
-                return DXGI_FORMAT_BC5_UNORM;
+                return DF_BC5_UNORM;
             }
             if (MAKEFOURCC('B', 'C', '5', 'S') == ddpf.fourCC)
             {
-                return DXGI_FORMAT_BC5_SNORM;
+                return DF_BC5_SNORM;
             }
 
             // BC6H and BC7 are written using the "DX10" extended header
 
             if (MAKEFOURCC('R', 'G', 'B', 'G') == ddpf.fourCC)
             {
-                return DXGI_FORMAT_R8G8_B8G8_UNORM;
+                return DF_R8G8_B8G8_UNORM;
             }
             if (MAKEFOURCC('G', 'R', 'G', 'B') == ddpf.fourCC)
             {
-                return DXGI_FORMAT_G8R8_G8B8_UNORM;
+                return DF_G8R8_G8B8_UNORM;
             }
 
             // Check for D3DFORMAT enums being set here
             switch (ddpf.fourCC)
             {
             case 36: // D3DFMT_A16B16G16R16
-                return DXGI_FORMAT_R16G16B16A16_UNORM;
+                return DF_R16G16B16A16_UNORM;
 
             case 110: // D3DFMT_Q16W16V16U16
-                return DXGI_FORMAT_R16G16B16A16_SNORM;
+                return DF_R16G16B16A16_SNORM;
 
             case 111: // D3DFMT_R16F
-                return DXGI_FORMAT_R16_FLOAT;
+                return DF_R16_FLOAT;
 
             case 112: // D3DFMT_G16R16F
-                return DXGI_FORMAT_R16G16_FLOAT;
+                return DF_R16G16_FLOAT;
 
             case 113: // D3DFMT_A16B16G16R16F
-                return DXGI_FORMAT_R16G16B16A16_FLOAT;
+                return DF_R16G16B16A16_FLOAT;
 
             case 114: // D3DFMT_R32F
-                return DXGI_FORMAT_R32_FLOAT;
+                return DF_R32_FLOAT;
 
             case 115: // D3DFMT_G32R32F
-                return DXGI_FORMAT_R32G32_FLOAT;
+                return DF_R32G32_FLOAT;
 
             case 116: // D3DFMT_A32B32G32R32F
-                return DXGI_FORMAT_R32G32B32A32_FLOAT;
+                return DF_R32G32B32A32_FLOAT;
             }
         }
 
-        return DXGI_FORMAT_UNKNOWN;
+        return DF_UNKNOWN;
     }
 
     //--------------------------------------------------------------------------------------
-    HRESULT FillInitData(DDSDesc& desc,
+    bool FillInitData(DDSDesc& desc,
         _In_ size_t maxsize,
         _In_ size_t bitSize,
         _In_bytecount_(bitSize) const uint8_t* bitData,
         _Out_cap_(mipCount* arraySize) SubresourceData* initData)
     {
         if (!bitData || !initData)
-            return E_POINTER;
+            return false;
 
         desc.skipMip = 0;
         desc.twidth = 0;
@@ -457,8 +375,8 @@ namespace GHDDSUtil
                     }
 
                     initData[index].pSysMem = (const void*)pSrcBits;
-                    initData[index].SysMemPitch = static_cast<UINT>(RowBytes);
-                    initData[index].SysMemSlicePitch = static_cast<UINT>(NumBytes);
+                    initData[index].SysMemPitch = static_cast<uint32_t>(RowBytes);
+                    initData[index].SysMemSlicePitch = static_cast<uint32_t>(NumBytes);
                     ++index;
                 }
                 else
@@ -466,7 +384,7 @@ namespace GHDDSUtil
 
                 if (pSrcBits + (NumBytes * d) > pEndBits)
                 {
-                    return HRESULT_FROM_WIN32(ERROR_HANDLE_EOF);
+                    return false;
                 }
 
                 pSrcBits += NumBytes * d;
@@ -489,10 +407,10 @@ namespace GHDDSUtil
             }
         }
 
-        return (index > 0) ? S_OK : E_FAIL;
+        return (index > 0) ? true : false;
     }
 
-    HRESULT parseHeaderMemory(
+    bool parseHeaderMemory(
         _In_bytecount_(ddsDataSize) const uint8_t* ddsData,
         _In_ size_t ddsDataSize,
         const DDS_HEADER*& outHeader,
@@ -502,13 +420,13 @@ namespace GHDDSUtil
         // Validate DDS file in memory
         if (ddsDataSize < (sizeof(uint32_t) + sizeof(GHDDSUtil::DDS_HEADER)))
         {
-            return E_FAIL;
+            return false;
         }
 
         uint32_t dwMagicNumber = *(const uint32_t*)(ddsData);
         if (dwMagicNumber != DDS_MAGIC)
         {
-            return E_FAIL;
+            return false;
         }
 
         outHeader = reinterpret_cast<const GHDDSUtil::DDS_HEADER*>(ddsData + sizeof(uint32_t));
@@ -517,7 +435,7 @@ namespace GHDDSUtil
         if (outHeader->size != sizeof(GHDDSUtil::DDS_HEADER) ||
             outHeader->ddspf.size != sizeof(GHDDSUtil::DDS_PIXELFORMAT))
         {
-            return E_FAIL;
+            return false;
         }
 
         // Check for DX10 extension
@@ -528,7 +446,7 @@ namespace GHDDSUtil
             // Must be long enough for both headers and magic value
             if (ddsDataSize < (sizeof(GHDDSUtil::DDS_HEADER) + sizeof(uint32_t) + sizeof(GHDDSUtil::DDS_HEADER_DXT10)))
             {
-                return E_FAIL;
+                return false;
             }
 
             bDXT10Header = true;
@@ -538,10 +456,10 @@ namespace GHDDSUtil
             + sizeof(GHDDSUtil::DDS_HEADER)
             + (bDXT10Header ? sizeof(GHDDSUtil::DDS_HEADER_DXT10) : 0);
 
-        return S_OK;
+        return true;
     }
 
-    HRESULT validateAndParseHeader(const DDS_HEADER& header, DDSDesc& desc)
+    bool validateAndParseHeader(const DDS_HEADER& header, DDSDesc& desc)
     {
         desc.width = header.width;
         desc.height = header.height;
@@ -549,7 +467,7 @@ namespace GHDDSUtil
 
         desc.resDim = DDS_RESOURCE_DIMENSION_UNKNOWN;
         desc.arraySize = 1;
-        desc.format = DXGI_FORMAT_UNKNOWN;
+        desc.format = DF_UNKNOWN;
         desc.isCubeMap = false;
 
         size_t mipCount = header.mipMapCount;
@@ -566,12 +484,12 @@ namespace GHDDSUtil
             desc.arraySize = d3d10ext->arraySize;
             if (desc.arraySize == 0)
             {
-                return HRESULT_FROM_WIN32(ERROR_INVALID_DATA);
+                return false;
             }
 
             if (GHDXGIUtil::bitsPerPixel((GHDXGIFormat)d3d10ext->dxgiFormat) == 0)
             {
-                return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+                return false;
             }
 
             desc.format = d3d10ext->dxgiFormat;
@@ -582,7 +500,7 @@ namespace GHDDSUtil
                 // D3DX writes 1D textures with a fixed Height of 1
                 if ((header.flags & DDS_HEIGHT) && desc.height != 1)
                 {
-                    return HRESULT_FROM_WIN32(ERROR_INVALID_DATA);
+                    return false;
                 }
                 desc.height = desc.depth = 1;
                 break;
@@ -599,17 +517,17 @@ namespace GHDDSUtil
             case DDS_RESOURCE_DIMENSION_TEXTURE3D:
                 if (!(header.flags & DDS_HEADER_FLAGS_VOLUME))
                 {
-                    return HRESULT_FROM_WIN32(ERROR_INVALID_DATA);
+                    return false;
                 }
 
                 if (desc.arraySize > 1)
                 {
-                    return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+                    return false;
                 }
                 break;
 
             default:
-                return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+                return false;
             }
 
             desc.resDim = d3d10ext->resourceDimension;
@@ -618,9 +536,9 @@ namespace GHDDSUtil
         {
             desc.format = GHDDSUtil::GetDXGIFormat(header.ddspf);
 
-            if (desc.format == DXGI_FORMAT_UNKNOWN)
+            if (desc.format == DF_UNKNOWN)
             {
-                return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+                return false;
             }
 
             if (header.flags & DDS_HEADER_FLAGS_VOLUME)
@@ -634,7 +552,7 @@ namespace GHDDSUtil
                     // We require all six faces to be defined
                     if ((header.caps2 & DDS_CUBEMAP_ALLFACES) != DDS_CUBEMAP_ALLFACES)
                     {
-                        return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+                        return false;
                     }
 
                     desc.arraySize = 6;
@@ -653,7 +571,7 @@ namespace GHDDSUtil
         // Bound sizes (for security purposes we don't trust DDS file metadata larger than the D3D 11.x hardware requirements)
         if (desc.mipCount > DDS_REQ_MIP_LEVELS)
         {
-            return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+            return false;
         }
 
         switch (desc.resDim)
@@ -662,7 +580,7 @@ namespace GHDDSUtil
             if ((desc.arraySize > DDS_REQ_TEXTURE1D_ARRAY_AXIS_DIMENSION) ||
                 (desc.width > DDS_REQ_TEXTURE1D_U_DIMENSION))
             {
-                return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+                return false;
             }
             break;
 
@@ -674,14 +592,14 @@ namespace GHDDSUtil
                     (desc.width > DDS_REQ_TEXTURECUBE_DIMENSION) ||
                     (desc.height > DDS_REQ_TEXTURECUBE_DIMENSION))
                 {
-                    return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+                    return false;
                 }
             }
             else if ((desc.arraySize > DDS_REQ_TEXTURE2D_ARRAY_AXIS_DIMENSION) ||
                 (desc.width > DDS_REQ_TEXTURE2D_U_OR_V_DIMENSION) ||
                 (desc.height > DDS_REQ_TEXTURE2D_U_OR_V_DIMENSION))
             {
-                return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+                return false;
             }
             break;
 
@@ -691,12 +609,12 @@ namespace GHDDSUtil
                 (desc.height > DDS_REQ_TEXTURE3D_U_V_OR_W_DIMENSION) ||
                 (desc.depth > DDS_REQ_TEXTURE3D_U_V_OR_W_DIMENSION))
             {
-                return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
+                return false;
             }
             break;
         }
 
-        return S_OK;
+        return true;
     }
 
 };

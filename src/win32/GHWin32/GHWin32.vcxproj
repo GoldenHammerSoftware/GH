@@ -243,7 +243,6 @@
     <ClCompile Include="..\..\GHMetro\GHWin32DeviceFinder.cpp" />
     <ClCompile Include="..\..\GHMetro\GHXInputHandler.cpp" />
     <ClCompile Include="..\..\GHMetro\GHXInputRumbler.cpp" />
-    <ClCompile Include="..\..\GHWin32\GHDDSUtil.cpp" />
     <ClCompile Include="..\..\GHWin32\GHDirectSoundDevice.cpp" />
     <ClCompile Include="..\..\GHWin32\GHDirectSoundEmitter.cpp" />
     <ClCompile Include="..\..\GHWin32\GHDirectSoundHandle.cpp" />
@@ -278,7 +277,6 @@
     <ClInclude Include="..\..\GHMetro\GHXAudio2SoundFinder.h" />
     <ClInclude Include="..\..\GHMetro\GHXInputHandler.h" />
     <ClInclude Include="..\..\GHMetro\GHXInputRumbler.h" />
-    <ClInclude Include="..\..\GHWin32\GHDDSUtil.h" />
     <ClInclude Include="..\..\GHWin32\GHDirectSoundDevice.h" />
     <ClInclude Include="..\..\GHWin32\GHDirectSoundEmitter.h" />
     <ClInclude Include="..\..\GHWin32\GHDirectSoundHandle.h" />

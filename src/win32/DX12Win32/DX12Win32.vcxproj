@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\GHDX12\DDSTextureLoaderDX12.h" />
     <ClInclude Include="..\..\GHDX12\GHDX12Buffer.h" />
     <ClInclude Include="..\..\GHDX12\GHDX12CBuffer.h" />
     <ClInclude Include="..\..\GHDX12\GHDX12CommandList.h" />
@@ -47,7 +46,6 @@
     <ClInclude Include="..\..\GHDX12\GHVertexStreamDX12.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\GHDX12\DDSTextureLoaderDX12.cpp" />
     <ClCompile Include="..\..\GHDX12\GHDX12Buffer.cpp" />
     <ClCompile Include="..\..\GHDX12\GHDX12CBuffer.cpp" />
     <ClCompile Include="..\..\GHDX12\GHDX12CommandList.cpp" />

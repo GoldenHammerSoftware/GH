@@ -86,9 +86,6 @@
     <ClInclude Include="..\..\GHDX12\GHDX12RTGroup.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GHDX12\DDSTextureLoaderDX12.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GHDX12\GHRenderDeviceDX12.cpp">
@@ -155,9 +152,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GHDX12\GHDX12PSOPool.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\GHDX12\DDSTextureLoaderDX12.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

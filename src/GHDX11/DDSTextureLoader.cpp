@@ -26,7 +26,7 @@
 
 #include "DDSTextureLoader.h"
 #include "Render/GHDXGIUtil.h"
-#include "GHWin32/GHDDSUtil.h"
+#include "Render/GHDDSUtil.h"
 
 namespace GHDDSLoader
 {
@@ -284,9 +284,105 @@ static HRESULT CreateTextureFromDDS(_In_ ID3D11Device* d3dDevice,
 
     static_assert(sizeof(GHDDSUtil::SubresourceData) == sizeof(D3D11_SUBRESOURCE_DATA), "SubresourceData must match D3D11_SUBRESOURCE_DATA");
 
-    hr = CreateD3DResources( d3dDevice, desc.resDim, desc.twidth, desc.theight, desc.tdepth, desc.mipCount - desc.skipMip, desc.arraySize, desc.format, desc.isCubeMap, (D3D11_SUBRESOURCE_DATA*)initData, texture, textureView );
+    bool ret = CreateD3DResources( d3dDevice, desc.resDim, desc.twidth, desc.theight, desc.tdepth, desc.mipCount - desc.skipMip, desc.arraySize, (DXGI_FORMAT)desc.format, desc.isCubeMap, (D3D11_SUBRESOURCE_DATA*)initData, texture, textureView );
 
-    return hr;
+    return ret ? S_OK : E_FAIL;
+}
+
+struct handle_closer { void operator()(HANDLE h) { if (h) CloseHandle(h); } };
+
+typedef public std::unique_ptr<void, handle_closer> ScopedHandle;
+
+inline HANDLE safe_handle(HANDLE h) { return (h == INVALID_HANDLE_VALUE) ? 0 : h; }
+
+//--------------------------------------------------------------------------------------
+HRESULT LoadTextureDataFromFile(_In_z_ const wchar_t* fileName,
+    std::unique_ptr<uint8_t[]>& ddsData,
+    GHDDSUtil::DDS_HEADER** header,
+    uint8_t** bitData,
+    size_t* bitSize
+)
+{
+    if (!header || !bitData || !bitSize)
+    {
+        return E_POINTER;
+    }
+
+    // open the file
+#if (_WIN32_WINNT >= 0x0602 /*_WIN32_WINNT_WIN8*/)
+    ScopedHandle hFile(safe_handle(CreateFile2(fileName,
+        GENERIC_READ,
+        FILE_SHARE_READ,
+        OPEN_EXISTING,
+        nullptr)));
+#else
+    ScopedHandle hFile(safe_handle(CreateFileW(fileName,
+        GENERIC_READ,
+        FILE_SHARE_READ,
+        nullptr,
+        OPEN_EXISTING,
+        FILE_ATTRIBUTE_NORMAL,
+        nullptr)));
+#endif
+
+    if (!hFile)
+    {
+        return HRESULT_FROM_WIN32(GetLastError());
+    }
+
+    // Get the file size
+    LARGE_INTEGER FileSize = { 0 };
+
+#if (_WIN32_WINNT >= _WIN32_WINNT_VISTA)
+    FILE_STANDARD_INFO fileInfo;
+    if (!GetFileInformationByHandleEx(hFile.get(), FileStandardInfo, &fileInfo, sizeof(fileInfo)))
+    {
+        return HRESULT_FROM_WIN32(GetLastError());
+    }
+    FileSize = fileInfo.EndOfFile;
+#else
+    GetFileSizeEx(hFile.get(), &FileSize);
+#endif
+
+    // File is too big for 32-bit allocation, so reject read
+    if (FileSize.HighPart > 0)
+    {
+        return E_FAIL;
+    }
+
+    // Need at least enough data to fill the header and magic number to be a valid DDS
+    if (FileSize.LowPart < (sizeof(GHDDSUtil::DDS_HEADER) + sizeof(uint32_t)))
+    {
+        return E_FAIL;
+    }
+
+    // create enough space for the file data
+    ddsData.reset(new uint8_t[FileSize.LowPart]);
+    if (!ddsData)
+    {
+        return E_OUTOFMEMORY;
+    }
+
+    // read the data in
+    DWORD BytesRead = 0;
+    if (!ReadFile(hFile.get(),
+        ddsData.get(),
+        FileSize.LowPart,
+        &BytesRead,
+        nullptr
+    ))
+    {
+        return HRESULT_FROM_WIN32(GetLastError());
+    }
+
+    if (BytesRead < FileSize.LowPart)
+    {
+        return E_FAIL;
+    }
+
+    bool ret = GHDDSUtil::LoadTextureDataFromMemory(ddsData.get(), FileSize.LowPart, header, bitData, bitSize);
+    if (ret) return S_OK;
+    return E_FAIL;
 }
 
 //--------------------------------------------------------------------------------------
@@ -306,7 +402,7 @@ HRESULT CreateDDSTextureFromFile( _In_ ID3D11Device* d3dDevice,
     size_t bitSize = 0;
 
     std::unique_ptr<uint8_t[]> ddsData;
-    HRESULT hr = GHDDSUtil::LoadTextureDataFromFile( fileName,
+    HRESULT hr = LoadTextureDataFromFile( fileName,
                                           ddsData,
                                           &header,
                                           &bitData,

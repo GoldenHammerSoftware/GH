@@ -222,6 +222,7 @@
     <ClCompile Include="..\..\..\Render\GHAlternatingRenderTarget.cpp" />
     <ClCompile Include="..\..\..\Render\GHBillboardTransformAdjuster.cpp" />
     <ClCompile Include="..\..\..\Render\GHCamera.cpp" />
+    <ClCompile Include="..\..\..\Render\GHDDSUtil.cpp" />
     <ClCompile Include="..\..\..\Render\GHDebugDraw.cpp" />
     <ClCompile Include="..\..\..\Render\GHDXGIUtil.cpp" />
     <ClCompile Include="..\..\..\Render\GHEnvironmentCapturer.cpp" />
@@ -309,6 +310,7 @@
     <ClInclude Include="..\..\..\Render\GHAlternatingRenderTarget.h" />
     <ClInclude Include="..\..\..\Render\GHBillboardTransformAdjuster.h" />
     <ClInclude Include="..\..\..\Render\GHCamera.h" />
+    <ClInclude Include="..\..\..\Render\GHDDSUtil.h" />
     <ClInclude Include="..\..\..\Render\GHDebugDraw.h" />
     <ClInclude Include="..\..\..\Render\GHDXGIFormat.h" />
     <ClInclude Include="..\..\..\Render\GHDXGIUtil.h" />

@@ -4,14 +4,9 @@
 // http://go.microsoft.com/fwlink/?LinkId=248926
 // http://go.microsoft.com/fwlink/?LinkId=248929
 
-#include "GHPlatform/win32/GHWin32Include.h"
 #include <algorithm>
-#include <dxgiformat.h>
 #include <memory>
-
-#if (_WIN32_WINNT >= 0x0602 /*_WIN32_WINNT_WIN8*/) && !defined(DXGI_1_2_FORMATS)
-#define DXGI_1_2_FORMATS
-#endif
+#include "Render/GHDXGIFormat.h"
 
 namespace GHDDSUtil
 {
@@ -55,7 +50,7 @@ namespace GHDDSUtil
 
     typedef struct
     {
-        DXGI_FORMAT     dxgiFormat;
+        GHDXGIFormat    dxgiFormat;
         uint32_t        resourceDimension;
         uint32_t        miscFlag; // see D3D11_RESOURCE_MISC_FLAG
         uint32_t        arraySize;
@@ -69,7 +64,7 @@ namespace GHDDSUtil
         size_t depth;
         size_t arraySize;
         size_t mipCount;
-        DXGI_FORMAT format;
+        GHDXGIFormat format;
         uint32_t resDim;
         bool isCubeMap;
         size_t skipMip;
@@ -92,30 +87,30 @@ namespace GHDDSUtil
     typedef struct SubresourceData
     {
         const void* pSysMem;
-        UINT SysMemPitch;
-        UINT SysMemSlicePitch;
+        uint32_t SysMemPitch;
+        uint32_t SysMemSlicePitch;
     } 	SubresourceData;
 
 #pragma pack(pop)
 
-    HRESULT LoadTextureDataFromFile(_In_z_ const wchar_t* fileName,
-        std::unique_ptr<uint8_t[]>& ddsData,
+    bool LoadTextureDataFromMemory(
+        uint8_t* data, size_t dataSize,
         DDS_HEADER** header,
         uint8_t** bitData,
         size_t* bitSize
     );
 
-    HRESULT FillInitData(DDSDesc& desc,
+    bool FillInitData(DDSDesc& desc,
         _In_ size_t maxsize,
         _In_ size_t bitSize,
         _In_bytecount_(bitSize) const uint8_t* bitData,
         _Out_cap_(mipCount* arraySize) SubresourceData* initData);
 
-    HRESULT parseHeaderMemory(_In_bytecount_(ddsDataSize) const uint8_t* ddsData,
+    bool parseHeaderMemory(_In_bytecount_(ddsDataSize) const uint8_t* ddsData,
         _In_ size_t ddsDataSize,
         const DDS_HEADER*& outHeader,
         ptrdiff_t& outDataOffset);
 
-    HRESULT validateAndParseHeader(const DDS_HEADER& header, DDSDesc& desc);
+    bool validateAndParseHeader(const DDS_HEADER& header, DDSDesc& desc);
 
 };

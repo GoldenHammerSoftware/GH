@@ -220,6 +220,9 @@
     <ClCompile Include="..\..\..\Render\GHDXGIUtil.cpp">
       <Filter>Texture</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Render\GHDDSUtil.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Render\GHAlternatingRenderTarget.h" />
@@ -487,6 +490,9 @@
       <Filter>Texture</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Render\GHDXGIUtil.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Render\GHDDSUtil.h">
       <Filter>Texture</Filter>
     </ClInclude>
   </ItemGroup>
