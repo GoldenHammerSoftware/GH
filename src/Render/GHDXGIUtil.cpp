@@ -24,6 +24,12 @@ namespace GHDXGIUtil
         return GHDXGIFormat::DF_R8G8B8A8_UNORM;
     }
 
+    GHTextureFormat::Enum convertDXGIFormatToGH(GHDXGIFormat dxFormat)
+    {
+        // todo:
+        return GHTextureFormat::TF_UNKNOWN;
+    }
+
     size_t bitsPerPixel(GHDXGIFormat fmt)
     {
         switch (fmt)

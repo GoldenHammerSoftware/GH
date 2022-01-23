@@ -152,7 +152,7 @@ GHResource* GHTextureLoaderDX12::createGHTexture(void* mem, unsigned int width, 
 	D3D12_HEAP_PROPERTIES uploadHeapProps;
 	GHDX12Helpers::createHeapProperties(uploadHeapProps, D3D12_HEAP_TYPE_UPLOAD);
 	D3D12_RESOURCE_DESC uploadBufferDesc;
-	GHDX12Helpers::createBufferDesc(uploadBufferDesc, uploadBufferSize);
+	GHDX12Helpers::createBufferDesc(uploadBufferDesc, (uint32_t)uploadBufferSize);
 	Microsoft::WRL::ComPtr<ID3D12Resource> uploadDXBuffer;
 	HRESULT copyRes = mDevice.getDXDevice()->CreateCommittedResource(&uploadHeapProps, D3D12_HEAP_FLAG_NONE, &uploadBufferDesc, D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(uploadDXBuffer.GetAddressOf()));
 	if (FAILED(copyRes))

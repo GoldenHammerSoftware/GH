@@ -6,6 +6,7 @@
 namespace GHDXGIUtil
 {
 	GHDXGIFormat convertGHFormatToDXGI(GHTextureFormat::Enum ghFormat);
+	GHTextureFormat::Enum convertDXGIFormatToGH(GHDXGIFormat dxFormat);
     size_t bitsPerPixel(GHDXGIFormat fmt);
 	bool isDepthStencil(GHDXGIFormat fmt);
 
