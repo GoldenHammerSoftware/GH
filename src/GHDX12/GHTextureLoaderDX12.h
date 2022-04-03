@@ -2,6 +2,7 @@
 
 #include "GHUtils/GHResourceLoader.h"
 #include "GHWin32/GHWin32WICUtil.h"
+#include <vector>
 
 class GHWindowsFileFinder;
 class GHRenderDeviceDX12;
@@ -16,6 +17,8 @@ public:
 	virtual GHResource* loadFile(const char* filename, GHPropertyContainer* extraData = 0) override;
 	virtual GHResource* loadMemory(void* mem, size_t memSize, GHPropertyContainer* extraData = 0) override;
 
+	void addOverrideLoader(GHResourceLoader* loader);
+
 private:
 	// turn a rgb8 texture buffer into a rgba8 texture buffer and pass it on to loadMemory()
 	GHResource* createRGBAFromRGB(void* mem, size_t memSize, GHPropertyContainer& extraData);
@@ -27,4 +30,5 @@ private:
 	GHRenderDeviceDX12& mDevice;
 	GHMipmapGeneratorDX12& mMipGen;
 	GHWin32WICUtil mWICUtil;
+	std::vector<GHResourceLoader*> mOverrideLoaders;
 };

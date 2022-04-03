@@ -18,6 +18,9 @@
 #include "GHMipmapGeneratorDX12.h"
 #include "GHUtils/GHRedirectResourceLoader.h"
 #include "GHDX12MaterialHeapPool.h"
+#include "Render/GHTextureDataLoader.h"
+#include "Render/GHTextureDataFactoryDDS.h"
+#include "GHDataTextureLoaderDX12.h"
 
 GHRenderServicesDX12::GHRenderServicesDX12(GHSystemServices& systemServices, GHWin32Window& window)
 : GHRenderServices(systemServices)
@@ -72,7 +75,16 @@ void GHRenderServicesDX12::initAppShard(GHAppShard& appShard)
 
     mRenderTargetFactory = new GHRenderTargetFactoryDX12((GHRenderDeviceDX12&)*mRenderDevice, *mipGen);
 
+    GHTextureDataFactoryDDS* ddsFactory = new GHTextureDataFactoryDDS();
+    appShard.addOwnedItem(new GHTypedDeletionHandle<GHTextureDataFactoryDDS>(ddsFactory));
+    GHTextureDataLoader* ddsDataLoader = new GHTextureDataLoader(mSystemServices.getPlatformServices().getFileOpener(), *ddsFactory);
+    appShard.addOwnedItem(new GHTypedDeletionHandle<GHTextureDataLoader>(ddsDataLoader));
+    GHDataTextureLoaderDX12* ddsTexLoader = new GHDataTextureLoaderDX12(*ddsDataLoader, (GHRenderDeviceDX12&)*mRenderDevice);
+    appShard.mResourceFactory.addLoader(ddsTexLoader, 1, ".dds");
+
     GHTextureLoaderDX12* texLoader = new GHTextureLoaderDX12(mFileFinder, *((GHRenderDeviceDX12*)mRenderDevice), *mipGen);
     appShard.mResourceFactory.addLoader(texLoader, 4, ".jpg", ".png", ".pvr4", ".ovrtex");
-    // todo: ghcm, dds
+
+    GHRedirectResourceLoader* ddsRedirect = new GHRedirectResourceLoader(appShard.mResourceFactory, ".dds");
+    texLoader->addOverrideLoader(ddsRedirect);
 }

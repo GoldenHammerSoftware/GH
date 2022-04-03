@@ -25,6 +25,16 @@ GHTextureLoaderDX12::~GHTextureLoaderDX12(void)
 
 GHResource* GHTextureLoaderDX12::loadFile(const char* filename, GHPropertyContainer* extraData)
 {
+	// first look for file format overrides
+	for (auto iter = mOverrideLoaders.begin(); iter != mOverrideLoaders.end(); ++iter)
+	{
+		GHResourceLoader* loader = *iter;
+		GHResource* overRet = loader->loadFile(filename);
+		if (overRet) {
+			return overRet;
+		}
+	}
+
 	void* pixels = 0;
 	unsigned int width, height, depth;
 	DXGI_FORMAT dxFormat;
@@ -193,4 +203,9 @@ GHResource* GHTextureLoaderDX12::createGHTexture(void* mem, unsigned int width, 
 
 	GHResource* ret = new GHTextureDX12(mDevice, destDXBuffer, mem, dxFormat, allowMipmaps);
 	return ret;
+}
+
+void GHTextureLoaderDX12::addOverrideLoader(GHResourceLoader* loader)
+{
+	mOverrideLoaders.push_back(loader);
 }

@@ -8,7 +8,7 @@ struct ParsedDDS
     uint8_t* bitData{ 0 };
     size_t bitSize{ 0 };
     GHDDSUtil::DDSDesc desc;
-    GHDDSUtil::SubresourceData* initData;
+    GHDDSUtil::SubresourceData* initData{ 0 };
 };
 
 static bool parseDDSData(void* data, size_t dataSize, ParsedDDS& ddsInfo)
