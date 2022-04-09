@@ -475,6 +475,7 @@ namespace GHDDSUtil
         {
             mipCount = 1;
         }
+        desc.mipCount = mipCount;
 
         if ((header.ddspf.flags & DDS_FOURCC) &&
             (MAKEFOURCC('D', 'X', '1', '0') == header.ddspf.fourCC))

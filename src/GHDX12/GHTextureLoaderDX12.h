@@ -3,10 +3,12 @@
 #include "GHUtils/GHResourceLoader.h"
 #include "GHWin32/GHWin32WICUtil.h"
 #include <vector>
+#include "GHDX12Include.h"
 
 class GHWindowsFileFinder;
 class GHRenderDeviceDX12;
 class GHMipmapGeneratorDX12;
+struct GHTextureData;
 
 class GHTextureLoaderDX12 : public GHResourceLoader
 {
@@ -23,8 +25,8 @@ private:
 	// turn a rgb8 texture buffer into a rgba8 texture buffer and pass it on to loadMemory()
 	GHResource* createRGBAFromRGB(void* mem, size_t memSize, GHPropertyContainer& extraData);
 
-	// create the actual GH texture.
-	GHResource* createGHTexture(void* mem, unsigned int width, unsigned int height, unsigned int depth, unsigned int numMips, bool allowMipmaps, DXGI_FORMAT dxFormat, bool keepTextureData);
+	GHTextureData* createTextureData(void* mem, unsigned int width, unsigned int height, unsigned int depth, DXGI_FORMAT dxFormat);
+	Microsoft::WRL::ComPtr<ID3D12Resource> createDXTexture(const GHTextureData& textureData, bool generateMipmaps);
 
 private:
 	GHRenderDeviceDX12& mDevice;
