@@ -144,7 +144,7 @@ void GHRenderTargetDX12::createDXBuffers(void)
 		{
 			outputBuffer = mFrames[frame].mResolveBuffer;
 		}
-		mFrames[frame].mTexture = new GHTextureDX12(mDevice, outputBuffer, nullptr, outputFormat, mConfig.mMipmap);
+		mFrames[frame].mTexture = new GHTextureDX12(mDevice, outputBuffer, outputFormat, mConfig.mMipmap);
 		mFrames[frame].mTexture->acquire();
 	}
 }

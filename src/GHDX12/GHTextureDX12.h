@@ -5,11 +5,14 @@
 #include "Render/GHMDesc.h"
 
 class GHRenderDeviceDX12;
+struct GHTextureData;
+class GHMipmapGeneratorDX12;
 
 class GHTextureDX12 : public GHTexture
 {
 public:
-	GHTextureDX12(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<ID3D12Resource> dxBuffer, void* mem, DXGI_FORMAT dxFormat, bool mipmap);
+	GHTextureDX12(GHRenderDeviceDX12& device, GHTextureData* texData, bool mipmap, GHMipmapGeneratorDX12* mipGen);
+	GHTextureDX12(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<ID3D12Resource> dxBuffer, DXGI_FORMAT dxFormat, bool mipmap);
 	~GHTextureDX12(void);
 
 	// todo: remove the no argument bind from the interface.
@@ -17,9 +20,9 @@ public:
 	void bind(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> heap, unsigned int heapTextureStart, unsigned int index);
 	void createSampler(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> heap, unsigned int index, GHMDesc::WrapMode wrapMode);
 
-	virtual bool lockSurface(void** ret, unsigned int& pitch) override { return false; }
-	virtual bool unlockSurface(void) override { return false; }
-	virtual bool getDimensions(unsigned int& width, unsigned int& height, unsigned int& depth) override { return false; }
+	virtual bool lockSurface(void** ret, unsigned int& pitch) override;
+	virtual bool unlockSurface(void) override;
+	virtual bool getDimensions(unsigned int& width, unsigned int& height, unsigned int& depth) override;
 
 	virtual void deleteSourceData(void) override;
 
@@ -28,8 +31,8 @@ public:
 
 private:
 	GHRenderDeviceDX12& mDevice;
-	Microsoft::WRL::ComPtr<ID3D12Resource> mDXBuffer;
-	void* mMem;
-	DXGI_FORMAT mDXFormat;
-	bool mMipmap;
+	Microsoft::WRL::ComPtr<ID3D12Resource> mDXBuffer{ nullptr };
+	GHTextureData* mTexData{ 0 };
+	bool mMipmap{ false };
+	DXGI_FORMAT mDXFormat{ DXGI_FORMAT_UNKNOWN };
 };

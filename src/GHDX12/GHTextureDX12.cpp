@@ -1,13 +1,35 @@
 #include "GHTextureDX12.h"
 #include "GHRenderDeviceDX12.h"
+#include "Render/GHTextureData.h"
+#include "Render/GHDXGIUtil.h"
+#include "GHPlatform/GHDebugMessage.h"
+#include "Render/GHTextureTypeUtil.h"
 
-GHTextureDX12::GHTextureDX12(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<ID3D12Resource> dxBuffer, void* mem, DXGI_FORMAT dxFormat, bool mipmap)
+GHTextureDX12::GHTextureDX12(GHRenderDeviceDX12& device, GHTextureData* texData, bool mipmap, GHMipmapGeneratorDX12* mipGen)
+	: mDevice(device)
+	, mTexData(texData)
+	, mMipmap(mipmap)
+{
+	if (!mTexData)
+	{
+		GHDebugMessage::outputString("Non null texData not allowed when dxBuffer does not exist");
+		return;
+	}
+	mDXFormat = (DXGI_FORMAT)GHDXGIUtil::convertGHFormatToDXGI(texData->mTextureFormat);
+	// todo: generate dx tex.
+}
+
+GHTextureDX12::GHTextureDX12(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<ID3D12Resource> dxBuffer, DXGI_FORMAT dxFormat, bool mipmap)
 	: mDXBuffer(dxBuffer)
-	, mMem(mem)
+	, mTexData(nullptr)
 	, mDevice(device)
 	, mDXFormat(dxFormat)
 	, mMipmap(mipmap)
 {
+	if (!mDXBuffer)
+	{
+		GHDebugMessage::outputString("Non null texData not allowed when dxBuffer does not exist");
+	}
 }
 
 GHTextureDX12::~GHTextureDX12(void)
@@ -17,10 +39,10 @@ GHTextureDX12::~GHTextureDX12(void)
 
 void GHTextureDX12::deleteSourceData(void)
 {
-	if (mMem)
+	if (mTexData)
 	{
-		delete mMem;
-		mMem = 0;
+		delete mTexData;
+		mTexData = 0;
 	}
 }
 
@@ -71,4 +93,46 @@ void GHTextureDX12::createSampler(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> h
 	//samplerDesc.ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;
 
 	mDevice.getDXDevice()->CreateSampler(&samplerDesc, heapOffsetHandle);
+}
+
+bool GHTextureDX12::lockSurface(void** ret, unsigned int& pitch)
+{
+	if (!mTexData)
+	{
+		return false;
+	}
+	if (GHTextureTypeUtil::isCompressedType(mTexData->mTextureFormat))
+	{
+		GHDebugMessage::outputString("Tried to lock a compressed texture");
+		return false;
+	}
+	if (!mTexData->mMipLevels.size())
+	{
+		GHDebugMessage::outputString("Tried to lock a tex data with no mip data");
+		return false;
+	}
+	*ret = mTexData->mMipLevels[0].mData;
+	pitch = mTexData->mMipLevels[0].mWidth * mTexData->mDepth;
+}
+
+bool GHTextureDX12::unlockSurface(void)
+{ 
+	// nothing to do here.
+	return true; 
+}
+
+bool GHTextureDX12::getDimensions(unsigned int& width, unsigned int& height, unsigned int& depth)
+{ 
+	if (!mTexData)
+	{
+		return false;
+	}
+	if (!mTexData->mMipLevels.size())
+	{
+		return false;
+	}
+	width = mTexData->mMipLevels[0].mWidth;
+	height = mTexData->mMipLevels[0].mHeight;
+	depth = mTexData->mDepth;
+	return true;
 }

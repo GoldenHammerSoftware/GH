@@ -68,11 +68,11 @@ GHResource* GHTextureLoaderDX12::loadFile(const char* filename, GHPropertyContai
 
 	GHTextureData* textureData = createTextureData(pixels, width, height, 4, dxFormat);
 	Microsoft::WRL::ComPtr<ID3D12Resource> dxTex = createDXTexture(*textureData, allowMipmaps);
-	GHResource* ret = new GHTextureDX12(mDevice, dxTex, 0, dxFormat, allowMipmaps);
+	GHTextureDX12* ret = new GHTextureDX12(mDevice, dxTex, dxFormat, allowMipmaps);
 
 	if (!keepTextureData)
 	{
-		delete textureData;
+		ret->deleteSourceData();
 	}
 	return ret;
 }
@@ -103,11 +103,11 @@ GHResource* GHTextureLoaderDX12::loadMemory(void* mem, size_t memSize, GHPropert
 	DXGI_FORMAT dxFormat = (DXGI_FORMAT)GHDXGIUtil::convertGHFormatToDXGI(textureFormat);
 	GHTextureData* textureData = createTextureData(mem, width, height, 4, dxFormat);
 	Microsoft::WRL::ComPtr<ID3D12Resource> dxTex = createDXTexture(*textureData, allowMipmaps);
-	GHResource* ret = new GHTextureDX12(mDevice, dxTex, 0, dxFormat, allowMipmaps);
+	GHTextureDX12* ret = new GHTextureDX12(mDevice, dxTex, dxFormat, allowMipmaps);
 
 	if (!keepTextureData)
 	{
-		delete textureData;
+		ret->deleteSourceData();
 	}
 	return ret;
 }
