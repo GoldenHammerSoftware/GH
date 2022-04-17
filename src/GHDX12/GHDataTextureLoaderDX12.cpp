@@ -3,6 +3,7 @@
 #include "GHRenderDeviceDX12.h"
 #include "Render/GHTextureData.h"
 #include "GHPlatform/GHDebugMessage.h"
+#include "GHTextureDX12.h"
 
 GHDataTextureLoaderDX12::GHDataTextureLoaderDX12(const GHTextureDataLoader& dataLoader, GHRenderDeviceDX12& device)
 	: mDataLoader(dataLoader)
@@ -29,8 +30,8 @@ GHResource* GHDataTextureLoaderDX12::loadMemory(void* mem, size_t memSize, GHPro
 		GHDebugMessage::outputString("Expecting a GHTextureData for loadMemory");
 		return 0;
 	}
-
-	// unify with GHTextureLoaderDX12::createGHTexture, probably by making this the definitive one.
-
-	return 0;
+	GHTextureData* textureData = (GHTextureData*)(mem);
+	GHTextureDX12* ret = new GHTextureDX12(mDevice, textureData, true, nullptr);
+	ret->deleteSourceData();
+	return ret;
 }

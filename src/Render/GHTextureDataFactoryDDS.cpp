@@ -1,6 +1,7 @@
 #include "GHTextureDataFactoryDDS.h"
 #include "GHDDSUtil.h"
 #include "GHPlatform/GHDebugMessage.h"
+#include "GHTextureData.h"
 
 struct ParsedDDS
 {
@@ -53,9 +54,12 @@ GHTextureData* GHTextureDataFactoryDDS::createFromMemory(void* data, size_t data
         return 0;
     }
 
+    // todo:
+    return 0;
     // Convert from DDS data to a GHTextureData.
-
-	return 0;
+    GHTextureData* ret = new GHTextureData;
+    //ret->mChannelType = ddsInfo.desc.
+	return ret;
 }
 
 /*
