@@ -56,9 +56,6 @@ GHTextureData* GHTextureDataFactoryDDS::createFromMemory(void* data, size_t data
         return 0;
     }
 
-    // todo:
-    //return 0;
-
     // Convert from DDS data to a GHTextureData.
     GHTextureData* ret = new GHTextureData;
     ret->mDataSource = (int8_t*)data;
@@ -67,6 +64,7 @@ GHTextureData* GHTextureDataFactoryDDS::createFromMemory(void* data, size_t data
     ret->mChannelType = GHTextureChannelType::TC_UNKNOWN;
     ret->mNumSlices = (uint8_t)ddsInfo.desc.arraySize; // todo? cubemap
     ret->mDepth = 0; // ??
+    ret->mIsCubemap = ddsInfo.desc.isCubeMap;
 
     ret->mNumMips = (uint8_t)ddsInfo.desc.mipCount;
     ret->mMipLevels.resize(ret->mNumSlices * ddsInfo.desc.mipCount);

@@ -31,6 +31,7 @@ struct GHTextureData
 	// num mips is not always miplevels.size() if numSlices > 1.
 	uint8_t mNumMips;
 	std::vector<MipData> mMipLevels;
+	bool mIsCubemap{ false };
 
 	// The source data block.
 	// We own this and delete it.

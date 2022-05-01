@@ -7,6 +7,60 @@
 #include "GHDX12Helpers.h"
 #include "GHMipmapGeneratorDX12.h"
 
+static D3D12_RESOURCE_DIMENSION calcResourceDimension(const GHTextureData& textureData)
+{
+	if (textureData.mTextureType == GHTextureType::TT_1D)
+	{
+		return D3D12_RESOURCE_DIMENSION_TEXTURE1D;
+	}
+	if (textureData.mTextureType == GHTextureType::TT_3D)
+	{
+		return D3D12_RESOURCE_DIMENSION_TEXTURE3D;
+	}
+	return D3D12_RESOURCE_DIMENSION_TEXTURE2D;
+}
+
+static D3D12_SRV_DIMENSION calcSrvDimension(const GHTextureData* textureData)
+{
+	if (!textureData)
+	{
+		// ?? probably don't want to support this.
+		return D3D12_SRV_DIMENSION_TEXTURE2D;
+	}
+	if (textureData->mNumSlices < 2)
+	{
+		if (textureData->mIsCubemap)
+		{
+			return D3D12_SRV_DIMENSION_TEXTURECUBE;
+		}
+		if (textureData->mTextureType == GHTextureType::TT_1D)
+		{
+			return D3D12_SRV_DIMENSION_TEXTURE1D;
+		}
+		if (textureData->mTextureType == GHTextureType::TT_3D)
+		{
+			return D3D12_SRV_DIMENSION_TEXTURE3D;
+		}
+		return D3D12_SRV_DIMENSION_TEXTURE2D;
+	}
+
+	if (textureData->mIsCubemap)
+	{
+		return D3D12_SRV_DIMENSION_TEXTURECUBEARRAY;
+	}
+	if (textureData->mTextureType == GHTextureType::TT_1D)
+	{
+		return D3D12_SRV_DIMENSION_TEXTURE1DARRAY;
+	}
+	if (textureData->mTextureType == GHTextureType::TT_3D)
+	{
+		GHDebugMessage::outputString("Texture3DArray doesn't exist in d3d12");
+		assert(false);
+		return D3D12_SRV_DIMENSION_TEXTURE3D;
+	}
+	return D3D12_SRV_DIMENSION_TEXTURE2DARRAY;
+}
+
 static Microsoft::WRL::ComPtr<ID3D12Resource> createDXTexture(GHRenderDeviceDX12& device, GHMipmapGeneratorDX12* mipGen, const GHTextureData& textureData, bool& mipmap)
 {
 	if (!textureData.mMipLevels.size())
@@ -20,8 +74,7 @@ static Microsoft::WRL::ComPtr<ID3D12Resource> createDXTexture(GHRenderDeviceDX12
 	resourceDesc.Width = textureData.mMipLevels[0].mWidth;
 	resourceDesc.Height = textureData.mMipLevels[0].mHeight;
 	resourceDesc.DepthOrArraySize = textureData.mNumSlices;
-
-	resourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
+	resourceDesc.Dimension = calcResourceDimension(textureData);
 
 	if (textureData.mMipLevels.size() > 1)
 	{
@@ -165,7 +218,7 @@ void GHTextureDX12::bind(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> heap, unsi
 	D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
 	srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
 	srvDesc.Format = mDXFormat;
-	srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
+	srvDesc.ViewDimension = calcSrvDimension(mTexData);
 	srvDesc.Texture2D.MipLevels = mMipmap ? -1 : 1;
 	mDevice.getDXDevice()->CreateShaderResourceView(mDXBuffer.Get(), &srvDesc, heapOffsetHandle);
 }
