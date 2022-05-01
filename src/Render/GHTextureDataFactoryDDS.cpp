@@ -66,6 +66,7 @@ GHTextureData* GHTextureDataFactoryDDS::createFromMemory(void* data, size_t data
     ret->mTextureFormat = GHDXGIUtil::convertDXGIFormatToGH(ddsInfo.desc.format);
     ret->mChannelType = GHTextureChannelType::TC_UNKNOWN;
     ret->mNumSlices = (uint8_t)ddsInfo.desc.arraySize; // todo? cubemap
+    ret->mDepth = 0; // ??
 
     ret->mMipLevels.resize(ret->mNumSlices * ddsInfo.desc.mipCount);
     for (size_t slice = 0; slice < ret->mNumSlices; ++slice)
@@ -74,9 +75,20 @@ GHTextureData* GHTextureDataFactoryDDS::createFromMemory(void* data, size_t data
         for (size_t mip = 0; mip < ddsInfo.desc.mipCount; ++mip)
         {
             const size_t arrIndex = (slice * ddsInfo.desc.mipCount) + mip;
-            ret->mMipLevels[arrIndex].mData = (void*)ddsInfo.initData->pSysMem;
+            ret->mMipLevels[arrIndex].mData = (void*)ddsInfo.initData[arrIndex].pSysMem;
+            ret->mMipLevels[arrIndex].mRowPitch = ddsInfo.initData[arrIndex].SysMemPitch;
+            ret->mMipLevels[arrIndex].mDataSize = ddsInfo.initData[arrIndex].SysMemSlicePitch;
+            ret->mMipLevels[arrIndex].mWidth = size[0];
+            ret->mMipLevels[arrIndex].mHeight = size[1];
 
-            // todo: width/height/depth/stride
+            size /= 2;
+            for (int i = 0; i < 2; ++i)
+            {
+                if (size[i] < 1)
+                {
+                    size[i] = 1;
+                }
+            }
         }
     }
 

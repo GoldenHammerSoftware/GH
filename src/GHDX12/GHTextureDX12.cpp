@@ -37,7 +37,14 @@ static Microsoft::WRL::ComPtr<ID3D12Resource> createDXTexture(GHRenderDeviceDX12
 	resourceDesc.SampleDesc.Count = 1;
 	resourceDesc.SampleDesc.Quality = 0;
 	resourceDesc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
-	resourceDesc.Flags = D3D12_RESOURCE_FLAG_NONE | D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
+	if (mipmap && textureData.mMipLevels.size() < 2)
+	{
+		resourceDesc.Flags = D3D12_RESOURCE_FLAG_NONE | D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
+	}
+	else
+	{
+		resourceDesc.Flags = D3D12_RESOURCE_FLAG_NONE;
+	}
 
 	D3D12_HEAP_PROPERTIES destHeapProps;
 	GHDX12Helpers::createHeapProperties(destHeapProps, D3D12_HEAP_TYPE_DEFAULT);

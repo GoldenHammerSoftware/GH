@@ -41,5 +41,6 @@ GHTextureData* GHTextureDataLoader::load(const char* filename) const
 
 	file->closeFile();
 	delete file;
+	GHDebugMessage::outputString("Loaded texturedata for %s", filename);
 	return ret;
 }

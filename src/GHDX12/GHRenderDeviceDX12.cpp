@@ -24,6 +24,27 @@ GHRenderDeviceDX12::GHRenderDeviceDX12(GHWin32Window& window)
 	{
 		GHDebugMessage::outputString("Failed to create d3d12 device");
 	}
+
+#ifdef DEBUG_DX12
+	Microsoft::WRL::ComPtr<ID3D12InfoQueue> infoQueue;
+	if (mDXDevice->QueryInterface(IID_PPV_ARGS(&infoQueue)) == S_OK)
+	{
+		infoQueue->SetBreakOnSeverity(D3D12_MESSAGE_SEVERITY_CORRUPTION, true);
+		infoQueue->SetBreakOnSeverity(D3D12_MESSAGE_SEVERITY_ERROR, false);
+		infoQueue->SetBreakOnSeverity(D3D12_MESSAGE_SEVERITY_WARNING, false);
+		D3D12_INFO_QUEUE_FILTER filter = {};
+		D3D12_MESSAGE_ID suppressedMessages[] = {
+			D3D12_MESSAGE_ID_CLEARRENDERTARGETVIEW_MISMATCHINGCLEARVALUE
+		};
+		filter.DenyList.NumIDs = _countof(suppressedMessages);
+		filter.DenyList.pIDList = suppressedMessages;
+		D3D12_MESSAGE_SEVERITY infoSev = D3D12_MESSAGE_SEVERITY_INFO;
+		filter.DenyList.NumSeverities = 1;
+		filter.DenyList.pSeverityList = &infoSev;
+		infoQueue->PushStorageFilter(&filter);
+	}
+#endif
+
 	mDXCommandQueue = GHDX12Helpers::createCommandQueue(mDXDevice, D3D12_COMMAND_LIST_TYPE_DIRECT);
 	const GHPoint2i& screenSize = mWindow.getClientAreaSize();
 	mDXSwapChainSampleDesc = { 1, 0 };
@@ -137,7 +158,7 @@ bool GHRenderDeviceDX12::beginFrame(void)
 	D3D12_RESOURCE_BARRIER msaaBarrier;
 	msaaBarrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
 	msaaBarrier.Transition.pResource = mFrameBackends[mCurrBackend].mMsaaBuffer.Get();
-	msaaBarrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RESOLVE_DEST;
+	msaaBarrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RESOLVE_SOURCE;
 	msaaBarrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
 	msaaBarrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
 	msaaBarrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
@@ -168,7 +189,7 @@ void GHRenderDeviceDX12::endFrame(void)
 		D3D12_RESOURCE_BARRIER dstInBarrier;
 		dstInBarrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
 		dstInBarrier.Transition.pResource = mFrameBackends[mCurrBackend].mBackBuffer.Get();
-		dstInBarrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
+		dstInBarrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
 		dstInBarrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RESOLVE_DEST;
 		dstInBarrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
 		dstInBarrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
