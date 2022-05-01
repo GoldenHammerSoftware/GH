@@ -27,12 +27,16 @@ static D3D12_SRV_DIMENSION calcSrvDimension(const GHTextureData* textureData)
 		// ?? probably don't want to support this.
 		return D3D12_SRV_DIMENSION_TEXTURE2D;
 	}
-	if (textureData->mNumSlices < 2)
+	if (textureData->mIsCubemap)
 	{
-		if (textureData->mIsCubemap)
+		if (textureData->mNumSlices <= 6)
 		{
 			return D3D12_SRV_DIMENSION_TEXTURECUBE;
 		}
+		return D3D12_SRV_DIMENSION_TEXTURECUBEARRAY;
+	}
+	if (textureData->mNumSlices < 2)
+	{
 		if (textureData->mTextureType == GHTextureType::TT_1D)
 		{
 			return D3D12_SRV_DIMENSION_TEXTURE1D;
@@ -44,10 +48,6 @@ static D3D12_SRV_DIMENSION calcSrvDimension(const GHTextureData* textureData)
 		return D3D12_SRV_DIMENSION_TEXTURE2D;
 	}
 
-	if (textureData->mIsCubemap)
-	{
-		return D3D12_SRV_DIMENSION_TEXTURECUBEARRAY;
-	}
 	if (textureData->mTextureType == GHTextureType::TT_1D)
 	{
 		return D3D12_SRV_DIMENSION_TEXTURE1DARRAY;
