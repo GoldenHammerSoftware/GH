@@ -151,6 +151,7 @@ GHTextureData* GHTextureLoaderDX12::createTextureData(void* mem, unsigned int wi
 	ret->mDepth = depth;
 
 	ret->mMipLevels.resize(1);
+	ret->mNumMips = 1;
 	ret->mMipLevels[0].mData = ret->mDataSource;
 	ret->mMipLevels[0].mHeight = height;
 	ret->mMipLevels[0].mWidth = width;

@@ -158,6 +158,7 @@ static GHTextureData* createAstcTextureDataFromMemoryCommon(const GHPoint3i& blo
 	ret->mTextureFormat = textureFormat;
 
 	void* mipData = textureStart;
+	ret->mNumMips = (uint8_t)mipLevels;
 	ret->mMipLevels.resize(mipLevels);
 	GHPoint2i mipDim = textureDim;
 	for (size_t i = 0; i < mipLevels; ++i)

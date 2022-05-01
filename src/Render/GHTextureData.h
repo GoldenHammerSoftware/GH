@@ -28,6 +28,8 @@ struct GHTextureData
 	GHTextureType::Enum mTextureType{ GHTextureType::TT_2D };
 	size_t mDepth{ 4 };
 	uint8_t mNumSlices;
+	// num mips is not always miplevels.size() if numSlices > 1.
+	uint8_t mNumMips;
 	std::vector<MipData> mMipLevels;
 
 	// The source data block.

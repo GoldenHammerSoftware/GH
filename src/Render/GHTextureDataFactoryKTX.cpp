@@ -84,6 +84,7 @@ GHTextureData* GHTextureDataFactoryKTX::createFromMemory(void* data, size_t data
 	uint32_t width = header->pixelWidth;
 	uint32_t height = header->pixelHeight;
 
+	ret->mNumMips = header->numberOfMipmapLevels;
 	ret->mMipLevels.resize(header->numberOfMipmapLevels);
 	for (size_t mipLevel = 0; mipLevel < header->numberOfMipmapLevels; ++mipLevel)
 	{

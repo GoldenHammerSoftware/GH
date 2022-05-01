@@ -57,9 +57,11 @@ static Microsoft::WRL::ComPtr<ID3D12Resource> createDXTexture(GHRenderDeviceDX12
 	}
 	destDXBuffer->SetName(L"Texture resource heap");
 
+	const int numSubResources = textureData.mNumMips * textureData.mNumSlices;
+
 	// Initialize the upload buffer.
 	UINT64 uploadBufferSize;
-	device.getDXDevice()->GetCopyableFootprints(&resourceDesc, 0, 1, 0, nullptr, nullptr, nullptr, &uploadBufferSize);
+	device.getDXDevice()->GetCopyableFootprints(&resourceDesc, 0, numSubResources, 0, nullptr, nullptr, nullptr, &uploadBufferSize);
 	D3D12_HEAP_PROPERTIES uploadHeapProps;
 	GHDX12Helpers::createHeapProperties(uploadHeapProps, D3D12_HEAP_TYPE_UPLOAD);
 	D3D12_RESOURCE_DESC uploadBufferDesc;
@@ -73,32 +75,35 @@ static Microsoft::WRL::ComPtr<ID3D12Resource> createDXTexture(GHRenderDeviceDX12
 	}
 	uploadDXBuffer->SetName(L"Upload texture heap");
 
-	// todo: slices and mipmaps
-	//for (int slice = 0; slice < textureData.mNumSlices; ++slice)
-	{
-		//for (int mip = 0; mip < textureData.mMipLevels.size(); ++mip)
-		{
-			// todo: handle compressed stride.
-			int imageBytesPerRow = textureData.mMipLevels[0].mRowPitch;
-			D3D12_SUBRESOURCE_DATA subData = {};
-			subData.pData = textureData.mMipLevels[0].mData;
-			subData.RowPitch = imageBytesPerRow;
-			subData.SlicePitch = textureData.mMipLevels[0].mDataSize;
+	D3D12_SUBRESOURCE_DATA* subData = new D3D12_SUBRESOURCE_DATA[numSubResources];
 
-			// Copy into the destination buffer.
-			Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> commandList = device.beginUploadCommandList();
-			GHDX12Helpers::UpdateSubresources(commandList.Get(), destDXBuffer.Get(), uploadDXBuffer.Get(), 0, 0, 1, &subData);
-			D3D12_RESOURCE_BARRIER barrier;
-			barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
-			barrier.Transition.pResource = destDXBuffer.Get();
-			barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_COPY_DEST;
-			barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
-			barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
-			barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
-			commandList->ResourceBarrier(1, &barrier);
-			device.endUploadCommandList();
+	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> commandList = device.beginUploadCommandList();
+	for (int slice = 0; slice < textureData.mNumSlices; ++slice)
+	{
+		for (int mip = 0; mip < textureData.mNumMips; ++mip)
+		{
+			int arrIdx = slice * textureData.mNumMips + mip;
+
+			int imageBytesPerRow = textureData.mMipLevels[arrIdx].mRowPitch;
+			subData[arrIdx].pData = textureData.mMipLevels[arrIdx].mData;
+			subData[arrIdx].RowPitch = imageBytesPerRow;
+			subData[arrIdx].SlicePitch = textureData.mMipLevels[arrIdx].mDataSize;
 		}
 	}
+
+	// Copy into the destination buffer.
+	GHDX12Helpers::UpdateSubresources(commandList.Get(), destDXBuffer.Get(), uploadDXBuffer.Get(), 0, 0, numSubResources, subData);
+	delete subData;
+
+	D3D12_RESOURCE_BARRIER barrier;
+	barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+	barrier.Transition.pResource = destDXBuffer.Get();
+	barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_COPY_DEST;
+	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	commandList->ResourceBarrier(1, &barrier);
+	device.endUploadCommandList();
 
 	if (mipmap && textureData.mMipLevels.size() < 2)
 	{
