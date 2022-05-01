@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <memory>
 #include "Render/GHDXGIFormat.h"
+#include "Render/GHTextureType.h"
 
 namespace GHDDSUtil
 {
@@ -68,6 +69,7 @@ namespace GHDDSUtil
         uint32_t resDim;
         bool isCubeMap;
         size_t skipMip;
+        // dims of top size used
         size_t twidth;
         size_t theight;
         size_t tdepth;
@@ -83,12 +85,14 @@ namespace GHDDSUtil
         DDS_RESOURCE_DIMENSION_TEXTURE3D = 4
     } 	DDS_RESOURCE_DIMENSION;
 
+    GHTextureType::Enum getGHTextureType(DDS_RESOURCE_DIMENSION dim);
+
     // matches D3D11_SUBRESOURCE_DATA to avoid dx11/12 include issues.
     typedef struct SubresourceData
     {
         const void* pSysMem;
         uint32_t SysMemPitch;
-        uint32_t SysMemSlicePitch;
+        uint32_t SysMemSlicePitch; // for 3d only
     } 	SubresourceData;
 
 #pragma pack(pop)

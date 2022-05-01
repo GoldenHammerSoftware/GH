@@ -71,11 +71,12 @@ static Microsoft::WRL::ComPtr<ID3D12Resource> createDXTexture(GHRenderDeviceDX12
 	{
 		//for (int mip = 0; mip < textureData.mMipLevels.size(); ++mip)
 		{
-			int imageBytesPerRow = textureData.mMipLevels[0].mWidth * textureData.mDepth;
+			// todo: handle compressed stride.
+			int imageBytesPerRow = textureData.mMipLevels[0].mRowPitch;
 			D3D12_SUBRESOURCE_DATA subData = {};
 			subData.pData = textureData.mMipLevels[0].mData;
 			subData.RowPitch = imageBytesPerRow;
-			subData.SlicePitch = imageBytesPerRow * textureData.mMipLevels[0].mHeight;
+			subData.SlicePitch = textureData.mMipLevels[0].mDataSize;
 
 			// Copy into the destination buffer.
 			Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> commandList = device.beginUploadCommandList();

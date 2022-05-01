@@ -618,4 +618,23 @@ namespace GHDDSUtil
         return true;
     }
 
+    GHTextureType::Enum getGHTextureType(DDS_RESOURCE_DIMENSION dim)
+    {
+        switch (dim)
+        {
+        case DDS_RESOURCE_DIMENSION_BUFFER:
+            return GHTextureType::TT_BUFFER;
+            break;
+        case DDS_RESOURCE_DIMENSION_TEXTURE1D:
+            return GHTextureType::TT_1D;
+            break;
+        case DDS_RESOURCE_DIMENSION_TEXTURE2D:
+            return GHTextureType::TT_2D;
+            break;
+        case DDS_RESOURCE_DIMENSION_TEXTURE3D:
+            return GHTextureType::TT_3D;
+            break;
+        };
+        return GHTextureType::TT_UNKNOWN;
+    }
 };

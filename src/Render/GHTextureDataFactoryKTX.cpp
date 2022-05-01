@@ -76,7 +76,6 @@ GHTextureData* GHTextureDataFactoryKTX::createFromMemory(void* data, size_t data
 
 	GHTextureData* ret = new GHTextureData();
 	ret->mDataSource = (int8_t*)data;
-	ret->mSrgb = false; // todo? in key/value pairs maybe?
 	ret->mDepth = header->pixelDepth; 
 
 	// glbyte etc.
@@ -95,6 +94,7 @@ GHTextureData* GHTextureDataFactoryKTX::createFromMemory(void* data, size_t data
 		ret->mMipLevels[mipLevel].mDataSize = mipLevelSize;
 		ret->mMipLevels[mipLevel].mHeight = height;
 		ret->mMipLevels[mipLevel].mWidth = width;
+		ret->mMipLevels[mipLevel].mRowPitch = ret->mMipLevels[mipLevel].mDataSize / ret->mMipLevels[mipLevel].mHeight;
 
 		mipStart = mipDataStart + mipLevelSize;
 

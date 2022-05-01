@@ -1,7 +1,9 @@
 #include "GHTextureDataFactoryDDS.h"
 #include "GHDDSUtil.h"
+#include "GHDXGIUtil.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHTextureData.h"
+#include "GHMath/GHPoint.h"
 
 struct ParsedDDS
 {
@@ -56,10 +58,29 @@ GHTextureData* GHTextureDataFactoryDDS::createFromMemory(void* data, size_t data
 
     // todo:
     return 0;
+
     // Convert from DDS data to a GHTextureData.
     GHTextureData* ret = new GHTextureData;
-    //ret->mChannelType = ddsInfo.desc.
-	return ret;
+    ret->mDataSource = (int8_t*)data;
+    ret->mTextureType = GHDDSUtil::getGHTextureType((GHDDSUtil::DDS_RESOURCE_DIMENSION)ddsInfo.desc.resDim);
+    ret->mTextureFormat = GHDXGIUtil::convertDXGIFormatToGH(ddsInfo.desc.format);
+    ret->mChannelType = GHTextureChannelType::TC_UNKNOWN;
+    ret->mNumSlices = (uint8_t)ddsInfo.desc.arraySize; // todo? cubemap
+
+    ret->mMipLevels.resize(ret->mNumSlices * ddsInfo.desc.mipCount);
+    for (size_t slice = 0; slice < ret->mNumSlices; ++slice)
+    {
+        GHPoint2i size((int)ddsInfo.desc.width, (int)ddsInfo.desc.height);
+        for (size_t mip = 0; mip < ddsInfo.desc.mipCount; ++mip)
+        {
+            const size_t arrIndex = (slice * ddsInfo.desc.mipCount) + mip;
+            ret->mMipLevels[arrIndex].mData = (void*)ddsInfo.initData->pSysMem;
+
+            // todo: width/height/depth/stride
+        }
+    }
+
+    return ret;
 }
 
 /*
@@ -74,7 +95,6 @@ GHTextureData* GHTextureDataFactoryDDS::createFromMemory(void* data, size_t data
     GHTextureFormat::Enum mTextureFormat{ GHTextureFormat::TF_UNKNOWN };
     GHTextureChannelType::Enum mChannelType{ GHTextureChannelType::TC_UNKNOWN };
     GHTextureType::Enum mTextureType{ GHTextureType::TT_2D };
-    bool mSrgb{ false };
     size_t mDepth{ 4 };
     uint8_t mNumSlices;
     std::vector<MipData> mMipLevels;

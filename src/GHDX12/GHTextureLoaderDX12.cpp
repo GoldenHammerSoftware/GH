@@ -145,7 +145,6 @@ GHTextureData* GHTextureLoaderDX12::createTextureData(void* mem, unsigned int wi
 	GHTextureData* ret = new GHTextureData();
 	ret->mTextureFormat = GHDXGIUtil::convertDXGIFormatToGH((GHDXGIFormat)dxFormat);
 	ret->mTextureType = GHTextureType::TT_2D;
-	ret->mSrgb = false; // todo.
 	ret->mChannelType = GHTextureChannelType::TC_FLOAT; // always uncompressed here.
 	ret->mNumSlices = 1;
 	ret->mDataSource = (int8_t*)mem;
@@ -156,6 +155,8 @@ GHTextureData* GHTextureLoaderDX12::createTextureData(void* mem, unsigned int wi
 	ret->mMipLevels[0].mHeight = height;
 	ret->mMipLevels[0].mWidth = width;
 	ret->mMipLevels[0].mDataSize = width * height * depth * sizeof(float);
+	ret->mMipLevels[0].mRowPitch = ret->mMipLevels[0].mDataSize / ret->mMipLevels[0].mHeight / depth;
+
 	return ret;
 }
 

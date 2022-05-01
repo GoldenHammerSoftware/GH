@@ -153,7 +153,6 @@ static GHTextureData* createAstcTextureDataFromMemoryCommon(const GHPoint3i& blo
 
 	GHTextureData* ret = new GHTextureData();
 	ret->mDataSource = (int8_t*)dataSource;
-	ret->mSrgb = false; // todo?
 	ret->mDepth = 4; // not correct but doesn't matter?
 	ret->mChannelType = GHTextureChannelType::TC_UBYTE; // not really correct but doesn't matter?
 	ret->mTextureFormat = textureFormat;
@@ -168,6 +167,7 @@ static GHTextureData* createAstcTextureDataFromMemoryCommon(const GHPoint3i& blo
 		ret->mMipLevels[i].mDataSize = mipSize;
 		ret->mMipLevels[i].mHeight = mipDim[1];
 		ret->mMipLevels[i].mWidth = mipDim[0];
+		ret->mMipLevels[i].mRowPitch = ret->mMipLevels[i].mDataSize / ret->mMipLevels[i].mHeight;
 
 		mipData = ((uint8_t*)mipData) + mipSize;
 		mipDim[0] >>= 1;

@@ -21,12 +21,36 @@ namespace GHDXGIUtil
         {
             return GHDXGIFormat::DF_R8G8B8A8_UNORM;
         }
-        return GHDXGIFormat::DF_R8G8B8A8_UNORM;
+        if (ghFormat == GHTextureFormat::TF_RGBA8)
+        {
+            return GHDXGIFormat::DF_R8G8B8A8_UNORM;
+        }
+        return GHDXGIFormat::DF_UNKNOWN;
     }
 
     GHTextureFormat::Enum convertDXGIFormatToGH(GHDXGIFormat dxFormat)
     {
-        // todo:
+        if (dxFormat == GHDXGIFormat::DF_BC1_UNORM)
+        {
+            return GHTextureFormat::TF_DXT1;
+        }
+        if (dxFormat == GHDXGIFormat::DF_BC3_UNORM)
+        {
+            return GHTextureFormat::TF_DXT5;
+        }
+        if (dxFormat == GHDXGIFormat::DF_R8G8B8A8_UNORM)
+        {
+            // there is no 24 bit d3d texture format.
+            return GHTextureFormat::TF_RGB8;
+        }
+        if (dxFormat == GHDXGIFormat::DF_R8G8B8A8_UNORM)
+        {
+            return GHTextureFormat::TF_RGBA8;
+        }
+        if (dxFormat == GHDXGIFormat::DF_R8G8B8A8_UNORM)
+        {
+            return GHTextureFormat::TF_RGBA8;
+        }
         return GHTextureFormat::TF_UNKNOWN;
     }
 
