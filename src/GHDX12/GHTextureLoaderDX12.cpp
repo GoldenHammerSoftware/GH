@@ -12,6 +12,7 @@
 #include "GHDX12Helpers.h"
 #include "GHMipmapGeneratorDX12.h"
 #include "Render/GHTextureData.h"
+#include "GHPlatform/win32/GHLChar.h"
 
 GHTextureLoaderDX12::GHTextureLoaderDX12(const GHWindowsFileFinder& fileFinder, GHRenderDeviceDX12& device, GHMipmapGeneratorDX12& mipGen)
 	: mWICUtil(fileFinder)
@@ -68,6 +69,10 @@ GHResource* GHTextureLoaderDX12::loadFile(const char* filename, GHPropertyContai
 
 	GHTextureData* textureData = createTextureData(pixels, width, height, 4, dxFormat);
 	GHTextureDX12* ret = new GHTextureDX12(mDevice, textureData, allowMipmaps, &mMipGen);
+
+	wchar_t* wfilename = GHLChar::convertToWide(filename);
+	ret->getDXBuffer()->SetName(wfilename);
+	delete wfilename;
 
 	if (!keepTextureData)
 	{

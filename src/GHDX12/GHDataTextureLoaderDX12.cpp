@@ -4,6 +4,7 @@
 #include "Render/GHTextureData.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHTextureDX12.h"
+#include "GHPlatform/win32/GHLChar.h"
 
 GHDataTextureLoaderDX12::GHDataTextureLoaderDX12(const GHTextureDataLoader& dataLoader, GHRenderDeviceDX12& device)
 	: mDataLoader(dataLoader)
@@ -20,7 +21,11 @@ GHResource* GHDataTextureLoaderDX12::loadFile(const char* filename, GHPropertyCo
 	if (!data) {
 		return 0;
 	}
-	return loadMemory(data, sizeof(GHTextureData), extraData);
+	GHTextureDX12* ret = (GHTextureDX12*)loadMemory(data, sizeof(GHTextureData), extraData);
+	wchar_t* wfilename = GHLChar::convertToWide(filename);
+	ret->getDXBuffer()->SetName(wfilename);
+	delete wfilename;
+	return ret;
 }
 
 GHResource* GHDataTextureLoaderDX12::loadMemory(void* mem, size_t memSize, GHPropertyContainer* extraData)

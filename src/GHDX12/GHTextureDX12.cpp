@@ -16,14 +16,16 @@ static Microsoft::WRL::ComPtr<ID3D12Resource> createDXTexture(GHRenderDeviceDX12
 	}
 	// initialize the destination buffer.
 	D3D12_RESOURCE_DESC resourceDesc;
-	resourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
 	resourceDesc.Alignment = 0;
 	resourceDesc.Width = textureData.mMipLevels[0].mWidth;
 	resourceDesc.Height = textureData.mMipLevels[0].mHeight;
 	resourceDesc.DepthOrArraySize = textureData.mNumSlices;
+
+	resourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
+
 	if (textureData.mMipLevels.size() > 1)
 	{
-		resourceDesc.MipLevels = textureData.mMipLevels.size();
+		resourceDesc.MipLevels = textureData.mNumMips;
 	}
 	else
 	{

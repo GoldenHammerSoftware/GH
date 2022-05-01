@@ -87,4 +87,7 @@ void GHRenderServicesDX12::initAppShard(GHAppShard& appShard)
 
     GHRedirectResourceLoader* ddsRedirect = new GHRedirectResourceLoader(appShard.mResourceFactory, ".dds");
     texLoader->addOverrideLoader(ddsRedirect);
+
+    GHRedirectResourceLoader* cubemapLoader = new GHRedirectResourceLoader(appShard.mResourceFactory, ".dds");
+    appShard.mResourceFactory.addLoader(cubemapLoader, 1, ".ghcm");
 }

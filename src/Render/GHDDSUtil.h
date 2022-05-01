@@ -86,6 +86,7 @@ namespace GHDDSUtil
     } 	DDS_RESOURCE_DIMENSION;
 
     GHTextureType::Enum getGHTextureType(DDS_RESOURCE_DIMENSION dim);
+    DDS_RESOURCE_DIMENSION getDXTextureType(GHTextureType::Enum type);
 
     // matches D3D11_SUBRESOURCE_DATA to avoid dx11/12 include issues.
     typedef struct SubresourceData

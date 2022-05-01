@@ -220,7 +220,7 @@ GHTextureData* GHTextureDataFactoryASTC::createFromMemoryWithMips(void* data, si
 
 	assert(ret);
 	assert(ret->mTextureFormat == textureFormat);
-	assert(ret->mMipLevels.size() == mipCount || (mipCount == 0 && ret->mMipLevels.size() == 1));
+	assert(ret->mNumMips == mipCount || (mipCount == 0 && ret->mNumMips == 1));
 	assert(ret->mMipLevels[0].mWidth == width);
 	assert(ret->mMipLevels[0].mHeight == height);
 	return ret;
