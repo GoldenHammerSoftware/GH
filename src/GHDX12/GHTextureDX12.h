@@ -30,9 +30,13 @@ public:
 	DXGI_FORMAT getDXFormat(void) const { return mDXFormat; }
 
 private:
+	void createSrvDesc(void);
+
+private:
 	GHRenderDeviceDX12& mDevice;
 	Microsoft::WRL::ComPtr<ID3D12Resource> mDXBuffer{ nullptr };
 	GHTextureData* mTexData{ 0 };
 	bool mMipmap{ false };
 	DXGI_FORMAT mDXFormat{ DXGI_FORMAT_UNKNOWN };
+	D3D12_SHADER_RESOURCE_VIEW_DESC mSrvDesc;
 };

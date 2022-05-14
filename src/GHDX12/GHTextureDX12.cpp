@@ -180,6 +180,7 @@ GHTextureDX12::GHTextureDX12(GHRenderDeviceDX12& device, GHTextureData* texData,
 	}
 	mDXFormat = (DXGI_FORMAT)GHDXGIUtil::convertGHFormatToDXGI(texData->mTextureFormat);
 	mDXBuffer = createDXTexture(mDevice, mipGen, *mTexData, mMipmap);
+	createSrvDesc();
 }
 
 GHTextureDX12::GHTextureDX12(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<ID3D12Resource> dxBuffer, DXGI_FORMAT dxFormat, bool mipmap)
@@ -193,6 +194,7 @@ GHTextureDX12::GHTextureDX12(GHRenderDeviceDX12& device, Microsoft::WRL::ComPtr<
 	{
 		GHDebugMessage::outputString("Non null texData not allowed when dxBuffer does not exist");
 	}
+	createSrvDesc();
 }
 
 GHTextureDX12::~GHTextureDX12(void)
@@ -215,12 +217,7 @@ void GHTextureDX12::bind(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> heap, unsi
 	D3D12_CPU_DESCRIPTOR_HANDLE heapOffsetHandle = heap->GetCPUDescriptorHandleForHeapStart();
 	heapOffsetHandle.ptr += ((heapTextureStart+index) * cbvSrvDescriptorSize);
 
-	D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
-	srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
-	srvDesc.Format = mDXFormat;
-	srvDesc.ViewDimension = calcSrvDimension(mTexData);
-	srvDesc.Texture2D.MipLevels = mMipmap ? -1 : 1;
-	mDevice.getDXDevice()->CreateShaderResourceView(mDXBuffer.Get(), &srvDesc, heapOffsetHandle);
+	mDevice.getDXDevice()->CreateShaderResourceView(mDXBuffer.Get(), &mSrvDesc, heapOffsetHandle);
 }
 
 void GHTextureDX12::createSampler(Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> heap, unsigned int index, GHMDesc::WrapMode wrapMode)
@@ -299,4 +296,13 @@ bool GHTextureDX12::getDimensions(unsigned int& width, unsigned int& height, uns
 	height = mTexData->mMipLevels[0].mHeight;
 	depth = mTexData->mDepth;
 	return true;
+}
+
+void GHTextureDX12::createSrvDesc(void)
+{
+	mSrvDesc = {};
+	mSrvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
+	mSrvDesc.Format = mDXFormat;
+	mSrvDesc.ViewDimension = calcSrvDimension(mTexData);
+	mSrvDesc.Texture2D.MipLevels = mMipmap ? -1 : 1;
 }
