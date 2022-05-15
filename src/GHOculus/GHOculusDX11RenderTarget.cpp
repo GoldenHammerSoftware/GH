@@ -5,19 +5,9 @@
 
 GHOculusDX11RenderTarget::GHOculusDX11RenderTarget(	ovrSession session, GHRenderDeviceDX11& ghRenderDevice, 
 													const ovrSizei& leftSize, const ovrSizei& rightSize )
-	: mSession(session)
+	: GHOculusRenderTarget( session, leftSize, rightSize )
 	, mGHRenderDevice(ghRenderDevice)
-	, mWidth(leftSize.w + rightSize.w)
-	, mHeight(max(leftSize.h, rightSize.h))
 {
-
-	mEyeViewports[ovrEye_Left].Pos.x = mEyeViewports[ovrEye_Left].Pos.y = 0;
-	mEyeViewports[ovrEye_Left].Size = leftSize;
-
-	mEyeViewports[ovrEye_Right].Pos.x = leftSize.w;
-	mEyeViewports[ovrEye_Right].Pos.y = 0;
-	mEyeViewports[ovrEye_Right].Size = rightSize;
-
 	ovrTextureSwapChainDesc desc = {};
 
 	desc.Type = ovrTexture_2D;
@@ -135,17 +125,6 @@ GHOculusDX11RenderTarget::GHOculusDX11RenderTarget(	ovrSession session, GHRender
 
 GHOculusDX11RenderTarget::~GHOculusDX11RenderTarget(void)
 {
-	/* views moved to com ptrs
-	for (size_t i = 0; i < mRenderTargetViews.size(); ++i)
-	{
-	mRenderTargetViews[i]->Release();
-	}
-	*/
-
-	if (mSwapChain)
-	{
-		ovr_DestroyTextureSwapChain(mSession, mSwapChain);
-	}
 }
 
 void GHOculusDX11RenderTarget::apply(void)

@@ -225,7 +225,9 @@
     <ClCompile Include="..\..\GHOculus\GHOculusDX11HMDRenderDevice.cpp" />
     <ClCompile Include="..\..\GHOculus\GHOculusDX11HMDServices.cpp" />
     <ClCompile Include="..\..\GHOculus\GHOculusDX11RenderTarget.cpp" />
+    <ClCompile Include="..\..\GHOculus\GHOculusHMDRenderDevice.cpp" />
     <ClCompile Include="..\..\GHOculus\GHOculusHMDTransformApplier.cpp" />
+    <ClCompile Include="..\..\GHOculus\GHOculusRenderTarget.cpp" />
     <ClCompile Include="..\..\GHOculus\GHOculusSystemController.cpp" />
     <ClCompile Include="..\..\GHOculus\GHOculusTouchInputTranslator.cpp" />
     <ClCompile Include="..\..\GHOculus\GHOculusUtil.cpp" />
@@ -238,7 +240,9 @@
     <ClInclude Include="..\..\GHOculus\GHOculusDX11HMDServices.h" />
     <ClInclude Include="..\..\GHOculus\GHOculusDX11RenderTarget.h" />
     <ClInclude Include="..\..\GHOculus\GHOculusGameScale.h" />
+    <ClInclude Include="..\..\GHOculus\GHOculusHMDRenderDevice.h" />
     <ClInclude Include="..\..\GHOculus\GHOculusHMDTransformApplier.h" />
+    <ClInclude Include="..\..\GHOculus\GHOculusRenderTarget.h" />
     <ClInclude Include="..\..\GHOculus\GHOculusSystemController.h" />
     <ClInclude Include="..\..\GHOculus\GHOculusTouchInputTranslator.h" />
     <ClInclude Include="..\..\GHOculus\GHOculusUtil.h" />

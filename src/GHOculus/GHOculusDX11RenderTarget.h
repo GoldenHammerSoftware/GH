@@ -1,14 +1,11 @@
 #pragma once
 
-#include "GHRenderTarget.h"
-#include "OVR_CAPI_D3D.h"
-#include <vector>
+#include "GHOculusRenderTarget.h"
 #include "GHDX11Include.h"
-#include "GHMath/GHPoint.h"
 
 class GHRenderDeviceDX11;
 
-class GHOculusDX11RenderTarget : public GHRenderTarget
+class GHOculusDX11RenderTarget : public GHOculusRenderTarget
 {
 public:
 	GHOculusDX11RenderTarget(ovrSession session, GHRenderDeviceDX11& ghRenderDevice, const ovrSizei& leftSize, const ovrSizei& rightSize);
@@ -21,26 +18,14 @@ public:
 
 	virtual GHTexture* getTexture( void );
 
-	void commitChanges(void);
-
-	ovrTextureSwapChain getSwapChain(void) { return mSwapChain; }
-	unsigned int getWidth(void) const { return mWidth; }
-	unsigned int getHeight(void) const { return mHeight; }
-
-	const ovrRecti& getViewport(int index) { return mEyeViewports[index]; }
+	void commitChanges(void) override;
 
 private:
 	GHRenderDeviceDX11&								mGHRenderDevice;
-	ovrSession										mSession { nullptr };
-	ovrTextureSwapChain								mSwapChain { nullptr };
-	std::vector< Microsoft::WRL::ComPtr<ID3D11RenderTargetView> > mRenderTargetViews;
-	unsigned int									mWidth;
-	unsigned int									mHeight;
 
+	std::vector< Microsoft::WRL::ComPtr<ID3D11RenderTargetView> > mRenderTargetViews;
 	unsigned int									mMSAACount{ 8 };
 	ID3D11Texture2D*								mMSAATex;
-
-	ovrRecti										mEyeViewports[ovrEye_Count];
 
 	Microsoft::WRL::ComPtr<ID3D11Texture2D>			mDepthStencilTex;
 	Microsoft::WRL::ComPtr<ID3D11DepthStencilView>	mDepthStencilView;
