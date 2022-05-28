@@ -1,7 +1,5 @@
 // Copyright Golden Hammer Software
 
-//#define DX12 1
-
 #include "GHWin32AppLauncher.h"
 #include "GHWin32SystemServices.h"
 #include "GHPlatform/GHDebugMessage.h"
@@ -23,7 +21,7 @@
 #include <Ksmedia.h>
 #include "Base/GHBaseIdentifiers.h"
 
-#ifdef DX12
+#ifdef GH_DX12
 #include "GHDX12/GHRenderServicesDX12.h"
 #include "GHDX12/GHRenderDeviceDX12.h"
 #else
@@ -80,7 +78,7 @@ GHWin32AppLauncher::GHWin32AppLauncher(HINSTANCE hInstance, HINSTANCE hPrevInsta
 
 	mWindow->setMessageQueue(mAppMessageQueue);
 
-#ifdef DX12
+#ifdef GH_DX12
 	mRenderServices = new GHRenderServicesDX12(*mSystemServices, *mWindow);
 #else
 	GHWin32SwapChainCreator* swapChainCreator = new GHWin32SwapChainCreator(*mWindow, mAllowDXFullscreen);
@@ -469,7 +467,7 @@ void GHWin32AppLauncher::updateWindowSize(void)
 		GHPoint2i newSize = mWindow->getClientAreaSize();
 		mRenderServices->getScreenInfo().setSize(newSize);
 
-#ifdef DX12
+#ifdef GH_DX12
 		GHRenderDeviceDX12* device = (GHRenderDeviceDX12*)mRenderServices->getDevice();
 #else
 		GHRenderDeviceDX11* device = (GHRenderDeviceDX11*)mRenderServices->getDevice();
