@@ -2,6 +2,7 @@
 #ifdef GH_DX12
 
 #include "GHOculusRenderTarget.h"
+#include "GHDX12/GHDX12Include.h"
 
 class GHRenderDeviceDX12;
 
@@ -22,6 +23,8 @@ public:
 
 private:
 	GHRenderDeviceDX12& mGHRenderDevice;
+	std::vector<D3D12_CPU_DESCRIPTOR_HANDLE> mTexRtv;
+	std::vector<ID3D12Resource*> mTexResource;
 };
 
 #endif
