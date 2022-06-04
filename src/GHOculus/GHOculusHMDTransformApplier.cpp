@@ -1,9 +1,9 @@
 #include "GHOculusHMDTransformApplier.h"
 #include "GHMath/GHTransform.h"
-#include "GHOculusDX11HMDRenderDevice.h"
+#include "GHOculusHMDRenderDevice.h"
 #include "GHMath/GHQuaternion.h"
 
-GHOculusHMDTransformApplier::GHOculusHMDTransformApplier(GHOculusDX11HMDRenderDevice& hmdDevice, const GHTransform& hmdOrigin, GHTransform& outTrans)
+GHOculusHMDTransformApplier::GHOculusHMDTransformApplier(GHOculusHMDRenderDevice& hmdDevice, const GHTransform& hmdOrigin, GHTransform& outTrans)
 	: mHMDOrigin(hmdOrigin)
 	, mOutTrans(outTrans)
 	, mHMDDevice(hmdDevice)

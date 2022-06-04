@@ -1,4 +1,5 @@
 #pragma once
+#ifndef GH_DX12
 
 #include "GHHMDServices.h"
 #include "GHOculusSystemController.h"
@@ -18,8 +19,8 @@ public:
 		GHControllerMgr& controllerMgr);
 	~GHOculusDX11HMDServices(void);
 
-	virtual void initAppShard(GHAppShard& appShard, const GHTransform& hmdOrigin, const GHTimeVal& realTimeVal);
-	virtual GHController* createHMDTransformApplier(GHTransform& outTrans);
+	virtual void initAppShard(GHAppShard& appShard, const GHTransform& hmdOrigin, const GHTimeVal& realTimeVal) override;
+	virtual GHController* createHMDTransformApplier(GHTransform& outTrans) override;
 
 private:
 	GHRenderServicesDX11& mRenderServices;
@@ -33,3 +34,4 @@ private:
 	const GHTransform* mHMDOrigin{ 0 }; // the game-specific origin point for offsetting the oculus position.
 };
 
+#endif

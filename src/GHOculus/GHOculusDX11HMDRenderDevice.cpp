@@ -1,3 +1,5 @@
+#ifndef GH_DX12
+
 #include "GHOculusDX11HMDRenderDevice.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHOculusDX11RenderTarget.h"
@@ -82,3 +84,5 @@ void GHOculusDX11HMDRenderDevice::initRenderTarget(void)
 	ovrSizei rightSize = ovr_GetFovTextureSize(mOculusSystem.getSession(), ovrEye_Right, mOculusSystem.getHMDDesc().DefaultEyeFov[ovrEye_Right], backbufferMult);
 	mRenderTarget = new GHOculusDX11RenderTarget(mOculusSystem.getSession(), *(((GHRenderServicesDX11&)mRenderServices).getDeviceDX11()), leftSize, rightSize);
 }
+
+#endif

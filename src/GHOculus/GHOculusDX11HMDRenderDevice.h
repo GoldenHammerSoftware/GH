@@ -1,4 +1,5 @@
 #pragma once
+#ifndef GH_DX12
 
 #include "GHOculusHMDRenderDevice.h"
 
@@ -14,3 +15,5 @@ protected:
 	virtual void createMirrorTexture(void) override;
 	virtual void initRenderTarget(void) override;
 };
+
+#endif

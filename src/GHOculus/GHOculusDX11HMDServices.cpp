@@ -1,3 +1,5 @@
+#ifndef GH_DX12
+
 #include "GHOculusDX11HMDServices.h"
 #include "GHRenderServicesDX11.h"
 #include "GHRenderDevice.h"
@@ -78,3 +80,5 @@ GHController* GHOculusDX11HMDServices::createHMDTransformApplier(GHTransform& ou
 	GHOculusHMDTransformApplier* ret = new GHOculusHMDTransformApplier(*mHMDRenderDevice, *mHMDOrigin, outTrans);
 	return ret;
 }
+
+#endif

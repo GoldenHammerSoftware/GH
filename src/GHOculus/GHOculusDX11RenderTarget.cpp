@@ -1,3 +1,5 @@
+#ifndef GH_DX12
+
 #include "GHOculusDX11RenderTarget.h"
 #include "GHRenderDeviceDX11.h"
 #include "GHPlatform/GHDebugMessage.h"
@@ -174,3 +176,5 @@ GHTexture* GHOculusDX11RenderTarget::getTexture(void)
 {
 	return nullptr;
 }
+
+#endif

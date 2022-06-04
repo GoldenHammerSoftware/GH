@@ -21,6 +21,15 @@
     <ClCompile Include="..\..\GHOculus\GHOculusDX11RenderTarget.cpp">
       <Filter>DX11</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\GHOculus\GHOculusDX12HMDRenderDevice.cpp">
+      <Filter>DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHOculus\GHOculusDX12HMDServices.cpp">
+      <Filter>DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHOculus\GHOculusDX12RenderTarget.cpp">
+      <Filter>DX12</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\GHOculus\GHOculusHMDTransformApplier.h" />
@@ -42,6 +51,15 @@
     <ClInclude Include="..\..\GHOculus\GHOculusDX11RenderTarget.h">
       <Filter>DX11</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\GHOculus\GHOculusDX12HMDRenderDevice.h">
+      <Filter>DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHOculus\GHOculusDX12HMDServices.h">
+      <Filter>DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GHOculus\GHOculusDX12RenderTarget.h">
+      <Filter>DX12</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\..\..\contrib\OculusSDK\OVRPlatformSDK_v1.14.0\LICENSE.txt" />
@@ -49,6 +67,9 @@
   <ItemGroup>
     <Filter Include="DX11">
       <UniqueIdentifier>{00d64979-2a39-4ecc-bf87-d05ac17a477a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX12">
+      <UniqueIdentifier>{d0c74efe-6a6c-4b42-b874-702d70c97529}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

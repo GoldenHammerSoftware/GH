@@ -1,4 +1,5 @@
 #pragma once
+#ifndef GH_DX12
 
 #include "GHOculusRenderTarget.h"
 #include "GHDX11Include.h"
@@ -12,13 +13,13 @@ public:
 	~GHOculusDX11RenderTarget(void);
 
 	// make the target the place we render to.
-	virtual void apply( void );
+	virtual void apply( void ) override;
 	// switch rendering back to how it was before apply.
-	virtual void remove( void );
+	virtual void remove( void ) override;
 
-	virtual GHTexture* getTexture( void );
+	virtual GHTexture* getTexture( void ) override;
 
-	void commitChanges(void) override;
+	virtual void commitChanges(void) override;
 
 private:
 	GHRenderDeviceDX11&								mGHRenderDevice;
@@ -34,3 +35,5 @@ private:
 	Microsoft::WRL::ComPtr<ID3D11DepthStencilView> mReplacedDepthStencilView;
 	GHPoint2 mReplacedViewportSize;
 };
+
+#endif
