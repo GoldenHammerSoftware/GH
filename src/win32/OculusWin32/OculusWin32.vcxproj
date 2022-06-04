@@ -287,6 +287,7 @@
     <ClCompile Include="..\..\GHOculus\GHOculusDX12HMDServices.cpp" />
     <ClCompile Include="..\..\GHOculus\GHOculusDX12RenderTarget.cpp" />
     <ClCompile Include="..\..\GHOculus\GHOculusHMDRenderDevice.cpp" />
+    <ClCompile Include="..\..\GHOculus\GHOculusHMDServices.cpp" />
     <ClCompile Include="..\..\GHOculus\GHOculusHMDTransformApplier.cpp" />
     <ClCompile Include="..\..\GHOculus\GHOculusRenderTarget.cpp" />
     <ClCompile Include="..\..\GHOculus\GHOculusSystemController.cpp" />
@@ -305,6 +306,7 @@
     <ClInclude Include="..\..\GHOculus\GHOculusDX12RenderTarget.h" />
     <ClInclude Include="..\..\GHOculus\GHOculusGameScale.h" />
     <ClInclude Include="..\..\GHOculus\GHOculusHMDRenderDevice.h" />
+    <ClInclude Include="..\..\GHOculus\GHOculusHMDServices.h" />
     <ClInclude Include="..\..\GHOculus\GHOculusHMDTransformApplier.h" />
     <ClInclude Include="..\..\GHOculus\GHOculusRenderTarget.h" />
     <ClInclude Include="..\..\GHOculus\GHOculusSystemController.h" />

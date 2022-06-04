@@ -30,6 +30,7 @@
     <ClCompile Include="..\..\GHOculus\GHOculusDX12RenderTarget.cpp">
       <Filter>DX12</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\GHOculus\GHOculusHMDServices.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\GHOculus\GHOculusHMDTransformApplier.h" />
@@ -60,6 +61,7 @@
     <ClInclude Include="..\..\GHOculus\GHOculusDX12RenderTarget.h">
       <Filter>DX12</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\GHOculus\GHOculusHMDServices.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\..\..\contrib\OculusSDK\OVRPlatformSDK_v1.14.0\LICENSE.txt" />
