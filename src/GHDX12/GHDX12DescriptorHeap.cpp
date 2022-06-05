@@ -15,13 +15,13 @@ GHDX12DescriptorHeap::GHDX12DescriptorHeap(Microsoft::WRL::ComPtr<ID3D12Device2>
 D3D12_CPU_DESCRIPTOR_HANDLE GHDX12DescriptorHeap::getCPUDescriptorHandle(size_t index)
 {
 	D3D12_CPU_DESCRIPTOR_HANDLE heapCPUOffsetHandle = mDXDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
-	heapCPUOffsetHandle.ptr += mIncrement * index;
+	heapCPUOffsetHandle.ptr += (mIncrement * index);
 	return heapCPUOffsetHandle;
 }
 
 D3D12_GPU_DESCRIPTOR_HANDLE GHDX12DescriptorHeap::getGPUDescriptorHandle(size_t index)
 {
 	D3D12_GPU_DESCRIPTOR_HANDLE heapGPUOffsetHandle = mDXDescriptorHeap->GetGPUDescriptorHandleForHeapStart();
-	heapGPUOffsetHandle.ptr += mIncrement * index;
+	heapGPUOffsetHandle.ptr += (mIncrement * index);
 	return heapGPUOffsetHandle;
 }

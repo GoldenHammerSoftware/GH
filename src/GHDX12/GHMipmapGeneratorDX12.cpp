@@ -56,8 +56,6 @@ void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resourc
 	int numDrawPasses = max(1, ceil((float)numMips / 4.0f));
 	int numDescriptors = 2 * numDrawPasses + 4 * numDrawPasses;
 	GHDX12DescriptorHeap descriptorHeap(mDevice.getDXDevice(), D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV, D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE, numDescriptors);
-	D3D12_GPU_DESCRIPTOR_HANDLE heapGPUOffsetHandle;
-	D3D12_CPU_DESCRIPTOR_HANDLE heapCPUOffsetHandle;
 
 	D3D12_SHADER_RESOURCE_VIEW_DESC srcTextureSRVDesc = {};
 	srcTextureSRVDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
@@ -107,26 +105,22 @@ void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resourc
 		}
 		mCBuffer.updateFrameData();
 		mCBuffer.createSRV(descriptorHeap.getDXDescriptorHeap(), heapIndex);
-		heapGPUOffsetHandle = descriptorHeap.getGPUDescriptorHandle(heapIndex);
-		cl->SetComputeRootDescriptorTable(0, heapGPUOffsetHandle);
+		cl->SetComputeRootDescriptorTable(0, descriptorHeap.getGPUDescriptorHandle(heapIndex));
 		heapIndex++;
 
 		srcTextureSRVDesc.Texture2D.MipLevels = 1;
 		srcTextureSRVDesc.Texture2D.MostDetailedMip = cbufferArgs->mSrcMipLevel;
-		heapCPUOffsetHandle = descriptorHeap.getCPUDescriptorHandle(heapIndex);
-		mDevice.getDXDevice()->CreateShaderResourceView(dxBuffer.Get(), &srcTextureSRVDesc, heapCPUOffsetHandle);
-		heapGPUOffsetHandle = descriptorHeap.getGPUDescriptorHandle(heapIndex);
-		cl->SetComputeRootDescriptorTable(1, heapGPUOffsetHandle);
+		mDevice.getDXDevice()->CreateShaderResourceView(dxBuffer.Get(), &srcTextureSRVDesc, descriptorHeap.getCPUDescriptorHandle(heapIndex));
+		cl->SetComputeRootDescriptorTable(1, descriptorHeap.getGPUDescriptorHandle(heapIndex));
 		heapIndex++;
 
-		D3D12_GPU_DESCRIPTOR_HANDLE uavGPUStart = heapGPUOffsetHandle;
+		D3D12_GPU_DESCRIPTOR_HANDLE uavGPUStart = descriptorHeap.getGPUDescriptorHandle(heapIndex);
 		for (int i = 1; i < 5; ++i)
 		{
 			if (cbufferArgs->mSrcMipLevel + i < numMips)
 			{
 				destTextureUAVDesc.Texture2D.MipSlice = cbufferArgs->mSrcMipLevel + i;
-				heapCPUOffsetHandle = descriptorHeap.getCPUDescriptorHandle(heapIndex);
-				mDevice.getDXDevice()->CreateUnorderedAccessView(dxBuffer.Get(), nullptr, &destTextureUAVDesc, heapCPUOffsetHandle);
+				mDevice.getDXDevice()->CreateUnorderedAccessView(dxBuffer.Get(), nullptr, &destTextureUAVDesc, descriptorHeap.getCPUDescriptorHandle(heapIndex));
 				heapIndex++;
 			}
 		}
