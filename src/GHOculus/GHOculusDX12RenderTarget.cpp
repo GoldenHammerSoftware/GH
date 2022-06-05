@@ -4,6 +4,7 @@
 #include "GHDX12/GHRenderDeviceDX12.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHOculusUtil.h"
+#include "GHDX12/GHDX12DescriptorHeap.h"
 
 GHOculusDX12RenderTarget::GHOculusDX12RenderTarget(ovrSession session, GHRenderDeviceDX12& ghRenderDevice, const ovrSizei& leftSize, const ovrSizei& rightSize)
 	: GHOculusRenderTarget(session, leftSize, rightSize)
@@ -33,6 +34,9 @@ GHOculusDX12RenderTarget::GHOculusDX12RenderTarget(ovrSession session, GHRenderD
 		ovr_GetTextureSwapChainLength(session, mSwapChain, &textureCount);
 		mTexRtv.resize(textureCount);
 		mTexResource.resize(textureCount);
+		assert(mDescriptorHeap == 0);
+		mDescriptorHeap = new GHDX12DescriptorHeap(mGHRenderDevice.getDXDevice(), D3D12_DESCRIPTOR_HEAP_TYPE_RTV, D3D12_DESCRIPTOR_HEAP_FLAG_NONE, textureCount);
+
 		for (int i = 0; i < textureCount; ++i)
 		{
 			result = ovr_GetTextureSwapChainBufferDX(session, mSwapChain, i, IID_PPV_ARGS(&mTexResource[i]));
@@ -42,13 +46,11 @@ GHOculusDX12RenderTarget::GHOculusDX12RenderTarget(ovrSession session, GHRenderD
 				continue;
 			}
 
-			/* TODO: make a descriptor heap
 			D3D12_RENDER_TARGET_VIEW_DESC rtvd = {};
 			rtvd.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 			rtvd.ViewDimension = D3D12_RTV_DIMENSION_TEXTURE2D;
-			mTexRtv[i] = DIRECTX.RtvHandleProvider.AllocCpuHandle(); // Gives new D3D12_CPU_DESCRIPTOR_HANDLE
+			mTexRtv[i] = mDescriptorHeap->getCPUDescriptorHandle(i);
 			ghRenderDevice.getDXDevice().Get()->CreateRenderTargetView(mTexResource[i], &rtvd, mTexRtv[i]);
-			*/
 		}
 	}
 
@@ -56,6 +58,7 @@ GHOculusDX12RenderTarget::GHOculusDX12RenderTarget(ovrSession session, GHRenderD
 
 GHOculusDX12RenderTarget::~GHOculusDX12RenderTarget(void)
 {
+	delete mDescriptorHeap;
 }
 
 void GHOculusDX12RenderTarget::apply(void)

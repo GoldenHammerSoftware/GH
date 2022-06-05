@@ -2,6 +2,7 @@
 #include "GHUtils/GHResourceFactory.h"
 #include "GHPlatform/GHDebugMessage.h"
 #include "GHRenderDeviceDX12.h"
+#include "GHDX12DescriptorHeap.h"
 
 GHMipmapGeneratorDX12::GHMipmapGeneratorDX12(GHResourceFactory& resourceFactory, GHRenderDeviceDX12& device, GHDX12MaterialHeapPool& cbufferPool)
 	: mDevice(device)
@@ -52,17 +53,11 @@ void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resourc
 	}
 	if (numMips == 1) return;
 
-	// create the srv/uav descriptor heap.
-	D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
 	int numDrawPasses = max(1, ceil((float)numMips / 4.0f));
-	heapDesc.NumDescriptors = 2 * numDrawPasses + 4 * numDrawPasses;
-	heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
-	heapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
-	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> descriptorHeap;
-	mDevice.getDXDevice()->CreateDescriptorHeap(&heapDesc, IID_PPV_ARGS(descriptorHeap.GetAddressOf()));
-	UINT descriptorSize = mDevice.getDXDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
-	D3D12_GPU_DESCRIPTOR_HANDLE heapGPUOffsetHandle = descriptorHeap->GetGPUDescriptorHandleForHeapStart();
-	D3D12_CPU_DESCRIPTOR_HANDLE heapCPUOffsetHandle = descriptorHeap->GetCPUDescriptorHandleForHeapStart();
+	int numDescriptors = 2 * numDrawPasses + 4 * numDrawPasses;
+	GHDX12DescriptorHeap descriptorHeap(mDevice.getDXDevice(), D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV, D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE, numDescriptors);
+	D3D12_GPU_DESCRIPTOR_HANDLE heapGPUOffsetHandle;
+	D3D12_CPU_DESCRIPTOR_HANDLE heapCPUOffsetHandle;
 
 	D3D12_SHADER_RESOURCE_VIEW_DESC srcTextureSRVDesc = {};
 	srcTextureSRVDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
@@ -76,7 +71,7 @@ void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resourc
 	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> cl = mDevice.beginComputeCommandList();
 	cl->SetComputeRootSignature(mRootSignature.Get());
 	cl->SetPipelineState(mPipelineState.Get());
-	cl->SetDescriptorHeaps(1, descriptorHeap.GetAddressOf());
+	cl->SetDescriptorHeaps(1, descriptorHeap.getDXDescriptorHeap().GetAddressOf());
 
 	D3D12_RESOURCE_BARRIER toUAVBarrier;
 	toUAVBarrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
@@ -111,18 +106,17 @@ void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resourc
 			cbufferArgs->mNumMipLevels++;
 		}
 		mCBuffer.updateFrameData();
-		mCBuffer.createSRV(descriptorHeap, heapIndex);
+		mCBuffer.createSRV(descriptorHeap.getDXDescriptorHeap(), heapIndex);
+		heapGPUOffsetHandle = descriptorHeap.getGPUDescriptorHandle(heapIndex);
 		cl->SetComputeRootDescriptorTable(0, heapGPUOffsetHandle);
-		heapGPUOffsetHandle.ptr += descriptorSize;
-		heapCPUOffsetHandle.ptr += descriptorSize;
 		heapIndex++;
 
 		srcTextureSRVDesc.Texture2D.MipLevels = 1;
 		srcTextureSRVDesc.Texture2D.MostDetailedMip = cbufferArgs->mSrcMipLevel;
+		heapCPUOffsetHandle = descriptorHeap.getCPUDescriptorHandle(heapIndex);
 		mDevice.getDXDevice()->CreateShaderResourceView(dxBuffer.Get(), &srcTextureSRVDesc, heapCPUOffsetHandle);
+		heapGPUOffsetHandle = descriptorHeap.getGPUDescriptorHandle(heapIndex);
 		cl->SetComputeRootDescriptorTable(1, heapGPUOffsetHandle);
-		heapGPUOffsetHandle.ptr += descriptorSize;
-		heapCPUOffsetHandle.ptr += descriptorSize;
 		heapIndex++;
 
 		D3D12_GPU_DESCRIPTOR_HANDLE uavGPUStart = heapGPUOffsetHandle;
@@ -131,9 +125,8 @@ void GHMipmapGeneratorDX12::generateMipmaps(Microsoft::WRL::ComPtr<ID3D12Resourc
 			if (cbufferArgs->mSrcMipLevel + i < numMips)
 			{
 				destTextureUAVDesc.Texture2D.MipSlice = cbufferArgs->mSrcMipLevel + i;
+				heapCPUOffsetHandle = descriptorHeap.getCPUDescriptorHandle(heapIndex);
 				mDevice.getDXDevice()->CreateUnorderedAccessView(dxBuffer.Get(), nullptr, &destTextureUAVDesc, heapCPUOffsetHandle);
-				heapGPUOffsetHandle.ptr += descriptorSize;
-				heapCPUOffsetHandle.ptr += descriptorSize;
 				heapIndex++;
 			}
 		}

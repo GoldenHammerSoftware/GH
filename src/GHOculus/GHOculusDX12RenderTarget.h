@@ -5,6 +5,7 @@
 #include "GHDX12/GHDX12Include.h"
 
 class GHRenderDeviceDX12;
+class GHDX12DescriptorHeap;
 
 class GHOculusDX12RenderTarget : public GHOculusRenderTarget
 {
@@ -23,6 +24,7 @@ public:
 
 private:
 	GHRenderDeviceDX12& mGHRenderDevice;
+	GHDX12DescriptorHeap* mDescriptorHeap{ 0 };
 	std::vector<D3D12_CPU_DESCRIPTOR_HANDLE> mTexRtv;
 	std::vector<ID3D12Resource*> mTexResource;
 };
