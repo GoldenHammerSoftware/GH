@@ -27,6 +27,8 @@ private:
 	GHDX12DescriptorHeap* mDescriptorHeap{ 0 };
 	std::vector<D3D12_CPU_DESCRIPTOR_HANDLE> mTexRtv;
 	std::vector<ID3D12Resource*> mTexResource;
+	std::vector<D3D12_CPU_DESCRIPTOR_HANDLE> mDepthRtv;
+	std::vector<ID3D12Resource*> mDepthResource;
 };
 
 #endif

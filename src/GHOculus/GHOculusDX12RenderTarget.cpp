@@ -11,7 +11,6 @@ GHOculusDX12RenderTarget::GHOculusDX12RenderTarget(ovrSession session, GHRenderD
 	, mGHRenderDevice(ghRenderDevice) 
 {
 	ovrTextureSwapChainDesc desc = {};
-
 	desc.Type = ovrTexture_2D;
 	desc.ArraySize = 1;
 	desc.Format = OVR_FORMAT_R8G8B8A8_UNORM_SRGB;
@@ -35,7 +34,8 @@ GHOculusDX12RenderTarget::GHOculusDX12RenderTarget(ovrSession session, GHRenderD
 		mTexRtv.resize(textureCount);
 		mTexResource.resize(textureCount);
 		assert(mDescriptorHeap == 0);
-		mDescriptorHeap = new GHDX12DescriptorHeap(mGHRenderDevice.getDXDevice(), D3D12_DESCRIPTOR_HEAP_TYPE_RTV, D3D12_DESCRIPTOR_HEAP_FLAG_NONE, textureCount);
+		// textureCount * 2 for depth buffer
+		mDescriptorHeap = new GHDX12DescriptorHeap(mGHRenderDevice.getDXDevice(), D3D12_DESCRIPTOR_HEAP_TYPE_RTV, D3D12_DESCRIPTOR_HEAP_FLAG_NONE, textureCount * 2);
 
 		for (int i = 0; i < textureCount; ++i)
 		{
@@ -52,6 +52,8 @@ GHOculusDX12RenderTarget::GHOculusDX12RenderTarget(ovrSession session, GHRenderD
 			mTexRtv[i] = mDescriptorHeap->getCPUDescriptorHandle(i);
 			ghRenderDevice.getDXDevice().Get()->CreateRenderTargetView(mTexResource[i], &rtvd, mTexRtv[i]);
 		}
+
+
 	}
 
 }
