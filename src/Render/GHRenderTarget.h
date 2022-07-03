@@ -24,6 +24,7 @@ public:
             , mMsaa(msaa)
             , mLabel(label, GHString::CHT_COPY)
         {}
+        Config() {}
 
     public:
         unsigned int mWidth{ 256 };

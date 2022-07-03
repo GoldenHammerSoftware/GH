@@ -92,6 +92,9 @@
     <ClInclude Include="..\..\GHDX12\GHDX12DescriptorHeap.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\GHDX12\GHDX12RenderTargetUtil.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GHDX12\GHRenderDeviceDX12.cpp">
@@ -164,6 +167,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GHDX12\GHDX12DescriptorHeap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GHDX12\GHDX12RenderTargetUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

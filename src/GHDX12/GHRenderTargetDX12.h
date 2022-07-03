@@ -2,10 +2,12 @@
 
 #include "Render/GHRenderTarget.h"
 #include "GHDX12Include.h"
+#include "GHDX12RenderTargetUtil.h"
 
 class GHRenderDeviceDX12;
 class GHTextureDX12;
 class GHMipmapGeneratorDX12;
+class GHDX12DescriptorHeap;
 
 class GHRenderTargetDX12 : public GHRenderTarget
 {
@@ -30,22 +32,9 @@ private:
 	GHRenderDeviceDX12& mDevice;
 	GHMipmapGeneratorDX12& mMipGen;
 
-	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mColorDescriptorHeap;
-	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> mDepthDescriptorHeap;
+	GHDX12DescriptorHeap* mColorDescriptorHeap{ 0 };
+	GHDX12DescriptorHeap* mDepthDescriptorHeap{ 0 };
 	D3D12_VIEWPORT mViewport;
 
-	struct FrameInfo
-	{
-		Microsoft::WRL::ComPtr<ID3D12Resource> mColorBuffer;
-		D3D12_CPU_DESCRIPTOR_HANDLE mColorBufferRTV;
-
-		Microsoft::WRL::ComPtr<ID3D12Resource> mDepthBuffer;
-		D3D12_CPU_DESCRIPTOR_HANDLE mDepthBufferRTV;
-
-		// optional msaa resolve.
-		Microsoft::WRL::ComPtr<ID3D12Resource> mResolveBuffer;
-
-		GHTextureDX12* mTexture{ 0 };
-	};
-	FrameInfo mFrames[NUM_SWAP_BUFFERS];
+	GHDX12RenderTargetUtil::FrameInfo mFrames[NUM_SWAP_BUFFERS];
 };

@@ -3,6 +3,7 @@
 
 #include "GHOculusRenderTarget.h"
 #include "GHDX12/GHDX12Include.h"
+#include "GHDX12/GHDX12RenderTargetUtil.h"
 
 class GHRenderDeviceDX12;
 class GHDX12DescriptorHeap;
@@ -24,11 +25,10 @@ public:
 
 private:
 	GHRenderDeviceDX12& mGHRenderDevice;
-	GHDX12DescriptorHeap* mDescriptorHeap{ 0 };
-	std::vector<D3D12_CPU_DESCRIPTOR_HANDLE> mTexRtv;
-	std::vector<ID3D12Resource*> mTexResource;
-	std::vector<D3D12_CPU_DESCRIPTOR_HANDLE> mDepthRtv;
-	std::vector<ID3D12Resource*> mDepthResource;
+	GHRenderTarget::Config mConfig;
+	GHDX12DescriptorHeap* mColorDescriptorHeap{ 0 };
+	GHDX12DescriptorHeap* mDepthDescriptorHeap{ 0 };
+	GHDX12RenderTargetUtil::FrameInfo* mFrames{ 0 };
 };
 
 #endif
