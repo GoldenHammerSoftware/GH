@@ -24,4 +24,7 @@ namespace GHDX12RenderTargetUtil
 
 	void createDepthBuffers(GHRenderDeviceDX12& device, const GHRenderTarget::Config& config, const UINT numFrames, Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> descriptorHeap, FrameInfo* outFrames);
 	void createColorBuffers(GHRenderDeviceDX12& device, const GHRenderTarget::Config& config, const UINT numFrames, Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> descriptorHeap, FrameInfo* outFrames);
+
+	void applyRTGroup(GHRenderDeviceDX12& device, const GHRenderTarget::Config& config, const FrameInfo& frameInfo, const DXGI_FORMAT colorFormat, const DXGI_FORMAT depthFormat, const D3D12_VIEWPORT& viewport);
+	void removeRTGroup(GHRenderDeviceDX12& device, const FrameInfo& frameInfo);
 };

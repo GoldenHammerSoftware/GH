@@ -64,7 +64,6 @@ GHOculusDX12RenderTarget::GHOculusDX12RenderTarget(ovrSession session, GHRenderD
 	mDepthDescriptorHeap->getDXDescriptorHeap()->SetName(L"Oculus Depth Resource Heap");
 
 	GHDX12RenderTargetUtil::createDepthBuffers(mGHRenderDevice, mConfig, textureCount, mDepthDescriptorHeap->getDXDescriptorHeap(), mFrames);
-
 }
 
 GHOculusDX12RenderTarget::~GHOculusDX12RenderTarget(void)
@@ -83,6 +82,7 @@ void GHOculusDX12RenderTarget::apply(void)
 
 void GHOculusDX12RenderTarget::remove(void)
 {
+	mGHRenderDevice.setIsStereo(false);
 }
 
 GHTexture* GHOculusDX12RenderTarget::getTexture(void)

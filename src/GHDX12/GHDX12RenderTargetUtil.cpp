@@ -157,3 +157,61 @@ void GHDX12RenderTargetUtil::createColorBuffers(GHRenderDeviceDX12& device, cons
 		device.getDXDevice()->CreateRenderTargetView(outFrames[frame].mColorBuffer.Get(), &rtvDesc, outFrames[frame].mColorBufferRTV);
 	}
 }
+
+void GHDX12RenderTargetUtil::applyRTGroup(GHRenderDeviceDX12& device, const GHRenderTarget::Config& config, const FrameInfo& frameInfo, const DXGI_FORMAT colorFormat, const DXGI_FORMAT depthFormat, const D3D12_VIEWPORT& viewport)
+{
+	D3D12_RESOURCE_BARRIER barrier;
+	barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+	barrier.Transition.pResource = frameInfo.mColorBuffer.Get();
+	barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
+	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	device.getRenderCommandList()->ResourceBarrier(1, &barrier);
+
+	D3D12_RESOURCE_BARRIER depthBarrier;
+	depthBarrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+	depthBarrier.Transition.pResource = frameInfo.mDepthBuffer.Get();
+	depthBarrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+	depthBarrier.Transition.StateAfter = D3D12_RESOURCE_STATE_DEPTH_WRITE;
+	depthBarrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+	depthBarrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	device.getRenderCommandList()->ResourceBarrier(1, &depthBarrier);
+
+	GHDX12RTGroup rtGroup;
+	rtGroup.mRt0 = frameInfo.mColorBufferRTV;
+	rtGroup.mRt0Format = colorFormat;
+	rtGroup.mDepth = frameInfo.mDepthBufferRTV;
+	rtGroup.mDepthFormat = depthFormat;
+	if (config.mMsaa)
+	{
+		rtGroup.mSampleCount = MSAA_SAMPLE_COUNT;
+		rtGroup.mSampleQuality = MSAA_SAMPLE_QUALITY;
+	}
+
+	device.applyRenderTarget(rtGroup);
+	device.getRenderCommandList()->RSSetViewports(1, &viewport);
+}
+
+void GHDX12RenderTargetUtil::removeRTGroup(GHRenderDeviceDX12& device, const FrameInfo& frameInfo)
+{
+	D3D12_RESOURCE_BARRIER barrier;
+	barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+	barrier.Transition.pResource = frameInfo.mColorBuffer.Get();
+	barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
+	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	device.getRenderCommandList()->ResourceBarrier(1, &barrier);
+
+	D3D12_RESOURCE_BARRIER depthBarrier;
+	depthBarrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+	depthBarrier.Transition.pResource = frameInfo.mDepthBuffer.Get();
+	depthBarrier.Transition.StateBefore = D3D12_RESOURCE_STATE_DEPTH_WRITE;
+	depthBarrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+	depthBarrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+	depthBarrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	device.getRenderCommandList()->ResourceBarrier(1, &depthBarrier);
+
+	device.applyDefaultTarget();
+}
